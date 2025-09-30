@@ -15,7 +15,10 @@ public class Deflect: AttributesSync
     {
 
         if (!_avatar.IsMe)
+        {
             return;
+        }
+            
 
         ManagerAudio = GetComponent<AudioSource>();
     }

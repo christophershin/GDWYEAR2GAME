@@ -13,16 +13,22 @@ public class MouseLook : AttributesSync
 
     void Start()
     {
-        if(!_avatar.IsMe)
+        if (!_avatar.IsMe)
+        {
             return;
+        }
+            
         
-        Cursor.lockState = CursorLockMode.Locked; // Lock and hide the cursor
+         Cursor.lockState = CursorLockMode.Locked; // Lock and hide the cursor
     }
 
     void Update()
     {
         if (!_avatar.IsMe)
+        {
             return;
+        }
+            
 
         BroadcastRemoteMethod("CameraLook");
 
