@@ -16,6 +16,7 @@ public class Parrying : MonoBehaviour
 
         if (!_avatar.IsMe)
             return;
+
         parryhitbox.SetActive(false);
     }
 
