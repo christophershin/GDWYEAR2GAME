@@ -8,8 +8,8 @@ public class MouseLook : AttributesSync
     public float mouseSensitivity = 100f;
     public Transform playerBody; // Assign your player's transform in the Inspector
 
-    [SynchronizableField] private float xRotation = 0f;
-    [SerializeField]private Alteruna.Avatar _avatar;
+    private float xRotation = 0f;
+    [SerializeField] private Alteruna.Avatar _avatar;
 
     void Start()
     {
@@ -17,9 +17,9 @@ public class MouseLook : AttributesSync
         {
             return;
         }
-            
-        
-         Cursor.lockState = CursorLockMode.Locked; // Lock and hide the cursor
+
+
+        Cursor.lockState = CursorLockMode.Locked; // Lock and hide the cursor
     }
 
     void Update()
@@ -28,7 +28,7 @@ public class MouseLook : AttributesSync
         {
             return;
         }
-            
+
 
         BroadcastRemoteMethod("CameraLook");
 
@@ -48,5 +48,6 @@ public class MouseLook : AttributesSync
 
         // Horizontal player rotation (looking left/right)
         playerBody.Rotate(Vector3.up * mouseX);
+
     }
 }
