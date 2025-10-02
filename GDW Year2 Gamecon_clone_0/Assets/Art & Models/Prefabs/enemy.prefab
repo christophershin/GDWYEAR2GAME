@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4749476908169774486}
   - component: {fileID: 8833544323785172795}
   - component: {fileID: 9109977931730777271}
-  - component: {fileID: 3979133147449257056}
   - component: {fileID: 5060316219950822923}
+  - component: {fileID: 1362454058901060606}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6258079661527460890}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.43818998, y: 0.98, z: 17.73}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -141,23 +141,6 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
---- !u!114 &3979133147449257056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6258079661527460890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f7ec8311b5541e45ad2899ab8ddfbf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyFiring
-  ShowTopMostFoldoutHeaderGroup: 1
-  timerMax: 4
-  projectile_speed: 5
-  proj: {fileID: 6468302795573462009, guid: f2bbdf060efcdc347bb46ce147e706a6, type: 3}
-  playerbody: {fileID: 0}
 --- !u!114 &5060316219950822923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,3 +187,20 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &1362454058901060606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258079661527460890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7ec8311b5541e45ad2899ab8ddfbf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyFiring
+  ShowTopMostFoldoutHeaderGroup: 1
+  timerMax: 1
+  projectile_speed: 5
+  proj: {fileID: 6468302795573462009, guid: f2bbdf060efcdc347bb46ce147e706a6, type: 3}
+  playerbody: {fileID: 0}

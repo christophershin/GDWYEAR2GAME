@@ -1,14 +1,22 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class projectile : MonoBehaviour
+public class projectile : NetworkBehaviour
 {
 
 
     [SerializeField] private float projectileTimerMax = 10;
     private float projectileTimer;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    // Performs behavior on the server which then sends data to all clients
+    public override void OnNetworkSpawn()
     {
+        if (!IsServer)
+        {
+            enabled = false;
+            return;
+        }
+
         projectileTimer = projectileTimerMax;
     }
 
