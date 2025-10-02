@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 3979357971468386033}
   - component: {fileID: 1609673995852918386}
   - component: {fileID: 9014601425819057944}
+  - component: {fileID: 5943998056060327565}
   - component: {fileID: 7094923821844858146}
   - component: {fileID: 3625908984048905263}
-  - component: {fileID: 2547398354581252983}
-  - component: {fileID: 7911300822855532129}
-  - component: {fileID: 1995374892126795728}
+  - component: {fileID: 2380855698623721687}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -119,6 +118,31 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5943998056060327565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134657154417255479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
+  GlobalObjectIdHash: 3932143050
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!114 &7094923821844858146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649e4d1d52ba5134a8d4ff3ed1443291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  ShowTopMostFoldoutHeaderGroup: 1
   moveSpeed: 5
   jumpForce: 8
   gravity: 20
@@ -159,7 +184,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2547398354581252983
+--- !u!114 &2380855698623721687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,66 +193,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 134657154417255479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1368eebd69cd74747a5411b42ec61fbc, type: 3}
+  m_Script: {fileID: 11500000, guid: 667255e98d239e5488c402e370e7231c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Parrying
-  parryhitbox: {fileID: 5202479770782383269}
---- !u!114 &7911300822855532129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134657154417255479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1312809854, guid: 0ae8d181602a00248a82f64a684a1c88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Alteruna.Trinity.dll::Alteruna.TransformSynchronizable
-  Multiplayer: {fileID: 0}
-  _uidString: c876dd89-65f6-4cff-81f6-f0afba3eb64a
-  BucketBehaviors:
-  - Name: Min
-    NetLOD: 0
-    Frequency: -1
-  - Name: Low
-    NetLOD: 1
-    Frequency: 0
-  - Name: Mid
-    NetLOD: 2
-    Frequency: 0
-  - Name: High
-    NetLOD: 3
-    Frequency: 0
-  - Name: Max
-    NetLOD: 4
-    Frequency: 120
-  Reliability: 2
-  UseGlobalPosition: 0
-  OnlySyncFromRoomOwner: 0
-  refreshRate: 30
-  SyncedAxes: 511
---- !u!114 &1995374892126795728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134657154417255479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -2141718255, guid: 0ae8d181602a00248a82f64a684a1c88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Alteruna.Trinity.dll::Alteruna.Avatar
-  Multiplayer: {fileID: 0}
-  IsPossessor: 0
-  IsPossessed: 0
-  OnPossessed:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUnpossessed:
-    m_PersistentCalls:
-      m_Calls: []
+  m_EditorClassIdentifier: Assembly-CSharp::ClientNetworkScript
+  ShowTopMostFoldoutHeaderGroup: 1
+  NetworkTransformExpanded: 0
+  AutoOwnerAuthorityTickOffset: 1
+  PositionInterpolationType: 0
+  RotationInterpolationType: 0
+  ScaleInterpolationType: 0
+  PositionLerpSmoothing: 1
+  PositionMaxInterpolationTime: 0.1
+  RotationLerpSmoothing: 1
+  RotationMaxInterpolationTime: 0.1
+  ScaleLerpSmoothing: 1
+  ScaleMaxInterpolationTime: 0.1
+  AuthorityMode: 0
+  TickSyncChildren: 0
+  UseUnreliableDeltas: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  SwitchTransformSpaceWhenParented: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &3810033080388160734
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,13 +491,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e61b28ca2e1a64686b4153c34cb2b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MouseLook
-  Multiplayer: {fileID: 0}
-  _uidString: b1295768-d278-4acc-8c7d-a439c1c96b5b
-  Reliability: 1
-  LocalMethodBehavior: 1
+  ShowTopMostFoldoutHeaderGroup: 1
   mouseSensitivity: 1600
   playerBody: {fileID: 7121588875712704624}
-  _avatar: {fileID: 1995374892126795728}
 --- !u!1 &5202479770782383269
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +504,6 @@ GameObject:
   m_Component:
   - component: {fileID: 178410072821319616}
   - component: {fileID: 8423289099480475653}
-  - component: {fileID: 2622213880830119277}
   - component: {fileID: 3718804658527385255}
   m_Layer: 0
   m_Name: ParryHitBox
@@ -551,25 +548,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2, y: 1.2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2622213880830119277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5202479770782383269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681773f6e078f304c9e920aa3aa16d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Deflect
-  Multiplayer: {fileID: 0}
-  _uidString: a229bd6d-4972-45fd-82d6-307904318c07
-  Reliability: 1
-  LocalMethodBehavior: 1
-  sounds:
-  - {fileID: 8300000, guid: c00e1a63ddd23f4489142d4005639ac3, type: 3}
-  _avatar: {fileID: 1995374892126795728}
 --- !u!82 &3718804658527385255
 AudioSource:
   m_ObjectHideFlags: 0
