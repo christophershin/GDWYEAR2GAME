@@ -1,4 +1,5 @@
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,42 +10,38 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 moveDirection;
 
-    private Alteruna.Avatar _avatar;
+    PhotonView view;
 
     void Start()
     {
-        _avatar = GetComponent<Alteruna.Avatar>();
-
-        if (!_avatar.IsMe)
-            return;
-
         controller = GetComponent<CharacterController>();
+        view = GetComponent<PhotonView>();
     }
 
     void Update()
     {
-        if (!_avatar.IsMe)
-            return;
-
-        // Player Movement
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-
-        if (controller.isGrounded)
+        if (view.IsMine)
         {
-            moveDirection = transform.right * horizontalInput + transform.forward * verticalInput;
-            moveDirection *= moveSpeed;
+            // Player Movement
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
 
-            if (Input.GetButtonDown("Jump"))
+            if (controller.isGrounded)
             {
-                moveDirection.y = jumpForce;
+                moveDirection = transform.right * horizontalInput + transform.forward * verticalInput;
+                moveDirection *= moveSpeed;
+
+                if (Input.GetButtonDown("Jump"))
+                {
+                    moveDirection.y = jumpForce;
+                }
             }
+
+            // Apply Gravity
+            moveDirection.y -= gravity * Time.deltaTime;
+
+            // Move the CharacterController
+            controller.Move(moveDirection * Time.deltaTime);
         }
-
-        // Apply Gravity
-        moveDirection.y -= gravity * Time.deltaTime;
-
-        // Move the CharacterController
-        controller.Move(moveDirection * Time.deltaTime);
     }
 }
