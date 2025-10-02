@@ -932,11 +932,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: dde59b85-2077-45bf-8457-f581744bd592
+  cloudProjectId: 3a02cca7-4a4e-4a15-8799-a57cb949fa91
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: GDW Year2 Gamecon
-  organizationId: fynnster48
+  projectName: Flatypus Games
+  organizationId: gomagan
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
