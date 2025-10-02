@@ -31,7 +31,7 @@ public class TestRelay : MonoBehaviour
             
             string joincode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
             
-            Debug.Log(joincode);
+            Debug.Log("Code is: " + joincode);
             
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(
                 allocation.RelayServer.IpV4,
