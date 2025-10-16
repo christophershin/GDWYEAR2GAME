@@ -16,7 +16,11 @@ public class PlayerMovement : NetworkBehaviour
         {
             enabled = false;
             return;
+
         }
+
+       //UpdatePositionServerRPC();
+        
     }
 
     void Start()
@@ -49,4 +53,14 @@ public class PlayerMovement : NetworkBehaviour
         // Move the CharacterController
         controller.Move(moveDirection * Time.deltaTime);
     }
+
+    /*[ServerRpc(RequireOwnership = false)]
+    private void UpdatePositionServerRPC()
+    {
+        int SpawnCount = GameObject.Find("World").GetComponent<GameManager>().spawnList.Count;
+
+        int randNum = UnityEngine.Random.Range(0, 1);
+
+        transform.position = GameObject.Find("World").GetComponent<GameManager>().spawnList[randNum].transform.position;
+    }*/
 }

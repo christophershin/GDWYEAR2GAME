@@ -23,6 +23,12 @@ public class projectile : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsServer)
+        {
+            return;
+        }
+
+
         projectileTimer -= Time.deltaTime;
 
         if (projectileTimer <= 0)

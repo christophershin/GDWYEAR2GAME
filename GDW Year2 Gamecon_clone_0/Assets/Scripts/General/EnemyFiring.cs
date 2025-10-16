@@ -21,23 +21,28 @@ public class EnemyFiring : NetworkBehaviour
             return;
         }
 
-        Debug.Log("fire");
+        
     }
 
 
-
-    // Update is called once per frame
     void Update()
     {
+        if (!IsServer)
+        {
+            return;
+        }
+
+
         timer -= Time.deltaTime;
 
-
-        if (timer <= 0)
-        {
-            GameObject bullet = Instantiate(proj, transform);
-            bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 0, -projectile_speed);
-            timer = timerMax;
-        }
+            if (timer <= 0)
+            {
+                GameObject bullet = Instantiate(proj, transform);
+                bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 0, -projectile_speed);
+                bullet.GetComponent<NetworkObject>().Spawn(true);
+                timer = timerMax;
+            }
+        
 
     }
 }
