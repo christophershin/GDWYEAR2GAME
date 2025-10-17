@@ -17,27 +17,23 @@ using NUnit.Framework.Internal;
 
 public class RelayManager : MonoBehaviour
 {
-
-
     [SerializeField] private TextMeshProUGUI joinCodeText;
     [SerializeField] private TMP_InputField joinCodeInputField;
+    [SerializeField] private GameObject networkUI;
+    [SerializeField] private GameObject cam;
+    [SerializeField] private GameObject gameUI;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private async void Start()
     {
         await UnityServices.InitializeAsync();
-
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
-
     }
-
-
-
-
 
     public async void StartRelay()
     {
+        networkUI.SetActive(false);
         string joinCode = await StartHostingWithRelay();
         joinCodeText.text = joinCode;
 
@@ -46,11 +42,7 @@ public class RelayManager : MonoBehaviour
     public async void JoinRelay()
     {
         await StartClientWithRelay(joinCodeInputField.text);
-        
     }
-    
-
-
 
     private async Task<string> StartHostingWithRelay( int maxConnections = 3)
     {
@@ -61,7 +53,10 @@ public class RelayManager : MonoBehaviour
         NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new RelayServerData(allocation, "dtls"));
 
         string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-
+        
+        cam.SetActive(false);
+        gameUI.SetActive(true);
+        
         return NetworkManager.Singleton.StartHost() ? joinCode : null;
     }
 
