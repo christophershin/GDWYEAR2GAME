@@ -1,49 +1,67 @@
-using Alteruna;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Parrying : MonoBehaviour
+
+public class Parrying : NetworkBehaviour
 {
 
     
     public GameObject parryhitbox;
-    private Alteruna.Avatar _avatar;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public override void OnNetworkSpawn()
     {
-        _avatar = GetComponent<Alteruna.Avatar>();
-
-        if (!_avatar.IsMe)
+        if (!IsOwner)
+        {
+            enabled = false;
             return;
 
+        }
+
         parryhitbox.SetActive(false);
+
+    }
+
+    void Start()
+    {
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!_avatar.IsMe)
-            return;
 
-        Parry();
-    }
-
-
-    
-    void Parry()
-    {
         if (Input.GetMouseButtonDown(1))
         {
-            parryhitbox.SetActive(true);
 
-            Debug.Log("true");
+            ParryServerRPC();
+
         }
 
         if (Input.GetMouseButtonUp(1))
         {
-            parryhitbox.SetActive(false);
-            Debug.Log("false");
+
+            NotParryServerRPC();
+
         }
+
     }
+
+
+    [ServerRpc]
+    void ParryServerRPC()
+    {
+
+        parryhitbox.SetActive(true);
+
+    }
+
+    [ServerRpc]
+    void NotParryServerRPC()
+    {
+        parryhitbox.SetActive(false);
+    }
+
 }

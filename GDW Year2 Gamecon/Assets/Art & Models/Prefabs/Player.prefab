@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9014601425819057944}
   - component: {fileID: 5943998056060327565}
   - component: {fileID: 7094923821844858146}
+  - component: {fileID: 1829790153828719856}
   - component: {fileID: 3625908984048905263}
   - component: {fileID: 2380855698623721687}
   m_Layer: 0
@@ -130,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3944552304
+  GlobalObjectIdHash: 3932143050
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -159,6 +160,20 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 8
   gravity: 20
+--- !u!114 &1829790153828719856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134657154417255479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1368eebd69cd74747a5411b42ec61fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Parrying
+  ShowTopMostFoldoutHeaderGroup: 1
+  parryhitbox: {fileID: 5202479770782383269}
 --- !u!143 &3625908984048905263
 CharacterController:
   m_ObjectHideFlags: 0
@@ -505,6 +520,7 @@ GameObject:
   - component: {fileID: 178410072821319616}
   - component: {fileID: 8423289099480475653}
   - component: {fileID: 3718804658527385255}
+  - component: {fileID: 5332516145775794936}
   m_Layer: 0
   m_Name: ParryHitBox
   m_TagString: Untagged
@@ -546,7 +562,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2, y: 1.2, z: 3}
+  m_Size: {x: 1.5, y: 1.2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &3718804658527385255
 AudioSource:
@@ -559,7 +575,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: c00e1a63ddd23f4489142d4005639ac3, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -645,3 +661,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5332516145775794936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5202479770782383269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681773f6e078f304c9e920aa3aa16d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Deflect
+  ShowTopMostFoldoutHeaderGroup: 1
+  sounds:
+  - {fileID: 8300000, guid: c00e1a63ddd23f4489142d4005639ac3, type: 3}

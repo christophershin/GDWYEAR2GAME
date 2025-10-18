@@ -18,8 +18,6 @@ public class PlayerMovement : NetworkBehaviour
             return;
 
         }
-
-       //UpdatePositionServerRPC();
         
     }
 
@@ -54,13 +52,4 @@ public class PlayerMovement : NetworkBehaviour
         controller.Move(moveDirection * Time.deltaTime);
     }
 
-    /*[ServerRpc(RequireOwnership = false)]
-    private void UpdatePositionServerRPC()
-    {
-        int SpawnCount = GameObject.Find("World").GetComponent<GameManager>().spawnList.Count;
-
-        int randNum = UnityEngine.Random.Range(0, 1);
-
-        transform.position = GameObject.Find("World").GetComponent<GameManager>().spawnList[randNum].transform.position;
-    }*/
 }
