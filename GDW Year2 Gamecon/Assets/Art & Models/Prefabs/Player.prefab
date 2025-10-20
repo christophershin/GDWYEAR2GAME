@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5943998056060327565}
   - component: {fileID: 7094923821844858146}
   - component: {fileID: 1829790153828719856}
+  - component: {fileID: 5576527405638343336}
   - component: {fileID: 3625908984048905263}
   - component: {fileID: 2380855698623721687}
   m_Layer: 0
@@ -174,6 +175,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Parrying
   ShowTopMostFoldoutHeaderGroup: 1
   parryhitbox: {fileID: 5202479770782383269}
+--- !u!114 &5576527405638343336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134657154417255479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a056d18a68105c9459d3003a1d3644a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCardSystem
+  ShowTopMostFoldoutHeaderGroup: 1
+  projectile: {fileID: 6468302795573462009, guid: f2bbdf060efcdc347bb46ce147e706a6, type: 3}
+  proj_speed: 10
+  cam: {fileID: 6582233133600555281}
 --- !u!143 &3625908984048905263
 CharacterController:
   m_ObjectHideFlags: 0
@@ -509,6 +526,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   mouseSensitivity: 1600
   playerBody: {fileID: 7121588875712704624}
+  camLookDir: {x: 0, y: 0, z: 0}
 --- !u!1 &5202479770782383269
 GameObject:
   m_ObjectHideFlags: 0

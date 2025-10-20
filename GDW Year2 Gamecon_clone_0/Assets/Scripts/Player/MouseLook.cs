@@ -9,6 +9,7 @@ public class MouseLook : NetworkBehaviour
     public Transform playerBody; // Assign your player's transform in the Inspector
 
     private float xRotation = 0f;
+    public Vector3 camLookDir;
 
     public override void OnNetworkSpawn()
     {
@@ -34,6 +35,7 @@ public class MouseLook : NetworkBehaviour
 
         CameraLook();
 
+
     }
 
 
@@ -41,6 +43,7 @@ public class MouseLook : NetworkBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
 
         // Vertical camera rotation (looking up/down)
         xRotation -= mouseY;
