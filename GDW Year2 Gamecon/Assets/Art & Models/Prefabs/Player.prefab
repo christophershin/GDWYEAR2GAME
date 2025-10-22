@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3932143050
+  GlobalObjectIdHash: 3944552304
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -190,7 +190,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   projectile: {fileID: 6468302795573462009, guid: f2bbdf060efcdc347bb46ce147e706a6, type: 3}
   proj_speed: 10
-  cam: {fileID: 6582233133600555281}
+  cam: {fileID: 5487012962671268872}
 --- !u!143 &3625908984048905263
 CharacterController:
   m_ObjectHideFlags: 0
@@ -386,6 +386,7 @@ GameObject:
   - component: {fileID: 5701374564130773066}
   - component: {fileID: 7485788175900348555}
   - component: {fileID: 8446845816236514145}
+  - component: {fileID: 7283604014056149244}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -524,9 +525,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MouseLook
   ShowTopMostFoldoutHeaderGroup: 1
-  mouseSensitivity: 1600
+  mouseSensitivity: 1000
   playerBody: {fileID: 7121588875712704624}
-  camLookDir: {x: 0, y: 0, z: 0}
+--- !u!114 &7283604014056149244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4997146690751356908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667255e98d239e5488c402e370e7231c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClientNetworkScript
+  ShowTopMostFoldoutHeaderGroup: 1
+  NetworkTransformExpanded: 1
+  AutoOwnerAuthorityTickOffset: 1
+  PositionInterpolationType: 0
+  RotationInterpolationType: 0
+  ScaleInterpolationType: 0
+  PositionLerpSmoothing: 1
+  PositionMaxInterpolationTime: 0.1
+  RotationLerpSmoothing: 1
+  RotationMaxInterpolationTime: 0.1
+  ScaleLerpSmoothing: 1
+  ScaleMaxInterpolationTime: 0.1
+  AuthorityMode: 0
+  TickSyncChildren: 0
+  UseUnreliableDeltas: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  SwitchTransformSpaceWhenParented: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &5202479770782383269
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,3 +740,4 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   sounds:
   - {fileID: 8300000, guid: c00e1a63ddd23f4489142d4005639ac3, type: 3}
+  cam: {fileID: 5487012962671268872}

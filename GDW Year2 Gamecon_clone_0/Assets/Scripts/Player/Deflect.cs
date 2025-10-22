@@ -6,14 +6,8 @@ public class Deflect: NetworkBehaviour
 {
     public AudioClip[] sounds;
     private AudioSource ManagerAudio;
+    public Transform cam;
 
-
-
-    private void Start()
-    {
-
-        
-    }
 
     public override void OnNetworkSpawn()
     {
@@ -35,7 +29,7 @@ public class Deflect: NetworkBehaviour
         if (collision.gameObject.CompareTag("Parriable"))
         {
             GameObject obj = collision.gameObject;
-            obj.GetComponent<Rigidbody>().linearVelocity = Camera.main.transform.forward * 8;
+            obj.GetComponent<Rigidbody>().linearVelocity = cam.forward * 8;
 
         }
             

@@ -9,7 +9,6 @@ public class MouseLook : NetworkBehaviour
     public Transform playerBody; // Assign your player's transform in the Inspector
 
     private float xRotation = 0f;
-    public Vector3 camLookDir;
 
     public override void OnNetworkSpawn()
     {
@@ -17,15 +16,11 @@ public class MouseLook : NetworkBehaviour
         {
 
             gameObject.SetActive(false);
+            return;
+
         }
-    }
 
-
-    void Start()
-    {
-
-
-        Cursor.lockState = CursorLockMode.Locked; // Lock and hide the cursor
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -34,6 +29,7 @@ public class MouseLook : NetworkBehaviour
 
 
         CameraLook();
+        
 
 
     }
@@ -49,6 +45,7 @@ public class MouseLook : NetworkBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Clamp to prevent over-rotation
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        
 
         // Horizontal player rotation (looking left/right)
         playerBody.Rotate(Vector3.up * mouseX);

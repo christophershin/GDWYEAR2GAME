@@ -8,7 +8,7 @@ public class PlayerCardSystem : NetworkBehaviour
 
     public GameObject projectile;
     [SerializeField] private float proj_speed;
-    [SerializeField] private Camera cam;
+    [SerializeField] private Transform cam;
 
     public override void OnNetworkSpawn()
     {
@@ -28,22 +28,25 @@ public class PlayerCardSystem : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
 
-            
+            ShootServerRPC();
 
-            GameObject bullet = Instantiate(projectile, transform);
-            bullet.GetComponent<Rigidbody>().linearVelocity = Camera.main.transform.forward * proj_speed;
-            bullet.GetComponent<SphereCollider>().enabled = false;
-            bullet.GetComponent<NetworkObject>().Spawn(true);
         }
 
-
-
-
-
     }
+
+
+    [ServerRpc]
+    void ShootServerRPC()
+    {
+        GameObject bullet = Instantiate(projectile, transform);
+        bullet.GetComponent<Rigidbody>().linearVelocity = cam.forward * proj_speed;
+        bullet.GetComponent<SphereCollider>().enabled = false;
+        bullet.GetComponent<NetworkObject>().Spawn(true);
+        
+    }
+
 }

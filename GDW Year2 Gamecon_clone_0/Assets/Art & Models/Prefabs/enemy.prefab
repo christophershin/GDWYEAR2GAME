@@ -203,4 +203,4 @@ MonoBehaviour:
   timerMax: 1
   projectile_speed: 5
   proj: {fileID: 6468302795573462009, guid: f2bbdf060efcdc347bb46ce147e706a6, type: 3}
-  playerbody: {fileID: 0}
+  playerbody: {fileID: 7121588875712704624, guid: e3708e63473a3644ebd5b5919dfbd540, type: 3}
