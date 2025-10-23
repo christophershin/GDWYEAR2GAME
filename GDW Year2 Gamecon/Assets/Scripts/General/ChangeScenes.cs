@@ -8,7 +8,7 @@ public class ChangeScenes : MonoBehaviour
 
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection;
 
     private Alteruna.Avatar _avatar;
+
+    public string LoseScreen;
+    public string WinScreen;
 
     void Start()
     {
@@ -53,11 +57,13 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Boundary"))
         {
             Debug.Log("lose");
+            SceneManager.LoadScene(LoseScreen);
 
 
-        }else if (other.gameObject.CompareTag("goal"))
+        }else if (other.gameObject.CompareTag("Goal"))
         {
             Debug.Log("win");
+            SceneManager.LoadScene(WinScreen);
         }
     }
 }

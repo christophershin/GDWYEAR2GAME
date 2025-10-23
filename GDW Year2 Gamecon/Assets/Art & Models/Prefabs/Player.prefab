@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 134657154417255479}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.27379, y: 0.816, z: 1.19776}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -131,9 +131,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649e4d1d52ba5134a8d4ff3ed1443291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 5
-  jumpForce: 8
-  gravity: 20
+  moveSpeed: 7
+  jumpForce: 10
+  gravity: 30
+  LoseScreen: LoseScene
+  WinScreen: WinScene
 --- !u!143 &3625908984048905263
 CharacterController:
   m_ObjectHideFlags: 0
