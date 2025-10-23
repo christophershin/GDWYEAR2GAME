@@ -5,7 +5,7 @@ Shader "CompGraphics/Toon"
         _BaseColor ("Base Color", Color) = (1, 1, 1, 1)
         _RampTex ("Ramp Texture", 2D) = "white" {}
         _RimColor ("Rim Color", Color) = (1, 1, 1, 1)
-        _RimPower ("Rim Power", Range(0.1, 8.0)) = 1.5
+        _RimPower ("Rim Power", Range(0.1, 15.0)) = 0.5 // Changed the max power to 15
     }
 
     SubShader
