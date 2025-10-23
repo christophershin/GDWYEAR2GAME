@@ -136,6 +136,11 @@ MonoBehaviour:
   gravity: 30
   LoseScreen: LoseScene
   WinScreen: WinScene
+  objectsWithShaders:
+  - {fileID: 6468302795573462009, guid: f2bbdf060efcdc347bb46ce147e706a6, type: 3}
+  - {fileID: 6998038681611428979, guid: 665a883a67147eb4a958486bc93f0e09, type: 3}
+  Shader_materials:
+  - {fileID: 2100000, guid: 7eff07fb502da6c40b285944d6e589d3, type: 2}
 --- !u!143 &3625908984048905263
 CharacterController:
   m_ObjectHideFlags: 0

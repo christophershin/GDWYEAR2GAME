@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
 
     public string LoseScreen;
     public string WinScreen;
+
+    public List<GameObject> objectsWithShaders;
+    public List<Material> Shader_materials;
 
     void Start()
     {
@@ -45,11 +50,19 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            moveDirection.y += gravity * Time.deltaTime;
+        }
+
         // Apply Gravity
         moveDirection.y -= gravity * Time.deltaTime;
 
         // Move the CharacterController
         controller.Move(moveDirection * Time.deltaTime);
+
+        //toggling shaders 
+        ToggleShaders();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -68,6 +81,17 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("lose");
             SceneManager.LoadScene(LoseScreen);
+        }
+    }
+
+    public void ToggleShaders()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            for(int i=0; i<objectsWithShaders.Count; i++)
+            {
+                objectsWithShaders[i].GetComponent<MeshRenderer>().material = Shader_materials[0];
+            }
         }
     }
 }
