@@ -1741,7 +1741,7 @@ PrefabInstance:
     - target: {fileID: 6793303665780925129, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 25996add9b5ecc346b902b90f9ece06c, type: 2}
+      objectReference: {fileID: 2100000, guid: 198c41ef76379264cb4fdea61a2b7ddb, type: 2}
     - target: {fileID: 8041572448174012042, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1772,7 +1772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8041572449415379693, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00048828125
+      value: -0.0008544922
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4388,7 +4388,7 @@ PrefabInstance:
     - target: {fileID: 5805133237970925511, guid: 64a598ededa2fb249a21b477d6d14d26, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 25996add9b5ecc346b902b90f9ece06c, type: 2}
+      objectReference: {fileID: 2100000, guid: 78fb79f11c20f8f499555d76c86f6516, type: 2}
     - target: {fileID: 5872240428807176654, guid: 64a598ededa2fb249a21b477d6d14d26, type: 3}
       propertyPath: m_Mesh
       value: 
