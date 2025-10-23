@@ -358,6 +358,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: World
       objectReference: {fileID: 0}
+    - target: {fileID: 6931730594193782417, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041572448174012042, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041572448174012042, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041572448251875449, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041572448251875449, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041572448251875449, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041572449415379693, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8378682405849354124, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
       propertyPath: mouseSensitivity
       value: 1000
