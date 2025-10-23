@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 moveDirection;
 
-    private Alteruna.Avatar _avatar;
 
     public string LoseScreen;
     public string WinScreen;
@@ -22,18 +21,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        _avatar = GetComponent<Alteruna.Avatar>();
-
-        if (!_avatar.IsMe)
-            return;
 
         controller = GetComponent<CharacterController>();
     }
 
     void Update()
     {
-        if (!_avatar.IsMe)
-            return;
 
         // Player Movement
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -90,7 +83,26 @@ public class PlayerMovement : MonoBehaviour
         {
             for(int i=0; i<objectsWithShaders.Count; i++)
             {
-                objectsWithShaders[i].GetComponent<MeshRenderer>().material = Shader_materials[0];
+                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[0];
+                objectsWithShaders[i].GetComponent<ChangeMaterial>().anotherMaterial = Shader_materials[0];
+                
+                
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            for (int i = 0; i < objectsWithShaders.Count; i++)
+            {
+                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[1];
+                objectsWithShaders[i].GetComponent<ChangeMaterial>().anotherMaterial = Shader_materials[1];
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            for (int i = 0; i < objectsWithShaders.Count; i++)
+            {
+                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[2];
+                objectsWithShaders[i].GetComponent<ChangeMaterial>().anotherMaterial = Shader_materials[2];
             }
         }
     }

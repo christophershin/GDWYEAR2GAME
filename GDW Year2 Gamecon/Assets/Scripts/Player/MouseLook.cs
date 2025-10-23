@@ -3,20 +3,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Avatar = Alteruna.Avatar;
 
-public class MouseLook : AttributesSync
+public class MouseLook : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
     public Transform playerBody; // Assign your player's transform in the Inspector
 
     private float xRotation = 0f;
-    [SerializeField] private Alteruna.Avatar _avatar;
 
     void Start()
     {
-        if (!_avatar.IsMe)
-        {
-            return;
-        }
 
 
         Cursor.lockState = CursorLockMode.Locked; // Lock and hide the cursor
@@ -24,18 +19,13 @@ public class MouseLook : AttributesSync
 
     void Update()
     {
-        if (!_avatar.IsMe)
-        {
-            return;
-        }
 
 
-        BroadcastRemoteMethod("CameraLook");
+        CameraLook();
 
     }
 
 
-    [SynchronizableMethod]
     void CameraLook()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;

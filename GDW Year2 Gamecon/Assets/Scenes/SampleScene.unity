@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &202128100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6998038681611428979, guid: 665a883a67147eb4a958486bc93f0e09, type: 3}
+  m_PrefabInstance: {fileID: 5951480077352746927}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &221273338
 Mesh:
   m_ObjectHideFlags: 0
@@ -1778,6 +1783,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 20f277ca046c12b4dbb153374d70326f, type: 2}
+    - target: {fileID: 7771349297178058837, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
+      propertyPath: 'objectsWithShaders.Array.data[0]'
+      value: 
+      objectReference: {fileID: 202128100}
     - target: {fileID: 8041572448174012042, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
