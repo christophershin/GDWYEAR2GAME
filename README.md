@@ -1,2 +1,1 @@
-# GDWYEAR2GAME
-GDWYEAR2GAME
+Computer Graphics Project Progression Assignment

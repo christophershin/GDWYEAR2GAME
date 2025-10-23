@@ -64,6 +64,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("win");
             SceneManager.LoadScene(WinScreen);
+        }else if(other.gameObject.CompareTag("Parriable"))
+        {
+            Debug.Log("lose");
+            SceneManager.LoadScene(LoseScreen);
         }
     }
 }
