@@ -47,4 +47,17 @@ public class PlayerMovement : MonoBehaviour
         // Move the CharacterController
         controller.Move(moveDirection * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Boundary"))
+        {
+            Debug.Log("lose");
+
+
+        }else if (other.gameObject.CompareTag("goal"))
+        {
+            Debug.Log("win");
+        }
+    }
 }

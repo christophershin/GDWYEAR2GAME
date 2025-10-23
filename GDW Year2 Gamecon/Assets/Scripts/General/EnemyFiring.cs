@@ -27,7 +27,7 @@ public class EnemyFiring : MonoBehaviour
         if (timer <= 0)
         {
             GameObject bullet = Instantiate(proj, transform);
-            bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 0, -projectile_speed);
+            bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(-projectile_speed, 0, 0);
             timer = timerMax;
         }
 
