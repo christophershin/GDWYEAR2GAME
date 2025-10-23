@@ -42,9 +42,12 @@ public class PlayerCardSystem : NetworkBehaviour
     [ServerRpc]
     void ShootServerRPC()
     {
+
+        string id = GetComponent<EntitiesClass>().TeamID();
+
         GameObject bullet = Instantiate(projectile, transform);
         bullet.GetComponent<Rigidbody>().linearVelocity = cam.forward * proj_speed;
-        bullet.GetComponent<SphereCollider>().enabled = false;
+        bullet.GetComponent<EntitiesClass>().SetTeamID(id);
         bullet.GetComponent<NetworkObject>().Spawn(true);
         
     }
