@@ -39,6 +39,13 @@ I, Connor McCarthy, created the three shader implementations and applied them wh
 
 First, I started by creating the bump mapping shader. The main application of this shader was to the terrain within the level. When it comes to the actual code, I made the shader using the base bump mapping shader, and then modified it so that it can take a base color so that it conducts the bump mapping while also taking a base color into the final outcome. The reason I did this was to essential reduce the amount of textures we would need to import. For our terrain, using the modified bump mapping shader, I made grass, rock, and dirt. For the grass, I had a low bump amount for the grass texture and for the color I made it a bright green. For the rock, I had the bump amount to the max and then applied a grey to it to make it look like rock. Finally for the mud, I had the bump amount for the texture somewhat in the middle,and then applied a brown colour to it.
 Texture used: https://assetstore.unity.com/packages/2d/textures-materials/glass/stylized-grass-texture-153153
+<img width="1188" height="703" alt="image" src="https://github.com/user-attachments/assets/d788cffb-f234-4d8c-8372-d521e15d4249" />
+<img width="1118" height="632" alt="image" src="https://github.com/user-attachments/assets/5433dd01-c6b8-4bc4-ac8a-bc5f0a850800" />
+<img width="1258" height="656" alt="image" src="https://github.com/user-attachments/assets/3e8bfcdb-6852-4789-a93d-a6994d92f9fb" />
+<img width="1112" height="626" alt="image" src="https://github.com/user-attachments/assets/9f182920-29f4-4293-ba7f-676826e2ae32" />
+
+
+
 
 Next, I decided that for the platypuses, I wanted them to have a toon look, so I made the toon shader for the platypuses. When I applied them however, it came out looking weird. The bill, tail and feet of the platypus looked fine, however the body of the platypus looked off. I tried playing around with some of the math in half4 frag however i didn't like how they came out looking after the modifications, so I reverted it back to the base toon shader. I discovered the reason it was looking so weird, it was because the body was not smooth so it was showing all the individual surfaces on the model.
 
