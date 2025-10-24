@@ -8,6 +8,7 @@ All Deliverables Below:
 
 Part 1:
 Created a 3D unity project where the main player controls a platypus and must make their way from the start point to the goal at the end of the level. While making their way there, other platypuses will shoot projectiles at you, if you are hit by one of these projectiles, you lose. There is also a section where you have to jump across platforms to get to the other side. If you fall into the void, you also lose. If you are able to avoid the other platypuses' projectiles and get to the goal, you win the game.
+<img width="1915" height="1069" alt="Screenshot 2025-10-24 120057" src="https://github.com/user-attachments/assets/76660e30-d984-4d5c-a4f9-fbc63648dfd5" />
 
 Part 2:
 I, Connor McCarthy, created the three illumination shaders: simple diffuse lighting, diffuse lighting with ambient and simple specular.
