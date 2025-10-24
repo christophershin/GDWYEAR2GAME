@@ -84,7 +84,6 @@ public class PlayerMovement : MonoBehaviour
             for(int i=0; i<objectsWithShaders.Count; i++)
             {
                 objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[0];
-                objectsWithShaders[i].GetComponent<ChangeMaterial>().anotherMaterial = Shader_materials[0];
                 
                 
             }
@@ -94,7 +93,6 @@ public class PlayerMovement : MonoBehaviour
             for (int i = 0; i < objectsWithShaders.Count; i++)
             {
                 objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[1];
-                objectsWithShaders[i].GetComponent<ChangeMaterial>().anotherMaterial = Shader_materials[1];
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -102,7 +100,6 @@ public class PlayerMovement : MonoBehaviour
             for (int i = 0; i < objectsWithShaders.Count; i++)
             {
                 objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[2];
-                objectsWithShaders[i].GetComponent<ChangeMaterial>().anotherMaterial = Shader_materials[2];
             }
         }
     }
