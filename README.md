@@ -18,7 +18,7 @@ https://learn.ontariotechu.ca/courses/34225/pages/diffuse-ambient-specular?modul
 
 I decided to attach each of these illuminations to the projectiles as the projectiles were the most previlant within the scene, so we wanted to make sure that they could be seen.
 
-I, Christopher Shin, made each shader togglable using the 1,2,3 keys respectively.
+I, Christopher Shin, made each shader togglable using the 1,2,3,4 keys respectively.
 
 Part 3a:
 
