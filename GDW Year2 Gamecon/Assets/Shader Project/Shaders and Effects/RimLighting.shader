@@ -54,7 +54,7 @@ Shader "ShaderProjectConnor/RimLighting"
             {
                 half3 normalWS = normalize(IN.normalWS);
                 half3 viewDirWS = normalize(IN.viewDirWS);
-                half rimFactor = 1.0 - saturate(dot(viewDirWS, normalWS));
+                half rimFactor = 1.0 + saturate(dot(viewDirWS, normalWS));
                 half rimLighting = pow(rimFactor, _RimPower);
                 half3 finalColor = _BaseColor.rgb + _RimColor.rgb * rimLighting;
                 return half4(finalColor, _BaseColor.a);
