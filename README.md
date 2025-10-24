@@ -16,4 +16,7 @@ We decided to attach them to the projectiles.
 
 Part 3a:
 
+I, Christopher Shin made the color grading for the project. I created 3 LUTs that can be toggled using the num keys, one for warm, cold, and custom. I used this website https://photoshop.adobe.com/ to create them because I knew it was an efficient and fast tool, as well as part3 used photoshop as an example in which I used a similar version. The code I used to implement them came from https://learn.ontariotechu.ca/courses/34225/pages/color-correction?module_item_id=802768. The reason why is because part3 specified to use the shader code that applies the LUTs to the screen which implies that we made one already. The modifications were changing the contribution property from 1 to 0.65 to make the lerping effect less harsh and more smooth. 
+
+
 Part 3b: 
