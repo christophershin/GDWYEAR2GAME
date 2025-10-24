@@ -48,5 +48,12 @@ Texture used: https://assetstore.unity.com/packages/2d/textures-materials/glass/
 
 
 Next, I decided that for the platypuses, I wanted them to have a toon look, so I made the toon shader for the platypuses. When I applied them however, it came out looking weird. The bill, tail and feet of the platypus looked fine, however the body of the platypus looked off. I tried playing around with some of the math in half4 frag however i didn't like how they came out looking after the modifications, so I reverted it back to the base toon shader. I discovered the reason it was looking so weird, it was because the body was not smooth so it was showing all the individual surfaces on the model.
+<img width="1263" height="686" alt="image" src="https://github.com/user-attachments/assets/4fda3aa2-a892-45be-acde-316bd5ba470d" />
+<img width="954" height="597" alt="image" src="https://github.com/user-attachments/assets/bdb23c60-d235-46f7-a04f-c9b46de17a27" />
+
 
 Finally, I created the rim lighting shaders and applied it some platforms that the player will need to cross over to get to the next section. I made a modification to the base code so that the rim factor appears brighter. I did this by taking the rim factor equation in the code and instead of subtracting saturate from 1.0, you are adding saturate to 1.0. I also made it so the base color is being multipled instead of added into the final color.
+<img width="1204" height="654" alt="image" src="https://github.com/user-attachments/assets/af335dc8-5cbc-4e80-b62b-062eb5fdefe1" />
+<img width="852" height="535" alt="image" src="https://github.com/user-attachments/assets/97a55bd5-a6f6-4c44-9af4-293f3f7bd837" />
+
+
