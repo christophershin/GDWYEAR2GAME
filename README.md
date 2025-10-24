@@ -26,3 +26,12 @@ I, Christopher Shin made the color grading for the project. I created 3 LUTs tha
 
 
 Part 3b: 
+
+I, Connor McCarthy, created the three shader implementations and applied them where I saw fit.
+
+First, I started by creating the bump mapping shader. The main application of this shader was to the terrain within the level. When it comes to the actual code, I made the shader using the base bump mapping shader, and then modified it so that it can take a base color so that it conducts the bump mapping while also taking a base color into the final outcome. The reason I did this was to essential reduce the amount of textures we would need to import.
+Texture used: https://assetstore.unity.com/packages/2d/textures-materials/glass/stylized-grass-texture-153153
+
+Next, I decided that for the platypuses, I wanted them to have a toon look, so I made the toon shader for the platypuses. When I applied them however, it came out looking weird. The bill, tail and feet of the platypus looked fine, however the body of the platypus looked off. I tried playing around with some of the math in half4 frag however i didn't like how they came out looking after the modifications, so I reverted it back to the base toon shader. I discovered the reason it was looking so weird, it was because the body was not smooth so it was showing all the individual surfaces on the model.
+
+Finally, 
