@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,8 +17,11 @@ public class PlayerMovement : MonoBehaviour
     public string LoseScreen;
     public string WinScreen;
 
+
     public List<GameObject> objectsWithShaders;
     public List<Material> Shader_materials;
+    public GameObject CanvasImage;
+    public GameObject cameraColorGrading;
 
     void Start()
     {
@@ -79,28 +83,149 @@ public class PlayerMovement : MonoBehaviour
 
     public void ToggleShaders()
     {
+
+        // turn off all material and replace them with a basic one
+        if(Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            for (int i = 0; i < objectsWithShaders.Count; i++)
+            {
+                // no lighting
+                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[0];
+                // turn the camera with color grading off
+                cameraColorGrading.SetActive(false);
+            }
+        }
+
+        // simple diffuse lighting
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             for(int i=0; i<objectsWithShaders.Count; i++)
             {
-                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[0];
-                
-                
+                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[1];
+             
             }
         }
+
+        // diffuse lighting with ambient
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             for (int i = 0; i < objectsWithShaders.Count; i++)
             {
-                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[1];
+                
+                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[2];
             }
         }
+
+        // simple specular
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             for (int i = 0; i < objectsWithShaders.Count; i++)
             {
-                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[2];
+                
+                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[3];
             }
         }
+
+        // custom additional effects
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            for (int i = 0; i < objectsWithShaders.Count; i++)
+            {
+                
+                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[4];
+            }
+        }
+
+        // Rim Lighting 
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            for (int i = 0; i < objectsWithShaders.Count; i++)
+            {
+                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[5];
+            }
+        }
+
+        // Bump Mapping
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            for (int i = 0; i < objectsWithShaders.Count; i++)
+            {
+                // custom additional effects
+                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[6];
+            }
+        }
+
+        // Toon Shader
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            for (int i = 0; i < objectsWithShaders.Count; i++)
+            {
+                // custom additional effects
+                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[7];
+            }
+        }
+
+        // color grading with LUT cold
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+             cameraColorGrading.SetActive(true);
+
+             CanvasImage.GetComponent<Image>().material = Shader_materials[8];
+            
+        }
+
+        // color grading with LUT warm
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+
+                // turn camera on 
+                cameraColorGrading.SetActive(true);
+
+                CanvasImage.GetComponent<Image>().material = Shader_materials[9];
+            
+        }
+
+        // color grading with LUT custom
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+
+                // turn camera on 
+                cameraColorGrading.SetActive(true);
+
+                CanvasImage.GetComponent<Image>().material = Shader_materials[10];
+            
+        }
+
+    }
+
+    // color grading with LUT cold
+    public void LUTcold()
+    {
+        // turn camera on 
+        cameraColorGrading.SetActive(true);
+
+        CanvasImage.GetComponent<Image>().material = Shader_materials[8];
+        
+    }
+
+    // color grading with LUT warm
+    public void LUTwarm()
+    {
+        // turn camera on 
+        cameraColorGrading.SetActive(true);
+
+        CanvasImage.GetComponent<Image>().material = Shader_materials[9];
+
+    }
+
+
+    // color grading with LUT custom
+    public void LUTcustom()
+    {
+        // turn camera on 
+        cameraColorGrading.SetActive(true);
+
+        CanvasImage.GetComponent<Image>().material = Shader_materials[10];
+
     }
 }
