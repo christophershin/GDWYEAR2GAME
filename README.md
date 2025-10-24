@@ -4,6 +4,8 @@ Team Members: Connor McCarthy(100964926), Christopher Shin(100974007)
 
 Link to Video: https://youtu.be/FVgRQ7o2Hjo 
 
+Link to Build Error Video: https://youtu.be/xNWZb9uyOHc 
+
 All Deliverables Below:
 
 Part 1:
