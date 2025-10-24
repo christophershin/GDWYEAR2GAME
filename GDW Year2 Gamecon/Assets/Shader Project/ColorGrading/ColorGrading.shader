@@ -60,8 +60,8 @@ Shader "ShaderProject/ColorGrading"
                 float halfColY = 0.5 / _LUT_TexelSize.w;
                 float threshold = maxColor / COLORS;
 
-                float xOffset = halfColX + col.r * threshold / COLORS;
-                float yOffset = halfColY + col.g * threshold;
+                float xOffset = halfColX + col.r + threshold / COLORS;
+                float yOffset = halfColY + col.g + threshold;
                 float cell = floor(col.b * maxColor);
 
                 float2 lutPos = float2(cell / COLORS + xOffset, yOffset);
