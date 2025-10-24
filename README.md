@@ -20,6 +20,13 @@ https://learn.ontariotechu.ca/courses/34225/pages/diffuse-ambient-specular?modul
 I decided to attach each of these illuminations to the projectiles as the projectiles were the most previlant within the scene, so we wanted to make sure that they could be seen.
 
 I, Christopher Shin, made each shader togglable using the 1,2,3,4 keys respectively. I additionally made a custom shader where I combined Simple Specualar and Rim Lighting and got some interesting effects where you can get some shininess as well as an outline color. I used the code for diffuse ambient specular and Rim Lighting Connor used to create something new and to experiment with what I could do. I mainly wanted to use this for some projectiles so that the rim lighting would make them pop out and the simple specular would enhance the look of them. 
+<img width="1284" height="715" alt="image" src="https://github.com/user-attachments/assets/9248b5dc-a734-4d19-af62-9a800b7a63ed" />
+<img width="1186" height="640" alt="image" src="https://github.com/user-attachments/assets/02f05964-18b1-4804-86d8-e1d79d41a035" />
+<img width="1303" height="742" alt="image" src="https://github.com/user-attachments/assets/ba70ccc2-dc91-4515-96e8-4ed59ff3396c" />
+<img width="1246" height="718" alt="image" src="https://github.com/user-attachments/assets/ef46588b-0a12-4d4c-ba78-154dc0cc5844" />
+
+
+
 
 Part 3a:
 
