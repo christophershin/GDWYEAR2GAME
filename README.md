@@ -31,6 +31,20 @@ I, Christopher Shin, made each shader togglable using the 1,2,3,4 keys respectiv
 Part 3a:
 
 I, Christopher Shin made the color grading for the project. I created 3 LUTs that can be toggled using the num keys, one for warm, cold, and custom. I used this website https://photoshop.adobe.com/ to create them because I knew it was an efficient and fast tool, as well as part3 used photoshop as an example in which I used a similar version. The code I used to implement them came from https://learn.ontariotechu.ca/courses/34225/pages/color-correction?module_item_id=802768. The reason why is because part3 specified to use the shader code that applies the LUTs to the screen which implies that we made one already and the one I made was also the same one from the canvas already. The modifications were changing the contribution property from 1 to 0.65 to make the lerping effect less harsh and more smooth. I also experiemented with the code so that the threshhold is added instead of multiplied, which creates a painterly or illustration of the game which can be used as a loading screen of some sort. Additionally, I used the camera code from here https://learn.ontariotechu.ca/courses/34225/files/5545568?module_item_id=802763 to apply a texture to a canvas image so that the camera can use Graphics.Blit to render the material.
+<img width="787" height="440" alt="image" src="https://github.com/user-attachments/assets/0ae0aa1d-62f8-4b74-a21a-9b9d5e14e488" />
+Cold
+<img width="787" height="446" alt="image" src="https://github.com/user-attachments/assets/73179490-3ed4-4fac-b522-edf05e80acd4" />
+Warm
+<img width="787" height="440" alt="image" src="https://github.com/user-attachments/assets/ad090625-21ff-45c1-af19-ac41f9f4f04f" />
+Custom
+LUTs used for this project:
+<img width="1024" height="32" alt="NeutralLUT" src="https://github.com/user-attachments/assets/e39814d4-c878-49b0-90e8-a12f57fd4964" />
+<img width="512" height="15" alt="LUTcold" src="https://github.com/user-attachments/assets/6c35c5ff-c1b8-4c44-8b61-c7c4365808a5" />
+<img width="512" height="16" alt="LUTwarm" src="https://github.com/user-attachments/assets/1d2adafc-7a36-41ce-81f9-e532ce02b479" />
+<img width="512" height="17" alt="LUTcustom" src="https://github.com/user-attachments/assets/44634580-1af8-4d56-818c-e34b69904f03" />
+
+
+
 
 
 Part 3b: 
