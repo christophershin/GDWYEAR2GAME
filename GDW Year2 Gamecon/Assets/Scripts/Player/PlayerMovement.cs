@@ -197,35 +197,4 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
-    // color grading with LUT cold
-    public void LUTcold()
-    {
-        // turn camera on 
-        cameraColorGrading.SetActive(true);
-
-        CanvasImage.GetComponent<Image>().material = Shader_materials[8];
-        
-    }
-
-    // color grading with LUT warm
-    public void LUTwarm()
-    {
-        // turn camera on 
-        cameraColorGrading.SetActive(true);
-
-        CanvasImage.GetComponent<Image>().material = Shader_materials[9];
-
-    }
-
-
-    // color grading with LUT custom
-    public void LUTcustom()
-    {
-        // turn camera on 
-        cameraColorGrading.SetActive(true);
-
-        CanvasImage.GetComponent<Image>().material = Shader_materials[10];
-
-    }
 }
