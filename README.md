@@ -18,11 +18,11 @@ https://learn.ontariotechu.ca/courses/34225/pages/diffuse-ambient-specular?modul
 
 I decided to attach each of these illuminations to the projectiles as the projectiles were the most previlant within the scene, so we wanted to make sure that they could be seen.
 
-I, Christopher Shin, made each shader togglable using the 1,2,3,4 keys respectively.
+I, Christopher Shin, made each shader togglable using the 1,2,3,4 keys respectively. I additionally made a custom shader where I combined Simple Specualar and Rim Lighting and got some interesting effects where you can get some shininess as well as an outline color. I used the code for diffuse ambient specular and Rim Lighting Connor used to create something new and to experiment with what I could do. I mainly wanted to use this for some projectiles so that the rim lighting would make them pop out and the simple specular would enhance the look of them. 
 
 Part 3a:
 
-I, Christopher Shin made the color grading for the project. I created 3 LUTs that can be toggled using the num keys, one for warm, cold, and custom. I used this website https://photoshop.adobe.com/ to create them because I knew it was an efficient and fast tool, as well as part3 used photoshop as an example in which I used a similar version. The code I used to implement them came from https://learn.ontariotechu.ca/courses/34225/pages/color-correction?module_item_id=802768. The reason why is because part3 specified to use the shader code that applies the LUTs to the screen which implies that we made one already. The modifications were changing the contribution property from 1 to 0.65 to make the lerping effect less harsh and more smooth. 
+I, Christopher Shin made the color grading for the project. I created 3 LUTs that can be toggled using the num keys, one for warm, cold, and custom. I used this website https://photoshop.adobe.com/ to create them because I knew it was an efficient and fast tool, as well as part3 used photoshop as an example in which I used a similar version. The code I used to implement them came from https://learn.ontariotechu.ca/courses/34225/pages/color-correction?module_item_id=802768. The reason why is because part3 specified to use the shader code that applies the LUTs to the screen which implies that we made one already and the one I made was also the same one from the canvas already. The modifications were changing the contribution property from 1 to 0.65 to make the lerping effect less harsh and more smooth. 
 
 
 Part 3b: 
