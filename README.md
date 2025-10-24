@@ -11,8 +11,14 @@ Created a 3D unity project where the main player controls a platypus and must ma
 
 Part 2:
 I, Connor McCarthy, created the three illumination shaders: simple diffuse lighting, diffuse lighting with ambient and simple specular.
+I made use of the following code:
+https://learn.ontariotechu.ca/courses/34225/pages/lambert-shader?module_item_id=800751 
+https://learn.ontariotechu.ca/courses/34225/pages/ambient-shader?module_item_id=800760 
+https://learn.ontariotechu.ca/courses/34225/pages/diffuse-ambient-specular?module_item_id=800862
+
+I decided to attach each of these illuminations to the projectiles as the projectiles were the most previlant within the scene, so we wanted to make sure that they could be seen.
+
 I, Christopher Shin, made each shader togglable using the 1,2,3 keys respectively.
-We decided to attach them to the projectiles.
 
 Part 3a:
 
