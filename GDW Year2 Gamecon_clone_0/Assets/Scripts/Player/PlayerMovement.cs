@@ -1,6 +1,7 @@
 using UnityEngine;
+using Unity.Netcode;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 8f;
@@ -9,22 +10,25 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 moveDirection;
 
-    private Alteruna.Avatar _avatar;
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner)
+        {
+            enabled = false;
+            return;
+
+        }
+        
+    }
 
     void Start()
     {
-        _avatar = GetComponent<Alteruna.Avatar>();
-
-        if (!_avatar.IsMe)
-            return;
 
         controller = GetComponent<CharacterController>();
     }
 
     void Update()
     {
-        if (!_avatar.IsMe)
-            return;
 
         // Player Movement
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -47,4 +51,5 @@ public class PlayerMovement : MonoBehaviour
         // Move the CharacterController
         controller.Move(moveDirection * Time.deltaTime);
     }
+
 }

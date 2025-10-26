@@ -1,41 +1,39 @@
+using Unity.Netcode;
 using UnityEngine;
-using Alteruna;
-using Avatar = Alteruna.Avatar;
 
-public class Deflect: AttributesSync
+
+public class Deflect: NetworkBehaviour
 {
-    [SerializeField] private AudioClip[] sounds;
+    public AudioClip[] sounds;
     private AudioSource ManagerAudio;
-
-    [SerializeField] private Alteruna.Avatar _avatar;
-
+    public Transform cam;
 
 
-    private void Start()
+    public override void OnNetworkSpawn()
     {
-
-        if (!_avatar.IsMe)
+        if (!IsOwner)
         {
+            enabled = false;
             return;
+
         }
-            
 
         ManagerAudio = GetComponent<AudioSource>();
+        ManagerAudio.clip = sounds[0];
     }
 
 
 
-
-
-    void OnCollisionEnter(Collision collision)
-   {
-        if(collision.gameObject.CompareTag("Parriable"))
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Parriable"))
         {
             GameObject obj = collision.gameObject;
-            obj.GetComponent<Rigidbody>().linearVelocity = Camera.main.transform.forward * 8;
-            ManagerAudio.Play();
+            obj.GetComponent<Rigidbody>().linearVelocity = cam.forward * 8;
+
         }
-   }
+            
+    }
 
 }
 

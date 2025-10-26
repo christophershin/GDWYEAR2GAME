@@ -1,8 +1,9 @@
 using System.Threading;
 using UnityEngine;
+using Unity.Netcode;
 
 [System.Serializable]
-public class EnemyFiring : MonoBehaviour
+public class EnemyFiring : NetworkBehaviour
 {
 
     public float timerMax = 1;
@@ -12,24 +13,36 @@ public class EnemyFiring : MonoBehaviour
 
     public Transform playerbody;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void OnNetworkSpawn()
     {
+        if(!IsServer)
+        {
+            enabled = false;
+            return;
+        }
+
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+        if (!IsServer)
+        {
+            return;
+        }
+
+
         timer -= Time.deltaTime;
 
-
-        if (timer <= 0)
-        {
-            GameObject bullet = Instantiate(proj, transform);
-            bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 0, -projectile_speed);
-            timer = timerMax;
-        }
+            if (timer <= 0)
+            {
+                GameObject bullet = Instantiate(proj, transform);
+                bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 0, -projectile_speed);
+                bullet.GetComponent<NetworkObject>().Spawn(true);
+                timer = timerMax;
+            }
+        
 
     }
 }
