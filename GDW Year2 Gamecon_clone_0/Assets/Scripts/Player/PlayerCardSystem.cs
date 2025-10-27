@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Drawing;
+using Alteruna;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -9,6 +11,7 @@ public class PlayerCardSystem : NetworkBehaviour
     public GameObject projectile;
     [SerializeField] private float proj_speed;
     [SerializeField] private Transform cam;
+    public float colliderDisableTime = 0.05f;
 
     public override void OnNetworkSpawn()
     {
@@ -17,12 +20,13 @@ public class PlayerCardSystem : NetworkBehaviour
             enabled = false;
             return;
         }
+        
 
     }
 
     void Start()
     {
-        
+        Debug.Log(GetComponent<EntitiesClass>().teamID);
     }
 
     // Update is called once per frame
@@ -43,13 +47,26 @@ public class PlayerCardSystem : NetworkBehaviour
     void ShootServerRPC()
     {
 
-        string id = GetComponent<EntitiesClass>().TeamID();
+        string id = GetComponent<EntitiesClass>().teamID;
 
         GameObject bullet = Instantiate(projectile, transform);
         bullet.GetComponent<Rigidbody>().linearVelocity = cam.forward * proj_speed;
-        bullet.GetComponent<EntitiesClass>().SetTeamID(id);
+        bullet.GetComponent<EntitiesClass>().teamID = id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
-        
+
+        if (bullet.GetComponent<EntitiesClass>().teamID == id)
+            StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
+
+    }
+
+
+    private IEnumerator colliderToggled(Collider collider)
+    {
+        collider.enabled = false;
+
+        yield return new WaitForSeconds(colliderDisableTime);
+
+        collider.enabled = true;
     }
 
 }

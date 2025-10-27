@@ -115,7 +115,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3932143050
+  GlobalObjectIdHash: 3944552304
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -192,6 +192,7 @@ MonoBehaviour:
   projectile: {fileID: 6468302795573462009, guid: f2bbdf060efcdc347bb46ce147e706a6, type: 3}
   proj_speed: 10
   cam: {fileID: 5487012962671268872}
+  colliderDisableTime: 0.1
 --- !u!114 &425265588584938919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffc4580b5a550343b88608ec3631627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntitiesClass
+  ShowTopMostFoldoutHeaderGroup: 1
+  teamID: 
 --- !u!143 &3625908984048905263
 CharacterController:
   m_ObjectHideFlags: 0
@@ -286,7 +289,6 @@ GameObject:
   - component: {fileID: 3810711799468088573}
   - component: {fileID: 5124218186203358603}
   - component: {fileID: 2488996268860524787}
-  - component: {fileID: 8395525122339816888}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -365,27 +367,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8395525122339816888
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3810033080388160734}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4997146690751356908
 GameObject:
   m_ObjectHideFlags: 0

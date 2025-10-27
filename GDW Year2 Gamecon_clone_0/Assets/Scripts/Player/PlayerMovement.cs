@@ -18,14 +18,11 @@ public class PlayerMovement : NetworkBehaviour
             return;
 
         }
-        
-    }
-
-    void Start()
-    {
-
+        Debug.Log(GetComponent<EntitiesClass>().teamID);
         controller = GetComponent<CharacterController>();
+
     }
+
 
     void Update()
     {
