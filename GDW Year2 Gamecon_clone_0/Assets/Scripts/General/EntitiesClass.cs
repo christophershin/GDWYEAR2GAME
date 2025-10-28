@@ -5,14 +5,7 @@ using UnityEngine;
 public class EntitiesClass: NetworkBehaviour
 {
 
-    public string teamID;
-
-
-    private void Awake()
-    {
-        teamID = gameObject.GetInstanceID().ToString();
-    }
-
+    public string teamID = "";
 
     public override void OnNetworkSpawn()
     {
@@ -20,7 +13,11 @@ public class EntitiesClass: NetworkBehaviour
         {
             enabled = false;
             return;
+        }
 
+        if (teamID == null || teamID == "")
+        {
+            teamID = gameObject.GetInstanceID().ToString();
         }
     }
 

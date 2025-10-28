@@ -22,8 +22,7 @@ public class EnemyFiring : NetworkBehaviour
             enabled = false;
             return;
         }
-
-        Debug.Log(GetComponent<EntitiesClass>().teamID);
+        
     }
 
 

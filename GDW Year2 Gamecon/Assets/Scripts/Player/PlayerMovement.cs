@@ -18,7 +18,7 @@ public class PlayerMovement : NetworkBehaviour
             return;
 
         }
-        Debug.Log(GetComponent<EntitiesClass>().teamID);
+
         controller = GetComponent<CharacterController>();
 
     }

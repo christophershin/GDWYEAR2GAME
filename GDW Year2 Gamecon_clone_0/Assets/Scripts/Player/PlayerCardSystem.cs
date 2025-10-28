@@ -20,14 +20,10 @@ public class PlayerCardSystem : NetworkBehaviour
             enabled = false;
             return;
         }
-        
 
-    }
-
-    void Start()
-    {
         Debug.Log(GetComponent<EntitiesClass>().teamID);
     }
+
 
     // Update is called once per frame
     void Update()
@@ -53,9 +49,11 @@ public class PlayerCardSystem : NetworkBehaviour
         bullet.GetComponent<Rigidbody>().linearVelocity = cam.forward * proj_speed;
         bullet.GetComponent<EntitiesClass>().teamID = id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
+        Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
 
         if (bullet.GetComponent<EntitiesClass>().teamID == id)
             StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
+            
 
     }
 

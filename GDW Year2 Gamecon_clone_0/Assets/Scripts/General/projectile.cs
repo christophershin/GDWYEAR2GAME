@@ -32,8 +32,13 @@ public class projectile : NetworkBehaviour
 
 
     }
-    
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
 }
