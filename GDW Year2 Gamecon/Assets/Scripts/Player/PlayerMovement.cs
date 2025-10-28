@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.Netcode;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : NetworkBehaviour
 {
@@ -51,5 +52,4 @@ public class PlayerMovement : NetworkBehaviour
         // Move the CharacterController
         controller.Move(moveDirection * Time.deltaTime);
     }
-
 }
