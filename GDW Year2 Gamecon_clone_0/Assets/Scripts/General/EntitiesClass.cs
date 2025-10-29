@@ -5,7 +5,7 @@ using UnityEngine;
 public class EntitiesClass: NetworkBehaviour
 {
 
-    public string teamID = "";
+    public string teamID;
 
     public override void OnNetworkSpawn()
     {

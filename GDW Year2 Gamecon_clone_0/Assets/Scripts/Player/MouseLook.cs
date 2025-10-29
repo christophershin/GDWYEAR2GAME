@@ -28,6 +28,8 @@ public class MouseLook : NetworkBehaviour
 
 
 
+
+
         CameraLook();
         
 
@@ -35,11 +37,11 @@ public class MouseLook : NetworkBehaviour
     }
 
 
-    void CameraLook()
-    {
+
+    void CameraLook(){
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
 
         // Vertical camera rotation (looking up/down)
         xRotation -= mouseY;
