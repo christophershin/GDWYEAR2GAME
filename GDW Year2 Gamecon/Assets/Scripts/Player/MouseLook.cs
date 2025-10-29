@@ -16,15 +16,11 @@ public class MouseLook : NetworkBehaviour
         {
 
             gameObject.SetActive(false);
+            return;
+
         }
-    }
 
-
-    void Start()
-    {
-
-
-        Cursor.lockState = CursorLockMode.Locked; // Lock and hide the cursor
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -33,6 +29,8 @@ public class MouseLook : NetworkBehaviour
 
 
         CameraLook();
+        
+
 
     }
 
@@ -42,10 +40,12 @@ public class MouseLook : NetworkBehaviour
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
+
         // Vertical camera rotation (looking up/down)
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Clamp to prevent over-rotation
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        
 
         // Horizontal player rotation (looking left/right)
         playerBody.Rotate(Vector3.up * mouseX);

@@ -23,11 +23,6 @@ public class projectile : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsServer)
-        {
-            return;
-        }
-
 
         projectileTimer -= Time.deltaTime;
 
@@ -37,4 +32,14 @@ public class projectile : NetworkBehaviour
 
 
     }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.GetComponent<EntitiesClass>().TeamID() == GetComponent<EntitiesClass>().TeamID())
+        {
+            GetComponent<SphereCollider>().enabled = false;
+        } 
+    }
+
 }
