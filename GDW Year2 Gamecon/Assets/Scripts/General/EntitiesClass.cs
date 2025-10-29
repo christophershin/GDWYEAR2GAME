@@ -1,23 +1,24 @@
 using System.Drawing;
+using Unity.Netcode;
 using UnityEngine;
 
-public class EntitiesClass: MonoBehaviour
+public class EntitiesClass: NetworkBehaviour
 {
 
-    private string teamID;
+    public string teamID = "";
 
-
-    void Start()
+    public override void OnNetworkSpawn()
     {
-        teamID = this.gameObject.ToString();
-    }
+        if (!IsOwner)
+        {
+            enabled = false;
+            return;
+        }
 
-    
-
-
-    public string TeamID()
-    {
-        return teamID;
+        if (teamID == null || teamID == "")
+        {
+            teamID = gameObject.GetInstanceID().ToString();
+        }
     }
 
     public void SetTeamID(string id)

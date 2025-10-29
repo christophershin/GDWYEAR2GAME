@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8152836902478769894}
   - component: {fileID: 4749476908169774486}
   - component: {fileID: 8833544323785172795}
-  - component: {fileID: 9109977931730777271}
+  - component: {fileID: 8269902561809024586}
   - component: {fileID: 1362454058901060606}
   - component: {fileID: 55861288661541634}
   - component: {fileID: 5060316219950822923}
@@ -117,7 +117,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9109977931730777271
+--- !u!114 &8269902561809024586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 478001375
+  GlobalObjectIdHash: 1665439149
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -158,6 +158,7 @@ MonoBehaviour:
   timerMax: 1
   projectile_speed: 5
   proj: {fileID: 6468302795573462009, guid: f2bbdf060efcdc347bb46ce147e706a6, type: 3}
+  colliderDisableTime: 0.1
   playerbody: {fileID: 7121588875712704624, guid: e3708e63473a3644ebd5b5919dfbd540, type: 3}
 --- !u!114 &55861288661541634
 MonoBehaviour:
@@ -171,6 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffc4580b5a550343b88608ec3631627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntitiesClass
+  ShowTopMostFoldoutHeaderGroup: 1
+  teamID: 
 --- !u!114 &5060316219950822923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,9 +207,9 @@ MonoBehaviour:
   SyncRotAngleX: 1
   SyncRotAngleY: 1
   SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
   PositionThreshold: 0.001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01

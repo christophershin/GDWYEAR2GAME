@@ -264,6 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1483156236346804662}
+  - component: {fileID: 3400681692381807854}
   - component: {fileID: 6238541180225621645}
   m_Layer: 0
   m_Name: World
@@ -293,6 +294,31 @@ Transform:
   - {fileID: 7824786106656439032}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3400681692381807854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5765266762959245409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
+  GlobalObjectIdHash: 1017462103
+  InScenePlacedSourceGlobalObjectIdHash: 3487010264
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 0
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!114 &6238541180225621645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +336,7 @@ MonoBehaviour:
   - {fileID: 5930414323675175046}
   - {fileID: 6122648978154503860}
   - {fileID: 1678366232676816617}
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 7121588875712704624, guid: e3708e63473a3644ebd5b5919dfbd540, type: 3}
 --- !u!1 &5930414323675175046
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,14 +673,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7265299385644857967, guid: c7fb7a1ba58e3d548a82f604a55f486d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9109977931730777271, guid: c7fb7a1ba58e3d548a82f604a55f486d, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 831767727
-      objectReference: {fileID: 0}
-    - target: {fileID: 9109977931730777271, guid: c7fb7a1ba58e3d548a82f604a55f486d, type: 3}
-      propertyPath: SceneMigrationSynchronization
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

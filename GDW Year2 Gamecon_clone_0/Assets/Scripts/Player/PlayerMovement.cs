@@ -18,14 +18,11 @@ public class PlayerMovement : NetworkBehaviour
             return;
 
         }
-        
-    }
-
-    void Start()
-    {
 
         controller = GetComponent<CharacterController>();
+
     }
+
 
     void Update()
     {

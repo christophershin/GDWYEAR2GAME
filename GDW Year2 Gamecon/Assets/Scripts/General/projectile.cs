@@ -33,13 +33,12 @@ public class projectile : NetworkBehaviour
 
     }
 
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.GetComponent<EntitiesClass>().TeamID() == GetComponent<EntitiesClass>().TeamID())
+        if(other.gameObject.CompareTag("Obstacle"))
         {
-            GetComponent<SphereCollider>().enabled = false;
-        } 
+            Destroy(this.gameObject);
+        }
     }
 
 }
