@@ -54,7 +54,7 @@ public class RelayManager : MonoBehaviour
 
         string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
         
-        cam.SetActive(false);
+        //cam.SetActive(false);
         gameUI.SetActive(true);
         
         return NetworkManager.Singleton.StartHost() ? joinCode : null;

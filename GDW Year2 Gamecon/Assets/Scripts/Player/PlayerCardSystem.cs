@@ -10,7 +10,7 @@ public class PlayerCardSystem : NetworkBehaviour
 
     public GameObject projectile;
     [SerializeField] private float proj_speed;
-    [SerializeField] private Transform cam;
+    [SerializeField] private Camera cam;
     public float colliderDisableTime = 0.05f;
 
     public override void OnNetworkSpawn()
@@ -31,8 +31,8 @@ public class PlayerCardSystem : NetworkBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-
-            ShootServerRPC();
+            Vector3 direction = cam.transform.forward;
+            ShootServerRPC(direction);
 
         }
 
@@ -40,13 +40,13 @@ public class PlayerCardSystem : NetworkBehaviour
 
 
     [ServerRpc]
-    void ShootServerRPC()
+    void ShootServerRPC(Vector3 shootdirection)
     {
 
         string id = GetComponent<EntitiesClass>().teamID;
 
-        GameObject bullet = Instantiate(projectile, transform);
-        bullet.GetComponent<Rigidbody>().linearVelocity = cam.forward * proj_speed;
+        GameObject bullet = Instantiate(projectile, transform.position + shootdirection * 1.5f, Quaternion.identity);
+        bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
         bullet.GetComponent<EntitiesClass>().teamID = id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
         Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
