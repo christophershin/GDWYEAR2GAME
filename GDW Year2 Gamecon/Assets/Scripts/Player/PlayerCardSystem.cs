@@ -31,8 +31,10 @@ public class PlayerCardSystem : NetworkBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+
+            string id = GetComponent<EntitiesClass>().teamID;
             Vector3 direction = cam.transform.forward;
-            ShootServerRPC(direction);
+            ShootServerRPC(direction, id);
 
         }
 
@@ -40,18 +42,16 @@ public class PlayerCardSystem : NetworkBehaviour
 
 
     [ServerRpc]
-    void ShootServerRPC(Vector3 shootdirection)
+    void ShootServerRPC(Vector3 shootdirection, string _id)
     {
-
-        string id = GetComponent<EntitiesClass>().teamID;
 
         GameObject bullet = Instantiate(projectile, transform.position + shootdirection * 1.5f, Quaternion.identity);
         bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
-        bullet.GetComponent<EntitiesClass>().teamID = id;
+        bullet.GetComponent<EntitiesClass>().teamID = _id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
         Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
 
-        if (bullet.GetComponent<EntitiesClass>().teamID == id)
+        if (bullet.GetComponent<EntitiesClass>().teamID == _id)
             StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
             
 
