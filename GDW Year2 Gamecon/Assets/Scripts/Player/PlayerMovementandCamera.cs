@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 /*
     This script provides jumping and movement in Unity 3D - Gatsby
 */
 
-public class PlayerMovementandCamera : MonoBehaviour
+public class PlayerMovementandCamera : NetworkBehaviour
 {
     // Camera Rotation
     public float mouseSensitivity = 2f;
@@ -36,25 +37,28 @@ public class PlayerMovementandCamera : MonoBehaviour
     private float stepCounter = 0;
     public float stepInterval = 0.2f;
 
-
-
-    void Start()
+    public override void OnNetworkSpawn()
     {
+        if (!IsOwner)
+        {
+            enabled = false;
+            cameraTransform.gameObject.SetActive(false);
+            return;
 
+        }
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         canMove = true;
 
+        SoundPlayer = GetComponent<AudioSource>();
 
         // Set the raycast to be slightly beneath the player's feet
         playerHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
         raycastDistance = (playerHeight / 2) + 0.2f;
 
-        SoundPlayer = GetComponent<AudioSource>();
-
-        // Hides the mouse
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
     }
 
     void Update()

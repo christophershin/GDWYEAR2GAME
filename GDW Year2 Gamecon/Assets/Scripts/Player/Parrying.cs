@@ -19,32 +19,25 @@ public class Parrying : NetworkBehaviour
 
         }
 
-        parryhitbox.SetActive(false);
-
     }
 
-    void Start()
-    {
-
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
+
+        Collider collider = parryhitbox.GetComponent<BoxCollider>();
 
         if (Input.GetMouseButtonDown(1))
         {
 
             ParryServerRPC();
 
+
         }
-
-        if (Input.GetMouseButtonUp(1))
+        else if(Input.GetMouseButtonUp(1))
         {
-
             NotParryServerRPC();
-
         }
 
     }

@@ -11,20 +11,6 @@ public class GameManager : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-
-        SpawnPlayerObjectServerRPC(NetworkManager.LocalClientId);
-        
-
-    }
-
-
-
-    [ServerRpc(RequireOwnership = false)]
-    public void SpawnPlayerObjectServerRPC(ulong joinedClientId)
-    {
-
-
-
         int SpawnCount = spawnList.Count;
 
         int randNum = UnityEngine.Random.Range(0, SpawnCount);
@@ -35,6 +21,17 @@ public class GameManager : NetworkBehaviour
 
         Vector3 playSpawn = new Vector3(spawnX, spawnY, spawnZ);
 
+
+        SpawnPlayerObjectServerRPC(NetworkManager.LocalClientId, playSpawn);
+        
+
+    }
+
+
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SpawnPlayerObjectServerRPC(ulong joinedClientId, Vector3 playSpawn)
+    {
 
         Transform newGameObject = Instantiate(playerPrefab, playSpawn, Quaternion.identity);
         NetworkObject newNetworkObject = newGameObject.GetComponent<NetworkObject>();

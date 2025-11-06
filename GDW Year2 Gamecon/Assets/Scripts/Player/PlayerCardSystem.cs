@@ -34,7 +34,7 @@ public class PlayerCardSystem : NetworkBehaviour
 
             string id = GetComponent<EntitiesClass>().teamID;
             Vector3 direction = cam.transform.forward;
-            ShootServerRPC(direction, id);
+            ShootServerRPC(direction, id, proj_speed);
 
         }
 
@@ -42,7 +42,7 @@ public class PlayerCardSystem : NetworkBehaviour
 
 
     [ServerRpc]
-    void ShootServerRPC(Vector3 shootdirection, string _id)
+    void ShootServerRPC(Vector3 shootdirection, string _id, float proj_speed)
     {
 
         GameObject bullet = Instantiate(projectile, transform.position + shootdirection * 1.5f, Quaternion.identity);

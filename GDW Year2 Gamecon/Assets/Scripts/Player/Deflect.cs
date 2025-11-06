@@ -1,13 +1,15 @@
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 public class Deflect: NetworkBehaviour
 {
     public AudioClip[] sounds;
     private AudioSource ManagerAudio;
-    public Transform cam;
-
+    public GameObject cam;
+    private GameObject obj;
+    [SerializeField] GameObject player;
 
     public override void OnNetworkSpawn()
     {
@@ -20,6 +22,14 @@ public class Deflect: NetworkBehaviour
 
         ManagerAudio = GetComponent<AudioSource>();
         ManagerAudio.clip = sounds[0];
+
+        //RPCparams(new ServerRpcParams { Receive = new ServerRpcReceiveParams { }, Send = new ServerRpcSendParams { } });
+    }
+
+
+    private void Update()
+    {
+        transform.Rotate(cam.transform.forward);
     }
 
 
@@ -28,12 +38,36 @@ public class Deflect: NetworkBehaviour
     {
         if (collision.gameObject.CompareTag("Parriable"))
         {
-            GameObject obj = collision.gameObject;
-            obj.GetComponent<Rigidbody>().linearVelocity = cam.forward * 8;
+
+            obj = collision.gameObject;
+            Vector3 direction = cam.transform.forward;
+            deflectServerRPC(direction, 9);
 
         }
             
     }
+
+
+    [ServerRpc(RequireOwnership = false)]
+    void deflectServerRPC(Vector3 dir, float deflectSpeed)
+    {
+        if(obj !=null)
+        {
+            if(obj.GetComponent<EntitiesClass>().teamID != player.GetComponent<EntitiesClass>().teamID)
+            {
+                obj.transform.position = transform.position + dir;
+                obj.transform.rotation = Quaternion.identity;
+                obj.GetComponent<Rigidbody>().linearVelocity = dir.normalized * deflectSpeed;
+            }
+
+        }
+    }
+
+    //void RPCparams(ServerRpcParams paramters)
+    //{
+
+    //}
+
 
 }
 
