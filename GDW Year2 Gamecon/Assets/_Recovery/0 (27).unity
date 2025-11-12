@@ -1899,18 +1899,6 @@ PrefabInstance:
       propertyPath: mouseSensitivity
       value: 1000
       objectReference: {fileID: 0}
-    - target: {fileID: 8447813693166278409, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 953290594
-      objectReference: {fileID: 0}
-    - target: {fileID: 8447813693166278409, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
-      propertyPath: SceneMigrationSynchronization
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8447813693166278409, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 3487010264
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

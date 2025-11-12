@@ -24,21 +24,27 @@ public class projectile : NetworkBehaviour
     void Update()
     {
 
-        projectileTimer -= Time.deltaTime;
+        if (IsServer)
+        {
+            projectileTimer -= Time.deltaTime;
 
-        if (projectileTimer <= 0)
-            Destroy(this.gameObject);
-
-
-
+            if (projectileTimer <= 0)
+                GetComponent<NetworkObject>().Despawn(true);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Obstacle"))
+        if (IsServer)
         {
-            Destroy(this.gameObject);
+            if (other.gameObject.CompareTag("Obstacle"))
+            {
+                GetComponent<NetworkObject>().Despawn(true);
+            }
         }
+
+
+
     }
 
 }

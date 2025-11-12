@@ -3,13 +3,14 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 
-public class Deflect: NetworkBehaviour
+public class Deflect : NetworkBehaviour
 {
     public AudioClip[] sounds;
     private AudioSource ManagerAudio;
     public GameObject cam;
     private GameObject obj;
-    [SerializeField] GameObject player;
+    private float deflectSpeed;
+    [SerializeField] private GameObject player;
 
     public override void OnNetworkSpawn()
     {
@@ -26,40 +27,52 @@ public class Deflect: NetworkBehaviour
         //RPCparams(new ServerRpcParams { Receive = new ServerRpcReceiveParams { }, Send = new ServerRpcSendParams { } });
     }
 
-
-    private void Update()
-    {
-        transform.Rotate(cam.transform.forward);
-    }
-
-
-
     void OnTriggerEnter(Collider collision)
     {
+        // Only the client with the camera should trigger this
+        if (!IsOwner)
+            return;
+
         if (collision.gameObject.CompareTag("Parriable"))
         {
+            GameObject obj = collision.gameObject;
+            Vector3 direction = cam.transform.forward; 
+            string teamid = player.GetComponent<EntitiesClass>().teamID;
+            ulong objId = obj.GetComponent<NetworkObject>().NetworkObjectId;
+            deflectSpeed = obj.GetComponent<Rigidbody>().linearVelocity.magnitude;
 
-            obj = collision.gameObject;
-            Vector3 direction = cam.transform.forward;
-            deflectServerRPC(direction, 9);
-
+            // Tell the server to handle the deflect
+            DeflectServerRpc(objId, direction, deflectSpeed, teamid);
         }
-            
     }
 
 
     [ServerRpc(RequireOwnership = false)]
-    void deflectServerRPC(Vector3 dir, float deflectSpeed)
+    void DeflectServerRpc(ulong objId, Vector3 dir, float deflectSpeed, string id)
     {
-        if(obj !=null)
+        if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(objId, out NetworkObject netObj))
         {
-            if(obj.GetComponent<EntitiesClass>().teamID != player.GetComponent<EntitiesClass>().teamID)
+            GameObject obj = netObj.gameObject;
+
+            if (obj.GetComponent<EntitiesClass>().teamID != id)
             {
-                obj.transform.position = transform.position + dir;
-                obj.transform.rotation = Quaternion.identity;
+                obj.transform.position = transform.position; // or the hit point, not +dir
+                obj.transform.rotation = Quaternion.LookRotation(dir);
                 obj.GetComponent<Rigidbody>().linearVelocity = dir.normalized * deflectSpeed;
             }
+        }
+    }
 
+    [ServerRpc(RequireOwnership = false)]
+    void ShootServerRPC(Vector3 shootdirection, string _id, float proj_speed)
+    {
+        if (obj)
+        {
+            GameObject bullet = Instantiate(obj, transform.position + shootdirection * 3f, Quaternion.identity);
+            bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
+            bullet.GetComponent<EntitiesClass>().teamID = _id;
+            bullet.GetComponent<NetworkObject>().Spawn(true);
+            obj = null;
         }
     }
 

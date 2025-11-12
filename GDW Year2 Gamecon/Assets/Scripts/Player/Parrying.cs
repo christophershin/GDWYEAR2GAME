@@ -18,43 +18,62 @@ public class Parrying : NetworkBehaviour
             return;
 
         }
+    }
 
+    private void Start()
+    {
+        NotParryServerRPC();
     }
 
 
-    // Update is called once per frame
+
     void Update()
     {
-
-        Collider collider = parryhitbox.GetComponent<BoxCollider>();
-
-        if (Input.GetMouseButtonDown(1))
+        if (IsOwner) // only the owning player should send these RPCs
         {
+            if (Input.GetMouseButtonDown(1))
+            {
+                ParryServerRPC();
+            }
 
-            ParryServerRPC();
-
-
+            if (Input.GetMouseButtonUp(1))
+            {
+                NotParryServerRPC();
+            }
         }
-        else if(Input.GetMouseButtonUp(1))
-        {
-            NotParryServerRPC();
-        }
-
     }
 
-
     [ServerRpc]
-    void ParryServerRPC()
+    void ParryServerRPC(ServerRpcParams rpcParams = default)
     {
-
+        // Enable on the server
         parryhitbox.SetActive(true);
 
+        // Tell all clients to enable theirs too
+        ParryClientRPC();
     }
 
     [ServerRpc]
-    void NotParryServerRPC()
+    void NotParryServerRPC(ServerRpcParams rpcParams = default)
+    {
+        // Disable on the server
+        parryhitbox.SetActive(false);
+
+        // Tell all clients to disable theirs too
+        NotParryClientRPC();
+    }
+
+    [ClientRpc]
+    void ParryClientRPC(ClientRpcParams rpcParams = default)
+    {
+        parryhitbox.SetActive(true);
+    }
+
+    [ClientRpc]
+    void NotParryClientRPC(ClientRpcParams rpcParams = default)
     {
         parryhitbox.SetActive(false);
     }
+
 
 }
