@@ -42,7 +42,7 @@ public class Deflect : NetworkBehaviour
             deflectSpeed = obj.GetComponent<Rigidbody>().linearVelocity.magnitude;
 
             // Tell the server to handle the deflect
-            DeflectServerRpc(objId, direction, 10, teamid);
+            DeflectServerRpc(objId, direction, 14, teamid);
         }
     }
 
