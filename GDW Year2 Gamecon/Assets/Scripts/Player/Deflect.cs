@@ -63,19 +63,6 @@ public class Deflect : NetworkBehaviour
         }
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    void ShootServerRPC(Vector3 shootdirection, string _id, float proj_speed)
-    {
-        if (obj)
-        {
-            GameObject bullet = Instantiate(obj, transform.position + shootdirection * 3f, Quaternion.identity);
-            bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
-            bullet.GetComponent<EntitiesClass>().teamID = _id;
-            bullet.GetComponent<NetworkObject>().Spawn(true);
-            obj = null;
-        }
-    }
-
     //void RPCparams(ServerRpcParams paramters)
     //{
 
