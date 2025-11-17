@@ -5,8 +5,9 @@ public class projectile : NetworkBehaviour
 {
 
 
-    [SerializeField] private float projectileTimerMax = 10;
-    private float projectileTimer;
+    public float projectileTimerMax = 10;
+    [HideInInspector]
+    public float projectileTimer;
 
     // Performs behavior on the server which then sends data to all clients
     public override void OnNetworkSpawn()
@@ -42,8 +43,6 @@ public class projectile : NetworkBehaviour
                 GetComponent<NetworkObject>().Despawn(true);
             }
         }
-
-
 
     }
 

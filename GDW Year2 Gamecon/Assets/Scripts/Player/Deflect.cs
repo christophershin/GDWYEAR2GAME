@@ -60,6 +60,7 @@ public class Deflect : NetworkBehaviour
                 obj.transform.rotation = Quaternion.LookRotation(dir);
                 obj.GetComponent<Rigidbody>().linearVelocity = dir.normalized * deflectSpeed;
                 obj.GetComponent<EntitiesClass>().teamID = id;
+                obj.GetComponent<projectile>().projectileTimer = obj.GetComponent<projectile>().projectileTimerMax;
             }
         }
     }
