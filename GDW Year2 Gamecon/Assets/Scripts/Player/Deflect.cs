@@ -59,6 +59,7 @@ public class Deflect : NetworkBehaviour
                 obj.transform.position = transform.position; // or the hit point, not +dir
                 obj.transform.rotation = Quaternion.LookRotation(dir);
                 obj.GetComponent<Rigidbody>().linearVelocity = dir.normalized * deflectSpeed;
+                obj.GetComponent<EntitiesClass>().teamID = id;
             }
         }
     }
