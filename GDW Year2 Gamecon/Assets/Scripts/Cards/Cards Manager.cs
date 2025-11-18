@@ -14,7 +14,8 @@ public class CardsManager : MonoBehaviour
     
     // Card Positions
     //[SerializeField] private GameObject[] slots; // 0: front, 1: middle, 2: back
-    
+
+    [SerializeField] private Image[] ogImages;
     [SerializeField] private RectTransform[] positions; // reference for the positions
     [SerializeField] private List<Image> movableImages; // Images
     [SerializeField] private List<RectTransform> _movables; // the actual cards to move
@@ -68,6 +69,8 @@ public class CardsManager : MonoBehaviour
                 break;
         }
         
+        movableImages[currentCard].color = ogImages[currentCard].color;
+        
         // Activates / deacticvates slots
         for (int i = 0; i < movableImages.Count; i++)
         {
@@ -103,6 +106,7 @@ public class CardsManager : MonoBehaviour
         {
             _movables.Add(movableImages[i].rectTransform);
             _movables[i].SetSiblingIndex((movableImages.Count - 1) - i);
+            movableImages[i].color = ogImages[i].color;
         }
         
         var first = _cards[0];
@@ -136,6 +140,7 @@ public class CardsManager : MonoBehaviour
         {
             _movables.Add(movableImages[i].rectTransform);
             _movables[i].SetSiblingIndex((movableImages.Count - 1) - i);
+            movableImages[i].color = ogImages[i].color;
         }
         
         var currentCard = _cards.Count - 1;

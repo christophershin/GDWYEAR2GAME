@@ -184,9 +184,8 @@ public class PlayerMovementandCamera : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Card"))
+        if (other.gameObject.CompareTag("Card") && _cardsManager.AddCard(other.gameObject.name))
         {
-            _cardsManager.AddCard(other.gameObject.name);
             Destroy(other.gameObject);
         }
     }
