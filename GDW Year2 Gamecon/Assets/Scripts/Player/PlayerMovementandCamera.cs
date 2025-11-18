@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /*
@@ -36,6 +38,14 @@ public class PlayerMovementandCamera : NetworkBehaviour
     private AudioSource SoundPlayer;
     private float stepCounter = 0;
     public float stepInterval = 0.2f;
+    
+    //CardManager
+    private CardsManager _cardsManager;
+
+    private void Start()
+    {
+        _cardsManager = GameObject.Find("Cards").GetComponent<CardsManager>();
+    }
 
     public override void OnNetworkSpawn()
     {
@@ -172,4 +182,12 @@ public class PlayerMovementandCamera : NetworkBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Card"))
+        {
+            _cardsManager.AddCard(other.gameObject.name);
+            Destroy(other.gameObject);
+        }
+    }
 }

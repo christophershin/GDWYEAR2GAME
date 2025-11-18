@@ -22,6 +22,7 @@ public class RelayManager : MonoBehaviour
     [SerializeField] private GameObject networkUI;
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject gameUI;
+    [SerializeField] private GameObject gameplayUI;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -56,6 +57,7 @@ public class RelayManager : MonoBehaviour
         
         //cam.SetActive(false);
         gameUI.SetActive(true);
+        gameplayUI.SetActive(true);
         
         return NetworkManager.Singleton.StartHost() ? joinCode : null;
     }
@@ -65,7 +67,8 @@ public class RelayManager : MonoBehaviour
         JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
         NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new RelayServerData(joinAllocation, "dtls"));
-
+        gameplayUI.SetActive(true);
+        
         return !string.IsNullOrEmpty(joinCode) && NetworkManager.Singleton.StartClient();
     }
 

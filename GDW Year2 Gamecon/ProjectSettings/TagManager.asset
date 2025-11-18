@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Parriable
   - Obstacle
+  - Card
   layers:
   - Default
   - TransparentFX
