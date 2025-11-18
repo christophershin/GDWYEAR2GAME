@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
     
     public void Online()
     {
-        SceneManager.LoadScene("Online");
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void Quit()
