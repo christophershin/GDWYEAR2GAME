@@ -34,12 +34,16 @@ public class projectile : NetworkBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.GetComponent<EntitiesClass>().TeamID() == GetComponent<EntitiesClass>().TeamID())
-        {
-            GetComponent<SphereCollider>().enabled = false;
-        } 
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.GetComponent<EntitiesClass>().TeamID() == GetComponent<EntitiesClass>().TeamID())
+    //    {
+    //        GetComponent<SphereCollider>().enabled = false;
+    //    }
+
+    //    else
+    //    {
+    //    }
+    //}
 
 }
