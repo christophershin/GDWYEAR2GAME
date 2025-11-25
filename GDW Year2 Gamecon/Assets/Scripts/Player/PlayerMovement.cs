@@ -170,7 +170,7 @@ public class PlayerMovement : MonoBehaviour
         {
              cameraColorGrading.SetActive(true);
 
-             CanvasImage.GetComponent<Image>().material = Shader_materials[8];
+             CanvasImage.GetComponent<RawImage>().material = Shader_materials[8];
             
         }
 
@@ -181,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
                 // turn camera on 
                 cameraColorGrading.SetActive(true);
 
-                CanvasImage.GetComponent<Image>().material = Shader_materials[9];
+                CanvasImage.GetComponent<RawImage>().material = Shader_materials[9];
             
         }
 
@@ -192,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
                 // turn camera on 
                 cameraColorGrading.SetActive(true);
 
-                CanvasImage.GetComponent<Image>().material = Shader_materials[10];
+                CanvasImage.GetComponent<RawImage>().material = Shader_materials[10];
             
         }
 
