@@ -11,6 +11,10 @@ public class PlayerMovement : NetworkBehaviour
     private CharacterController controller;
     private Vector3 moveDirection;
 
+    public GameObject PressE;
+
+    public string WinScene;
+    public string LoseScene;
     public override void OnNetworkSpawn()
     {
         if (!IsOwner)
@@ -24,7 +28,7 @@ public class PlayerMovement : NetworkBehaviour
 
     void Start()
     {
-
+        PressE.SetActive(false);
         controller = GetComponent<CharacterController>();
     }
 
@@ -51,5 +55,42 @@ public class PlayerMovement : NetworkBehaviour
 
         // Move the CharacterController
         controller.Move(moveDirection * Time.deltaTime);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Crown"))
+        {
+            PressE.SetActive(true);
+            if (Input.GetKey(KeyCode.E))
+            {
+                SceneWin();
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Crown"))
+        {
+            PressE.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Death"))
+        {
+            SceneLose();
+        }
+    }
+
+    public void SceneWin()
+    {
+        SceneManager.LoadScene(WinScene);
+    }
+    public void SceneLose()
+    {
+        SceneManager.LoadScene(LoseScene);
     }
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1362454058901060606}
   - component: {fileID: 55861288661541634}
   - component: {fileID: 5060316219950822923}
+  - component: {fileID: 3221121200294378542}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -129,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 478001375
+  GlobalObjectIdHash: 2263818298
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -217,3 +218,19 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &3221121200294378542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258079661527460890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b82351a34955e6b4ab2b1500be009a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  pointA: {x: -3, y: 0, z: 0}
+  pointB: {x: 3, y: 0, z: 0}
+  speed: 2
+  useLocalPositions: 1

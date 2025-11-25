@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/LoseScene.unity
-    guid: 8f5c94153d830134992a3b392d56a55c
+    path: Assets/Scenes/WinScene.unity
+    guid: d7b87f441d73bc246bc8ead4e377a2b1
+  - enabled: 1
+    path: Assets/Scenes/DeathScene.unity
+    guid: 00b5ab45629bc8d42a78d269b54699bf
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
