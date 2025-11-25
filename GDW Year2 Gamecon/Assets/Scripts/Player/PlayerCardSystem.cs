@@ -38,31 +38,44 @@ public class PlayerCardSystem : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-
+    
         if (Input.GetMouseButtonDown(0))
         {
+            string id = GetComponent<EntitiesClass>().teamID;
+            Vector3 direction = cam.transform.forward;
+            
             string card = _cardsManager.UseCard();
-            if (card == "") return;
-
+            if (card == "")
+            {
+                //ShootServerRPC(direction, id, proj_speed);
+                return;
+            }
+                
+            
+            
+            //ShootServerRPC(direction, id, proj_speed);
+            
             switch (card)
             {
                 case "Puck":
-                    projectile = puck;
+                    ShootPuckServerRPC(direction, id, proj_speed);
+                    // projectile = puck;
                     break;
                 case "Grenade":
-                    projectile = grenade;
+                    ShootBombServerRPC(direction, id, proj_speed);
+                    //projectile = grenade;
                     break;
                 case "Pikeball":
-                    projectile = pikeball;
+                    ShootPikeServerRPC(direction, id, proj_speed);
+                    //projectile = pikeball;
                     break;
                 case "Knife":
-                    projectile = knife;
+                    ShootKnifeServerRPC(direction, id, proj_speed);
+                    //projectile = knife;
                     break;
             }
 
-            string id = GetComponent<EntitiesClass>().teamID;
-            Vector3 direction = cam.transform.forward;
-            ShootServerRPC(direction, id, proj_speed);
+            
 
         }
 
@@ -81,8 +94,62 @@ public class PlayerCardSystem : NetworkBehaviour
 
         if (bullet.GetComponent<EntitiesClass>().teamID == _id)
             StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
-            
+    }
+    
+    [ServerRpc]
+    void ShootPuckServerRPC(Vector3 shootdirection, string _id, float proj_speed)
+    {
 
+        GameObject bullet = Instantiate(puck, transform.position + shootdirection * 1.5f, Quaternion.identity);
+        bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
+        bullet.GetComponent<EntitiesClass>().teamID = _id;
+        bullet.GetComponent<NetworkObject>().Spawn(true);
+        Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
+
+        if (bullet.GetComponent<EntitiesClass>().teamID == _id)
+            StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
+    }
+    
+    [ServerRpc]
+    void ShootPikeServerRPC(Vector3 shootdirection, string _id, float proj_speed)
+    {
+
+        GameObject bullet = Instantiate(pikeball, transform.position + shootdirection * 1.5f, Quaternion.identity);
+        bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
+        bullet.GetComponent<EntitiesClass>().teamID = _id;
+        bullet.GetComponent<NetworkObject>().Spawn(true);
+        Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
+
+        if (bullet.GetComponent<EntitiesClass>().teamID == _id)
+            StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
+    }
+    
+    [ServerRpc]
+    void ShootBombServerRPC(Vector3 shootdirection, string _id, float proj_speed)
+    {
+
+        GameObject bullet = Instantiate(grenade, transform.position + shootdirection * 1.5f, Quaternion.identity);
+        bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
+        bullet.GetComponent<EntitiesClass>().teamID = _id;
+        bullet.GetComponent<NetworkObject>().Spawn(true);
+        Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
+
+        if (bullet.GetComponent<EntitiesClass>().teamID == _id)
+            StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
+    }
+    
+    [ServerRpc]
+    void ShootKnifeServerRPC(Vector3 shootdirection, string _id, float proj_speed)
+    {
+
+        GameObject bullet = Instantiate(knife, transform.position + shootdirection * 1.5f, Quaternion.identity);
+        bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
+        bullet.GetComponent<EntitiesClass>().teamID = _id;
+        bullet.GetComponent<NetworkObject>().Spawn(true);
+        Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
+
+        if (bullet.GetComponent<EntitiesClass>().teamID == _id)
+            StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
     }
 
 

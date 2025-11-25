@@ -186,7 +186,7 @@ public class PlayerMovementandCamera : NetworkBehaviour
     {
         if (other.gameObject.CompareTag("Card") && _cardsManager.AddCard(other.gameObject.name))
         {
-            Destroy(other.gameObject);
+            other.GetComponent<DeleteCard>().DespawnServerRPC();
         }
     }
 }

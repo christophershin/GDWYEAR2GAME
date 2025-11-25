@@ -182,7 +182,7 @@ MonoBehaviour:
   grenade: {fileID: 7773193080157374451, guid: 5a0403a9521fb904896bfc8d4e45ab4f, type: 3}
   pikeball: {fileID: 7773193080157374451, guid: 25a31d996a5020841a2b0654460ca88c, type: 3}
   knife: {fileID: 7773193080157374451, guid: 929a91a52109dd64d9a277a63ec04251, type: 3}
-  projectile: {fileID: 7773193080157374451, guid: 81862aa70f545b74592d2fc22849e6a6, type: 3}
+  projectile: {fileID: 6468302795573462009, guid: f2bbdf060efcdc347bb46ce147e706a6, type: 3}
   proj_speed: 10
   cam: {fileID: 6582233133600555281}
   colliderDisableTime: 0.1

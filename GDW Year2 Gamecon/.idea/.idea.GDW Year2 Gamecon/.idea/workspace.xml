@@ -5,29 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Grenade.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Grenade.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Knife.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Knife.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Pikeball.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Pikeball.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Black.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Black.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Grenade.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Grenade.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Knife.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Knife.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Orange.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Orange.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Pikeball.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Pikeball.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Puck.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Puck.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Puck.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Puck.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Grenade.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Grenade.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Knife.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Knife.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Puck.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Puck.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovementandCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovementandCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/PC_RPAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/PC_RPAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,9 +33,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scenes/Card Visuals.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scenes/Cards Manager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cards/Card Management.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CardSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DeleteCard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Health Manager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.relay@89d2e904f0fd/Runtime/SDK/WrappedRelayService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@e375ff18e90f/Editor/TMP/TMPro_FontAssetCreatorWindow.cs" root0="SKIP_HIGHLIGHTING" />
@@ -71,7 +65,7 @@
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Desktop/gdw network tst\GDW Year2 Gamecon.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Desktop/GDW Build\GDW Year2 Gamecon.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\School\Desktop\gdw network tst" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -153,7 +147,7 @@
       <workItem from="1763418267331" duration="7515000" />
       <workItem from="1763482882371" duration="5327000" />
       <workItem from="1763496531816" duration="604000" />
-      <workItem from="1764090960601" duration="10834000" />
+      <workItem from="1764090960601" duration="14505000" />
     </task>
     <servers />
   </component>
