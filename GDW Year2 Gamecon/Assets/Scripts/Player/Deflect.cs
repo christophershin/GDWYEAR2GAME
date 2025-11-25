@@ -44,9 +44,14 @@ public class Deflect : NetworkBehaviour
             // Tell the server to handle the deflect
             DeflectServerRpc(objId, direction, 14, teamid);
 
-            //play sound
-            ManagerAudio.clip = sounds[0];
-            ManagerAudio.Play();
+            
+            if(obj.GetComponent<EntitiesClass>().teamID != teamid)
+            {
+                //play sound
+                ManagerAudio.clip = sounds[0];
+                ManagerAudio.Play();
+            }
+
         }
     }
 
