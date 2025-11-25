@@ -7,146 +7,124 @@ using UnityEngine.UI;
 
 public class CardsManager : MonoBehaviour
 {
-    // Array
-    private List<string> _cards = new List<string>(3);
+    [SerializeField] private GameObject puck, pikeball, grenade, knife;
+    [SerializeField] private GameObject[] order; // the gameobject of the originals
+    [SerializeField] private RectTransform[] orderRect; // the positions originals
 
-    //public RectTransform[] rts;
-    
-    // Card Positions
-    //[SerializeField] private GameObject[] slots; // 0: front, 1: middle, 2: back
+    // Cards
+    public List<GameObject> cardList = new List<GameObject>();
 
-    [SerializeField] private Image[] ogImages;
-    [SerializeField] private RectTransform[] positions; // reference for the positions
-    [SerializeField] private List<Image> movableImages; // Images
-    [SerializeField] private List<RectTransform> _movables; // the actual cards to move
-    
-    // Sprites
-    [SerializeField] private Sprite puck, grenade, pikeball, knife;
-    
-    // temporary for testing
-    public void adCrd(string card)
+    public void adcrd(string cardName)
     {
-        AddCard(card);
+        AddCard(cardName);
     }
 
     private void Update()
     {
-        // Card inputs
         float scroll = Input.mouseScrollDelta.y;
 
         if (scroll != 0f)
-            (scroll > 0f ? (System.Action)RotateFirstToLast : RotateLastToFirst)();
+            (scroll > 0f ? (System.Action)FirstCardToLast : LastCardToFirst)();
         
-        for (int i = 0; i < _movables.Count; i++)
+        for (int i = 0; i < cardList.Count; i++)
         {
-            _movables[i].anchoredPosition = Vector2.Lerp(_movables[i].anchoredPosition, positions[i].anchoredPosition, Time.deltaTime * 6f);
-            _movables[i].localRotation = Quaternion.Lerp(_movables[i].localRotation, positions[i].localRotation, Time.deltaTime * 6f);
+            // THIS IS AN EXPENSIVE METHOD CHANGE LATER
+            var rct = cardList[i].GetComponent<Image>().GetComponent<RectTransform>();
+            rct.anchoredPosition = Vector2.Lerp(rct.anchoredPosition, orderRect[i].anchoredPosition, Time.deltaTime * 6f);
+            rct.localRotation = Quaternion.Lerp(rct.localRotation, orderRect[i].localRotation, Time.deltaTime * 6f);
         }
     }
 
-    // Add Card
-    public bool AddCard(string card)
+    public bool AddCard(string nam)
     {
-        if (_cards.Count >= 3) return false;
-        _cards.Add(card);
+        // return early if cards ara max
+        if (cardList.Count >= 3) return false;
         
-        var currentCard = _cards.Count - 1;
-        
-        // This isn't a good way to do this, but I'll look for some better way later
-        switch (card)
+        // Instantiate the card
+        switch (nam)
         {
             case "Puck":
-                movableImages[currentCard].sprite = puck;
-                break;
-            case "Grenade":
-                movableImages[currentCard].sprite = grenade;
+                cardList.Add(Instantiate(puck, this.transform));
                 break;
             case "Pikeball":
-                movableImages[currentCard].sprite = pikeball;
+                cardList.Add(Instantiate(pikeball, this.transform));
+                break;
+            case "Grenade":
+                cardList.Add(Instantiate(grenade,  this.transform));
                 break;
             case "Knife":
-                movableImages[currentCard].sprite = knife;
+                cardList.Add(Instantiate(knife,  this.transform));
                 break;
         }
         
-        movableImages[currentCard].color = ogImages[currentCard].color;
+        // Current Card
+        var index = cardList.Count - 1;
+        var currentCard = cardList[index];
+        currentCard.SetActive(true);
+        RectTransform rectTransform = currentCard.GetComponent<Image>().GetComponent<RectTransform>();
         
-        // Activates / deacticvates slots
-        for (int i = 0; i < movableImages.Count; i++)
-        {
-            movableImages[i].gameObject.SetActive(i < _cards.Count);
-        }
+        // parent
+        currentCard.transform.SetParent(order[index].transform, true);
+        
+        // name
+        currentCard.name = nam;
         
         return true;
     }
-    
-    // Rotate cards Left
-    public void RotateFirstToLast()
+
+    public string UseCard()
     {
-        if (_cards.Count <= 1) return;
+        // nothing to remove
+        if (cardList.Count == 0) return "";
         
-        if (_cards.Count == 2)
+        var card = cardList[0].name;
+        
+        // destroy the visual of the first card
+        var firstCard = cardList[0];
+        Destroy(firstCard);
+
+        // remove from list
+        cardList.RemoveAt(0);
+
+        // shift remaining cards
+        for (int i = 0; i < cardList.Count; i++)
         {
-            var temp = movableImages[0];
-            movableImages.RemoveAt(0);
-            movableImages.Insert(1, temp);
+            cardList[i].transform.SetParent(order[i].transform, true);
         }
         
-        if (_cards.Count == 3)
+        return card;
+    }
+
+    public void FirstCardToLast()
+    {
+        if (cardList.Count <= 1) return;
+        
+        // Rotate the cards
+        var card = cardList[0];
+        cardList.RemoveAt(0);
+        cardList.Add(card);
+        
+        // Change parents
+        for (int i = 0; i < cardList.Count; i++)
         {
-            var temp = movableImages[0];
-            movableImages.RemoveAt(0);
-            movableImages.Add(temp);
+            cardList[i].transform.SetParent(order[i].transform, true);
         }
-        
-        _movables.Clear();
-        
-        // Set the sibling index
-        for (int i = 0; i < movableImages.Count; i++)
-        {
-            _movables.Add(movableImages[i].rectTransform);
-            _movables[i].SetSiblingIndex((movableImages.Count - 1) - i);
-            movableImages[i].color = ogImages[i].color;
-        }
-        
-        var first = _cards[0];
-        _cards.RemoveAt(0);  
-        _cards.Add(first);
     }
     
-    // Rotate cards right
-    public void RotateLastToFirst()
+    public void LastCardToFirst()
     {
-        if (_cards.Count <= 1) return;
+        if (cardList.Count <= 1) return;
         
-        if (_cards.Count == 2)
+        // Rotate the cards
+        var index = cardList.Count - 1;
+        var card = cardList[index];
+        cardList.RemoveAt(index);
+        cardList.Insert(0, card);
+        
+        // Change parents
+        for (int i = 0; i < cardList.Count; i++)
         {
-            var temp = movableImages[0];
-            movableImages.RemoveAt(0);
-            movableImages.Insert(1, temp);
+            cardList[i].transform.SetParent(order[i].transform, true);
         }
-        
-        if (_cards.Count == 3)
-        {
-            var temp = movableImages[2];
-            movableImages.RemoveAt(2);
-            movableImages.Insert(0, temp);
-        }
-        
-        _movables.Clear();
-        
-        // Set the sibling index
-        for (int i = 0; i < movableImages.Count; i++)
-        {
-            _movables.Add(movableImages[i].rectTransform);
-            _movables[i].SetSiblingIndex((movableImages.Count - 1) - i);
-            movableImages[i].color = ogImages[i].color;
-        }
-        
-        var currentCard = _cards.Count - 1;
-        
-        var last = _cards[currentCard];
-        _cards.RemoveAt(_cards.Count - 1);
-        _cards.Insert(0, last);
     }
 }

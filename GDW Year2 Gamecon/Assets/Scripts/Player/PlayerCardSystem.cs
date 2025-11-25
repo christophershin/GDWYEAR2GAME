@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Drawing;
 using Alteruna;
@@ -8,10 +9,19 @@ public class PlayerCardSystem : NetworkBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    public GameObject puck, grenade, pikeball, knife;
+    
     public GameObject projectile;
     [SerializeField] private float proj_speed;
     [SerializeField] private Camera cam;
     public float colliderDisableTime = 0.05f;
+    
+    private CardsManager _cardsManager;
+
+    private void Start()
+    {
+        _cardsManager = GameObject.Find("Cards").GetComponent<CardsManager>();
+    }
 
     public override void OnNetworkSpawn()
     {
@@ -31,6 +41,24 @@ public class PlayerCardSystem : NetworkBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            string card = _cardsManager.UseCard();
+            if (card == "") return;
+
+            switch (card)
+            {
+                case "Puck":
+                    projectile = puck;
+                    break;
+                case "Grenade":
+                    projectile = grenade;
+                    break;
+                case "Pikeball":
+                    projectile = pikeball;
+                    break;
+                case "Knife":
+                    projectile = knife;
+                    break;
+            }
 
             string id = GetComponent<EntitiesClass>().teamID;
             Vector3 direction = cam.transform.forward;
