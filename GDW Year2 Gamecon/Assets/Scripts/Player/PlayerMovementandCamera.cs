@@ -41,6 +41,8 @@ public class PlayerMovementandCamera : NetworkBehaviour
     
     //CardManager
     private CardsManager _cardsManager;
+    
+    
 
     private void Start()
     {

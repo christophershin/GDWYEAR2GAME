@@ -186,6 +186,10 @@ MonoBehaviour:
   proj_speed: 10
   cam: {fileID: 6582233133600555281}
   colliderDisableTime: 0.1
+  startspeed: 2
+  midspeed: 3
+  endspeed: 1
+  curve: 4
 --- !u!114 &425265588584938919
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -50,6 +50,11 @@ public class Deflect : NetworkBehaviour
         }
     }
 
+    void CurvedParryable(GameObject obj)
+    {
+        obj.GetComponent<projectile>().Deflect();
+    }
+
 
     [ServerRpc(RequireOwnership = false)]
     void DeflectServerRpc(ulong objId, Vector3 dir, float deflectSpeed, string id)

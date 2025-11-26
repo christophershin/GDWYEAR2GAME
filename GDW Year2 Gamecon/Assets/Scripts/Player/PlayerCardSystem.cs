@@ -17,6 +17,10 @@ public class PlayerCardSystem : NetworkBehaviour
     public float colliderDisableTime = 0.05f;
     
     private CardsManager _cardsManager;
+    
+    // Testing
+    public float startspeed, midspeed, endspeed;
+    public float curve;
 
     private void Start()
     {
@@ -33,6 +37,19 @@ public class PlayerCardSystem : NetworkBehaviour
 
         Debug.Log(GetComponent<EntitiesClass>().teamID);
     }
+    
+    public static Vector3 RaycastFromCamera(Camera cam, float maxDistance)
+    {
+        Ray ray = cam.ScreenPointToRay(
+            new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)
+        );
+
+        if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
+            return hit.point;
+
+        return ray.origin + ray.direction * maxDistance;
+    }
+
 
 
     // Update is called once per frame
@@ -50,7 +67,9 @@ public class PlayerCardSystem : NetworkBehaviour
                 //ShootServerRPC(direction, id, proj_speed);
                 return;
             }
-                
+            
+            Vector3 startPos = cam.transform.position;
+            Vector3 endPos = RaycastFromCamera(cam, 10000);
             
             
             //ShootServerRPC(direction, id, proj_speed);
@@ -85,9 +104,11 @@ public class PlayerCardSystem : NetworkBehaviour
     [ServerRpc]
     void ShootServerRPC(Vector3 shootdirection, string _id, float proj_speed)
     {
-
-        GameObject bullet = Instantiate(projectile, transform.position + shootdirection * 1.5f, Quaternion.identity);
-        bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
+        GameObject bullet = SetBullet(shootdirection, projectile);
+        
+        
+        
+        //bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
         bullet.GetComponent<EntitiesClass>().teamID = _id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
         Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
@@ -99,9 +120,11 @@ public class PlayerCardSystem : NetworkBehaviour
     [ServerRpc]
     void ShootPuckServerRPC(Vector3 shootdirection, string _id, float proj_speed)
     {
+        GameObject bullet = SetBullet(shootdirection, puck);
+        
 
-        GameObject bullet = Instantiate(puck, transform.position + shootdirection * 1.5f, Quaternion.identity);
-        bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
+        //GameObject bullet = Instantiate(puck, transform.position + shootdirection * 1.5f, Quaternion.identity);
+        //bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
         bullet.GetComponent<EntitiesClass>().teamID = _id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
         Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
@@ -113,9 +136,10 @@ public class PlayerCardSystem : NetworkBehaviour
     [ServerRpc]
     void ShootPikeServerRPC(Vector3 shootdirection, string _id, float proj_speed)
     {
+        GameObject bullet = SetBullet(shootdirection, pikeball);
 
-        GameObject bullet = Instantiate(pikeball, transform.position + shootdirection * 1.5f, Quaternion.identity);
-        bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
+        //GameObject bullet = Instantiate(pikeball, transform.position + shootdirection * 1.5f, Quaternion.identity);
+        //bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
         bullet.GetComponent<EntitiesClass>().teamID = _id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
         Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
@@ -127,9 +151,10 @@ public class PlayerCardSystem : NetworkBehaviour
     [ServerRpc]
     void ShootBombServerRPC(Vector3 shootdirection, string _id, float proj_speed)
     {
+        GameObject bullet = SetBullet(shootdirection, grenade);
 
-        GameObject bullet = Instantiate(grenade, transform.position + shootdirection * 1.5f, Quaternion.identity);
-        bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
+        //GameObject bullet = Instantiate(grenade, transform.position + shootdirection * 1.5f, Quaternion.identity);
+        //bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
         bullet.GetComponent<EntitiesClass>().teamID = _id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
         Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
@@ -142,14 +167,47 @@ public class PlayerCardSystem : NetworkBehaviour
     void ShootKnifeServerRPC(Vector3 shootdirection, string _id, float proj_speed)
     {
 
-        GameObject bullet = Instantiate(knife, transform.position + shootdirection * 1.5f, Quaternion.identity);
-        bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
+        GameObject bullet = SetBullet(shootdirection, knife);
+
+        //GameObject bullet = Instantiate(knife, transform.position + shootdirection * 1.5f, Quaternion.identity);
+        //bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
         bullet.GetComponent<EntitiesClass>().teamID = _id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
         Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
 
         if (bullet.GetComponent<EntitiesClass>().teamID == _id)
             StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
+    }
+
+    GameObject SetBullet(Vector3 shootdirection, GameObject proj)
+    {
+        Vector3 startpos = cam.transform.position;
+        Vector3 endpos = RaycastFromCamera(cam, 10000);
+        Vector3 midpos = (startpos + endpos) * 0.5f + Vector3.up * curve;
+        
+        
+        GameObject bullet = Instantiate(proj, transform.position + shootdirection * 1.5f, Quaternion.identity);
+
+        bullet.GetComponent<projectile>().Shoot(bullet,
+            startpos,
+            midpos,
+            endpos,
+            startspeed,
+            midspeed,
+            endspeed
+        );
+
+        // StartCoroutine(bullet.GetComponent<projectile>()
+        //     .MoveProjectile(bullet.gameObject.transform, 
+        //         startpos, 
+        //         midpos, 
+        //         endpos, 
+        //         startspeed, 
+        //         midspeed, 
+        //         endspeed
+        //     ));
+        
+        return bullet;
     }
 
 
