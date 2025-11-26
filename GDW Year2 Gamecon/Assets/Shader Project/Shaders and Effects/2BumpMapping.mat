@@ -36,7 +36,7 @@ Material:
     m_Floats:
     - _mySlider: 10
     m_Colors:
-    - _myColor: {r: 0.85660374, g: 0.85660374, b: 0.85660374, a: 1}
+    - _myColor: {r: 0.4792453, g: 0.4792453, b: 0.4792453, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4207496702993453901
