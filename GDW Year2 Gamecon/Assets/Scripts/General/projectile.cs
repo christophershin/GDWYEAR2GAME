@@ -49,11 +49,11 @@ public class projectile : NetworkBehaviour
         if (_currentCoroutine != null)
             StopCoroutine(_currentCoroutine);
         
-        Vector3 dir = new Vector3(1f, 1f, 0f).normalized;
+        //Vector3 dir = new Vector3(1f, 1f, 0f).normalized;
 
 
         Vector3 start = transform.position;
-        Vector3 mid = (start + newPos) * 0.5f + dir * 5;
+        Vector3 mid = (start + newPos) * 0.5f + Vector3.right * 3;
 
 
         _currentCoroutine = StartCoroutine(
@@ -90,6 +90,9 @@ public class projectile : NetworkBehaviour
         float midSpeed,
         float endSpeed)
     {
+        
+        //midPos = (startPos + endPos) * 0.5f + Vector3.right * 3;
+        
         float t = 0f;
 
         while (t < 1f)
@@ -108,6 +111,7 @@ public class projectile : NetworkBehaviour
             yield return null;
         }
         
+        //Destroy(this.gameObject);
         _rb.useGravity = true;
     }
     
