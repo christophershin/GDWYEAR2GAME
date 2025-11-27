@@ -1,4 +1,4 @@
-Shader "/Rim"
+Shader "CompGraphics/Rim"
 {
     Properties
     {
