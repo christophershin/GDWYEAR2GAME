@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3944552304
+  GlobalObjectIdHash: 3932143050
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -167,7 +167,6 @@ MonoBehaviour:
   LoseScreen: DeathScene
   WinScreen: WinScene
   objectsWithShaders: []
-  objectTextures: []
   Shader_materials:
   - {fileID: 2100000, guid: c1ebc1e206599a7459105604271e36bd, type: 2}
   - {fileID: 2100000, guid: c46a8afd5f2ca234d9cfd06f5774a2b7, type: 2}

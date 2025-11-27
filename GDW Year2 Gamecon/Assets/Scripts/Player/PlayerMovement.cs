@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
 
 
     public List<GameObject> objectsWithShaders;
-    public List<GameObject> objectTextures;
     public List<Material> Shader_materials;
     public GameObject CanvasImage;
     public GameObject cameraColorGrading;
@@ -62,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
 
         //toggling shaders
         ToggleShaders();
-        ToggleTextures();
     }
 
     private void OnTriggerStay(Collider other)
@@ -103,30 +101,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    public void ToggleTextures()
-    {
-        if (Input.GetKeyDown(KeyCode.Keypad4))
-        {
-            objectTextures[0].GetComponent<Renderer>().material = Shader_materials[11];
-            objectTextures[1].GetComponent<Renderer>().material = Shader_materials[11];
-            objectTextures[2].GetComponent<Renderer>().material = Shader_materials[11];
-            objectTextures[3].GetComponent<Renderer>().material = Shader_materials[12];
-            objectTextures[4].GetComponent<Renderer>().material = Shader_materials[14];
-            objectTextures[5].GetComponent<Renderer>().material = Shader_materials[14];
-            objectTextures[6].GetComponent<Renderer>().material = Shader_materials[14];
-            objectTextures[7].GetComponent<Renderer>().material = Shader_materials[14];
-            objectTextures[8].GetComponent<Renderer>().material = Shader_materials[13];
-
-        }
-    }
-
-
 
     public void ToggleShaders()
     {
 
         // turn off all material and replace them with a basic one
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Keypad4))
         {
             for (int i = 0; i < objectsWithShaders.Count; i++)
             {
