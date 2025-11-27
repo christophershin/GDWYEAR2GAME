@@ -226,16 +226,5 @@ public class PlayerMovement : MonoBehaviour
 
             CanvasImage.GetComponent<RawImage>().material = Shader_materials[3];
         }
-
-        // color grading with LUT custom
-        if (Input.GetKeyDown(KeyCode.Keypad4))
-        {
-
-            // turn camera on
-            cameraColorGrading.SetActive(true);
-
-            CanvasImage.GetComponent<RawImage>().material = Shader_materials[4];
-        }
-
     }
 }
