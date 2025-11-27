@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     public List<GameObject> objectsWithShaders;
+    public List<GameObject> objectTextures;
     public List<Material> Shader_materials;
     public GameObject CanvasImage;
     public GameObject cameraColorGrading;
@@ -60,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
         //toggling shaders 
         ToggleShaders();
+        ToggleTextures();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -81,6 +83,26 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
+    public void ToggleTextures()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            objectTextures[0].GetComponent<Renderer>().material = Shader_materials[11];
+            objectTextures[1].GetComponent<Renderer>().material = Shader_materials[11];
+            objectTextures[2].GetComponent<Renderer>().material = Shader_materials[11];
+            objectTextures[3].GetComponent<Renderer>().material = Shader_materials[12];
+            objectTextures[4].GetComponent<Renderer>().material = Shader_materials[14];
+            objectTextures[5].GetComponent<Renderer>().material = Shader_materials[14];
+            objectTextures[6].GetComponent<Renderer>().material = Shader_materials[14];
+            objectTextures[7].GetComponent<Renderer>().material = Shader_materials[14];
+            objectTextures[8].GetComponent<Renderer>().material = Shader_materials[13];
+
+        }
+    }
+
+
+
     public void ToggleShaders()
     {
 
@@ -92,8 +114,15 @@ public class PlayerMovement : MonoBehaviour
                 // no lighting
                 objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[0];
                 // turn the camera with color grading off
-                cameraColorGrading.SetActive(false);
+
             }
+            cameraColorGrading.SetActive(false);
+
+            for (int k = 0; k < objectTextures.Count; k++)
+            {
+                objectTextures[k].GetComponent<Renderer>().material = Shader_materials[0];
+            }
+
         }
 
         // simple diffuse lighting
@@ -164,6 +193,9 @@ public class PlayerMovement : MonoBehaviour
                 objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[7];
             }
         }
+
+
+
 
         // color grading with LUT cold
         if (Input.GetKeyDown(KeyCode.Keypad1))
