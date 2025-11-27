@@ -3496,7 +3496,7 @@ GameObject:
   - component: {fileID: 1060599093}
   - component: {fileID: 1060599092}
   m_Layer: 0
-  m_Name: Procedural Fog
+  m_Name: Procedural Clouds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

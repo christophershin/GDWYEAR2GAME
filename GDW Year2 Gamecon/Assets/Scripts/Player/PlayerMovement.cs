@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 moveDirection;
 
+    public GameObject pressE;
 
     public string LoseScreen;
     public string WinScreen;
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-
+        pressE.SetActive(false);
         controller = GetComponent<CharacterController>();
     }
 
@@ -64,26 +65,42 @@ public class PlayerMovement : MonoBehaviour
         ToggleTextures();
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Boundary"))
-    //    {
-    //        Debug.Log("lose");
-    //        SceneManager.LoadScene(LoseScreen);
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Crown"))
+        {
+            pressE.SetActive(true);
+            if (Input.GetKey(KeyCode.E))
+            {
+                SceneWin();
+            }
+        }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Crown"))
+        {
+            pressE.SetActive(false);
+        }
+    }
 
-    //    }
-    //    else if (other.gameObject.CompareTag("Goal"))
-    //    {
-    //        Debug.Log("win");
-    //        SceneManager.LoadScene(WinScreen);
-    //    }
-    //    else if (other.gameObject.CompareTag("Parriable"))
-    //    {
-    //        Debug.Log("lose");
-    //        SceneManager.LoadScene(LoseScreen);
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Death"))
+        {
+            SceneLose();
+        }
+    }
+
+    public void SceneWin()
+    {
+        SceneManager.LoadScene(WinScreen);
+    }
+    public void SceneLose()
+    {
+        SceneManager.LoadScene(LoseScreen);
+    }
 
 
     public void ToggleTextures()
