@@ -7,6 +7,10 @@ TagManager:
   - Parriable
   - Crown
   - Death
+  - HeatLevel3
+  - HeatLevel1
+  - HeatLevel2
+  - Bucket
   layers:
   - Default
   - TransparentFX

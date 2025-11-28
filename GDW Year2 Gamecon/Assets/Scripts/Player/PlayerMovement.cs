@@ -18,9 +18,6 @@ public class PlayerMovement : MonoBehaviour
     public string LoseScreen;
     public string WinScreen;
 
-
-    public List<GameObject> objectsWithShaders;
-    public List<GameObject> objectTextures;
     public List<Material> Shader_materials;
     public GameObject CanvasImage;
     public GameObject cameraColorGrading;
@@ -106,31 +103,8 @@ public class PlayerMovement : MonoBehaviour
     public void ToggleShaders()
     {
 
-        //// turn off all material and replace them with a basic one
-        //if (Input.GetKeyDown(KeyCode.Alpha0))
-        //{
-        //    for (int i = 0; i < objectsWithShaders.Count; i++)
-        //    {
-        //        // no lighting
-        //        objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[0];
-        //        // turn the camera with color grading off
-                
-        //    }
-
-        //    cameraColorGrading.SetActive(false);
-
-        //}
-
         if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            for (int i = 0; i < objectsWithShaders.Count; i++)
-            {
-                // no lighting
-                objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[0];
-                // turn the camera with color grading off
-
-            }
-
             cameraColorGrading.SetActive(false);
 
         }
