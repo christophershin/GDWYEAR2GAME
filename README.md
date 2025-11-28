@@ -1,6 +1,9 @@
 Course Project
 by Christopher Shin 100974007 and Connor McCarthy 100964926
 
+Video for deliverables:
+https://www.youtube.com/watch?v=xgssuoZV3nk
+
 
 Deliverables:
 
@@ -48,10 +51,27 @@ Created a decal shader.
 Applied it to a tree stump.
 The reason we applied it to a tree stump is because it is in a watery area so mold and fungi usually grow on old trees/ tree stumps.
 
+Tree bark:
+https://in.pinterest.com/pin/24769866694930216/
+
+I used this tree texture to resemble a tree, and it also fits the scene and gels well with the decal. 
+
+Decal:
+https://s3.amazonaws.com/texturemax_th/decals/stained-decals/stained-decals_0042_01_T_thr.jpg
+
+I used this decal as it resembles closely enough to a mold/fungi texture and adds some more depth to the environment. 
+
+
+
 <img width="1919" height="1079" alt="Screenshot 2025-11-27 221041" src="https://github.com/user-attachments/assets/8ecf7c90-9014-496e-9b2b-5a8f7f65a23b" />
 Created a transparency shader
 Applied to background elements such as the trees and mountain
 This is so we don’t have to create a mountain or tree model and then apply textures to it.
+
+Mountain: 
+https://www.freepik.com/free-vector/majestic-mountain-range-illustration_238591228.htm#fromView=keyword&page=1&position=0&uuid=8da0f7ef-e56f-40b8-8ad2-153b2a24ad04&query=Mountain+png
+
+I, Chistopher Shin added this mountain texture as it looks like a mountain range that would fit the environment well with the snowy peaks in the distance. 
 
 <img width="1919" height="1079" alt="Screenshot 2025-11-27 222231" src="https://github.com/user-attachments/assets/d080b44a-355c-477e-b202-c646f03e8d0c" />
 We created a fog shader
