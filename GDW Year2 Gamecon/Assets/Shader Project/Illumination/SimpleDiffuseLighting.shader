@@ -9,7 +9,7 @@ Shader "ShaderProject/SimpleDiffuseLighting"
     {
         Tags { "RenderType"="Opaque"
                "Queue"="Geometry"
-               "RenderPipeline"="UniversalRenderPipeline" }
+               "RenderPipeline"="UniversalPipeline" }
 
         Pass
         {
