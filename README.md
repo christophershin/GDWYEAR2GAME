@@ -64,7 +64,23 @@ We then used this to create clouds overhead within our scene.
 Source: https://aetuts.itch.io/volumetric-fog-unity-lwrpurp-shader-graph 
 
 
-I, Connor McCarthy made scrolling texture, used the particle system and made water shader. 
+I, Connor McCarthy made scrolling texture, used the particle system and made water shader.
+
+<img width="1919" height="1079" alt="Screenshot 2025-11-27 221828" src="https://github.com/user-attachments/assets/64e20310-2344-4ede-965d-724fdae6052a" />
+Made a scrolling texture shader.
+Made two different materials so they would scroll in opposite directions
+Applied it to two twin planes in our scene to create twin waterfalls.
+
+<img width="1919" height="1079" alt="Screenshot 2025-11-27 221746" src="https://github.com/user-attachments/assets/bdadab07-d74d-4fb7-8368-91e5e1a47f73" />
+Made a water shader and applied it to a plane.
+Didn’t want a scrolling texture here as it would have not made sense at all.
+There are hardly any waves with our water as through the inspector we made changes so that the water is calm below
+
+<img width="1919" height="1079" alt="Screenshot 2025-11-27 221528" src="https://github.com/user-attachments/assets/2970c70e-e3c0-46bc-a6d1-481b763a9081" />
+Added a particle system to our scene.
+Added a gradient through the particle system so that the particles would have a range of colours.
+Wanted to replicate water particles in some water for the twin waterfalls.
+
 
 Link for the fog:
 [https://aetuts.itch.io/volumetric-fog-unity-lwrpurp-shader-graph](https://aetuts.itch.io/volumetric-fog-unity-lwrpurp-shader-graph)
