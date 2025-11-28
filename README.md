@@ -32,13 +32,9 @@ Original Look of the game:
 
 I, Christopher Shin made most of the textures toggleable, which are the water and the scrolling texture. The rest seemed unnecessary as the TA said we didn't need to, as well as I wanted to show what was the most important feature we added.
 
+We added textures to all objects in the scene to enhance the look of the game. 
+
 Made some textures toggleable by pressing 4 on the numpad to turn on the textures, and 0 on the keyboard to turn them off.
-
-Scrolling Textures:
-
-Made a scrolling texture shader.
-Made two different materials so they would scroll in opposite directions
-Applied it to two twin planes in our scene to create twin waterfalls.
 
 
 
