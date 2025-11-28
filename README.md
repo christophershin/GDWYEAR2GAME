@@ -27,7 +27,7 @@ Original Look of the game:
 
 2. Texturing.
 
-I, Christopher Shin made most of the textures toggleable, which are the water, the scrolling texture, 
+I, Christopher Shin made most of the textures toggleable, which are the water and the scrolling texture. The rest seemed unnecessary as the TA said we didn't need to, as well as I wanted to show what was the most important feature we added.
    
 
 
