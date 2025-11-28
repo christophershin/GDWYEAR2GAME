@@ -62,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
 
         //toggling shaders
         ToggleShaders();
-        ToggleTextures();
     }
 
     private void OnTriggerStay(Collider other)
@@ -103,116 +102,38 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    public void ToggleTextures()
-    {
-        if (Input.GetKeyDown(KeyCode.Keypad4))
-        {
-            objectTextures[0].GetComponent<Renderer>().material = Shader_materials[11];
-            objectTextures[1].GetComponent<Renderer>().material = Shader_materials[11];
-            objectTextures[2].GetComponent<Renderer>().material = Shader_materials[11];
-            objectTextures[3].GetComponent<Renderer>().material = Shader_materials[12];
-            objectTextures[4].GetComponent<Renderer>().material = Shader_materials[14];
-            objectTextures[5].GetComponent<Renderer>().material = Shader_materials[14];
-            objectTextures[6].GetComponent<Renderer>().material = Shader_materials[14];
-            objectTextures[7].GetComponent<Renderer>().material = Shader_materials[14];
-            objectTextures[8].GetComponent<Renderer>().material = Shader_materials[13];
-
-        }
-    }
-
-
 
     public void ToggleShaders()
     {
 
-        // turn off all material and replace them with a basic one
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        //// turn off all material and replace them with a basic one
+        //if (Input.GetKeyDown(KeyCode.Alpha0))
+        //{
+        //    for (int i = 0; i < objectsWithShaders.Count; i++)
+        //    {
+        //        // no lighting
+        //        objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[0];
+        //        // turn the camera with color grading off
+                
+        //    }
+
+        //    cameraColorGrading.SetActive(false);
+
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Keypad4))
         {
             for (int i = 0; i < objectsWithShaders.Count; i++)
             {
                 // no lighting
                 objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[0];
                 // turn the camera with color grading off
-                
+
             }
 
             cameraColorGrading.SetActive(false);
 
-            //for (int k = 0; k < objectTextures.Count; k++)
-            //{
-            //    objectTextures[k].GetComponent<Renderer>().material = Shader_materials[0];
-            //}
-
         }
-
-        //// simple diffuse lighting
-        //if (Input.GetKeyDown(KeyCode.Alpha1))
-        //{
-        //    for (int i = 0; i < objectsWithShaders.Count; i++)
-        //    {
-        //        objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[1];
-
-        //    }
-        //}
-
-        //// diffuse lighting with ambient
-        //if (Input.GetKeyDown(KeyCode.Alpha2))
-        //{
-        //    for (int i = 0; i < objectsWithShaders.Count; i++)
-        //    {
-
-        //        objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[2];
-        //    }
-        //}
-
-        //// simple specular
-        //if (Input.GetKeyDown(KeyCode.Alpha3))
-        //{
-        //    for (int i = 0; i < objectsWithShaders.Count; i++)
-        //    {
-
-        //        objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[3];
-        //    }
-        //}
-
-        //// custom additional effects
-        //if (Input.GetKeyDown(KeyCode.Alpha4))
-        //{
-        //    for (int i = 0; i < objectsWithShaders.Count; i++)
-        //    {
-
-        //        objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[4];
-        //    }
-        //}
-
-        //// Rim Lighting
-        //if (Input.GetKeyDown(KeyCode.Alpha5))
-        //{
-        //    for (int i = 0; i < objectsWithShaders.Count; i++)
-        //    {
-        //        objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[5];
-        //    }
-        //}
-
-        //// Bump Mapping
-        //if (Input.GetKeyDown(KeyCode.Alpha6))
-        //{
-        //    for (int i = 0; i < objectsWithShaders.Count; i++)
-        //    {
-        //        // custom additional effects
-        //        objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[6];
-        //    }
-        //}
-
-        //// Toon Shader
-        //if (Input.GetKeyDown(KeyCode.Alpha7))
-        //{
-        //    for (int i = 0; i < objectsWithShaders.Count; i++)
-        //    {
-        //        // custom additional effects
-        //        objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[7];
-        //    }
-        //}
 
         // WarmLUT
         if (Input.GetKeyDown(KeyCode.Keypad1))

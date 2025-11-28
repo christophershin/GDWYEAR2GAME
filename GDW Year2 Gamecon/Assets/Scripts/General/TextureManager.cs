@@ -6,7 +6,6 @@ public class TextureManager : MonoBehaviour
 
     public List<GameObject> objectTextures;
     public List<Material> Shader_materials;
-    public List<GameObject> objectsWithShaders;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -57,12 +56,6 @@ public class TextureManager : MonoBehaviour
 
     public void ToggleShaders()
     {
-
-        for (int i = 0; i < objectsWithShaders.Count; i++)
-        {
-            // no lighting
-            objectsWithShaders[i].GetComponent<Renderer>().material = Shader_materials[0];
-        }
 
         // turn off all material and replace them with a basic one
         if (Input.GetKeyDown(KeyCode.Alpha0))
