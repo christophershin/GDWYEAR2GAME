@@ -45,7 +45,26 @@ Applied it to two twin planes in our scene to create twin waterfalls.
 
 4. Visual Effects
 
-I, Christopher Shin added toggling for the visual effects for decals, transparency, fog, scrolling, and water. 
+I, Christopher Shin added toggling for the visual effects and then made decals, transparency, and fog.
+
+<img width="1919" height="1079" alt="Screenshot 2025-11-27 222052" src="https://github.com/user-attachments/assets/d762a7cb-0324-4720-a008-40dd30c278cb" />
+Created a decal shader.
+Applied it to a tree stump.
+The reason we applied it to a tree stump is because it is in a watery area so mold and fungi usually grow on old trees/ tree stumps.
+
+<img width="1919" height="1079" alt="Screenshot 2025-11-27 221041" src="https://github.com/user-attachments/assets/8ecf7c90-9014-496e-9b2b-5a8f7f65a23b" />
+Created a transparency shader
+Applied to background elements such as the trees and mountain
+This is so we don’t have to create a mountain or tree model and then apply textures to it.
+
+<img width="1919" height="1079" alt="Screenshot 2025-11-27 222231" src="https://github.com/user-attachments/assets/d080b44a-355c-477e-b202-c646f03e8d0c" />
+We created a fog shader
+We did this by taking a noise texture, altering its speed and other properties, and then overlay a texture that updates over time.
+We then used this to create clouds overhead within our scene.
+Source: https://aetuts.itch.io/volumetric-fog-unity-lwrpurp-shader-graph 
+
+
+I, Connor McCarthy made scrolling texture, used the particle system and made water shader. 
 
 Link for the fog:
 [https://aetuts.itch.io/volumetric-fog-unity-lwrpurp-shader-graph](https://aetuts.itch.io/volumetric-fog-unity-lwrpurp-shader-graph)
