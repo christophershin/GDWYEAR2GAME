@@ -97,7 +97,11 @@ public class PlayerMovement : MonoBehaviour
             objectTextures[6].GetComponent<Renderer>().material = Shader_materials[14];
             objectTextures[7].GetComponent<Renderer>().material = Shader_materials[14];
             objectTextures[8].GetComponent<Renderer>().material = Shader_materials[13];
-
+            objectTextures[9].GetComponent<Renderer>().material = Shader_materials[15];
+            objectTextures[10].GetComponent<Renderer>().material = Shader_materials[16];
+            objectTextures[11].GetComponent<Renderer>().material = Shader_materials[16];
+            objectTextures[12].GetComponent<Renderer>().material = Shader_materials[17];
+            objectTextures[13].GetComponent<Renderer>().material = Shader_materials[18];
         }
     }
 

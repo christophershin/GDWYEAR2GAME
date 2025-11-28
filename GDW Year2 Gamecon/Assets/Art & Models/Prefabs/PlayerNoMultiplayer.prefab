@@ -163,6 +163,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 5640caaaf2cec7f4fb6035eff99238cb, type: 2}
   - {fileID: 2100000, guid: 674e808884825014fb6dc20358a5f0da, type: 2}
   - {fileID: 2100000, guid: 9d1cf3c570686c1409db6f5b659b83bf, type: 2}
+  - {fileID: 2100000, guid: 6e651fff0312f434e918c2ccb62a7ae4, type: 2}
+  - {fileID: 2100000, guid: 6e10229e8d145b64fb7f56ccd2f37a3b, type: 2}
+  - {fileID: 2100000, guid: 18b577a3995045941911b94974c1b0d2, type: 2}
+  - {fileID: 2100000, guid: b3d0515d2df09cd4cb3d86c209482a80, type: 2}
   CanvasImage: {fileID: 2519951029652038064}
   cameraColorGrading: {fileID: 3638899293638081245}
 --- !u!143 &3625908984048905263
