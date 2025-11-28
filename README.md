@@ -54,12 +54,12 @@ The reason we applied it to a tree stump is because it is in a watery area so mo
 Tree bark:
 https://in.pinterest.com/pin/24769866694930216/
 
-I used this tree texture to resemble a tree, and it also fits the scene and gels well with the decal. 
+I, Christopher Shin, used this tree texture to resemble a tree, and it also fits the scene and gels well with the decal. 
 
 Decal:
 https://s3.amazonaws.com/texturemax_th/decals/stained-decals/stained-decals_0042_01_T_thr.jpg
 
-I used this decal as it resembles closely enough to a mold/fungi texture and adds some more depth to the environment. 
+I, Christopher Shin, used this decal as it resembles closely enough to a mold/fungi texture and adds some more depth to the environment. 
 
 
 
