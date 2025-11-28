@@ -25,10 +25,15 @@ Original Look of the game:
 <img width="731" height="407" alt="Original Look" src="https://github.com/user-attachments/assets/6a9123b8-da8b-4b62-87e4-d1bf382cb6b1" />
 
 
-
-
 2. Texturing.
 
+I, Christopher Shin made most of the textures toggleable, which are the water, the scrolling texture, 
+   
 
-3. Visual Effects
+
+4. Visual Effects
+
+Link for the fog:
+[https://aetuts.itch.io/volumetric-fog-unity-lwrpurp-shader-graph](https://aetuts.itch.io/volumetric-fog-unity-lwrpurp-shader-graph)
+
 
