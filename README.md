@@ -20,6 +20,12 @@ This warm one creates a summer vibe, especially with the water, where we can exp
 
 This custom one is more for an effect that the player experiences when hit with a specific projectile that makes the player stunned or dazed. I wanted to make an effect that looks weird but somewhat clear, as to show the state that the player is in. 
 
+Original Look of the game:
+
+<img width="731" height="407" alt="Original Look" src="https://github.com/user-attachments/assets/6a9123b8-da8b-4b62-87e4-d1bf382cb6b1" />
+
+
+
 
 2. Texturing.
 
