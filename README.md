@@ -6,7 +6,10 @@ Deliverables:
 
 1. Improvements
 
-I, Christopher Shin made improvements on the color correction as the one we had before wasn't working properly and looked a little drastic for this effect. 
+A small improvement we made was changing the way the rim lighting shader looked as a bright green didn’t fit the environment. We changed it to a lighter blue so that it would match the colour of the water spouts.
+The other big improvement we made was to our build, where all the shaders are now present and working.
+
+I, Christopher Shin made improvements on the color correction as the one we had before wasn't working properly, as it didn't show in runtime and looked a little drastic for this effect. 
 
 <img width="733" height="407" alt="ColorCorrectionCold" src="https://github.com/user-attachments/assets/91584aa1-2acb-49db-9130-7e7894e0fc3c" />
 
@@ -28,10 +31,21 @@ Original Look of the game:
 2. Texturing.
 
 I, Christopher Shin made most of the textures toggleable, which are the water and the scrolling texture. The rest seemed unnecessary as the TA said we didn't need to, as well as I wanted to show what was the most important feature we added.
-   
+
+Made some textures toggleable by pressing 4 on the numpad to turn on the textures, and 0 on the keyboard to turn them off.
+
+Scrolling Textures:
+
+Made a scrolling texture shader.
+Made two different materials so they would scroll in opposite directions
+Applied it to two twin planes in our scene to create twin waterfalls.
+
+
 
 
 4. Visual Effects
+
+I, Christopher Shin added toggling for the visual effects for decals, transparency, fog, scrolling, and water. 
 
 Link for the fog:
 [https://aetuts.itch.io/volumetric-fog-unity-lwrpurp-shader-graph](https://aetuts.itch.io/volumetric-fog-unity-lwrpurp-shader-graph)
