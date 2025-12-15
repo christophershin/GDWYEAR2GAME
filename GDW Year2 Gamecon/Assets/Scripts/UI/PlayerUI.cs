@@ -16,14 +16,14 @@ public class PlayerUI : MonoBehaviour
 
     void OnEnable()
     {
-        GetComponent<EntitiesClass>().Health.OnValueChanged += HealthChanged;
-        Healthtext.text = GetComponent<EntitiesClass>().Health.Value.ToString();
+        GetComponent<HealthandShield>().Health.OnValueChanged += HealthChanged;
+        Healthtext.text = GetComponent<HealthandShield>().Health.Value.ToString();
 
     }
 
     void OnDisable()
     {
-        GetComponent<EntitiesClass>().Health.OnValueChanged -= HealthChanged;
+        GetComponent<HealthandShield>().Health.OnValueChanged -= HealthChanged;
     }
 
     private void HealthChanged(float previousValue, float newValue)
