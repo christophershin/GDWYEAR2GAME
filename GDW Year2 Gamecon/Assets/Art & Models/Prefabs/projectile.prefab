@@ -183,6 +183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::projectile
   ShowTopMostFoldoutHeaderGroup: 1
   projectileTimerMax: 10
+  projectileTimer: 0
+  damage: 20
 --- !u!114 &6847590636059981884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,8 +199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EntitiesClass
   ShowTopMostFoldoutHeaderGroup: 1
   teamID: 
-  Health:
-    m_InternalValue: 0
 --- !u!114 &685041741738757861
 MonoBehaviour:
   m_ObjectHideFlags: 0

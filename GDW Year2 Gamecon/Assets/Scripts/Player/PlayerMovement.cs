@@ -14,6 +14,8 @@ public class PlayerMovement : NetworkBehaviour
     private CharacterController controller;
     private Vector3 moveDirection;
 
+    
+
     public override void OnNetworkSpawn()
     {
         if (!IsOwner)
@@ -30,7 +32,6 @@ public class PlayerMovement : NetworkBehaviour
         Cursor.visible = false;
 
     }
-
 
     void Update()
     {

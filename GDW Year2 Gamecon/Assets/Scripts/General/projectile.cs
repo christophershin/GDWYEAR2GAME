@@ -9,6 +9,8 @@ public class projectile : NetworkBehaviour
     [HideInInspector]
     public float projectileTimer;
 
+    public float damage;
+
     // Performs behavior on the server which then sends data to all clients
     public override void OnNetworkSpawn()
     {
