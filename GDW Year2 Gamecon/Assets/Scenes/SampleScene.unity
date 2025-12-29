@@ -7002,6 +7002,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: World
       objectReference: {fileID: 0}
+    - target: {fileID: 5765266762959245409, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6840445343217168850, guid: 27d7e15c817a515468d4bae1c3b2a9a6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1338219064
@@ -16294,15 +16298,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 434659002707824337, guid: e5800285147f28e47b32382eb20c9007, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 434659002707824337, guid: e5800285147f28e47b32382eb20c9007, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 434659002707824337, guid: e5800285147f28e47b32382eb20c9007, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 434659002707824337, guid: e5800285147f28e47b32382eb20c9007, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
