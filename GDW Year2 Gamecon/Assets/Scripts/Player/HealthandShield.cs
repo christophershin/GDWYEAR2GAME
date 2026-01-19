@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
@@ -5,6 +6,9 @@ using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Collections;
+using System.Threading.Tasks;
 
 public class HealthandShield : NetworkBehaviour
 {
@@ -12,20 +16,53 @@ public class HealthandShield : NetworkBehaviour
     [SerializeField]
     private float maxHealth;
 
+    [SerializeField]
+    private float maxShield;
+
+    [SerializeField]
+    private float maxRegenShieldTimer;
+
+    private float regenShieldTimer;
+
+
     [HideInInspector]
     public NetworkVariable<float> Health = new NetworkVariable<float>();
+
+    [HideInInspector]
+    public NetworkVariable<float> Shield = new NetworkVariable<float>();
 
     [SerializeField]
     RectTransform HealthUI;
 
     [SerializeField]
+    RectTransform ShieldUI;
+
+
+    [SerializeField]
+    TextMeshProUGUI CenterText; 
+
+
+    [SerializeField]
     TextMeshProUGUI Healthtext;
+
+    [SerializeField]
+    TextMeshProUGUI Shieldtext;
 
     [SerializeField]
     RectTransform healthBarAnchor;
 
     [SerializeField]
+    RectTransform shieldBarAnchor;
+
+    [SerializeField]
     GameObject healthImage;
+
+
+    [SerializeField]
+    GameObject shieldImage;
+
+    [SerializeField]
+    private EntitiesClass entitiesClass;
 
 
     private GameObject gameManager;
@@ -41,9 +78,8 @@ public class HealthandShield : NetworkBehaviour
         if (IsOwner)
         {
             healthImage.SetActive(false);
+            shieldImage.SetActive(false);
         }
-
-         
 
     }
 
@@ -56,6 +92,7 @@ public class HealthandShield : NetworkBehaviour
         }
 
         Health.Value = maxHealth;
+        Shield.Value = maxShield;
 
     }
 
@@ -77,6 +114,7 @@ public class HealthandShield : NetworkBehaviour
                 {
 
                     rotateObjectTo(healthBarAnchor, obj.transform.position);
+                    rotateObjectTo(shieldBarAnchor, obj.transform.position);
 
                     break;
                 }
@@ -86,10 +124,35 @@ public class HealthandShield : NetworkBehaviour
             return;
         }
 
+        if(IsOwner)
+        {
+
+            if (entitiesClass.isAlive.Value == false)
+            {
+                CenterText.text = "Defeat";
+                CenterText.color = Color.red;
+
+               // StartCoroutine(TextLifeTime(CenterText.text, "Defeat", 3));
+            }
+                
+        }
+
+
+
+
+
+
+
+
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             HealServerRPC(30);
         }
+
+
+        RegenShieldServerRPC();
+        
 
 
     }
@@ -106,21 +169,31 @@ public class HealthandShield : NetworkBehaviour
     void OnEnable()
     {
         GetComponent<HealthandShield>().Health.OnValueChanged += HealthChanged;
+        GetComponent<HealthandShield>().Shield.OnValueChanged += ShieldChanged;
         Healthtext.text = GetComponent<HealthandShield>().Health.Value.ToString();
+        Shieldtext.text = GetComponent<HealthandShield>().Shield.Value.ToString();
 
     }
 
     void OnDisable()
     {
         GetComponent<HealthandShield>().Health.OnValueChanged -= HealthChanged;
+        GetComponent<HealthandShield>().Health.OnValueChanged -= ShieldChanged;
     }
 
     private void HealthChanged(float previousValue, float newValue)
     {
 
-        HealthUI.localScale = new Vector3(newValue / 100f, 1, 1);
-        healthImage.transform.localScale = new Vector3(newValue / 100f, 1, 1);
+        HealthUI.localScale = new Vector3(newValue / maxHealth, 1, 1);
+        healthImage.transform.localScale = new Vector3(newValue / maxHealth, 1, 1);
         Healthtext.text = newValue.ToString();
+    }
+
+    private void ShieldChanged(float previousValue, float newValue)
+    {
+        ShieldUI.localScale = new Vector3(newValue / maxShield, 1, 1);
+        shieldImage.transform.localScale = new Vector3(newValue / maxShield, 1, 1);
+        Shieldtext.text = newValue.ToString();
     }
 
 
@@ -132,26 +205,64 @@ public class HealthandShield : NetworkBehaviour
             Health.Value += heal;
 
             if (Health.Value > maxHealth)
-                Health.Value = maxHealth;
-                
+                Health.Value = maxHealth;    
+
+
+        }
+    }
+
+    [ServerRpc]
+    public void RegenShieldServerRPC()
+    {
+
+        if(Shield.Value<maxShield)
+        {
+            regenShieldTimer -= Time.deltaTime;
+
+            if(regenShieldTimer<=0)
+            {
+
+                Shield.Value += maxShield / 10;
+
+                regenShieldTimer = 0.3f;
+            }
 
         }
 
-
-
-       
     }
+
+
+
+
 
     public void Damage(float dmg)
     {
-        if (Health.Value > 0)
+
+        if (Shield.Value > 0)
         {
+            Shield.Value -= dmg;
+            regenShieldTimer = maxRegenShieldTimer;
+
+        }else if (Health.Value > 0 && Shield.Value <= 0)
+        {
+
             Health.Value -= dmg;
+            regenShieldTimer = maxRegenShieldTimer;
         }
-        else
+
+        if (Health.Value <= 0)
         {
+
+            entitiesClass.isAlive.Value = false;
+
             Health.Value = 0;
         }
+
+        if(Shield.Value<=0)
+        {
+            Shield.Value = 0;
+        }
+
 
         Debug.Log(Health.Value);
     }
@@ -191,6 +302,19 @@ public class HealthandShield : NetworkBehaviour
         //instant
         _object.rotation = _lookRotation;
     }
+
+
+
+     private IEnumerator TextLifeTime(string text1, string text2, float time)
+    {
+
+        text1 = text2;
+
+        yield return new WaitForSeconds(time);
+
+        text1 = "";
+    }
+
 
 
 

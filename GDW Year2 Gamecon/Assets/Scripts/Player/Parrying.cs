@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -5,8 +6,35 @@ using UnityEngine;
 public class Parrying : NetworkBehaviour
 {
 
+    [SerializeField]
+    private EntitiesClass entitiesClass;
     
     public GameObject parryhitbox;
+
+    [SerializeField]
+    private float maxParryEnergy;
+
+    [SerializeField]
+    private float EnergyConsumptionAmount;
+
+    [SerializeField]
+    private float EnergyRestoreAmount;
+
+    [SerializeField]
+    private float maxParryCooldown;
+
+
+    [SerializeField]
+    private TextMeshProUGUI parryEnergyText;
+
+    [HideInInspector]
+    public NetworkVariable<float> ParryEnergy = new NetworkVariable<float>();
+
+    private float maxResourceTimer = 0.05f;
+
+    private float resourceTimer;
+
+    private float cooldown;
 
 
 
@@ -18,11 +46,23 @@ public class Parrying : NetworkBehaviour
             return;
 
         }
+
+        
+
     }
 
     private void Start()
     {
+
         NotParryServerRPC();
+
+        if (!IsServer)
+        {
+            return;
+        }
+
+        ParryEnergy.Value = maxParryEnergy;
+
     }
 
 
@@ -31,16 +71,40 @@ public class Parrying : NetworkBehaviour
     {
         if (IsOwner) // only the owning player should send these RPCs
         {
-            if (Input.GetMouseButtonDown(1))
+            // if you are alive
+            if(entitiesClass.isAlive.Value)
             {
-                ParryServerRPC();
+
+                if (ParryEnergy.Value > 0)
+                {
+
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        ParryServerRPC();
+
+                    }
+
+                }
+
+                if(ParryEnergy.Value <=0)
+                {
+                    NotParryServerRPC();
+                }
+
+                if (Input.GetMouseButtonUp(1))
+                {
+                    NotParryServerRPC();
+                }
             }
 
-            if (Input.GetMouseButtonUp(1))
-            {
-                NotParryServerRPC();
-            }
         }
+
+
+        ParryEnergySystemServerRPC(maxParryEnergy,EnergyConsumptionAmount, EnergyRestoreAmount, resourceTimer, maxResourceTimer);
+        parryEnergyText.text = ((int)ParryEnergy.Value).ToString();
+
+
+
     }
 
     [ServerRpc]
@@ -48,6 +112,7 @@ public class Parrying : NetworkBehaviour
     {
         // Enable on the server
         parryhitbox.SetActive(true);
+        cooldown = maxParryCooldown;
 
         // Tell all clients to enable theirs too
         ParryClientRPC();
@@ -73,6 +138,66 @@ public class Parrying : NetworkBehaviour
     void NotParryClientRPC(ClientRpcParams rpcParams = default)
     {
         parryhitbox.SetActive(false);
+    }
+
+
+    [ServerRpc]
+    void ParryEnergySystemServerRPC(float maxEnergy, float EnergyCon, float EnergyRes, float timer, float maxTimer)
+    {
+        if(cooldown>=0)
+        {
+            cooldown -= Time.deltaTime;
+        }
+        
+
+        if (resourceTimer >= 0)
+        {
+            resourceTimer -= Time.deltaTime;
+        }
+        
+        // if you are pressing the parry button
+        if(parryhitbox.activeSelf)
+        {
+
+            if(ParryEnergy.Value>0)
+            {
+                if (resourceTimer < 0)
+                {
+                    ParryEnergy.Value -= EnergyCon;
+
+                    resourceTimer = maxTimer;
+                }
+            }
+
+            if (ParryEnergy.Value <= 0)
+            {
+                ParryEnergy.Value = 0;
+            }
+
+        }
+        else
+        {
+            if (ParryEnergy.Value < maxEnergy)
+            {
+
+                if (resourceTimer < 0 && cooldown< 0)
+                {
+                    ParryEnergy.Value += EnergyRes;
+
+                    resourceTimer = maxTimer;
+                }
+
+            }
+            
+            if(ParryEnergy.Value >= maxEnergy)
+            {
+                ParryEnergy.Value = maxEnergy;
+            }
+
+        }
+
+        parryEnergyText.text = ((int)ParryEnergy.Value).ToString();
+
     }
 
 

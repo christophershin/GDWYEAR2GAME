@@ -8,10 +8,18 @@ public class EntitiesClass: NetworkBehaviour
     public string teamID = "";
 
 
+    public NetworkVariable<bool> isAlive = new NetworkVariable<bool>();
+
 
 
     public override void OnNetworkSpawn()
     {
+        if (IsServer)
+        {
+            isAlive.Value = true;
+        }
+
+
         if (!IsOwner)
         {
             enabled = false;
@@ -25,7 +33,10 @@ public class EntitiesClass: NetworkBehaviour
 
 
 
+
+
     }
+
 
     public void SetTeamID(string id)
     {

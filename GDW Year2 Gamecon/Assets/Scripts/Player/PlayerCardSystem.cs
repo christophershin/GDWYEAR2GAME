@@ -6,7 +6,11 @@ using UnityEngine;
 
 public class PlayerCardSystem : NetworkBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //EntitiesClass
+
+    [SerializeField]
+    private EntitiesClass entitiesClass;
+
 
     public GameObject projectile;
     [SerializeField] private float proj_speed;
@@ -28,14 +32,16 @@ public class PlayerCardSystem : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0))
+        if(entitiesClass.isAlive.Value == true)
         {
+            if (Input.GetMouseButtonDown(0))
+            {
 
-            string id = GetComponent<EntitiesClass>().teamID;
-            Vector3 direction = cam.transform.forward;
-            ShootServerRPC(direction, id, proj_speed);
+                string id = GetComponent<EntitiesClass>().teamID;
+                Vector3 direction = cam.transform.forward;
+                ShootServerRPC(direction, id, proj_speed);
 
+            }
         }
 
     }
