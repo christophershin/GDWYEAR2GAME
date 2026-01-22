@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &26911504
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &65087948
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,8 +632,8 @@ Transform:
   m_GameObject: {fileID: 65087948}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.20784564, z: -0, w: 0.9781617}
-  m_LocalPosition: {x: -25.009998, y: -14.11, z: 24.940002}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: -25.009998, y: -14.11, z: 24.94001}
+  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -649,6 +651,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &65087951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,7 +674,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -782,8 +789,8 @@ Transform:
   m_GameObject: {fileID: 84791091}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.20784564, z: -0, w: 0.9781617}
-  m_LocalPosition: {x: 36.79, y: -14.11, z: 27.140003}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: 36.790005, y: -14.11, z: 27.14}
+  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -801,6 +808,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &84791094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,7 +831,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -1146,9 +1158,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119072319}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.80401367}
-  m_LocalPosition: {x: 48.39522, y: -14.11, z: -26.59086}
-  m_LocalScale: {x: 0.19737078, y: 0.1973708, z: 0.19737078}
+  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.8040136}
+  m_LocalPosition: {x: 48.39522, y: -14.11, z: -26.590862}
+  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -1166,6 +1178,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &119072322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1184,7 +1201,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -1298,9 +1315,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136776416}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.80401367}
-  m_LocalPosition: {x: 22.52313, y: 5.210001, z: 5.7979527}
-  m_LocalScale: {x: 0.19737078, y: 0.1973708, z: 0.19737078}
+  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.8040136}
+  m_LocalPosition: {x: 22.523125, y: 5.210001, z: 5.797947}
+  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -1318,6 +1335,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &136776419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,7 +1358,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -1451,8 +1473,8 @@ Transform:
   m_GameObject: {fileID: 138068841}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.3, y: -14.11, z: 2.8}
-  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
+  m_LocalPosition: {x: 39.300007, y: -14.11, z: 2.800003}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -1470,6 +1492,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &138068844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1488,7 +1515,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -1793,9 +1820,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 168397688}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.80401367}
-  m_LocalPosition: {x: 49.42313, y: -14.11, z: 34.097954}
-  m_LocalScale: {x: 0.19737078, y: 0.1973708, z: 0.19737078}
+  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.8040136}
+  m_LocalPosition: {x: 49.423122, y: -14.11, z: 34.09796}
+  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -1813,6 +1840,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &168397691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,7 +1863,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -2069,6 +2101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!43 &221273338
 Mesh:
   m_ObjectHideFlags: 0
@@ -2454,8 +2487,8 @@ Transform:
   m_GameObject: {fileID: 261793216}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.20161515, z: -0, w: 0.9794648}
-  m_LocalPosition: {x: -2.7952213, y: -14.11, z: -10.209141}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: -2.7952204, y: -14.11, z: -10.209139}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -2473,6 +2506,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &261793219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2491,7 +2529,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -2907,6 +2945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &345824469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3195,6 +3234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!43 &368997705
 Mesh:
   m_ObjectHideFlags: 0
@@ -3525,6 +3565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &393613910
 GameObject:
   m_ObjectHideFlags: 0
@@ -3554,8 +3595,8 @@ Transform:
   m_GameObject: {fileID: 393613910}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.20784564, z: -0, w: 0.9781617}
-  m_LocalPosition: {x: -11.93313, y: -14.11, z: -6.057949}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: -11.933131, y: -14.11, z: -6.057949}
+  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -3573,6 +3614,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &393613913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3591,7 +3637,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -3829,6 +3875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &399151392
 GameObject:
   m_ObjectHideFlags: 0
@@ -3981,6 +4028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &404551583
 GameObject:
   m_ObjectHideFlags: 0
@@ -4011,7 +4059,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.20161515, z: -0, w: 0.9794648}
   m_LocalPosition: {x: 12, y: -14.11, z: -45.1}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -4029,6 +4077,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &404551586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4047,7 +4100,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -4285,6 +4338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -4564,6 +4618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!43 &446350320
 Mesh:
   m_ObjectHideFlags: 0
@@ -4894,6 +4949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &463508924
 GameObject:
   m_ObjectHideFlags: 0
@@ -4998,8 +5054,8 @@ Transform:
   m_GameObject: {fileID: 471236453}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42, y: -14.11, z: 34.2}
-  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
+  m_LocalPosition: {x: 42.00001, y: -14.11, z: 34.200012}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -5017,6 +5073,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &471236456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5035,7 +5096,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -5639,8 +5700,8 @@ Transform:
   m_GameObject: {fileID: 631444668}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.20161515, z: -0, w: 0.9794648}
-  m_LocalPosition: {x: 22.32791, y: -14.11, z: 12.788809}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: 22.327911, y: -14.11, z: 12.788818}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -5658,6 +5719,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &631444671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5676,7 +5742,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -5949,6 +6015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &672596230
 GameObject:
   m_ObjectHideFlags: 0
@@ -6237,6 +6304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &723964203
 GameObject:
   m_ObjectHideFlags: 0
@@ -6389,6 +6457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &731561949
 GameObject:
   m_ObjectHideFlags: 0
@@ -6420,6 +6489,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1891961764}
   - {fileID: 872373070}
   - {fileID: 1828781072}
   - {fileID: 1267150787}
@@ -6439,7 +6509,6 @@ Transform:
   - {fileID: 1380518530}
   - {fileID: 136776417}
   - {fileID: 891088396}
-  - {fileID: 1891961764}
   - {fileID: 261793217}
   - {fileID: 631444669}
   - {fileID: 1398988760}
@@ -6465,7 +6534,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731561949}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e271316e9e1f69647b68dc337b9bd207, type: 3}
   m_Name: 
@@ -6495,7 +6564,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -6832,6 +6901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &748738158
 GameObject:
   m_ObjectHideFlags: 0
@@ -6861,8 +6931,8 @@ Transform:
   m_GameObject: {fileID: 748738158}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.20161515, z: -0, w: 0.9794648}
-  m_LocalPosition: {x: 45.92791, y: -14.11, z: 22.988811}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: 45.927925, y: -14.11, z: 22.98882}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -6880,6 +6950,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &748738161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6898,7 +6973,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -7136,6 +7211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1001 &816083989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7707,8 +7783,8 @@ Transform:
   m_GameObject: {fileID: 872373069}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40.97209, y: -14.11, z: -26.48881}
-  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
+  m_LocalPosition: {x: 40.972095, y: -14.11, z: -26.48881}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -7726,6 +7802,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &872373072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7744,7 +7825,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -7858,9 +7939,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878978200}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.80401367}
-  m_LocalPosition: {x: 0.7, y: -14.11, z: 0.9}
-  m_LocalScale: {x: 0.19737078, y: 0.1973708, z: 0.19737078}
+  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.8040136}
+  m_LocalPosition: {x: 0.69999886, y: -14.11, z: 0.9000054}
+  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -7878,6 +7959,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &878978203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7896,7 +7982,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -8011,8 +8097,8 @@ Transform:
   m_GameObject: {fileID: 891088395}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.20161515, z: -0, w: 0.9794648}
-  m_LocalPosition: {x: 44.9, y: -14.11, z: -37.7}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: 44.900005, y: -14.11, z: -37.7}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -8030,6 +8116,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &891088398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8048,7 +8139,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -8743,6 +8834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!43 &970711349
 Mesh:
   m_ObjectHideFlags: 0
@@ -9073,6 +9165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &1003495811
 GameObject:
   m_ObjectHideFlags: 0
@@ -9225,6 +9318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &1031191067
 GameObject:
   m_ObjectHideFlags: 0
@@ -9630,6 +9724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &1102056762
 GameObject:
   m_ObjectHideFlags: 0
@@ -9782,6 +9877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &1135535305
 GameObject:
   m_ObjectHideFlags: 0
@@ -9811,8 +9907,8 @@ Transform:
   m_GameObject: {fileID: 1135535305}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.20784564, z: -0, w: 0.9781617}
-  m_LocalPosition: {x: 35.762093, y: -14.11, z: -33.54881}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: 35.762096, y: -14.11, z: -33.54881}
+  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -9830,6 +9926,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1135535308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9848,7 +9949,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -10086,6 +10187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &1156570621
 GameObject:
   m_ObjectHideFlags: 0
@@ -10238,6 +10340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &1160123078
 GameObject:
   m_ObjectHideFlags: 0
@@ -11141,8 +11244,8 @@ Transform:
   m_GameObject: {fileID: 1267150786}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.723131, y: -14.11, z: 1.0020504}
-  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
+  m_LocalPosition: {x: -6.7231264, y: -14.11, z: 1.0020523}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -11160,6 +11263,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1267150789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11178,7 +11286,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -11293,8 +11401,8 @@ Transform:
   m_GameObject: {fileID: 1363476081}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.20161515, z: -0, w: 0.9794648}
-  m_LocalPosition: {x: -15.872088, y: -14.11, z: 20.78881}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: -15.872088, y: -14.11, z: 20.788818}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -11312,6 +11420,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1363476084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11330,7 +11443,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -11444,9 +11557,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380518529}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.80401367}
-  m_LocalPosition: {x: -12.376868, y: -14.11, z: 31.897955}
-  m_LocalScale: {x: 0.19737078, y: 0.1973708, z: 0.19737078}
+  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.8040136}
+  m_LocalPosition: {x: -12.376868, y: -14.11, z: 31.897951}
+  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -11464,6 +11577,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1380518532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11482,7 +11600,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -11598,7 +11716,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.20784564, z: -0, w: 0.9781617}
   m_LocalPosition: {x: -26.009998, y: -14.11, z: -35.46}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -11616,6 +11734,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1397087119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11634,7 +11757,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -11749,8 +11872,8 @@ Transform:
   m_GameObject: {fileID: 1398988759}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.20161515, z: -0, w: 0.9794648}
-  m_LocalPosition: {x: 43.227913, y: -14.11, z: -8.41119}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: 43.227913, y: -14.11, z: -8.411188}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -11768,6 +11891,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1398988762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11786,7 +11914,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -11979,9 +12107,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446339056}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.80401367}
-  m_LocalPosition: {x: -13.376869, y: -14.11, z: -28.50205}
-  m_LocalScale: {x: 0.19737078, y: 0.1973708, z: 0.19737078}
+  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.8040136}
+  m_LocalPosition: {x: -13.376868, y: -14.11, z: -28.502048}
+  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -11999,6 +12127,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1446339059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12017,7 +12150,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -12378,9 +12511,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480016004}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.80401367}
-  m_LocalPosition: {x: 15.49522, y: -14.11, z: -33.99086}
-  m_LocalScale: {x: 0.19737078, y: 0.1973708, z: 0.19737078}
+  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.8040136}
+  m_LocalPosition: {x: 15.495224, y: -14.11, z: -33.99086}
+  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -12398,6 +12531,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1480016007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12416,7 +12554,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -12607,7 +12745,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.072086, y: -14.11, z: -33.88881}
-  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -12625,6 +12763,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1560234953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12643,7 +12786,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -12881,6 +13024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &1615704938
 GameObject:
   m_ObjectHideFlags: 0
@@ -12910,8 +13054,8 @@ Transform:
   m_GameObject: {fileID: 1615704938}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.20784564, z: -0, w: 0.9781617}
-  m_LocalPosition: {x: 9.890001, y: 5.210001, z: -1.1599979}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: 9.890003, y: 5.210001, z: -1.1599922}
+  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -12929,6 +13073,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1615704941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12947,7 +13096,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -13174,7 +13323,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -19.8, y: -14.11, z: 32}
-  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -13192,6 +13341,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1632741473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13210,7 +13364,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -13897,6 +14051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &1690667368
 GameObject:
   m_ObjectHideFlags: 0
@@ -13926,8 +14081,8 @@ Transform:
   m_GameObject: {fileID: 1690667368}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.4, y: -14.11, z: 24}
-  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
+  m_LocalPosition: {x: 18.399998, y: -14.11, z: 24}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -13945,6 +14100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1690667371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13963,7 +14123,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -14201,6 +14361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &1710591561
 GameObject:
   m_ObjectHideFlags: 0
@@ -14414,6 +14575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!43 &1736116369
 Mesh:
   m_ObjectHideFlags: 0
@@ -14744,6 +14906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!43 &1751078914
 Mesh:
   m_ObjectHideFlags: 0
@@ -15025,9 +15188,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761026408}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.80401367}
-  m_LocalPosition: {x: 46.723133, y: -14.11, z: 2.6979504}
-  m_LocalScale: {x: 0.19737078, y: 0.1973708, z: 0.19737078}
+  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.8040136}
+  m_LocalPosition: {x: 46.723133, y: -14.11, z: 2.6979523}
+  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -15045,6 +15208,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1761026411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15063,7 +15231,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -15401,6 +15569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &1779541137
 GameObject:
   m_ObjectHideFlags: 0
@@ -15553,6 +15722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!43 &1807065464
 Mesh:
   m_ObjectHideFlags: 0
@@ -15760,8 +15930,8 @@ Transform:
   m_GameObject: {fileID: 1828781071}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.8, y: -14.11, z: -28.4}
-  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
+  m_LocalPosition: {x: -20.8, y: -14.11, z: -28.399998}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -15779,6 +15949,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1828781074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15797,7 +15972,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -16284,6 +16459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &1891616631
 GameObject:
   m_ObjectHideFlags: 0
@@ -16436,6 +16612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &1891961763
 GameObject:
   m_ObjectHideFlags: 0
@@ -16484,6 +16661,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1891961766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16502,7 +16684,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -16616,9 +16798,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928344565}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.80401367}
-  m_LocalPosition: {x: 25.823132, y: -14.11, z: 23.89795}
-  m_LocalScale: {x: 0.19737078, y: 0.1973708, z: 0.19737078}
+  m_LocalRotation: {x: -0, y: -0.59461087, z: -0, w: 0.8040136}
+  m_LocalPosition: {x: 25.82314, y: -14.11, z: 23.89796}
+  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -16636,6 +16818,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1928344568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16654,7 +16841,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -16769,8 +16956,8 @@ Transform:
   m_GameObject: {fileID: 1954812594}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.1, y: 5.210001, z: 5.9}
-  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
+  m_LocalPosition: {x: 15.100006, y: 5.210001, z: 5.900009}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -16788,6 +16975,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1954812597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16806,7 +16998,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -17044,6 +17236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!43 &1971739278
 Mesh:
   m_ObjectHideFlags: 0
@@ -17374,6 +17567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &1984747235
 GameObject:
   m_ObjectHideFlags: 0
@@ -17403,8 +17597,8 @@ Transform:
   m_GameObject: {fileID: 1984747235}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.20784564, z: -0, w: 0.9781617}
-  m_LocalPosition: {x: 34.090004, y: -14.11, z: -4.2599983}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: 34.090008, y: -14.11, z: -4.2599945}
+  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -17422,6 +17616,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1984747238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17440,7 +17639,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -17555,8 +17754,8 @@ Transform:
   m_GameObject: {fileID: 1988605525}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.20161515, z: -0, w: 0.9794648}
-  m_LocalPosition: {x: 19.02791, y: 5.210001, z: -5.3111897}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: 19.027912, y: 5.210001, z: -5.3111877}
+  m_LocalScale: {x: 0.19737083, y: 0.1973708, z: 0.19737083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -17574,6 +17773,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &1988605528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17592,7 +17796,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -17830,6 +18034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &2056809164
 GameObject:
   m_ObjectHideFlags: 0
@@ -17934,8 +18139,8 @@ Transform:
   m_GameObject: {fileID: 2073553944}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.20784564, z: -0, w: 0.9781617}
-  m_LocalPosition: {x: 2.862091, y: -14.11, z: -40.948807}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: 2.862093, y: -14.11, z: -40.948807}
+  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -17953,6 +18158,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &2073553947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17971,7 +18181,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -18387,6 +18597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs: []
 --- !u!1 &2095660719
 GameObject:
   m_ObjectHideFlags: 0
@@ -18416,8 +18627,8 @@ Transform:
   m_GameObject: {fileID: 2095660719}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.20784564, z: -0, w: 0.9781617}
-  m_LocalPosition: {x: 13.190001, y: -14.11, z: 16.94}
-  m_LocalScale: {x: 0.19737081, y: 0.1973708, z: 0.19737081}
+  m_LocalPosition: {x: 13.190006, y: -14.11, z: 16.940006}
+  m_LocalScale: {x: 0.1973708, y: 0.1973708, z: 0.1973708}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731561950}
@@ -18435,6 +18646,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteCard
   ShowTopMostFoldoutHeaderGroup: 1
+  cardSpritePrefabs:
+  - {fileID: -1996471250, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1432189200, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1723938870, guid: 606dc98d961b0314c9e9377149201999, type: 3}
+  - {fileID: -1426397147, guid: 606dc98d961b0314c9e9377149201999, type: 3}
 --- !u!114 &2095660722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18453,7 +18669,7 @@ MonoBehaviour:
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0

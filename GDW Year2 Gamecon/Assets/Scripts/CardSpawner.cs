@@ -46,7 +46,11 @@ public class CardSpawner : NetworkBehaviour
                 go.name = "Knife";
             }
         }
+        
+        
     }
+
+    
 
     // Update is called once per frame
     void FixedUpdate()
