@@ -186,7 +186,7 @@ public class PlayerMovementandCamera : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Card") && _cardsManager.AddCard(other.gameObject.name))
+        if (other.gameObject.CompareTag("Card") && other.gameObject.name != "null" && other.gameObject.name != "awaiting" && _cardsManager.AddCard(other.gameObject.name))
         {
             other.GetComponent<DeleteCard>().DespawnServerRPC();
         }

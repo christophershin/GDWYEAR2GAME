@@ -23,6 +23,7 @@ public class RelayManager : MonoBehaviour
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject gameUI;
     [SerializeField] private GameObject gameplayUI;
+    [SerializeField] private GameObject cardsSpawner;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -58,6 +59,7 @@ public class RelayManager : MonoBehaviour
         //cam.SetActive(false);
         gameUI.SetActive(true);
         gameplayUI.SetActive(true);
+        cardsSpawner.SetActive(true);
         
         return NetworkManager.Singleton.StartHost() ? joinCode : null;
     }

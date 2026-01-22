@@ -7,6 +7,8 @@ public class DeleteCard : NetworkBehaviour
     public void DespawnServerRPC()
     {
         if(IsServer)
-            NetworkObject.Despawn();
+            //NetworkObject.Despawn();
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = null;
+        this.gameObject.name = "null";
     }
 }
