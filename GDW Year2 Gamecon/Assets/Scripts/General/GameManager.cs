@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Unity.Netcode;
 using UnityEditor.UI;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class GameManager : NetworkBehaviour
 
     [HideInInspector]
     public NetworkList<ulong> PlayersInServer;
+
+    private int numPlayerEliminated = 0;
 
     void Awake()
     {
@@ -43,7 +46,37 @@ public class GameManager : NetworkBehaviour
 
     private void Update()
     {
-        //Debug.Log(allPlayers.Count);
+      
+
+        for(int i=0; i<PlayersInServer.Count; i++)
+        {
+
+            if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(PlayersInServer[i], out NetworkObject netObj))
+            {
+                GameObject obj = netObj.gameObject;
+
+                Debug.Log(obj.GetComponent<HealthandShield>().Health.Value);
+
+
+                if(obj.GetComponent<HealthandShield>().Health.Value<=0)
+                {
+                    obj.GetComponent<HealthandShield>().CenterText.text = "defeat";
+                    numPlayerEliminated++;
+                    
+                }
+                else if(numPlayerEliminated>0 && numPlayerEliminated == PlayersInServer.Count - 1)
+                {
+                    obj.GetComponent<HealthandShield>().CenterText.text = "Victory!";
+                }
+
+            }
+
+                
+        }
+
+        Debug.Log("************");
+
+
     }
 
 

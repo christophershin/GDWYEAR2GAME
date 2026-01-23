@@ -38,8 +38,7 @@ public class HealthandShield : NetworkBehaviour
     RectTransform ShieldUI;
 
 
-    [SerializeField]
-    TextMeshProUGUI CenterText; 
+    public TextMeshProUGUI CenterText; 
 
 
     [SerializeField]
@@ -124,19 +123,6 @@ public class HealthandShield : NetworkBehaviour
             return;
         }
 
-        if(IsOwner)
-        {
-
-            if (entitiesClass.isAlive.Value == false)
-            {
-                CenterText.text = "Defeat";
-                CenterText.color = Color.red;
-
-               // StartCoroutine(TextLifeTime(CenterText.text, "Defeat", 3));
-            }
-                
-        }
-
 
 
 
@@ -215,7 +201,7 @@ public class HealthandShield : NetworkBehaviour
     public void RegenShieldServerRPC()
     {
 
-        if(Shield.Value<maxShield)
+        if(Shield.Value<maxShield && Health.Value>0)
         {
             regenShieldTimer -= Time.deltaTime;
 
