@@ -55,7 +55,7 @@ public class Deflect : NetworkBehaviour
     void CurvedParryable(GameObject obj)
     {
         Vector3 startpos = RaycastFromCamera(cam.GetComponent<Camera>(), 10000);
-        obj.GetComponent<projectile>().Parry(startpos, 2, 3,1);
+        //obj.GetComponent<projectile>().Parry(startpos, 2, 3,1);
     }
     
     public static Vector3 RaycastFromCamera(Camera cam, float maxDistance)
