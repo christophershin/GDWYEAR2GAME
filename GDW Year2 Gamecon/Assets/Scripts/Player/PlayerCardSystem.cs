@@ -192,14 +192,14 @@ public class PlayerCardSystem : NetworkBehaviour
         
         GameObject bullet = Instantiate(proj, transform.position + shootdirection * 1.5f, Quaternion.identity);
 
-        // bullet.GetComponent<projectile>().Shoot(bullet,
-        //     startpos,
-        //     midpos,
-        //     endpos,
-        //     startspeed,
-        //     midspeed,
-        //     endspeed
-        // );
+        bullet.GetComponent<projectile>().Shoot(bullet,
+            startpos,
+            midpos,
+            endpos,
+            startspeed,
+            midspeed,
+            endspeed
+        );
 
         // StartCoroutine(bullet.GetComponent<projectile>()
         //     .MoveProjectile(bullet.gameObject.transform, 

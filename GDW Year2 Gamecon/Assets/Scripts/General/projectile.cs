@@ -12,6 +12,14 @@ public class projectile : NetworkBehaviour
 
     public float damage;
 
+    private Rigidbody _rb;
+    Coroutine _currentCoroutine;
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
     // Performs behavior on the server which then sends data to all clients
     public override void OnNetworkSpawn()
     {
