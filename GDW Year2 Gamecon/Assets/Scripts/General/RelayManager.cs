@@ -25,6 +25,8 @@ public class RelayManager : MonoBehaviour
     [SerializeField] private GameObject gameplayUI;
     [SerializeField] private GameObject cardsSpawner;
     
+    [SerializeField] private GameObject joinButton, hostButton,fullHostUI;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private async void Start()
@@ -61,6 +63,11 @@ public class RelayManager : MonoBehaviour
         //gameplayUI.SetActive(true);
         cardsSpawner.SetActive(true);
         
+        
+        // Deactivate join button
+        hostButton.SetActive(false);
+        joinButton.SetActive(false);
+        
         return NetworkManager.Singleton.StartHost() ? joinCode : null;
     }
 
@@ -70,6 +77,8 @@ public class RelayManager : MonoBehaviour
 
         NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new RelayServerData(joinAllocation, "dtls"));
         gameplayUI.SetActive(true);
+        
+        fullHostUI.SetActive(false);
         
         return !string.IsNullOrEmpty(joinCode) && NetworkManager.Singleton.StartClient();
     }
