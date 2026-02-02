@@ -58,7 +58,7 @@ public class RelayManager : MonoBehaviour
         
         //cam.SetActive(false);
         gameUI.SetActive(true);
-        gameplayUI.SetActive(true);
+        //gameplayUI.SetActive(true);
         cardsSpawner.SetActive(true);
         
         return NetworkManager.Singleton.StartHost() ? joinCode : null;
