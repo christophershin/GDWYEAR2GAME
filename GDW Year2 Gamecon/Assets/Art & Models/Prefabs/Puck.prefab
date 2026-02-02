@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4735665407122926075}
   - component: {fileID: 1510941336286433654}
   - component: {fileID: 6575308652657045443}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 5336716006305971001}
   - component: {fileID: 3706900182250515022}
   - component: {fileID: 578840214462172056}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Puck
   m_TagString: Parriable
   m_Icon: {fileID: 0}

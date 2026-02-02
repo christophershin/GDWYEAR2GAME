@@ -44,11 +44,14 @@ public class PlayerCardSystem : NetworkBehaviour
             new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)
         );
 
-        if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
+        int layerMask = ~LayerMask.GetMask("card");
+
+        if (Physics.Raycast(ray, out RaycastHit hit, maxDistance, layerMask))
             return hit.point;
 
         return ray.origin + ray.direction * maxDistance;
     }
+
 
 
 
@@ -58,6 +61,7 @@ public class PlayerCardSystem : NetworkBehaviour
     
         if (Input.GetMouseButtonDown(0))
         {
+            
             string id = GetComponent<EntitiesClass>().teamID;
             Vector3 direction = cam.transform.forward;
             

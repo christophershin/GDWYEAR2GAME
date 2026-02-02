@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5336716006305971001}
   - component: {fileID: 3706900182250515022}
   - component: {fileID: 2996243343642301353}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Knife
   m_TagString: Parriable
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 2073270236258861775}
   - component: {fileID: 319586358697956184}
   - component: {fileID: 2906585238723765216}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 825825077213162349}
   - component: {fileID: 3197936185648716734}
   - component: {fileID: 6050611813965603698}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Blade
   m_TagString: Untagged
   m_Icon: {fileID: 0}

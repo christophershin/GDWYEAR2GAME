@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5774061108718591581}
   - component: {fileID: 2976049206179672893}
   - component: {fileID: 7223439246271678037}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 5336716006305971001}
   - component: {fileID: 3706900182250515022}
   - component: {fileID: 6203057208433129363}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pikeball
   m_TagString: Parriable
   m_Icon: {fileID: 0}
