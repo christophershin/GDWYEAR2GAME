@@ -52,6 +52,24 @@ public class Deflect : NetworkBehaviour
         }
     }
 
+    void CurvedParryable(GameObject obj)
+    {
+        Vector3 startpos = RaycastFromCamera(cam.GetComponent<Camera>(), 10000);
+        obj.GetComponent<projectile>().Parry(startpos, 2, 3,1);
+    }
+    
+    public static Vector3 RaycastFromCamera(Camera cam, float maxDistance)
+    {
+        Ray ray = cam.ScreenPointToRay(
+            new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)
+        );
+
+        if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
+            return hit.point;
+
+        return ray.origin + ray.direction * maxDistance;
+    }
+
 
     [ServerRpc]
     void DeflectServerRPC(ulong objId, Vector3 dir, float deflectSpeed, string id)
@@ -62,9 +80,10 @@ public class Deflect : NetworkBehaviour
 
             if (obj.GetComponent<EntitiesClass>().teamID != id)
             {
-                obj.transform.position = transform.position; // or the hit point, not +dir
-                obj.transform.rotation = Quaternion.LookRotation(dir);
-                obj.GetComponent<Rigidbody>().linearVelocity = dir.normalized * deflectSpeed;
+                CurvedParryable(obj);
+                //obj.transform.position = transform.position; // or the hit point, not +dir
+                //obj.transform.rotation = Quaternion.LookRotation(dir);
+                //obj.GetComponent<Rigidbody>().linearVelocity = dir.normalized * deflectSpeed;
                 obj.GetComponent<EntitiesClass>().teamID = id;
                 obj.GetComponent<projectile>().projectileTimer = obj.GetComponent<projectile>().projectileTimerMax;
             }
