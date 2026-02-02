@@ -35,6 +35,7 @@ public class projectile : NetworkBehaviour
                 GetComponent<NetworkObject>().Despawn(true);
         }
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {
