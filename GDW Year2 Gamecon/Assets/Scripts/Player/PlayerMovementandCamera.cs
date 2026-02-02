@@ -10,6 +10,12 @@ using UnityEngine;
 
 public class PlayerMovementandCamera : NetworkBehaviour
 {
+    //Entities Class
+    [SerializeField]
+    private EntitiesClass entitiesClass;
+
+
+
     // Camera Rotation
     public float mouseSensitivity = 2f;
     private float verticalRotation = 0f;
@@ -49,6 +55,7 @@ public class PlayerMovementandCamera : NetworkBehaviour
         _cardsManager = GameObject.Find("Cards").GetComponent<CardsManager>();
     }
 
+
     public override void OnNetworkSpawn()
     {
         if (!IsOwner)
@@ -84,9 +91,12 @@ public class PlayerMovementandCamera : NetworkBehaviour
 
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded && canMove)
+        if(entitiesClass.isAlive.Value == true)
         {
-            Jump();
+            if (Input.GetButtonDown("Jump") && isGrounded && canMove)
+            {
+                Jump();
+            }
         }
 
         // Checking when we're on the ground and keeping track of our ground check delay
@@ -104,13 +114,18 @@ public class PlayerMovementandCamera : NetworkBehaviour
 
     void FixedUpdate()
     {
-        if (canMove == true)
+
+        if (entitiesClass.isAlive.Value == true)
         {
-            MovePlayer();
-            ApplyJumpPhysics();
 
+            if (canMove == true)
+            {
+                MovePlayer();
+                ApplyJumpPhysics();
+
+            }
         }
-
+        
 
     }
 

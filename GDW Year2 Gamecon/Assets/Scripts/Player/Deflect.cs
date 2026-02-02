@@ -29,9 +29,6 @@ public class Deflect : NetworkBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        // Only the client with the camera should trigger this
-        if (!IsOwner)
-            return;
 
         if (collision.gameObject.CompareTag("Parriable"))
         {
@@ -42,11 +39,16 @@ public class Deflect : NetworkBehaviour
             deflectSpeed = obj.GetComponent<Rigidbody>().linearVelocity.magnitude;
 
             // Tell the server to handle the deflect
-            DeflectServerRpc(objId, direction, 14, teamid);
+            DeflectServerRPC(objId, direction, 14, teamid);
 
-            //play sound
-            ManagerAudio.clip = sounds[0];
-            ManagerAudio.Play();
+            
+            if(obj.GetComponent<EntitiesClass>().teamID != teamid)
+            {
+                //play sound
+                ManagerAudio.clip = sounds[0];
+                ManagerAudio.Play();
+            }
+
         }
     }
 
@@ -69,8 +71,8 @@ public class Deflect : NetworkBehaviour
     }
 
 
-    [ServerRpc(RequireOwnership = false)]
-    void DeflectServerRpc(ulong objId, Vector3 dir, float deflectSpeed, string id)
+    [ServerRpc]
+    void DeflectServerRPC(ulong objId, Vector3 dir, float deflectSpeed, string id)
     {
         if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(objId, out NetworkObject netObj))
         {
@@ -87,11 +89,6 @@ public class Deflect : NetworkBehaviour
             }
         }
     }
-
-    //void RPCparams(ServerRpcParams paramters)
-    //{
-
-    //}
 
 
 }

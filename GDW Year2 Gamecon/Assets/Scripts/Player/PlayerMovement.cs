@@ -1,6 +1,7 @@
 using UnityEngine;
 using Unity.Netcode;
 
+
 public class PlayerMovement : NetworkBehaviour
 {
     public float moveSpeed = 5f;
@@ -13,6 +14,7 @@ public class PlayerMovement : NetworkBehaviour
 
     private CharacterController controller;
     private Vector3 moveDirection;
+
 
     public override void OnNetworkSpawn()
     {
@@ -31,30 +33,32 @@ public class PlayerMovement : NetworkBehaviour
 
     }
 
-
     void Update()
     {
 
-        // Player Movement
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
 
-        if (controller.isGrounded)
-        {
-            moveDirection = transform.right * horizontalInput + transform.forward * verticalInput;
-            moveDirection *= moveSpeed;
+            // Player Movement
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
 
-            if (Input.GetButtonDown("Jump"))
+            if (controller.isGrounded)
             {
-                moveDirection.y = jumpForce;
+                moveDirection = transform.right * horizontalInput + transform.forward * verticalInput;
+                moveDirection *= moveSpeed;
+
+                if (Input.GetButtonDown("Jump"))
+                {
+                    moveDirection.y = jumpForce;
+                }
             }
-        }
 
-        // Apply Gravity
-        moveDirection.y -= gravity * Time.deltaTime;
 
-        // Move the CharacterController
-        controller.Move(moveDirection * Time.deltaTime);
+            // Apply Gravity
+            moveDirection.y -= gravity * Time.deltaTime;
+
+            // Move the CharacterController
+            controller.Move(moveDirection * Time.deltaTime);
+        
 
         RotateCamera();
     }
