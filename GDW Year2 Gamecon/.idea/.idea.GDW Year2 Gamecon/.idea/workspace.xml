@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Deflect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Deflect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +19,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Health Manager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1f60b3138684/Rider/Editor/Discovery.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@7e60351bfc70/Runtime/Core/NetworkBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@7e60351bfc70/Runtime/Messaging/Messages/RpcMessages.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.relay@89d2e904f0fd/Runtime/SDK/WrappedRelayService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@e375ff18e90f/Editor/TMP/TMPro_FontAssetCreatorWindow.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
