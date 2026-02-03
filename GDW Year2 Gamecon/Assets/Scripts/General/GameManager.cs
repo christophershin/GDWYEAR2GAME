@@ -47,32 +47,36 @@ public class GameManager : NetworkBehaviour
     private void Update()
     {
       
-
-        for(int i=0; i<PlayersInServer.Count; i++)
+        if(PlayersInServer.Count>1)
         {
-
-            if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(PlayersInServer[i], out NetworkObject netObj))
+            for (int i = 0; i < PlayersInServer.Count; i++)
             {
-                GameObject obj = netObj.gameObject;
 
-                Debug.Log(obj.GetComponent<HealthandShield>().Health.Value);
-
-
-                if(obj.GetComponent<HealthandShield>().Health.Value<=0)
+                if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(PlayersInServer[i], out NetworkObject netObj))
                 {
-                    obj.GetComponent<HealthandShield>().CenterText.text = "defeat";
-                    numPlayerEliminated++;
-                    
+                    GameObject obj = netObj.gameObject;
+
+                    Debug.Log(obj.GetComponent<HealthandShield>().Health.Value);
+
+
+                    if (obj.GetComponent<HealthandShield>().Health.Value <= 0)
+                    {
+                        obj.GetComponent<HealthandShield>().CenterText.text = "defeat";
+                        numPlayerEliminated++;
+
+                    }
+                    else if (numPlayerEliminated > 0 && numPlayerEliminated == PlayersInServer.Count - 1)
+                    {
+                        obj.GetComponent<HealthandShield>().CenterText.text = "Victory!";
+                    }
+
                 }
-                else if(numPlayerEliminated>0 && numPlayerEliminated == PlayersInServer.Count - 1)
-                {
-                    obj.GetComponent<HealthandShield>().CenterText.text = "Victory!";
-                }
+
 
             }
-
-                
         }
+
+
 
         Debug.Log("************");
 
