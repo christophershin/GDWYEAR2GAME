@@ -74,6 +74,7 @@ public class Deflect : NetworkBehaviour
     [ServerRpc]
     void DeflectServerRPC(ulong objId, Vector3 dir, float deflectSpeed, string id)
     {
+        if (!IsServer) return;
         if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(objId, out NetworkObject netObj))
         {
             GameObject obj = netObj.gameObject;
