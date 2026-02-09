@@ -201,9 +201,12 @@ public class PlayerMovementandCamera : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Card") && other.gameObject.name != "null" && other.gameObject.name != "awaiting" && other.gameObject.name != "Card" && _cardsManager.AddCard(other.gameObject.name))
+        if (other.gameObject.CompareTag("Card") && other.gameObject.name != "null" && other.gameObject.name != "awaiting" && other.gameObject.name != "Card")
         {
-            other.GetComponent<DeleteCard>().DespawnServerRPC();
+            if (_cardsManager.AddCard(other.gameObject.name))
+            {
+                other.GetComponent<DeleteCard>().DespawnServerRPC();
+            }
         }
     }
 }

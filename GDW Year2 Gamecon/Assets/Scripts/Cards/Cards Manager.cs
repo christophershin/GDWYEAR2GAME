@@ -37,6 +37,7 @@ public class CardsManager : MonoBehaviour
 
     public bool AddCard(string nam)
     {
+        print(nam);
         // return early if cards ara max
         if (cardList.Count >= 3) return false;
         
