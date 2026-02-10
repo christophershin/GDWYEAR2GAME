@@ -64,15 +64,15 @@ public class HealthandShield : NetworkBehaviour
     private EntitiesClass entitiesClass;
 
 
-    private GameObject gameManager;
+    private GameManager gameManager;
 
 
     public override void OnNetworkSpawn()
     {
 
-        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        gameManager = FindFirstObjectByType<GameManager>();
 
-        gameManager.GetComponent<GameManager>().allPlayers.Add(this.gameObject);
+        gameManager.allPlayers.Add(this.gameObject);
 
         if (IsOwner)
         {
@@ -104,10 +104,10 @@ public class HealthandShield : NetworkBehaviour
         {
 
 
-            for (int i = 0; i < gameManager.GetComponent<GameManager>().allPlayers.Count; i++)
+            for (int i = 0; i < gameManager.allPlayers.Count; i++)
             {
 
-                GameObject obj = gameManager.GetComponent<GameManager>().allPlayers[i];
+                GameObject obj = gameManager.allPlayers[i];
 
                 if (obj.GetComponent<NetworkObject>().IsOwner)
                 {
@@ -120,7 +120,7 @@ public class HealthandShield : NetworkBehaviour
                 
             }
 
-            return;
+            //return;
         }
 
 
