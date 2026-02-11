@@ -115,8 +115,8 @@ public class PlayerMovementandCamera : NetworkBehaviour
     void FixedUpdate()
     {
 
-        //if (entitiesClass.isAlive.Value == true)
-        //{
+        if (entitiesClass.isAlive.Value == true)
+        {
 
             if (canMove == true)
             {
@@ -124,11 +124,6 @@ public class PlayerMovementandCamera : NetworkBehaviour
                 ApplyJumpPhysics();
 
             }
-        // }
-        if (entitiesClass.isAlive.Value == false)
-        {
-            Physics.IgnoreLayerCollision(0,0);
-
         }
         
 
