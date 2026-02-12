@@ -40,15 +40,15 @@ public class PlayerMovementandCamera : NetworkBehaviour
 
     // Narrative 
     private bool canMove;
-
+    public List<AudioClip> playerSounds;
+    private AudioSource SoundPlayer;
     private float stepCounter = 0;
     public float stepInterval = 0.2f;
     
     //CardManager
     private CardsManager _cardsManager;
-
-    public List<AudioClip> playerSounds;
-    private AudioSource SoundPlayer;
+    
+    
 
     private void Start()
     {
@@ -91,12 +91,13 @@ public class PlayerMovementandCamera : NetworkBehaviour
 
         }
 
-
-        if (Input.GetButtonDown("Jump") && isGrounded && canMove)
+        if(entitiesClass.isAlive.Value == true)
         {
-            Jump();
+            if (Input.GetButtonDown("Jump") && isGrounded && canMove)
+            {
+                Jump();
+            }
         }
-
 
         // Checking when we're on the ground and keeping track of our ground check delay
         if (!isGrounded && groundCheckTimer <= 0f)
@@ -109,26 +110,24 @@ public class PlayerMovementandCamera : NetworkBehaviour
             groundCheckTimer -= Time.deltaTime;
         }
 
-
-
     }
 
     void FixedUpdate()
     {
 
-
-        if (canMove == true)
+        if (entitiesClass.isAlive.Value == true)
         {
-            MovePlayer();
-            ApplyJumpPhysics();
 
+            if (canMove == true)
+            {
+                MovePlayer();
+                ApplyJumpPhysics();
+
+            }
         }
-
+        
 
     }
-
-
-
 
     void MovePlayer()
     {
