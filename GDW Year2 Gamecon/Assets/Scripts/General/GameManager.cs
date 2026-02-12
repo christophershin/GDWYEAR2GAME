@@ -11,6 +11,7 @@ public class GameManager : NetworkBehaviour
 
     public Transform playerPrefab;
 
+    [HideInInspector]
     public List<GameObject> allPlayers; 
 
 

@@ -91,13 +91,12 @@ public class PlayerMovementandCamera : NetworkBehaviour
 
         }
 
-        if(entitiesClass.isAlive.Value == true)
+
+        if (Input.GetButtonDown("Jump") && isGrounded && canMove)
         {
-            if (Input.GetButtonDown("Jump") && isGrounded && canMove)
-            {
-                Jump();
-            }
+            Jump();
         }
+        
 
         // Checking when we're on the ground and keeping track of our ground check delay
         if (!isGrounded && groundCheckTimer <= 0f)
@@ -115,16 +114,13 @@ public class PlayerMovementandCamera : NetworkBehaviour
     void FixedUpdate()
     {
 
-        if (entitiesClass.isAlive.Value == true)
+        if (canMove == true)
         {
+            MovePlayer();
+            ApplyJumpPhysics();
 
-            if (canMove == true)
-            {
-                MovePlayer();
-                ApplyJumpPhysics();
-
-            }
         }
+        
         
 
     }
@@ -201,12 +197,17 @@ public class PlayerMovementandCamera : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Card") && other.gameObject.name != "null" && other.gameObject.name != "awaiting" && other.gameObject.name != "Card")
+
+        if (entitiesClass.isAlive.Value)
         {
-            if (_cardsManager.AddCard(other.gameObject.name))
+            if (other.gameObject.CompareTag("Card") && other.gameObject.name != "null" && other.gameObject.name != "awaiting" && other.gameObject.name != "Card")
             {
-                other.GetComponent<DeleteCard>().DespawnServerRPC();
+                if (_cardsManager.AddCard(other.gameObject.name))
+                {
+                    other.GetComponent<DeleteCard>().DespawnServerRPC();
+                }
             }
         }
+
     }
 }
