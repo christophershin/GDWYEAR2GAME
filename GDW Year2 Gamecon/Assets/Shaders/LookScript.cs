@@ -11,12 +11,19 @@ public class LookScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            transform.LookAt(-hit.point);
-        }
+        // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        // RaycastHit hit;
+        //
+        // Vector3 newVector = this.transform.localPosition;
+        //
+        // if (Physics.Raycast(ray, out hit))
+        // {
+        //     if (hit.transform.gameObject.CompareTag("point"))
+        //     {
+        //         newVector = hit.point;
+        //         transform.LookAt(newVector);
+        //     }
+        //     
+        // }
     }
 }
