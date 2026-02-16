@@ -110,9 +110,6 @@ public class PlayerCardSystem : NetworkBehaviour
     {
         GameObject bullet = SetBullet(shootdirection, projectile);
         
-        
-        
-        //bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
         bullet.GetComponent<EntitiesClass>().teamID = _id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
         Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
@@ -125,10 +122,6 @@ public class PlayerCardSystem : NetworkBehaviour
     void ShootPuckServerRPC(Vector3 shootdirection, string _id, float proj_speed)
     {
         GameObject bullet = SetBullet(shootdirection, puck);
-        
-
-        //GameObject bullet = Instantiate(puck, transform.position + shootdirection * 1.5f, Quaternion.identity);
-        //bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
         bullet.GetComponent<EntitiesClass>().teamID = _id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
         Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
@@ -141,9 +134,7 @@ public class PlayerCardSystem : NetworkBehaviour
     void ShootPikeServerRPC(Vector3 shootdirection, string _id, float proj_speed)
     {
         GameObject bullet = SetBullet(shootdirection, pikeball);
-
-        //GameObject bullet = Instantiate(pikeball, transform.position + shootdirection * 1.5f, Quaternion.identity);
-        //bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
+        
         bullet.GetComponent<EntitiesClass>().teamID = _id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
         Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
@@ -157,8 +148,6 @@ public class PlayerCardSystem : NetworkBehaviour
     {
         GameObject bullet = SetBullet(shootdirection, grenade);
 
-        //GameObject bullet = Instantiate(grenade, transform.position + shootdirection * 1.5f, Quaternion.identity);
-        //bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
         bullet.GetComponent<EntitiesClass>().teamID = _id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
         Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
@@ -173,8 +162,6 @@ public class PlayerCardSystem : NetworkBehaviour
 
         GameObject bullet = SetBullet(shootdirection, knife);
 
-        //GameObject bullet = Instantiate(knife, transform.position + shootdirection * 1.5f, Quaternion.identity);
-        //bullet.GetComponent<Rigidbody>().linearVelocity = shootdirection.normalized * proj_speed;
         bullet.GetComponent<EntitiesClass>().teamID = _id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
         Debug.Log(bullet.GetComponent<EntitiesClass>().teamID);
@@ -200,16 +187,6 @@ public class PlayerCardSystem : NetworkBehaviour
             midspeed,
             endspeed
         );
-
-        // StartCoroutine(bullet.GetComponent<projectile>()
-        //     .MoveProjectile(bullet.gameObject.transform, 
-        //         startpos, 
-        //         midpos, 
-        //         endpos, 
-        //         startspeed, 
-        //         midspeed, 
-        //         endspeed
-        //     ));
         
         return bullet;
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class projectile : NetworkBehaviour
 {
-
+    [SerializeField] private float startSpeed, midSpeed, endSpeed, curve;
 
     public float projectileTimerMax = 10;
     [HideInInspector]
@@ -70,17 +70,21 @@ public class projectile : NetworkBehaviour
         );
     }
 
-    public void Shoot(GameObject bullet, Vector3 startpos, Vector3 midpos, Vector3 endpos, float startspeed, float midspeed, float endspeed)
+    public void Shoot(GameObject bullet, Vector3 startpos, Vector3 mp, Vector3 endpos, float ss, float ms, float es)
     {
+        Vector3 midPos = (startpos + endpos) * 0.5f + Vector3.up * curve;
+        
         _currentCoroutine = StartCoroutine(MoveProjectile(bullet.gameObject.transform, 
                 startpos, 
-                midpos, 
+                midPos, 
                 endpos, 
-                startspeed, 
-                midspeed, 
-                endspeed
+                startSpeed, 
+                midSpeed, 
+                endSpeed
             ));
     }
+    
+    
     
     public IEnumerator MoveProjectile(
         Transform projectile,
