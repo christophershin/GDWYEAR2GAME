@@ -153,7 +153,6 @@ public class PlayerMovementandCamera : NetworkBehaviour
         //}
 
 
-
         // If we aren't moving and are on the ground, stop velocity so we don't slide
         if (isGrounded && moveHorizontal == 0 && moveForward == 0 && canMove)
         {

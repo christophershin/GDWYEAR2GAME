@@ -128,13 +128,13 @@ public class HealthandShield : NetworkBehaviour
 
 
 
-
-
-
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            HealServerRPC(30);
+            if(IsServer)
+                Damage(30);
         }
+
+        
 
 
         RegenShieldServerRPC();

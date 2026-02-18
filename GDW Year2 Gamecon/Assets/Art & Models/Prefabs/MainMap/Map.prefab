@@ -61535,6 +61535,7 @@ MonoBehaviour:
   - {fileID: 8154083872792325197}
   playerPrefab: {fileID: 7121588875712704624, guid: e3708e63473a3644ebd5b5919dfbd540, type: 3}
   allPlayers: []
+  menu: NEW MAIN MENU TEST
 --- !u!1 &5706613402967912769
 GameObject:
   m_ObjectHideFlags: 0

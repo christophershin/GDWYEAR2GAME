@@ -3,6 +3,7 @@ using System.Security.Cryptography;
 using Unity.Netcode;
 using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : NetworkBehaviour
 {
@@ -19,6 +20,9 @@ public class GameManager : NetworkBehaviour
     public NetworkList<ulong> PlayersInServer;
 
     private int numPlayerEliminated = 0;
+
+    [SerializeField]
+    private string menu;
 
     void Awake()
     {
@@ -57,8 +61,6 @@ public class GameManager : NetworkBehaviour
                 {
                     GameObject obj = netObj.gameObject;
 
-                    Debug.Log(obj.GetComponent<HealthandShield>().Health.Value);
-
 
                     if (obj.GetComponent<HealthandShield>().Health.Value <= 0)
                     {
@@ -69,17 +71,23 @@ public class GameManager : NetworkBehaviour
                     else if (numPlayerEliminated > 0 && numPlayerEliminated == PlayersInServer.Count - 1)
                     {
                         obj.GetComponent<HealthandShield>().CenterText.text = "Victory!";
+                        NetworkManager.SceneManager.LoadScene(menu, LoadSceneMode.Single);
+                        if (IsServer)
+                        {
+                            
+                            ActivateCursorClientRPC();
+
+                        }
+
+
                     }
 
-                }
+                }  
 
 
             }
         }
 
-
-
-        Debug.Log("************");
 
 
     }
@@ -108,7 +116,12 @@ public class GameManager : NetworkBehaviour
 
     }
 
-
+    [ClientRpc]
+    void ActivateCursorClientRPC()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 
 
 }
