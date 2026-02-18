@@ -1,19 +1,20 @@
+using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Unity.Netcode;
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : NetworkBehaviour
 {
-    
+
     public List<GameObject> spawnList;
 
     public Transform playerPrefab;
 
     [HideInInspector]
-    public List<GameObject> allPlayers; 
+    public List<GameObject> allPlayers;
 
 
     [HideInInspector]
@@ -44,16 +45,19 @@ public class GameManager : NetworkBehaviour
 
 
         SpawnPlayerObjectServerRPC(NetworkManager.LocalClientId, playSpawn);
-        
+
 
     }
 
 
     private void Update()
     {
-      
-        if(PlayersInServer.Count>1)
+
+        if (PlayersInServer.Count > 1)
         {
+
+            numPlayerEliminated = 0;
+
             for (int i = 0; i < PlayersInServer.Count; i++)
             {
 
@@ -68,24 +72,34 @@ public class GameManager : NetworkBehaviour
                         numPlayerEliminated++;
 
                     }
-                    else if (numPlayerEliminated > 0 && numPlayerEliminated == PlayersInServer.Count - 1)
+
+                }
+            }
+
+            for (int i = 0; i < PlayersInServer.Count; i++)
+            {
+                if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(PlayersInServer[i], out NetworkObject netObj))
+                {
+
+                    GameObject obj = netObj.gameObject;
+
+                    if (numPlayerEliminated > 0 && numPlayerEliminated == PlayersInServer.Count - 1 && obj.GetComponent<HealthandShield>().Health.Value > 0)
                     {
                         obj.GetComponent<HealthandShield>().CenterText.text = "Victory!";
-                        NetworkManager.SceneManager.LoadScene(menu, LoadSceneMode.Single);
+
+                        StartCoroutine(switchScene());
+
                         if (IsServer)
                         {
-                            
                             ActivateCursorClientRPC();
 
                         }
 
 
                     }
-
-                }  
-
-
+                }
             }
+
         }
 
 
@@ -121,6 +135,16 @@ public class GameManager : NetworkBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+
+    private IEnumerator switchScene()
+    {
+
+        yield return new WaitForSeconds(3);
+
+        NetworkManager.SceneManager.LoadScene(menu, LoadSceneMode.Single);
+
     }
 
 
