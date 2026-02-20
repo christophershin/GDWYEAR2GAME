@@ -220,9 +220,9 @@ public class HealthandShield : NetworkBehaviour
             if(decayShieldTimer<=0)
             {
 
-                Shield.Value -= maxShield / 20;
+                Shield.Value -= maxShield / 10;
 
-                decayShieldTimer = 0.3f;
+                decayShieldTimer = 0.5f;
             }
 
         }
