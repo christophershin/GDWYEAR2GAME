@@ -30,7 +30,7 @@ public class HealthandShield : NetworkBehaviour
     private float decayShieldTimer;
 
 
-    //[HideInInspector]
+    [HideInInspector]
     public NetworkVariable<float> Health = new NetworkVariable<float>();
 
     [HideInInspector]
@@ -72,6 +72,7 @@ public class HealthandShield : NetworkBehaviour
     private GameManager gameManager;
 
 
+
     public override void OnNetworkSpawn()
     {
 
@@ -105,7 +106,6 @@ public class HealthandShield : NetworkBehaviour
 
     void Update()
     {
-
 
         if (!IsOwner)
         {
@@ -184,22 +184,6 @@ public class HealthandShield : NetworkBehaviour
 
     }
 
-    //[ServerRpc]
-    //private void HealthChangingServerRPC(float hpVal, float max)
-    //{
-
-    //    healthImage.transform.localScale = new Vector3(hpVal / max, 1, 1);
-        
-    //}
-
-    //[ServerRpc]
-    //private void ShieldChangingServerRPC()
-    //{
-    //    shieldImage.transform.localScale = new Vector3(Health.Value / maxShield, 1, 1);
-
-    //}
-
-
     [ServerRpc]
     public void HealServerRPC(float heal)
     {
@@ -236,7 +220,7 @@ public class HealthandShield : NetworkBehaviour
             if(decayShieldTimer<=0)
             {
 
-                Shield.Value -= maxShield / 10;
+                Shield.Value -= maxShield / 20;
 
                 decayShieldTimer = 0.3f;
             }
