@@ -30,7 +30,7 @@ public class HealthandShield : NetworkBehaviour
     private float decayShieldTimer;
 
 
-    [HideInInspector]
+    //[HideInInspector]
     public NetworkVariable<float> Health = new NetworkVariable<float>();
 
     [HideInInspector]
@@ -83,20 +83,22 @@ public class HealthandShield : NetworkBehaviour
         {
             healthImage.SetActive(false);
             shieldImage.SetActive(false);
+
         }
 
-    }
-
-
-    void Start()
-    {
-        if(!IsServer)
+        if (IsServer)
         {
-            return;
+            Health.Value = maxHealth;
+            Shield.Value = maxShield;
         }
 
-        Health.Value = 50;
-        Shield.Value = 0;
+        Health.OnValueChanged += HealthChanged;
+        HealthChanged(Health.Value, Health.Value);
+
+        Shield.OnValueChanged += ShieldChanged;
+        ShieldChanged(Shield.Value, Shield.Value);
+
+
     }
 
 
@@ -126,17 +128,18 @@ public class HealthandShield : NetworkBehaviour
 
             return;
         }
-
-
-
-        if (Input.GetKeyDown(KeyCode.Q))
+        else
         {
-            getShieldServerRPC(20);
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                getShieldServerRPC(20);
+            }
+
+            DecayShieldServerRPC();
+
         }
 
-
-        DecayShieldServerRPC();
-
+        
     }
 
 
@@ -150,45 +153,51 @@ public class HealthandShield : NetworkBehaviour
 
     void OnEnable()
     {
+
+
         GetComponent<HealthandShield>().Health.OnValueChanged += HealthChanged;
         GetComponent<HealthandShield>().Shield.OnValueChanged += ShieldChanged;
         Healthtext.text = GetComponent<HealthandShield>().Health.Value.ToString();
         Shieldtext.text = GetComponent<HealthandShield>().Shield.Value.ToString();
-
     }
 
     void OnDisable()
     {
         GetComponent<HealthandShield>().Health.OnValueChanged -= HealthChanged;
-        GetComponent<HealthandShield>().Health.OnValueChanged -= ShieldChanged;
+        GetComponent<HealthandShield>().Shield.OnValueChanged -= ShieldChanged;
     }
 
     private void HealthChanged(float previousValue, float newValue)
     {
 
-        HealthUI.localScale = new Vector3(newValue / maxHealth, 1, 1);
+        HealthUI.transform.localScale = new Vector3(newValue / maxHealth, 1, 1);
         healthImage.transform.localScale = new Vector3(newValue / maxHealth, 1, 1);
-        Healthtext.text = newValue.ToString();
+        Healthtext.text = GetComponent<HealthandShield>().Health.Value.ToString();
+
     }
 
     private void ShieldChanged(float previousValue, float newValue)
     {
-
-        ShieldUI.localScale = new Vector3(newValue / maxShield, 1, 1);
+        ShieldUI.transform.localScale = new Vector3(newValue / maxShield, 1, 1);
         shieldImage.transform.localScale = new Vector3(newValue / maxShield, 1, 1);
-        Shieldtext.text = newValue.ToString();
+        Shieldtext.text = GetComponent<HealthandShield>().Shield.Value.ToString();
 
     }
 
-    private void HealthChanging(float hpVal)
-    {
+    //[ServerRpc]
+    //private void HealthChangingServerRPC(float hpVal, float max)
+    //{
 
-    }
+    //    healthImage.transform.localScale = new Vector3(hpVal / max, 1, 1);
+        
+    //}
 
-    private void ShieldChanging(float shieldVal)
-    {
+    //[ServerRpc]
+    //private void ShieldChangingServerRPC()
+    //{
+    //    shieldImage.transform.localScale = new Vector3(Health.Value / maxShield, 1, 1);
 
-    }
+    //}
 
 
     [ServerRpc]
