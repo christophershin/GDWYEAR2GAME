@@ -24,6 +24,11 @@ public class HealthandShield : NetworkBehaviour
 
     private float regenShieldTimer;
 
+    [SerializeField]
+    private float maxDecayShieldTimer;
+
+    private float decayShieldTimer;
+
 
     [HideInInspector]
     public NetworkVariable<float> Health = new NetworkVariable<float>();
@@ -90,15 +95,15 @@ public class HealthandShield : NetworkBehaviour
             return;
         }
 
-        Health.Value = maxHealth;
-        Shield.Value = maxShield;
-
+        Health.Value = 50;
+        Shield.Value = 0;
     }
 
 
 
     void Update()
     {
+
 
         if (!IsOwner)
         {
@@ -114,7 +119,6 @@ public class HealthandShield : NetworkBehaviour
 
                     rotateObjectTo(healthBarAnchor, obj.transform.position);
                     rotateObjectTo(shieldBarAnchor, obj.transform.position);
-
                     break;
                 }
                 
@@ -125,21 +129,13 @@ public class HealthandShield : NetworkBehaviour
 
 
 
-
-
-
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if(IsServer)
-                Damage(30);
+            getShieldServerRPC(20);
         }
 
-        
 
-
-        RegenShieldServerRPC();
-        
-
+        DecayShieldServerRPC();
 
     }
 
@@ -177,9 +173,21 @@ public class HealthandShield : NetworkBehaviour
 
     private void ShieldChanged(float previousValue, float newValue)
     {
+
         ShieldUI.localScale = new Vector3(newValue / maxShield, 1, 1);
         shieldImage.transform.localScale = new Vector3(newValue / maxShield, 1, 1);
         Shieldtext.text = newValue.ToString();
+
+    }
+
+    private void HealthChanging(float hpVal)
+    {
+
+    }
+
+    private void ShieldChanging(float shieldVal)
+    {
+
     }
 
 
@@ -192,25 +200,36 @@ public class HealthandShield : NetworkBehaviour
 
             if (Health.Value > maxHealth)
                 Health.Value = maxHealth;    
-
-
         }
     }
 
     [ServerRpc]
-    public void RegenShieldServerRPC()
+    public void getShieldServerRPC(float getShield)
+    {
+        decayShieldTimer = maxDecayShieldTimer;
+        if (Shield.Value >=0 && Shield.Value < maxShield)
+        {
+            Shield.Value += getShield;
+
+            if (Shield.Value > maxShield)
+                Shield.Value = maxShield;
+        }
+    }
+
+    [ServerRpc]
+    public void DecayShieldServerRPC()
     {
 
-        if(Shield.Value<maxShield && Health.Value>0)
+        if(Shield.Value>0 && Health.Value>0)
         {
-            regenShieldTimer -= Time.deltaTime;
+            decayShieldTimer -= Time.deltaTime;
 
-            if(regenShieldTimer<=0)
+            if(decayShieldTimer<=0)
             {
 
-                Shield.Value += maxShield / 10;
+                Shield.Value -= maxShield / 10;
 
-                regenShieldTimer = 0.3f;
+                decayShieldTimer = 0.3f;
             }
 
         }
@@ -227,13 +246,13 @@ public class HealthandShield : NetworkBehaviour
         if (Shield.Value > 0)
         {
             Shield.Value -= dmg;
-            regenShieldTimer = maxRegenShieldTimer;
+            
 
         }else if (Health.Value > 0 && Shield.Value <= 0)
         {
 
             Health.Value -= dmg;
-            regenShieldTimer = maxRegenShieldTimer;
+
         }
 
         if (Health.Value <= 0)
