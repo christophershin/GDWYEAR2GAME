@@ -1,6 +1,7 @@
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Parrying : NetworkBehaviour
@@ -35,6 +36,8 @@ public class Parrying : NetworkBehaviour
     private float resourceTimer;
 
     private float cooldown;
+
+    public Slider slider;
 
 
 
@@ -103,6 +106,7 @@ public class Parrying : NetworkBehaviour
         ParryEnergySystemServerRPC(maxParryEnergy,EnergyConsumptionAmount, EnergyRestoreAmount, resourceTimer, maxResourceTimer);
         parryEnergyText.text = ((int)ParryEnergy.Value).ToString();
 
+        slider.value = ParryEnergy.Value;
 
 
     }
