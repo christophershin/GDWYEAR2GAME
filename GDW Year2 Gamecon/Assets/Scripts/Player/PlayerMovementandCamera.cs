@@ -46,13 +46,14 @@ public class PlayerMovementandCamera : NetworkBehaviour
     public float stepInterval = 0.2f;
     
     //CardManager
-    private CardsManager _cardsManager;
-    
+    public CardsManager _cardsManager;
+
+    public int CardsAmount = 0;
     
 
     private void Start()
     {
-        _cardsManager = GameObject.Find("Cards").GetComponent<CardsManager>();
+        //_cardsManager = GameObject.Find("Cards").GetComponent<CardsManager>();
     }
 
 
@@ -208,10 +209,17 @@ public class PlayerMovementandCamera : NetworkBehaviour
     {
         if (other.gameObject.CompareTag("Card") && other.gameObject.name != "null" && other.gameObject.name != "awaiting" && other.gameObject.name != "Card")
         {
-            if (_cardsManager.AddCard(other.gameObject.name))
-            {
-                other.GetComponent<DeleteCard>().DespawnServerRPC();
-            }
+            _cardsManager.AddCard(other.gameObject);
+
+            // if (CardsAmount <= 3)
+            // {
+            //     if (_cardsManager.AddCard(other.gameObject))
+            //     {
+            //         other.GetComponent<DeleteCard>().DespawnServerRPC();
+            //         CardsAmount += 1;
+            //     }
+            // }
+
         }
     }
 }

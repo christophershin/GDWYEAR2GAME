@@ -14,10 +14,10 @@ public class CardsManager : MonoBehaviour
     // Cards
     public List<GameObject> cardList = new List<GameObject>();
 
-    public void adcrd(string cardName)
-    {
-        AddCard(cardName);
-    }
+    // public void adcrd(string cardName)
+    // {
+    //     AddCard(cardName);
+    // }
 
     private void Update()
     {
@@ -35,11 +35,13 @@ public class CardsManager : MonoBehaviour
         }
     }
 
-    public bool AddCard(string nam)
+    public void AddCard(GameObject obj)
     {
+        string nam = obj.name;
+        
         print(nam);
         // return early if cards ara max
-        if (cardList.Count >= 3) return false;
+        if (cardList.Count >= 3) return;
         
         // Instantiate the card
         switch (nam)
@@ -56,6 +58,8 @@ public class CardsManager : MonoBehaviour
             case "Knife":
                 cardList.Add(Instantiate(knife,  this.transform));
                 break;
+            default:
+                return;
         }
         
         // Current Card
@@ -70,7 +74,7 @@ public class CardsManager : MonoBehaviour
         // name
         currentCard.name = nam;
         
-        return true;
+        obj.GetComponent<DeleteCard>().DespawnServerRPC();
     }
 
     public string UseCard()

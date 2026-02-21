@@ -10,11 +10,13 @@ public class DeleteCard : NetworkBehaviour
     [SerializeField] private Sprite[] cardSpritePrefabs;
 
     private int _rando;
+    private BoxCollider _collider;
     
     
     private void Start()
     {
         _spriteRenderer =  GetComponent<SpriteRenderer>();
+        _collider = GetComponent<BoxCollider>();
     }
 
     public override void OnNetworkSpawn()
@@ -100,6 +102,8 @@ public class DeleteCard : NetworkBehaviour
             
             UpdateCardClientRPC(_rando);
         }
+        
+        _collider.enabled = false;
 
         StartCoroutine(SpawnCard());
     }
@@ -128,6 +132,8 @@ public class DeleteCard : NetworkBehaviour
         {
             gameObject.name = "Knife";
         }
+        
+        _collider.enabled = true;
         
         UpdateCardClientRPC(_rando);
     }

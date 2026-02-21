@@ -65,21 +65,25 @@ public class projectile : NetworkBehaviour
                 newPos,
                 startSpeed,
                 midSpeed,
-                endSpeed
+                endSpeed,
+                this.gameObject, // CHANGE THIS LATER CUS WILL BE BUGGED WHEN PARRIED
+                -1 // CHANGE THIS LATER CUS WILL BE BUGGED WHEN PARRIED
             )
         );
     }
 
-    public void Shoot(GameObject bullet, Vector3 startpos, Vector3 midpos, Vector3 endpos, float startspeed, float midspeed, float endspeed)
+    public void Shoot(GameObject bullet, Vector3 startpos, Vector3 midpos, Vector3 endpos, float startspeed, float midspeed, float endspeed, GameObject trackingPlayer, int closestPlayer)
     {
         _currentCoroutine = StartCoroutine(MoveProjectile(bullet.gameObject.transform, 
-                startpos, 
-                midpos, 
-                endpos, 
-                startspeed, 
-                midspeed, 
-                endspeed
-            ));
+            startpos, 
+            midpos, 
+            endpos, 
+            startspeed, 
+            midspeed, 
+            endspeed,
+            trackingPlayer, 
+            closestPlayer
+        ));
     }
     
     public IEnumerator MoveProjectile(
@@ -89,28 +93,54 @@ public class projectile : NetworkBehaviour
         Vector3 endPos,
         float startSpeed,
         float midSpeed,
-        float endSpeed)
+        float endSpeed,
+        GameObject trackingPlayer,
+        int closestPlayer
+        )
     {
         
         //midPos = (startPos + endPos) * 0.5f + Vector3.right * 3;
         
         float t = 0f;
 
-        while (t < 1f)
+        if (closestPlayer == -1)
         {
-            projectile.position = GetCurvedPosition(
-                startPos,
-                midPos,
-                endPos,
-                startSpeed,
-                midSpeed,
-                endSpeed,
-                ref t,
-                Time.deltaTime
-            );
+            while (t < 1f)
+            {
+                projectile.position = GetCurvedPosition(
+                    startPos,
+                    midPos,
+                    endPos,
+                    startSpeed,
+                    midSpeed,
+                    endSpeed,
+                    ref t,
+                    Time.deltaTime
+                );
 
-            yield return null;
+                yield return null;
+            }
         }
+        else
+        {
+            while (t < 1f)
+            {
+                projectile.position = GetCurvedPosition(
+                    startPos,
+                    midPos,
+                    trackingPlayer.transform.position,
+                    startSpeed,
+                    midSpeed,
+                    endSpeed,
+                    ref t,
+                    Time.deltaTime
+                );
+
+                yield return null;
+            }
+        }
+
+        
         
         //Destroy(this.gameObject);
         _rb.useGravity = true;
@@ -126,15 +156,13 @@ public class projectile : NetworkBehaviour
         ref float t,
         float deltaTime)
     {
-        // Blend speed across t (0 → start, 0.5 → middle, 1 → end)
         float speed =
             Mathf.Lerp(
                 Mathf.Lerp(startSpeed, middleSpeed, t),
                 Mathf.Lerp(middleSpeed, endSpeed, t),
                 t
             );
-
-        // Advance t using that speed
+        
         t += speed * deltaTime;
         t = Mathf.Clamp01(t);
 

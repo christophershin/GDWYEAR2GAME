@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using Alteruna;
 using Unity.Netcode;
@@ -21,10 +22,27 @@ public class PlayerCardSystem : NetworkBehaviour
     // Testing
     public float startspeed, midspeed, endspeed;
     public float curve;
+    
+    // OTHER PLAYERS
+    private List<GameObject> players = new List<GameObject>();
+    
+    // other script
+    private GameManager _gameManager;
+    public PlayerMovementandCamera _playerMovementandCamera;
 
     private void Start()
     {
+        _gameManager = GameObject.Find("World").GetComponent<GameManager>();
         _cardsManager = GameObject.Find("Cards").GetComponent<CardsManager>();
+        GameObject[] tempPlayers = GameObject.FindGameObjectsWithTag("Player");
+        
+        for (int i = 0; i < tempPlayers.Length; i++)
+        {
+            if (tempPlayers[i] != this.gameObject)
+            {
+                players.Add(tempPlayers[i]);
+            }
+        }
     }
 
     public override void OnNetworkSpawn()
@@ -38,26 +56,135 @@ public class PlayerCardSystem : NetworkBehaviour
         Debug.Log(GetComponent<EntitiesClass>().teamID);
     }
     
-    public static Vector3 RaycastFromCamera(Camera cam, float maxDistance)
+    // public Vector3 RaycastFromCamera(Camera cam, float maxDistance)
+    // {
+    //     float bestDot = -1f;
+    //     int bestPlayer = -1;
+    //
+    //     Vector3 camPos = cam.transform.position;
+    //     Vector3 camForward = cam.transform.forward;
+    //
+    //     for (int i = 0; i < players.Count; i++)
+    //     {
+    //         Vector3 dirToPlayer = (players[i].transform.position - camPos).normalized;
+    //
+    //         float dot = Vector3.Dot(camForward, dirToPlayer);
+    //         
+    //         if (dot < 0.8f) // tweak: higher = narrower cone
+    //             continue;
+    //
+    //         float dist = Vector3.Distance(camPos, players[i].transform.position);
+    //         if (dist > maxDistance)
+    //             continue;
+    //
+    //         if (Physics.Raycast(camPos, dirToPlayer, out RaycastHit hit, dist))
+    //         {
+    //             if (hit.transform == players[i].transform)
+    //             {
+    //                 if (dot > bestDot)
+    //                 {
+    //                     bestDot = dot;
+    //                     bestPlayer = i;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //
+    //     if (bestPlayer == -1)
+    //     {
+    //         Ray ray = cam.ScreenPointToRay(
+    //             new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)
+    //         );
+    //
+    //         int layerMask = ~LayerMask.GetMask("card");
+    //
+    //         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance, layerMask))
+    //             return hit.point;
+    //         
+    //         return ray.origin + ray.direction * maxDistance;
+    //     }
+    //     
+    //     
+    // }
+
+    
+    private int closestPlayer = -1;
+
+    public Vector3 RaycastFromCamera(Camera cam, float maxDistance)
     {
+        float bestDot = -1f;
+        int bestPlayer = -1;
+
+        Vector3 camPos = cam.transform.position;
+        Vector3 camForward = cam.transform.forward;
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            Vector3 dirToPlayer =
+                (players[i].transform.position - camPos).normalized;
+
+            float dot = Vector3.Dot(camForward, dirToPlayer);
+
+            // outside view cone
+            if (dot < 0.8f)
+                continue;
+
+            float dist = Vector3.Distance(
+                camPos,
+                players[i].transform.position
+            );
+
+            if (dist > maxDistance)
+                continue;
+
+            if (Physics.Raycast(camPos, dirToPlayer, out RaycastHit hit, dist))
+            {
+                if (hit.transform == players[i].transform)
+                {
+                    if (dot > bestDot)
+                    {
+                        bestDot = dot;
+                        bestPlayer = i;
+                    }
+                }
+            }
+        }
+        
+        closestPlayer = bestPlayer; 
+        if (bestPlayer != -1)
+        {
+            return players[bestPlayer].transform.position;
+        }
+        
         Ray ray = cam.ScreenPointToRay(
             new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)
         );
 
         int layerMask = ~LayerMask.GetMask("card");
 
-        if (Physics.Raycast(ray, out RaycastHit hit, maxDistance, layerMask))
-            return hit.point;
-
+        if (Physics.Raycast(ray, out RaycastHit fallbackHit, maxDistance, layerMask))
+            return fallbackHit.point;
+        
         return ray.origin + ray.direction * maxDistance;
     }
-
-
-
 
     // Update is called once per frame
     void Update()
     {
+        if (_gameManager.PlayersInServer.Count != players.Count -1)
+        {
+            GameObject[] tempPlayers = GameObject.FindGameObjectsWithTag("Player");
+            
+            players.Clear();
+        
+            for (int i = 0; i < tempPlayers.Length; i++)
+            {
+                if (tempPlayers[i] != this.gameObject)
+                {
+                    players.Add(tempPlayers[i]);
+                }
+            }
+        }
     
         if (Input.GetMouseButtonDown(0))
         {
@@ -188,17 +315,31 @@ public class PlayerCardSystem : NetworkBehaviour
         Vector3 startpos = cam.transform.position;
         Vector3 endpos = RaycastFromCamera(cam, 10000);
         Vector3 midpos = (startpos + endpos) * 0.5f + Vector3.up * curve;
+
+        GameObject trackingPlayer;
         
+        if (closestPlayer != -1)
+        {
+            trackingPlayer = players[closestPlayer];
+        }
+        else
+        {
+            trackingPlayer = this.gameObject;
+        }
         
         GameObject bullet = Instantiate(proj, transform.position + shootdirection * 1.5f, Quaternion.identity);
 
+        _playerMovementandCamera.CardsAmount -= 1;
+        
         bullet.GetComponent<projectile>().Shoot(bullet,
             startpos,
             midpos,
             endpos,
             startspeed,
             midspeed,
-            endspeed
+            endspeed,
+            trackingPlayer,
+            closestPlayer
         );
 
         // StartCoroutine(bullet.GetComponent<projectile>()

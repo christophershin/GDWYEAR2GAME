@@ -1,6 +1,7 @@
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Parrying : NetworkBehaviour
@@ -26,6 +27,9 @@ public class Parrying : NetworkBehaviour
 
     [SerializeField]
     private TextMeshProUGUI parryEnergyText;
+
+    [SerializeField] private Slider slider;
+    //private float _slideSpeed = 10f;
 
     [HideInInspector]
     public NetworkVariable<float> ParryEnergy = new NetworkVariable<float>();
@@ -102,8 +106,14 @@ public class Parrying : NetworkBehaviour
 
         ParryEnergySystemServerRPC(maxParryEnergy,EnergyConsumptionAmount, EnergyRestoreAmount, resourceTimer, maxResourceTimer);
         parryEnergyText.text = ((int)ParryEnergy.Value).ToString();
+        
+        //slider.value = ParryEnergy.Value;
 
-
+        slider.value = Mathf.Lerp(
+            slider.value,
+            ParryEnergy.Value,
+            10f * Time.deltaTime
+        );
 
     }
 
