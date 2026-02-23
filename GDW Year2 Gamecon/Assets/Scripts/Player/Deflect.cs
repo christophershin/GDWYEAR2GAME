@@ -87,6 +87,7 @@ public class Deflect : NetworkBehaviour
                 //obj.GetComponent<Rigidbody>().linearVelocity = dir.normalized * deflectSpeed;
                 obj.GetComponent<EntitiesClass>().teamID = id;
                 obj.GetComponent<projectile>().projectileTimer = obj.GetComponent<projectile>().projectileTimerMax;
+                player.GetComponent<HealthandShield>().getShieldServerRPC(30);
             }
         }
     }

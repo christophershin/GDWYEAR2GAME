@@ -24,6 +24,11 @@ public class HealthandShield : NetworkBehaviour
 
     private float regenShieldTimer;
 
+    [SerializeField]
+    private float maxDecayShieldTimer;
+
+    private float decayShieldTimer;
+
 
     [HideInInspector]
     public NetworkVariable<float> Health = new NetworkVariable<float>();
@@ -64,34 +69,36 @@ public class HealthandShield : NetworkBehaviour
     private EntitiesClass entitiesClass;
 
 
-    private GameObject gameManager;
+    private GameManager gameManager;
+
 
 
     public override void OnNetworkSpawn()
     {
 
-        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        gameManager = FindFirstObjectByType<GameManager>();
 
-        gameManager.GetComponent<GameManager>().allPlayers.Add(this.gameObject);
+        gameManager.allPlayers.Add(this.gameObject);
 
         if (IsOwner)
         {
             healthImage.SetActive(false);
             shieldImage.SetActive(false);
+
         }
 
-    }
-
-
-    void Start()
-    {
-        if(!IsServer)
+        if (IsServer)
         {
-            return;
+            Health.Value = maxHealth;
+            Shield.Value = maxShield;
         }
 
-        Health.Value = maxHealth;
-        Shield.Value = maxShield;
+        Health.OnValueChanged += HealthChanged;
+        HealthChanged(Health.Value, Health.Value);
+
+        Shield.OnValueChanged += ShieldChanged;
+        ShieldChanged(Shield.Value, Shield.Value);
+
 
     }
 
@@ -104,17 +111,16 @@ public class HealthandShield : NetworkBehaviour
         {
 
 
-            for (int i = 0; i < gameManager.GetComponent<GameManager>().allPlayers.Count; i++)
+            for (int i = 0; i < gameManager.allPlayers.Count; i++)
             {
 
-                GameObject obj = gameManager.GetComponent<GameManager>().allPlayers[i];
+                GameObject obj = gameManager.allPlayers[i];
 
                 if (obj.GetComponent<NetworkObject>().IsOwner)
                 {
 
                     rotateObjectTo(healthBarAnchor, obj.transform.position);
                     rotateObjectTo(shieldBarAnchor, obj.transform.position);
-
                     break;
                 }
                 
@@ -122,25 +128,18 @@ public class HealthandShield : NetworkBehaviour
 
             return;
         }
-
-
-
-
-
-
-
-
-
-        if (Input.GetKeyDown(KeyCode.Q))
+        else
         {
-            HealServerRPC(30);
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                getShieldServerRPC(20);
+            }
+
+            DecayShieldServerRPC();
+
         }
 
-
-        RegenShieldServerRPC();
         
-
-
     }
 
 
@@ -154,34 +153,36 @@ public class HealthandShield : NetworkBehaviour
 
     void OnEnable()
     {
+
+
         GetComponent<HealthandShield>().Health.OnValueChanged += HealthChanged;
         GetComponent<HealthandShield>().Shield.OnValueChanged += ShieldChanged;
         Healthtext.text = GetComponent<HealthandShield>().Health.Value.ToString();
         Shieldtext.text = GetComponent<HealthandShield>().Shield.Value.ToString();
-
     }
 
     void OnDisable()
     {
         GetComponent<HealthandShield>().Health.OnValueChanged -= HealthChanged;
-        GetComponent<HealthandShield>().Health.OnValueChanged -= ShieldChanged;
+        GetComponent<HealthandShield>().Shield.OnValueChanged -= ShieldChanged;
     }
 
     private void HealthChanged(float previousValue, float newValue)
     {
 
-        HealthUI.localScale = new Vector3(newValue / maxHealth, 1, 1);
+        HealthUI.transform.localScale = new Vector3(newValue / maxHealth, 1, 1);
         healthImage.transform.localScale = new Vector3(newValue / maxHealth, 1, 1);
-        Healthtext.text = newValue.ToString();
+        Healthtext.text = GetComponent<HealthandShield>().Health.Value.ToString();
+
     }
 
     private void ShieldChanged(float previousValue, float newValue)
     {
-        ShieldUI.localScale = new Vector3(newValue / maxShield, 1, 1);
+        ShieldUI.transform.localScale = new Vector3(newValue / maxShield, 1, 1);
         shieldImage.transform.localScale = new Vector3(newValue / maxShield, 1, 1);
-        Shieldtext.text = newValue.ToString();
-    }
+        Shieldtext.text = GetComponent<HealthandShield>().Shield.Value.ToString();
 
+    }
 
     [ServerRpc]
     public void HealServerRPC(float heal)
@@ -192,25 +193,36 @@ public class HealthandShield : NetworkBehaviour
 
             if (Health.Value > maxHealth)
                 Health.Value = maxHealth;    
-
-
         }
     }
 
     [ServerRpc]
-    public void RegenShieldServerRPC()
+    public void getShieldServerRPC(float getShield)
+    {
+        decayShieldTimer = maxDecayShieldTimer;
+        if (Shield.Value >=0 && Shield.Value < maxShield)
+        {
+            Shield.Value += getShield;
+
+            if (Shield.Value > maxShield)
+                Shield.Value = maxShield;
+        }
+    }
+
+    [ServerRpc]
+    public void DecayShieldServerRPC()
     {
 
-        if(Shield.Value<maxShield && Health.Value>0)
+        if(Shield.Value>0 && Health.Value>0)
         {
-            regenShieldTimer -= Time.deltaTime;
+            decayShieldTimer -= Time.deltaTime;
 
-            if(regenShieldTimer<=0)
+            if(decayShieldTimer<=0)
             {
 
-                Shield.Value += maxShield / 10;
+                Shield.Value -= maxShield / 10;
 
-                regenShieldTimer = 0.3f;
+                decayShieldTimer = 0.5f;
             }
 
         }
@@ -227,13 +239,13 @@ public class HealthandShield : NetworkBehaviour
         if (Shield.Value > 0)
         {
             Shield.Value -= dmg;
-            regenShieldTimer = maxRegenShieldTimer;
+            
 
         }else if (Health.Value > 0 && Shield.Value <= 0)
         {
 
             Health.Value -= dmg;
-            regenShieldTimer = maxRegenShieldTimer;
+
         }
 
         if (Health.Value <= 0)

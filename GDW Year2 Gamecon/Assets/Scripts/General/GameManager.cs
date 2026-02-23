@@ -1,23 +1,29 @@
+using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Unity.Netcode;
-using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : NetworkBehaviour
 {
-    
+
     public List<GameObject> spawnList;
 
     public Transform playerPrefab;
 
-    public List<GameObject> allPlayers; 
+    [HideInInspector]
+    public List<GameObject> allPlayers;
 
 
     [HideInInspector]
     public NetworkList<ulong> PlayersInServer;
 
     private int numPlayerEliminated = 0;
+
+    [SerializeField]
+    private string menu;
 
     void Awake()
     {
@@ -39,24 +45,25 @@ public class GameManager : NetworkBehaviour
 
 
         SpawnPlayerObjectServerRPC(NetworkManager.LocalClientId, playSpawn);
-        
+
 
     }
 
 
     private void Update()
     {
-      
-        if(PlayersInServer.Count>1)
+
+        if (PlayersInServer.Count > 1)
         {
+
+            numPlayerEliminated = 0;
+
             for (int i = 0; i < PlayersInServer.Count; i++)
             {
 
                 if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(PlayersInServer[i], out NetworkObject netObj))
                 {
                     GameObject obj = netObj.gameObject;
-
-                    Debug.Log(obj.GetComponent<HealthandShield>().Health.Value);
 
 
                     if (obj.GetComponent<HealthandShield>().Health.Value <= 0)
@@ -65,20 +72,36 @@ public class GameManager : NetworkBehaviour
                         numPlayerEliminated++;
 
                     }
-                    else if (numPlayerEliminated > 0 && numPlayerEliminated == PlayersInServer.Count - 1)
-                    {
-                        obj.GetComponent<HealthandShield>().CenterText.text = "Victory!";
-                    }
 
                 }
-
-
             }
+
+            for (int i = 0; i < PlayersInServer.Count; i++)
+            {
+                if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(PlayersInServer[i], out NetworkObject netObj))
+                {
+
+                    GameObject obj = netObj.gameObject;
+
+                    if (numPlayerEliminated > 0 && numPlayerEliminated == PlayersInServer.Count - 1 && obj.GetComponent<HealthandShield>().Health.Value > 0)
+                    {
+                        obj.GetComponent<HealthandShield>().CenterText.text = "Victory!";
+
+                        StartCoroutine(switchScene());
+
+                        if (IsServer)
+                        {
+                            ActivateCursorClientRPC();
+
+                        }
+
+
+                    }
+                }
+            }
+
         }
 
-
-
-        Debug.Log("************");
 
 
     }
@@ -107,7 +130,22 @@ public class GameManager : NetworkBehaviour
 
     }
 
+    [ClientRpc]
+    void ActivateCursorClientRPC()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 
+
+    private IEnumerator switchScene()
+    {
+
+        yield return new WaitForSeconds(3);
+
+        NetworkManager.SceneManager.LoadScene(menu, LoadSceneMode.Single);
+
+    }
 
 
 }
