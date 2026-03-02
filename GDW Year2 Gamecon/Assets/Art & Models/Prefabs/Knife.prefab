@@ -97,6 +97,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &549033456593388790
 Rigidbody:
@@ -163,6 +164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::projectile
   ShowTopMostFoldoutHeaderGroup: 1
+  startSpeed: 1
+  midSpeed: 2
+  endSpeed: 3
+  curve: 0
   projectileTimerMax: 10
   projectileTimer: 0
   damage: 20
@@ -356,6 +361,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8886243639715623853
 GameObject:
@@ -445,4 +451,5 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}

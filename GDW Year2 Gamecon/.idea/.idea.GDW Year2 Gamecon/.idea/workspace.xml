@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="" />
+    <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NEW MAIN MENU TEST.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NEW MAIN MENU TEST.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Parrying.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Parrying.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/Eyes.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/Eyes.mat" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,9 +48,10 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "Duplicate-New-Main-Menu",
+    "git-widget-placeholder": "Redoing-Auto-Tracking",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -53,7 +62,7 @@
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../GDW Build\GDW Year2 Gamecon.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../GDW BUILD\GDW Year2 Gamecon.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\School\Desktop\gdw network tst" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -137,6 +146,7 @@
       <workItem from="1770075391117" duration="199000" />
       <workItem from="1770077779372" duration="1201000" />
       <workItem from="1770673437909" duration="4866000" />
+      <workItem from="1772487682263" duration="4687000" />
     </task>
     <servers />
   </component>

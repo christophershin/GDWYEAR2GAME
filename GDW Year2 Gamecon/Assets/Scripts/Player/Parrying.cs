@@ -47,11 +47,7 @@ public class Parrying : NetworkBehaviour
         {
             enabled = false;
             return;
-
         }
-
-        
-
     }
 
     private void Start()
