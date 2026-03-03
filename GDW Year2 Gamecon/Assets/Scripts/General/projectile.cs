@@ -79,6 +79,7 @@ public class projectile : NetworkBehaviour
     
     public IEnumerator MoveProjectileToPlayer(Vector3 startPos, GameObject player)
     {
+        print("Moved projectile to other player");
         float t = 0f;
         while (t < 1f)
         {
@@ -109,6 +110,7 @@ public class projectile : NetworkBehaviour
     
     public IEnumerator MoveProjectileToEnd(Vector3 startPos, Vector3 endPos)
     {
+        print("Moved projectile to end");
         Vector3 midpos = (startPos + endPos) * 0.5f + Vector3.up * curve;
         
         float t = 0f;
@@ -166,51 +168,4 @@ public class projectile : NetworkBehaviour
             }
         }
     }
-    
-// OLD THING
-    // public void ShootWithoutTracking(GameObject bullet, Vector3 startpos, Vector3 midpos, Vector3 endpos, float startspeed, float midspeed, float endspeed)
-    // {
-    //     _currentCoroutine = StartCoroutine(MoveProjectile(bullet.gameObject.transform, 
-    //         startpos, 
-    //         midpos, 
-    //         endpos, 
-    //         startspeed, 
-    //         midspeed, 
-    //         endspeed
-    //     ));
-    // }
-    
-    // public IEnumerator MoveProjectileWithAutoTracking(
-    //     Transform projectile,
-    //     Vector3 startPos,
-    //     Vector3 midPos,
-    //     Vector3 endPos,
-    //     float startSpeed,
-    //     float midSpeed,
-    //     float endSpeed)
-    // {
-    //     
-    //     //midPos = (startPos + endPos) * 0.5f + Vector3.right * 3;
-    //     
-    //     float t = 0f;
-    //
-    //     while (t < 1f)
-    //     {
-    //         projectile.position = GetCurvedPosition(
-    //             startPos,
-    //             midPos,
-    //             endPos,
-    //             startSpeed,
-    //             midSpeed,
-    //             endSpeed,
-    //             ref t,
-    //             Time.deltaTime
-    //         );
-    //
-    //         yield return null;
-    //     }
-    //     
-    //     //Destroy(this.gameObject);
-    //     _rb.useGravity = true;
-    // }
 }
