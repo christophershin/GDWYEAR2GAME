@@ -12,6 +12,8 @@ public class Deflect : NetworkBehaviour
     private float deflectSpeed;
     [SerializeField] private GameObject player;
 
+    private float _MAXANGLE = 5;
+    
     public override void OnNetworkSpawn()
     {
         if (!IsOwner)
@@ -51,11 +53,95 @@ public class Deflect : NetworkBehaviour
 
         }
     }
-
-    void CurvedParryable(GameObject obj)
+    
+    private GameObject GetClosestPlayerToCamera(Camera camer)
     {
-        Vector3 startpos = RaycastFromCamera(cam.GetComponent<Camera>(), 10000);
-        obj.GetComponent<projectile>().Parry(startpos, 2, 3,1);
+        // VERY expensive method change later if this causes too much lag
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        
+        // variables to keep track of
+        float closestAngle = _MAXANGLE;
+        int closestPlayer = -1;
+        
+        // get the closest angle player from this player
+        for (int i = 0; i < players.Length; i++)
+        {
+            print(players.Length);
+            if (players[i] == this.gameObject)
+            {
+                continue;
+            }
+            // getting the angle between this player and all the players in the map
+            Vector3 directionToTarget = players[i].transform.position - this.transform.position;
+            float angle = Vector3.Angle(this.transform.forward, directionToTarget);
+            
+            Debug.Log("closest angle is: " + angle);
+            Debug.Log("angle is: " + angle);
+            
+            if (angle <= closestAngle)
+            {
+                Debug.Log("ANGLE SMALLER");
+                // make a ray from the player's middle of the screen
+                Ray ray = camer.ScreenPointToRay(
+                    new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)
+                );
+                
+                // make sure the cards can't be hit
+                int layerMask = ~LayerMask.GetMask("card");
+                
+                // raycasting to see if the player can actually be seen from the camera
+                
+                Vector3 direction = players[i].transform.position - this.transform.position;
+                float distance = direction.magnitude;
+                direction = direction.normalized;
+        
+                RaycastHit hit;
+        
+                if (Physics.Raycast(this.transform.position, direction, out hit, distance, layerMask))
+                {
+                    if (hit.transform.gameObject.CompareTag("Parriable"))
+                    {
+                        continue;
+                    }
+                    
+                    Debug.Log("RAY WORKS");
+                    
+                    // Debug.Log("TAG CONFIRMED, changed closest player to this player");
+                    // closestAngle = angle;
+                    // closestPlayer = i;
+                    // //comparing if tag is player
+                    //
+                    string tag = hit.transform.gameObject.tag;
+                    Debug.Log(tag);
+                    
+                    if (tag == "Player")
+                    {
+                        Debug.Log("TAG CONFIRMED, changed closest player to this player");
+                        closestAngle = angle;
+                        closestPlayer = i;
+                    }
+                }
+            }
+        }
+
+        if (closestPlayer != -1) return players[closestPlayer];
+        
+        return this.gameObject;
+    }
+
+    void Parry(GameObject obj)
+    {
+        GameObject player = GetClosestPlayerToCamera(cam.GetComponent<Camera>());
+
+        if (player == this.gameObject)
+        {
+            Vector3 newPos = RaycastFromCamera(cam.GetComponent<Camera>(), 10000);
+            obj.GetComponent<projectile>().StraightParry(newPos);
+        }
+        else
+        {
+            obj.GetComponent<projectile>().TrackedParry(player);
+        }
     }
     
     public static Vector3 RaycastFromCamera(Camera cam, float maxDistance)
@@ -81,10 +167,7 @@ public class Deflect : NetworkBehaviour
 
             if (obj.GetComponent<EntitiesClass>().teamID != id)
             {
-                CurvedParryable(obj);
-                //obj.transform.position = transform.position; // or the hit point, not +dir
-                //obj.transform.rotation = Quaternion.LookRotation(dir);
-                //obj.GetComponent<Rigidbody>().linearVelocity = dir.normalized * deflectSpeed;
+                Parry(obj);
                 obj.GetComponent<EntitiesClass>().teamID = id;
                 obj.GetComponent<projectile>().projectileTimer = obj.GetComponent<projectile>().projectileTimerMax;
                 player.GetComponent<HealthandShield>().getShieldServerRPC(30);

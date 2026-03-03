@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class projectile : NetworkBehaviour
 {
-    // Projectile Stats
     [SerializeField] private float startSpeed, midSpeed, endSpeed, curve;
-
 
     public float projectileTimerMax = 10;
     [HideInInspector]
@@ -21,8 +19,7 @@ public class projectile : NetworkBehaviour
     {
         _rb = GetComponent<Rigidbody>();
     }
-
-    // Performs behavior on the server which then sends data to all clients
+    
     public override void OnNetworkSpawn()
     {
         if (!IsServer)
@@ -33,8 +30,7 @@ public class projectile : NetworkBehaviour
 
         projectileTimer = projectileTimerMax;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
 
@@ -47,30 +43,31 @@ public class projectile : NetworkBehaviour
         }
     }
     
-    public void Parry(Vector3 newPos, float startSpeed, float midSpeed, float endSpeed)
+    public void StraightParry(Vector3 newPos)
     {
         if (_currentCoroutine != null)
             StopCoroutine(_currentCoroutine);
-        
-        //Vector3 dir = new Vector3(1f, 1f, 0f).normalized;
-
 
         Vector3 start = transform.position;
-        Vector3 mid = (start + newPos) * 0.5f + Vector3.right * 3;
 
-
-        // _currentCoroutine = StartCoroutine(
-        //     MoveProjectile(
-        //         transform,
-        //         start,
-        //         mid,
-        //         newPos,
-        //         startSpeed,
-        //         midSpeed,
-        //         endSpeed
-        //     )
-        // );
+        _currentCoroutine = StartCoroutine(
+            MoveProjectileToEnd(start, newPos)
+        );
     }
+    
+    public void TrackedParry(GameObject player)
+    {
+        if (_currentCoroutine != null)
+            StopCoroutine(_currentCoroutine);
+
+        Vector3 start = transform.position;
+
+        _currentCoroutine = StartCoroutine(
+            MoveProjectileToPlayer(start, player)
+        );
+    }
+    
+    
 
     public void ShootWithTracking(GameObject player, Vector3 startpos)
     {
@@ -168,4 +165,25 @@ public class projectile : NetworkBehaviour
             }
         }
     }
+    
+    // public void Parry(Vector3 newPos, float startSpeed, float midSpeed, float endSpeed)
+    // {
+    //     if (_currentCoroutine != null)
+    //         StopCoroutine(_currentCoroutine);
+    //
+    //     Vector3 start = transform.position;
+    //     Vector3 mid = (start + newPos) * 0.5f + Vector3.right * 3;
+    //
+    //     _currentCoroutine = StartCoroutine(
+    //         MoveProjectile(
+    //             transform,
+    //             start,
+    //             mid,
+    //             newPos,
+    //             startSpeed,
+    //             midSpeed,
+    //             endSpeed
+    //         )
+    //     );
+    // }
 }
