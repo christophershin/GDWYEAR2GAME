@@ -72,12 +72,12 @@ public class PlayerCardSystem : NetworkBehaviour
             Vector3 directionToTarget = players[i].transform.position - this.transform.position;
             float angle = Vector3.Angle(this.transform.forward, directionToTarget);
             
-            print("closest angle is: " + angle);
-            print("angle is: " + angle);
+            Debug.Log("closest angle is: " + angle);
+            Debug.Log("angle is: " + angle);
             
             if (angle <= closestAngle)
             {
-                print("ANGLE SMALLER");
+                Debug.Log("ANGLE SMALLER");
                 // make a ray from the player's middle of the screen
                 Ray ray = camer.ScreenPointToRay(
                     new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)
@@ -96,27 +96,19 @@ public class PlayerCardSystem : NetworkBehaviour
         
                 if (Physics.Raycast(this.transform.position, direction, out hit, distance))
                 {
-                    print("RAY WORKS");
+                    Debug.Log("RAY WORKS");
+                    
+                    Debug.Log("TAG CONFIRMED, changed closest player to this player");
+                    closestAngle = angle;
+                    closestPlayer = i;
                     // comparing if tag is player
-                    if (hit.transform.gameObject.CompareTag("Player"))
-                    {
-                        print("TAG CONFIRMED, changed closest player to this player");
-                        closestAngle = angle;
-                        closestPlayer = i;
-                    }
+                    // if (hit.transform.gameObject == players[i])
+                    // {
+                    //     Debug.Log("TAG CONFIRMED, changed closest player to this player");
+                    //     closestAngle = angle;
+                    //     closestPlayer = i;
+                    // }
                 }
-                
-                // if (Physics.Raycast(ray, out RaycastHit hit, 10000, layerMask))
-                // {
-                //     print("RAY WORKS");
-                //     // comparing if tag is player
-                //     if (hit.transform.gameObject.CompareTag("Player"))
-                //     {
-                //         print("TAG CONFIRMED, changed closest player to this player");
-                //         closestAngle = angle;
-                //         closestPlayer = i;
-                //     }
-                // }
             }
         }
 
@@ -183,13 +175,13 @@ public class PlayerCardSystem : NetworkBehaviour
         GameObject plr = GetClosestPlayerToCamera(cam);
         if (plr == this.gameObject)
         {
-            print("Player is this.gameobject");
+            Debug.Log("Player is this.gameobject");
             Vector3 endpos = RaycastFromCamera(cam, 10000);
             bullet.GetComponent<projectile>().ShootWithoutTracking(startpos, endpos);
         }
         else
         {
-            print("Player is other player");
+            Debug.Log("Player is other player");
             bullet.GetComponent<projectile>().ShootWithTracking(plr, startpos);
         }
         

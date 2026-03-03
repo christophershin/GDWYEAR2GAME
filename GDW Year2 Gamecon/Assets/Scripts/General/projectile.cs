@@ -79,7 +79,7 @@ public class projectile : NetworkBehaviour
     
     public IEnumerator MoveProjectileToPlayer(Vector3 startPos, GameObject player)
     {
-        print("Moved projectile to other player");
+        Debug.Log("Moved projectile to other player");
         float t = 0f;
         while (t < 1f)
         {
@@ -110,7 +110,7 @@ public class projectile : NetworkBehaviour
     
     public IEnumerator MoveProjectileToEnd(Vector3 startPos, Vector3 endPos)
     {
-        print("Moved projectile to end");
+        Debug.Log("Moved projectile to end");
         Vector3 midpos = (startPos + endPos) * 0.5f + Vector3.up * curve;
         
         float t = 0f;
