@@ -44,12 +44,12 @@ public class Deflect : NetworkBehaviour
             DeflectServerRPC(objId, direction, 14, teamid);
 
             
-            if(obj.GetComponent<EntitiesClass>().teamID != teamid)
-            {
-                //play sound
-                ManagerAudio.clip = sounds[0];
-                ManagerAudio.Play();
-            }
+            // if(obj.GetComponent<EntitiesClass>().teamID != teamid)
+            // {
+            //     //play sound
+            //     ManagerAudio.clip = sounds[0];
+            //     ManagerAudio.Play();
+            // }
 
         }
     }
