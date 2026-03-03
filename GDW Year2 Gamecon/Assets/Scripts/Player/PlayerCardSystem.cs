@@ -19,7 +19,7 @@ public class PlayerCardSystem : NetworkBehaviour
     public float startspeed, midspeed, endspeed;
     public float curve;
 
-    private float _MAXANGLE = 130f;
+    private float _MAXANGLE = 5;
 
     private void Start()
     {
@@ -94,20 +94,29 @@ public class PlayerCardSystem : NetworkBehaviour
         
                 RaycastHit hit;
         
-                if (Physics.Raycast(this.transform.position, direction, out hit, distance))
+                if (Physics.Raycast(this.transform.position, direction, out hit, distance, layerMask))
                 {
+                    if (hit.transform.gameObject.CompareTag("Parriable"))
+                    {
+                        continue;
+                    }
+                    
                     Debug.Log("RAY WORKS");
                     
-                    Debug.Log("TAG CONFIRMED, changed closest player to this player");
-                    closestAngle = angle;
-                    closestPlayer = i;
-                    // comparing if tag is player
-                    // if (hit.transform.gameObject == players[i])
-                    // {
-                    //     Debug.Log("TAG CONFIRMED, changed closest player to this player");
-                    //     closestAngle = angle;
-                    //     closestPlayer = i;
-                    // }
+                    // Debug.Log("TAG CONFIRMED, changed closest player to this player");
+                    // closestAngle = angle;
+                    // closestPlayer = i;
+                    // //comparing if tag is player
+                    //
+                    string tag = hit.transform.gameObject.tag;
+                    Debug.Log(tag);
+                    
+                    if (tag == "Player")
+                    {
+                        Debug.Log("TAG CONFIRMED, changed closest player to this player");
+                        closestAngle = angle;
+                        closestPlayer = i;
+                    }
                 }
             }
         }
