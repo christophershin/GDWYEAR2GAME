@@ -440,6 +440,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 012f65268c989944e838b9aaa4408164, type: 3}
+--- !u!114 &1642728565 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5439212732090123947, guid: c3af38d563b332c4797bfd4ca8c00437, type: 3}
+  m_PrefabInstance: {fileID: 2143905008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593a2fe42fa9d37498c96f9a383b6521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkManager
 --- !u!1001 &1706767528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -456,6 +467,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3553023877
       objectReference: {fileID: 0}
+    - target: {fileID: 5327551589534958087, guid: f328690f403ee0741ab058e5155a6963, type: 3}
+      propertyPath: networkManager
+      value: 
+      objectReference: {fileID: 1642728565}
     - target: {fileID: 6286510731123395003, guid: f328690f403ee0741ab058e5155a6963, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

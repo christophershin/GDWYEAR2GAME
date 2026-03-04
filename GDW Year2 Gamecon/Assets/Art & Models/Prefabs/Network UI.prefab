@@ -143,8 +143,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6286510731123395003}
   - component: {fileID: 4547023467066899603}
-  - component: {fileID: 5838596378158334180}
   - component: {fileID: 5327551589534958087}
+  - component: {fileID: 8377594616264343118}
   m_Layer: 0
   m_Name: Network UI
   m_TagString: Untagged
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3460346497
+  GlobalObjectIdHash: 3553023877
   InScenePlacedSourceGlobalObjectIdHash: 2348547926
   DeferredDespawnTick: 0
   Ownership: 1
@@ -193,26 +193,6 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
---- !u!114 &5838596378158334180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484012713517801910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b45035999eb322246aacdc616968a85e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MultiplayerManager
-  ShowTopMostFoldoutHeaderGroup: 1
-  NetworkLobbyObject: {fileID: 2811801231570555133, guid: a08ff93dbe4fade43a6338a3a24114d6, type: 3}
-  NetworkSpawnPos: {fileID: 6301510443288615414}
-  joinCodeText: {fileID: 4186699991283301082}
-  joinCodeInputField: {fileID: 0}
-  NextScene: BattleArena
-  HostRoom: {fileID: 3799276270941892109}
-  Lobbyroom: {fileID: 8026538677016096109}
 --- !u!114 &5327551589534958087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,11 +206,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LobbyManager
   joinCodeLobby: 
-  relayManager: {fileID: 0}
+  relayManager: {fileID: 8377594616264343118}
   LobbyCreationParent: {fileID: 7966247516141361462}
   LobbyListParent: {fileID: 7966247516141361462}
+  LobbyJoinedScene: {fileID: 5909241822216967277}
+  joinedLobbyStartButton: {fileID: 8318164987336273015}
+  Scene: BattleArena
+  networkManager: {fileID: 0}
   lobbyContentParent: {fileID: 6301510443288615414}
   LobbyItemPrefab: {fileID: 2811801231570555133, guid: a08ff93dbe4fade43a6338a3a24114d6, type: 3}
+--- !u!114 &8377594616264343118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484012713517801910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c5b7daf05db930418cfe29f969926d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RelayManager
+  joinCodeText: {fileID: 0}
+  joinCodeInputField: {fileID: 0}
+  networkUI: {fileID: 0}
+  cam: {fileID: 0}
+  gameUI: {fileID: 0}
+  gameplayUI: {fileID: 0}
+  cardsSpawner: {fileID: 0}
+  networkBackground: {fileID: 0}
+  hostButton: {fileID: 0}
+  joinButton: {fileID: 0}
+  allButton: {fileID: 0}
 --- !u!1 &873150646127014536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2238,4 +2245,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7096783760468783967}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5327551589534958087}
+        m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
+        m_MethodName: LobbyStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

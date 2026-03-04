@@ -31,19 +31,12 @@ public class RelayManager : MonoBehaviour
 
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private async void Start()
-    {
-        await UnityServices.InitializeAsync();
-        await AuthenticationService.Instance.SignInAnonymouslyAsync();
-    }
-
     public async void StartRelay()
     {
 
         Disconnect();
         string joinCode = await StartHostingWithRelay();
-        joinCodeText.text = joinCode;
+        //joinCodeText.text = joinCode;
 
     }
 
@@ -53,7 +46,7 @@ public class RelayManager : MonoBehaviour
         await StartClientWithRelay(joinCodeInputField.text);
     }
 
-    private async Task<string> StartHostingWithRelay( int maxConnections = 3)
+    public async Task<string> StartHostingWithRelay( int maxConnections = 3)
     {
         
         Allocation allocation = await RelayService.Instance.CreateAllocationAsync(maxConnections);
@@ -64,28 +57,28 @@ public class RelayManager : MonoBehaviour
         string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
         
         
-        networkBackground.SetActive(false);
-        hostButton.SetActive(false);
-        joinButton.SetActive(false);
+        //networkBackground.SetActive(false);
+        //hostButton.SetActive(false);
+        //joinButton.SetActive(false);
         
-        //cam.SetActive(false);
-        gameUI.SetActive(true);
-        gameplayUI.SetActive(true);
-        cardsSpawner.SetActive(true);
+        ////cam.SetActive(false);
+        //gameUI.SetActive(true);
+        //gameplayUI.SetActive(true);
+        //cardsSpawner.SetActive(true);
         
         
         return NetworkManager.Singleton.StartHost() ? joinCode : null;
     }
 
-    private async Task<bool> StartClientWithRelay(string joinCode)
+    public async Task<bool> StartClientWithRelay(string joinCode)
     {
         JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
         NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new RelayServerData(joinAllocation, "dtls"));
-        gameplayUI.SetActive(true);
+        //gameplayUI.SetActive(true);
         
-        networkBackground.SetActive(false);
-        allButton.SetActive(false);
+        //networkBackground.SetActive(false);
+        //allButton.SetActive(false);
         
         return !string.IsNullOrEmpty(joinCode) && NetworkManager.Singleton.StartClient();
     }
