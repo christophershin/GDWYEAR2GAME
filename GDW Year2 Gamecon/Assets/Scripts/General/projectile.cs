@@ -45,6 +45,10 @@ public class projectile : NetworkBehaviour
     
     public void StraightParry(Vector3 newPos)
     {
+        startSpeed *= 1.2f;
+        midSpeed *= 1.2f;
+        endSpeed *= 1.2f;
+        
         if (_currentCoroutine != null)
             StopCoroutine(_currentCoroutine);
 
@@ -57,6 +61,10 @@ public class projectile : NetworkBehaviour
     
     public void TrackedParry(GameObject player)
     {
+        startSpeed *= 1.2f;
+        midSpeed *= 1.2f;
+        endSpeed *= 1.2f;
+        
         if (_currentCoroutine != null)
             StopCoroutine(_currentCoroutine);
 
@@ -76,7 +84,6 @@ public class projectile : NetworkBehaviour
     
     public IEnumerator MoveProjectileToPlayer(Vector3 startPos, GameObject player)
     {
-        Debug.Log("Moved projectile to other player");
         float t = 0f;
         while (t < 1f)
         {
@@ -107,7 +114,6 @@ public class projectile : NetworkBehaviour
     
     public IEnumerator MoveProjectileToEnd(Vector3 startPos, Vector3 endPos)
     {
-        Debug.Log("Moved projectile to end");
         Vector3 midpos = (startPos + endPos) * 0.5f + Vector3.up * curve;
         
         float t = 0f;
@@ -128,6 +134,10 @@ public class projectile : NetworkBehaviour
         }
         
         _rb.useGravity = true;
+        damage = 0;
+
+        yield return new WaitForSeconds(3f);
+        Destroy(this.gameObject);
     }
     
     public static Vector3 GetCurvedPosition(
@@ -165,25 +175,4 @@ public class projectile : NetworkBehaviour
             }
         }
     }
-    
-    // public void Parry(Vector3 newPos, float startSpeed, float midSpeed, float endSpeed)
-    // {
-    //     if (_currentCoroutine != null)
-    //         StopCoroutine(_currentCoroutine);
-    //
-    //     Vector3 start = transform.position;
-    //     Vector3 mid = (start + newPos) * 0.5f + Vector3.right * 3;
-    //
-    //     _currentCoroutine = StartCoroutine(
-    //         MoveProjectile(
-    //             transform,
-    //             start,
-    //             mid,
-    //             newPos,
-    //             startSpeed,
-    //             midSpeed,
-    //             endSpeed
-    //         )
-    //     );
-    // }
 }
