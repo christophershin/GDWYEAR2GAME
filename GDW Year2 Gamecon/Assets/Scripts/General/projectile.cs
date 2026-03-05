@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class projectile : NetworkBehaviour
 {
-
+    [SerializeField] private float startSpeed, midSpeed, endSpeed, curve;
 
     public float projectileTimerMax = 10;
     [HideInInspector]
@@ -19,8 +19,7 @@ public class projectile : NetworkBehaviour
     {
         _rb = GetComponent<Rigidbody>();
     }
-
-    // Performs behavior on the server which then sends data to all clients
+    
     public override void OnNetworkSpawn()
     {
         if (!IsServer)
@@ -31,8 +30,7 @@ public class projectile : NetworkBehaviour
 
         projectileTimer = projectileTimerMax;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
 
@@ -45,62 +43,49 @@ public class projectile : NetworkBehaviour
         }
     }
     
-    public void Parry(Vector3 newPos, float startSpeed, float midSpeed, float endSpeed)
+    public void StraightParry(Vector3 newPos)
     {
         if (_currentCoroutine != null)
             StopCoroutine(_currentCoroutine);
-        
-        //Vector3 dir = new Vector3(1f, 1f, 0f).normalized;
-
 
         Vector3 start = transform.position;
-        Vector3 mid = (start + newPos) * 0.5f + Vector3.right * 3;
-
 
         _currentCoroutine = StartCoroutine(
-            MoveProjectile(
-                transform,
-                start,
-                mid,
-                newPos,
-                startSpeed,
-                midSpeed,
-                endSpeed
-            )
+            MoveProjectileToEnd(start, newPos)
         );
     }
-
-    public void Shoot(GameObject bullet, Vector3 startpos, Vector3 midpos, Vector3 endpos, float startspeed, float midspeed, float endspeed)
+    
+    public void TrackedParry(GameObject player)
     {
-        _currentCoroutine = StartCoroutine(MoveProjectile(bullet.gameObject.transform, 
-                startpos, 
-                midpos, 
-                endpos, 
-                startspeed, 
-                midspeed, 
-                endspeed
-            ));
+        if (_currentCoroutine != null)
+            StopCoroutine(_currentCoroutine);
+
+        Vector3 start = transform.position;
+
+        _currentCoroutine = StartCoroutine(
+            MoveProjectileToPlayer(start, player)
+        );
     }
     
-    public IEnumerator MoveProjectile(
-        Transform projectile,
-        Vector3 startPos,
-        Vector3 midPos,
-        Vector3 endPos,
-        float startSpeed,
-        float midSpeed,
-        float endSpeed)
-    {
-        
-        //midPos = (startPos + endPos) * 0.5f + Vector3.right * 3;
-        
-        float t = 0f;
+    
 
+    public void ShootWithTracking(GameObject player, Vector3 startpos)
+    {
+        _currentCoroutine = StartCoroutine(MoveProjectileToPlayer(startpos, player));
+    }
+    
+    public IEnumerator MoveProjectileToPlayer(Vector3 startPos, GameObject player)
+    {
+        Debug.Log("Moved projectile to other player");
+        float t = 0f;
         while (t < 1f)
         {
-            projectile.position = GetCurvedPosition(
+            Vector3 endPos = player.transform.position;
+            Vector3 midpos = (startPos + endPos) * 0.5f + Vector3.up * curve;
+            
+            this.transform.position = GetCurvedPosition(
                 startPos,
-                midPos,
+                midpos,
                 endPos,
                 startSpeed,
                 midSpeed,
@@ -112,7 +97,36 @@ public class projectile : NetworkBehaviour
             yield return null;
         }
         
-        //Destroy(this.gameObject);
+        _rb.useGravity = true;
+    }
+    
+    public void ShootWithoutTracking(Vector3 startpos, Vector3 endpos)
+    {
+        _currentCoroutine = StartCoroutine(MoveProjectileToEnd(startpos, endpos));
+    }
+    
+    public IEnumerator MoveProjectileToEnd(Vector3 startPos, Vector3 endPos)
+    {
+        Debug.Log("Moved projectile to end");
+        Vector3 midpos = (startPos + endPos) * 0.5f + Vector3.up * curve;
+        
+        float t = 0f;
+        while (t < 1f)
+        {
+            this.transform.position = GetCurvedPosition(
+                startPos,
+                midpos,
+                endPos,
+                startSpeed,
+                midSpeed,
+                endSpeed,
+                ref t,
+                Time.deltaTime
+            );
+
+            yield return null;
+        }
+        
         _rb.useGravity = true;
     }
     
@@ -126,7 +140,6 @@ public class projectile : NetworkBehaviour
         ref float t,
         float deltaTime)
     {
-        // Blend speed across t (0 → start, 0.5 → middle, 1 → end)
         float speed =
             Mathf.Lerp(
                 Mathf.Lerp(startSpeed, middleSpeed, t),
@@ -134,17 +147,14 @@ public class projectile : NetworkBehaviour
                 t
             );
 
-        // Advance t using that speed
         t += speed * deltaTime;
         t = Mathf.Clamp01(t);
 
-        // Quadratic Bézier interpolation
         Vector3 a = Vector3.Lerp(startPos, middlePos, t);
         Vector3 b = Vector3.Lerp(middlePos, endPos, t);
         return Vector3.Lerp(a, b, t);
     }
     
-
     private void OnTriggerEnter(Collider other)
     {
         if (IsServer)
@@ -154,7 +164,26 @@ public class projectile : NetworkBehaviour
                 GetComponent<NetworkObject>().Despawn(true);
             }
         }
-
     }
-
+    
+    // public void Parry(Vector3 newPos, float startSpeed, float midSpeed, float endSpeed)
+    // {
+    //     if (_currentCoroutine != null)
+    //         StopCoroutine(_currentCoroutine);
+    //
+    //     Vector3 start = transform.position;
+    //     Vector3 mid = (start + newPos) * 0.5f + Vector3.right * 3;
+    //
+    //     _currentCoroutine = StartCoroutine(
+    //         MoveProjectile(
+    //             transform,
+    //             start,
+    //             mid,
+    //             newPos,
+    //             startSpeed,
+    //             midSpeed,
+    //             endSpeed
+    //         )
+    //     );
+    // }
 }

@@ -262,7 +262,7 @@ public class HealthandShield : NetworkBehaviour
         }
 
 
-        Debug.Log(Health.Value);
+        //Debug.Log(Health.Value);
     }
 
 
