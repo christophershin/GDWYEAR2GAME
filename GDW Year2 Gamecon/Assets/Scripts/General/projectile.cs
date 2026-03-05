@@ -45,6 +45,7 @@ public class projectile : NetworkBehaviour
     
     public void StraightParry(Vector3 newPos)
     {
+        damage *= 1.2f;
         startSpeed *= 1.2f;
         midSpeed *= 1.2f;
         endSpeed *= 1.2f;
@@ -61,6 +62,7 @@ public class projectile : NetworkBehaviour
     
     public void TrackedParry(GameObject player)
     {
+        damage *= 1.2f;
         startSpeed *= 1.2f;
         midSpeed *= 1.2f;
         endSpeed *= 1.2f;
