@@ -12,7 +12,7 @@ public class Deflect : NetworkBehaviour
     private float deflectSpeed;
     [SerializeField] private GameObject player;
 
-    private float _MAXANGLE = 5;
+    private float _MAXANGLE = 30;
     
     public override void OnNetworkSpawn()
     {

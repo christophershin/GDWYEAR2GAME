@@ -19,7 +19,7 @@ public class PlayerCardSystem : NetworkBehaviour
     public float startspeed, midspeed, endspeed;
     public float curve;
 
-    private float _MAXANGLE = 5;
+    private float _MAXANGLE = 15;
 
     private void Start()
     {
