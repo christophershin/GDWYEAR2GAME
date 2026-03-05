@@ -21,7 +21,8 @@ public class LookAtCards : MonoBehaviour
 
         for (int i = 0; i < _cards.Length; i++)
         {
-            _cards[i].transform.LookAt(transform.position);
+            Vector3 lookAtPos = new Vector3(transform.position.x, _cards[i].transform.position.y, transform.position.z);
+            _cards[i].transform.LookAt(lookAtPos);
         }
         
         // for (int i = 0; i < _transforms.Count; i++)
