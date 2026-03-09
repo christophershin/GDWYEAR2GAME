@@ -6,6 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Grenade.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Grenade.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Knife.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Knife.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Puck.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Puck.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NEW MAIN MENU TEST.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NEW MAIN MENU TEST.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/New_PlatyParry_Logo.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/New_PlatyParry_Logo.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DeleteCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DeleteCard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/Eyes.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/Eyes.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +154,7 @@
       <workItem from="1772743768154" duration="2703000" />
       <workItem from="1772746806925" duration="384000" />
       <workItem from="1772747231878" duration="101000" />
+      <workItem from="1773090022634" duration="1836000" />
     </task>
     <servers />
   </component>

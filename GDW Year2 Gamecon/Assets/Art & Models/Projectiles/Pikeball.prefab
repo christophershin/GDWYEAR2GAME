@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fcc923562ee78094d8c6df36d2f62508, type: 2}
+  - {fileID: 2100000, guid: 2faeb416a9b51f1439059fdd4a024fb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -260,6 +260,7 @@ MonoBehaviour:
   projectileTimerMax: 10
   projectileTimer: 0
   damage: 20
+  _material: {fileID: 2100000, guid: 2faeb416a9b51f1439059fdd4a024fb3, type: 2}
 --- !u!114 &1428737944937585448
 MonoBehaviour:
   m_ObjectHideFlags: 0

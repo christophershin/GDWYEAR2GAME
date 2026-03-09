@@ -14,10 +14,14 @@ public class projectile : NetworkBehaviour
 
     private Rigidbody _rb;
     Coroutine _currentCoroutine;
-
+    
+    [SerializeField] private Material _material;
+    
+    
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _material.SetFloat("_Float", 1);
     }
     
     public override void OnNetworkSpawn()
@@ -107,6 +111,14 @@ public class projectile : NetworkBehaviour
         }
         
         _rb.useGravity = true;
+        
+        for (float i = 1f; i <= 0; i -= 0.2f )
+        {
+            _material.SetFloat("_Float", i);
+            yield return new WaitForSeconds(0.1f);
+        }
+        
+        Destroy(this.gameObject);
     }
     
     public void ShootWithoutTracking(Vector3 startpos, Vector3 endpos)
@@ -137,8 +149,15 @@ public class projectile : NetworkBehaviour
         
         _rb.useGravity = true;
         damage = 0;
+        
+        
 
-        yield return new WaitForSeconds(3f);
+        for (float i = 1f; i <= 0; i -= 0.2f )
+        {
+            _material.SetFloat("_Float", i);
+            yield return new WaitForSeconds(0.1f);
+        }
+        
         Destroy(this.gameObject);
     }
     

@@ -15,6 +15,7 @@ public class DeleteCard : NetworkBehaviour
     private void Start()
     {
         _spriteRenderer =  GetComponent<SpriteRenderer>();
+        
     }
 
     public override void OnNetworkSpawn()
@@ -59,7 +60,6 @@ public class DeleteCard : NetworkBehaviour
         
         if (rando == -1)
         {
-            print("DOING");
             _spriteRenderer.sprite = null;
             gameObject.name = "null";
             return;
