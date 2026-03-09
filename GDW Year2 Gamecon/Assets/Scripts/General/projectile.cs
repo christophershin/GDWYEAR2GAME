@@ -21,7 +21,6 @@ public class projectile : NetworkBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _material.SetFloat("_Float", 1);
     }
     
     public override void OnNetworkSpawn()
@@ -49,6 +48,7 @@ public class projectile : NetworkBehaviour
     
     public void StraightParry(Vector3 newPos)
     {
+        Debug.Log("Parried");
         damage *= 1.2f;
         startSpeed *= 1.2f;
         midSpeed *= 1.2f;
@@ -66,6 +66,7 @@ public class projectile : NetworkBehaviour
     
     public void TrackedParry(GameObject player)
     {
+        Debug.Log("Parried");
         damage *= 1.2f;
         startSpeed *= 1.2f;
         midSpeed *= 1.2f;
@@ -112,12 +113,6 @@ public class projectile : NetworkBehaviour
         
         _rb.useGravity = true;
         
-        for (float i = 1f; i <= 0; i -= 0.2f )
-        {
-            _material.SetFloat("_Float", i);
-            yield return new WaitForSeconds(0.1f);
-        }
-        
         Destroy(this.gameObject);
     }
     
@@ -149,14 +144,6 @@ public class projectile : NetworkBehaviour
         
         _rb.useGravity = true;
         damage = 0;
-        
-        
-
-        for (float i = 1f; i <= 0; i -= 0.2f )
-        {
-            _material.SetFloat("_Float", i);
-            yield return new WaitForSeconds(0.1f);
-        }
         
         Destroy(this.gameObject);
     }
