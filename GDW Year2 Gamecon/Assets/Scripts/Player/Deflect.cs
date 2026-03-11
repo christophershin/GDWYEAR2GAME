@@ -41,8 +41,25 @@ public class Deflect : NetworkBehaviour
             deflectSpeed = obj.GetComponent<Rigidbody>().linearVelocity.magnitude;
 
             // Tell the server to handle the deflect
-            DeflectServerRPC(objId, direction, 14, teamid);
-
+            
+            GameObject plr = GetClosestPlayerToCamera(cam.GetComponent<Camera>());
+        
+            if (plr == this.gameObject)
+            {
+                Vector3 newPos = RaycastFromCamera(cam.GetComponent<Camera>(), 10000);
+                
+                DeflectServerRPC(objId, direction, 14, teamid, newPos);
+                
+                //StraightParryServerRPC(newPos);
+            }
+            else
+            {
+                NetworkObject netObj = plr.GetComponent<NetworkObject>();
+                ulong targetId = netObj.OwnerClientId;
+                //TrackedParryServerRPC(targetId);
+                
+                DeflectTrackedServerRPC(objId, direction, 14, teamid, targetId);
+            }
             
             // if(obj.GetComponent<EntitiesClass>().teamID != teamid)
             // {
@@ -129,33 +146,34 @@ public class Deflect : NetworkBehaviour
         return this.gameObject;
     }
 
-    void Parry(GameObject obj)
-    {
-        GameObject player = GetClosestPlayerToCamera(cam.GetComponent<Camera>());
-
-        if (player == this.gameObject)
-        {
-            Vector3 newPos = RaycastFromCamera(cam.GetComponent<Camera>(), 10000);
-            StraightParryServerRPC(newPos);
-        }
-        else
-        {
-            NetworkObjectReference netObjRef = player.GetComponent<NetworkObject>();
-            TrackedParryServerRPC(netObjRef);
-        }
-    }
-
-    [ServerRpc]
-    void StraightParryServerRPC(Vector3 newPos)
-    {
-        obj.GetComponent<projectile>().StraightParry(newPos);
-    }
-
-    [ServerRpc]
-    void TrackedParryServerRPC(NetworkObjectReference netObjRef)
-    {
-        obj.GetComponent<projectile>().TrackedParry(netObjRef);
-    }
+    // void Parry()
+    // {
+    //     GameObject player = GetClosestPlayerToCamera(cam.GetComponent<Camera>());
+    //     
+    //     if (player == this.gameObject)
+    //     {
+    //         Vector3 newPos = RaycastFromCamera(cam.GetComponent<Camera>(), 10000);
+    //         StraightParryServerRPC(newPos);
+    //     }
+    //     else
+    //     {
+    //         NetworkObject netObj = player.GetComponent<NetworkObject>();
+    //         ulong targetId = netObj.OwnerClientId;
+    //         TrackedParryServerRPC(targetId);
+    //     }
+    // }
+    
+    // [ServerRpc]
+    // void StraightParryServerRPC(Vector3 newPos)
+    // {
+    //     obj.GetComponent<projectile>().StraightParry(newPos);
+    // }
+    //
+    // [ServerRpc]
+    // void TrackedParryServerRPC(ulong targetID)
+    // {
+    //     obj.GetComponent<projectile>().TrackedParry(targetID);
+    // }
     
     public static Vector3 RaycastFromCamera(Camera cam, float maxDistance)
     {
@@ -171,24 +189,44 @@ public class Deflect : NetworkBehaviour
 
 
     [ServerRpc]
-    void DeflectServerRPC(ulong objId, Vector3 dir, float deflectSpeed, string id)
-    {
+     void DeflectServerRPC(ulong objId, Vector3 dir, float deflectSpeed, string id, Vector3 newPos)
+     {
+    
+         if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(objId, out NetworkObject netObj))
+         {
+             GameObject obj = netObj.gameObject;
+    
+             if (obj.GetComponent<EntitiesClass>().teamID != id)
+             {
+                 // parry
+                 obj.GetComponent<projectile>().StraightParry(newPos);
+                 
+                 obj.GetComponent<EntitiesClass>().teamID = id;
+                 obj.GetComponent<projectile>().projectileTimer = obj.GetComponent<projectile>().projectileTimerMax;
+                 player.GetComponent<HealthandShield>().getShieldServerRPC(30);
+             }
+         }
+     }
 
+    [ServerRpc]
+    void DeflectTrackedServerRPC(ulong objId, Vector3 dir, float deflectSpeed, string id, ulong targetID)
+    {
+    
         if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(objId, out NetworkObject netObj))
         {
             GameObject obj = netObj.gameObject;
-
+    
             if (obj.GetComponent<EntitiesClass>().teamID != id)
             {
-                Parry(obj);
+                // parry
+                obj.GetComponent<projectile>().TrackedParry(targetID);
+                 
                 obj.GetComponent<EntitiesClass>().teamID = id;
                 obj.GetComponent<projectile>().projectileTimer = obj.GetComponent<projectile>().projectileTimerMax;
                 player.GetComponent<HealthandShield>().getShieldServerRPC(30);
             }
         }
     }
-
-
 }
 
 

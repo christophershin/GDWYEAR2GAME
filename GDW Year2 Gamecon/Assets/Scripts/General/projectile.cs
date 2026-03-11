@@ -64,10 +64,12 @@ public class projectile : NetworkBehaviour
         );
     }
     
-    public void TrackedParry(NetworkObjectReference playerOBJ)
+    public void TrackedParry(ulong targetID)
     {
-        GameObject player = playerOBJ;
-        
+        NetworkObject playerObject = NetworkManager.Singleton.ConnectedClients[targetID].PlayerObject;
+
+        GameObject player = playerObject.gameObject;
+            
         Debug.Log("Parried");
         damage *= 1.2f;
         startSpeed *= 1.2f;
@@ -114,6 +116,8 @@ public class projectile : NetworkBehaviour
         }
         
         _rb.useGravity = true;
+        
+        yield return new WaitForSeconds(4f);
         
         Destroy(this.gameObject);
     }
@@ -181,7 +185,7 @@ public class projectile : NetworkBehaviour
         {
             if (other.gameObject.CompareTag("Obstacle"))
             {
-                GetComponent<NetworkObject>().Despawn(true);
+                //GetComponent<NetworkObject>().Despawn(true);
             }
         }
     }

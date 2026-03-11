@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Deflect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Deflect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Parrying.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Parrying.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +150,7 @@
       <workItem from="1773090022634" duration="2439000" />
       <workItem from="1773095479750" duration="123000" />
       <workItem from="1773097454017" duration="616000" />
-      <workItem from="1773265609765" duration="1155000" />
+      <workItem from="1773265609765" duration="4715000" />
     </task>
     <servers />
   </component>
