@@ -9633,7 +9633,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849454267}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -11167,6 +11167,18 @@ PrefabInstance:
     - target: {fileID: 5702957296508369847, guid: e5800285147f28e47b32382eb20c9007, type: 3}
       propertyPath: m_Name
       value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806741911201048202, guid: e5800285147f28e47b32382eb20c9007, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 628318754
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806741911201048202, guid: e5800285147f28e47b32382eb20c9007, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806741911201048202, guid: e5800285147f28e47b32382eb20c9007, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 1812711099
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

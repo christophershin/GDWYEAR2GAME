@@ -42,7 +42,6 @@ public class EnemyFiring : NetworkBehaviour
                 string id = GetComponent<EntitiesClass>().teamID;
 
                 GameObject bullet = Instantiate(proj, transform);
-                bullet.GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 0, -projectile_speed);
                 bullet.GetComponent<EntitiesClass>().teamID = id;
                 bullet.GetComponent<NetworkObject>().Spawn(true);
 
@@ -54,6 +53,8 @@ public class EnemyFiring : NetworkBehaviour
         
 
     }
+
+
 
     private IEnumerator colliderToggled(Collider collider)
     {
