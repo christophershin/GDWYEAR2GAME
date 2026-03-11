@@ -64,8 +64,10 @@ public class projectile : NetworkBehaviour
         );
     }
     
-    public void TrackedParry(GameObject player)
+    public void TrackedParry(NetworkObjectReference playerOBJ)
     {
+        GameObject player = playerOBJ;
+        
         Debug.Log("Parried");
         damage *= 1.2f;
         startSpeed *= 1.2f;

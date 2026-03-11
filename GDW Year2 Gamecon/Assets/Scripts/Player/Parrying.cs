@@ -73,18 +73,14 @@ public class Parrying : NetworkBehaviour
             // if you are alive
             if(entitiesClass.isAlive.Value)
             {
-
-                if (ParryEnergy.Value > 0)
+                
+                if (Input.GetMouseButtonDown(1))
                 {
-
-                    if (Input.GetMouseButtonDown(1))
-                    {
-                        ParryServerRPC();
-
-                    }
-
+                    if (ParryEnergy.Value > 0) ParryServerRPC();
                 }
-
+                
+                
+                // turned off for testing purposes
                 if(ParryEnergy.Value <=0)
                 {
                     NotParryServerRPC();
@@ -197,7 +193,6 @@ public class Parrying : NetworkBehaviour
         }
 
         parryEnergyText.text = ((int)ParryEnergy.Value).ToString();
-
     }
 
 

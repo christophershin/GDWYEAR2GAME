@@ -136,12 +136,25 @@ public class Deflect : NetworkBehaviour
         if (player == this.gameObject)
         {
             Vector3 newPos = RaycastFromCamera(cam.GetComponent<Camera>(), 10000);
-            obj.GetComponent<projectile>().StraightParry(newPos);
+            StraightParryServerRPC(newPos);
         }
         else
         {
-            obj.GetComponent<projectile>().TrackedParry(player);
+            NetworkObjectReference netObjRef = player.GetComponent<NetworkObject>();
+            TrackedParryServerRPC(netObjRef);
         }
+    }
+
+    [ServerRpc]
+    void StraightParryServerRPC(Vector3 newPos)
+    {
+        obj.GetComponent<projectile>().StraightParry(newPos);
+    }
+
+    [ServerRpc]
+    void TrackedParryServerRPC(NetworkObjectReference netObjRef)
+    {
+        obj.GetComponent<projectile>().TrackedParry(netObjRef);
     }
     
     public static Vector3 RaycastFromCamera(Camera cam, float maxDistance)

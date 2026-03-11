@@ -6,27 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cone.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cone.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cone.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cone.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Desk_Pylon__Stool_Cards.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Desk_Pylon__Stool_Cards.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Grenade.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Grenade.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Puck.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Puck.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Transparency.shadergraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Transparency.shadergraph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NEW MAIN MENU TEST.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NEW MAIN MENU TEST.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/New_PlatyParry_Logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/New_PlatyParry_Logo.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Deflect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Deflect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Parrying.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Parrying.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +150,8 @@
       <workItem from="1772747231878" duration="101000" />
       <workItem from="1773090022634" duration="2439000" />
       <workItem from="1773095479750" duration="123000" />
-      <workItem from="1773097454017" duration="258000" />
+      <workItem from="1773097454017" duration="616000" />
+      <workItem from="1773265609765" duration="1155000" />
     </task>
     <servers />
   </component>
