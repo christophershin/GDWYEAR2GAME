@@ -701,10 +701,10 @@ MonoBehaviour:
         - m_Target: {fileID: 1553825968}
           m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
           m_MethodName: PointedAtOptions
-          m_Mode: 1
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 236593752}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1225,10 +1225,10 @@ MonoBehaviour:
         - m_Target: {fileID: 1553825968}
           m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
           m_MethodName: PointedAtQuit
-          m_Mode: 1
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 468646444}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1293,8 +1293,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Options
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 34aeef55f9be3204ea2962dba3fd71c9, type: 2}
-  m_sharedMaterial: {fileID: 5894094334658834726, guid: 34aeef55f9be3204ea2962dba3fd71c9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cfa712aa0932f20448ba138cd1c868e6, type: 2}
+  m_sharedMaterial: {fileID: 6136455914331134356, guid: cfa712aa0932f20448ba138cd1c868e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2129,7 +2129,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 7b413d23ae868ca498c18e4114495305, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.485
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2287,8 +2287,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 34aeef55f9be3204ea2962dba3fd71c9, type: 2}
-  m_sharedMaterial: {fileID: 5894094334658834726, guid: 34aeef55f9be3204ea2962dba3fd71c9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cfa712aa0932f20448ba138cd1c868e6, type: 2}
+  m_sharedMaterial: {fileID: 6136455914331134356, guid: cfa712aa0932f20448ba138cd1c868e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2425,8 +2425,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 34aeef55f9be3204ea2962dba3fd71c9, type: 2}
-  m_sharedMaterial: {fileID: 5894094334658834726, guid: 34aeef55f9be3204ea2962dba3fd71c9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cfa712aa0932f20448ba138cd1c868e6, type: 2}
+  m_sharedMaterial: {fileID: 6136455914331134356, guid: cfa712aa0932f20448ba138cd1c868e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3319,8 +3319,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: About
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 34aeef55f9be3204ea2962dba3fd71c9, type: 2}
-  m_sharedMaterial: {fileID: 5894094334658834726, guid: 34aeef55f9be3204ea2962dba3fd71c9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cfa712aa0932f20448ba138cd1c868e6, type: 2}
+  m_sharedMaterial: {fileID: 6136455914331134356, guid: cfa712aa0932f20448ba138cd1c868e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3562,10 +3562,10 @@ MonoBehaviour:
         - m_Target: {fileID: 1553825968}
           m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
           m_MethodName: PointedAtAbout
-          m_Mode: 1
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1605646714}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -4943,10 +4943,10 @@ MonoBehaviour:
         - m_Target: {fileID: 1553825968}
           m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
           m_MethodName: PointedAtPlay
-          m_Mode: 1
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 2053752620}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

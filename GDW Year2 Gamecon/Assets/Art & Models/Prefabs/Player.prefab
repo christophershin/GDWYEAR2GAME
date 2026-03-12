@@ -148,7 +148,7 @@ MonoBehaviour:
   entitiesClass: {fileID: 425265588584938919}
   mouseSensitivity: 2
   cameraTransform: {fileID: 5487012962671268872}
-  MoveSpeed: 18
+  MoveSpeed: 15
   jumpForce: 12
   fallMultiplier: 2
   ascendMultiplier: 2
