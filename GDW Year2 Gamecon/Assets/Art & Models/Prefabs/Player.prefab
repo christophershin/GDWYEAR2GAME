@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3944552304
+  GlobalObjectIdHash: 3932143050
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -1266,7 +1266,7 @@ GameObject:
   - component: {fileID: 178410072821319616}
   - component: {fileID: 8423289099480475653}
   - component: {fileID: 3718804658527385255}
-  - component: {fileID: 5332516145775794936}
+  - component: {fileID: 8377425291097604474}
   m_Layer: 0
   m_Name: ParryHitBox
   m_TagString: Untagged
@@ -1407,7 +1407,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5332516145775794936
+--- !u!114 &8377425291097604474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1420,8 +1420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deflect
   ShowTopMostFoldoutHeaderGroup: 1
-  sounds:
-  - {fileID: 8300000, guid: c00e1a63ddd23f4489142d4005639ac3, type: 3}
+  sounds: []
   cam: {fileID: 4997146690751356908}
   player: {fileID: 134657154417255479}
 --- !u!1 &5208473932013243452
