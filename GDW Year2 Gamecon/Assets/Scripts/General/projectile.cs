@@ -119,7 +119,9 @@ public class projectile : NetworkBehaviour
         
         //yield return new WaitForSeconds(4f);
         
-        Destroy(this.gameObject);
+        
+        GetComponent<NetworkObject>().Despawn(true);
+        //Destroy(this.gameObject);
     }
     
     public void ShootWithoutTracking(Vector3 startpos, Vector3 endpos)
@@ -151,7 +153,8 @@ public class projectile : NetworkBehaviour
         _rb.useGravity = true;
         damage = 0;
         
-        Destroy(this.gameObject);
+        GetComponent<NetworkObject>().Despawn(true);
+        //Destroy(this.gameObject);
     }
     
     public static Vector3 GetCurvedPosition(
@@ -185,7 +188,7 @@ public class projectile : NetworkBehaviour
         {
             if (other.gameObject.CompareTag("Obstacle"))
             {
-                //GetComponent<NetworkObject>().Despawn(true);
+                GetComponent<NetworkObject>().Despawn(true);
             }
         }
     }

@@ -218,7 +218,6 @@ public class Deflect : NetworkBehaviour
     
             if (obj.GetComponent<EntitiesClass>().teamID != id)
             {
-                // parry
                 obj.GetComponent<projectile>().TrackedParry(targetID);
                  
                 obj.GetComponent<EntitiesClass>().teamID = id;

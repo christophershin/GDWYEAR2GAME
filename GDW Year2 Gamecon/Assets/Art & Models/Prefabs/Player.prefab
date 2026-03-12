@@ -172,10 +172,6 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   entitiesClass: {fileID: 425265588584938919}
   parryhitbox: {fileID: 5202479770782383269}
-  maxParryEnergy: 100
-  EnergyConsumptionAmount: 2.3
-  EnergyRestoreAmount: 1.8
-  maxParryCooldown: 3
   parryEnergyText: {fileID: 5566849264858422080}
   ParryEnergy:
     m_InternalValue: 0
@@ -236,6 +232,7 @@ MonoBehaviour:
   healthImage: {fileID: 6621586654606938321}
   shieldImage: {fileID: 5916995325538060328}
   entitiesClass: {fileID: 425265588584938919}
+  parryHitBox: {fileID: 5202479770782383269}
 --- !u!114 &425265588584938919
 MonoBehaviour:
   m_ObjectHideFlags: 0

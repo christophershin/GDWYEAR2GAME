@@ -71,6 +71,8 @@ public class HealthandShield : NetworkBehaviour
 
     private GameManager gameManager;
 
+    [SerializeField] private GameObject parryHitBox;
+
 
 
     public override void OnNetworkSpawn()
@@ -264,25 +266,69 @@ public class HealthandShield : NetworkBehaviour
 
         //Debug.Log(Health.Value);
     }
+    
+    [ServerRpc]
+    public void DamageServerRPC(float dmg)
+    {
+
+        if (Shield.Value > 0)
+        {
+            Shield.Value -= dmg;
+            
+
+        }else if (Health.Value > 0 && Shield.Value <= 0)
+        {
+
+            Health.Value -= dmg;
+
+        }
+
+        if (Health.Value <= 0)
+        {
+
+            entitiesClass.isAlive.Value = false;
+
+            Health.Value = 0;
+        }
+
+        if(Shield.Value<=0)
+        {
+            Shield.Value = 0;
+        }
+
+
+        //Debug.Log(Health.Value);
+    }
 
 
 
     private void OnCollisionEnter(Collision collider)
     {
 
-        if (!IsServer)
+        // if (!IsServer)
+        // {
+        //     return;
+        // }
+        
+        if (!IsOwner) return;
+
+        //string teamID = GetComponent<EntitiesClass>().teamID;
+
+
+        // if (collider.gameObject.CompareTag("Parriable") && collider.gameObject.GetComponent<EntitiesClass>().teamID != teamID)
+        // {
+        //     if (parryHitBox.activeSelf == false)
+        //     {
+        //         Damage(collider.gameObject.GetComponent<projectile>().damage);
+        //     }
+        // }
+        
+        if (collider.gameObject.CompareTag("Parriable"))
         {
-            return;
-        }
-
-        string teamID = GetComponent<EntitiesClass>().teamID;
-
-
-        if (collider.gameObject.CompareTag("Parriable") && collider.gameObject.GetComponent<EntitiesClass>().teamID != teamID)
-        {
-
-            Damage(collider.gameObject.GetComponent<projectile>().damage);
-
+            if (parryHitBox.activeSelf == false)
+            {
+                DamageServerRPC(collider.gameObject.GetComponent<projectile>().damage);
+            }
         }
     }
 
