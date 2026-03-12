@@ -49,7 +49,7 @@ public class Deflect : NetworkBehaviour
                 Vector3 newPos = RaycastFromCamera(cam.GetComponent<Camera>(), 10000);
                 
                 DeflectServerRPC(objId, direction, 14, teamid, newPos);
-                
+                player.GetComponent<HealthandShield>().getShieldServerRPC(30);
                 //StraightParryServerRPC(newPos);
             }
             else
@@ -59,6 +59,7 @@ public class Deflect : NetworkBehaviour
                 //TrackedParryServerRPC(targetId);
                 
                 DeflectTrackedServerRPC(objId, direction, 14, teamid, targetId);
+                player.GetComponent<HealthandShield>().getShieldServerRPC(30);
             }
             
             // if(obj.GetComponent<EntitiesClass>().teamID != teamid)
@@ -203,7 +204,7 @@ public class Deflect : NetworkBehaviour
                  
                  obj.GetComponent<EntitiesClass>().teamID = id;
                  obj.GetComponent<projectile>().projectileTimer = obj.GetComponent<projectile>().projectileTimerMax;
-                 player.GetComponent<HealthandShield>().getShieldServerRPC(30);
+                 
              }
          }
      }
@@ -222,7 +223,7 @@ public class Deflect : NetworkBehaviour
                  
                 obj.GetComponent<EntitiesClass>().teamID = id;
                 obj.GetComponent<projectile>().projectileTimer = obj.GetComponent<projectile>().projectileTimerMax;
-                player.GetComponent<HealthandShield>().getShieldServerRPC(30);
+                
             }
         }
     }
