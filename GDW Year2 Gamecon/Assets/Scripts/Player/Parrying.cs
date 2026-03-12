@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
@@ -39,7 +40,7 @@ public class Parrying : NetworkBehaviour
 
     public Slider slider;
 
-
+    private bool _isParrying = false;
 
     public override void OnNetworkSpawn()
     {
@@ -76,18 +77,26 @@ public class Parrying : NetworkBehaviour
                 
                 if (Input.GetMouseButtonDown(1))
                 {
-                    if (ParryEnergy.Value > 0) ParryServerRPC();
+                    if (ParryEnergy.Value > 0)
+                    {
+                        _isParrying = true;
+                        ParryServerRPC();
+                    }
                 }
                 
                 
                 // turned off for testing purposes
                 if(ParryEnergy.Value <=0)
                 {
-                    NotParryServerRPC();
+                    _isParrying = false;
+                    StartCoroutine(StopParrying());
+                    //NotParryServerRPC();
                 }
 
                 if (Input.GetMouseButtonUp(1))
                 {
+                    _isParrying = false;
+                    StartCoroutine(StopParrying());
                     NotParryServerRPC();
                 }
             }
@@ -101,6 +110,13 @@ public class Parrying : NetworkBehaviour
         slider.value = ParryEnergy.Value;
 
 
+    }
+
+    IEnumerator StopParrying()
+    {
+        yield return new WaitForSeconds(.4f);
+        
+        if (!_isParrying) NotParryServerRPC();
     }
 
     [ServerRpc]

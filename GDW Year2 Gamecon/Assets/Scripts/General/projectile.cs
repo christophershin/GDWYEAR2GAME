@@ -117,7 +117,7 @@ public class projectile : NetworkBehaviour
         
         _rb.useGravity = true;
         
-        yield return new WaitForSeconds(4f);
+        //yield return new WaitForSeconds(4f);
         
         Destroy(this.gameObject);
     }
