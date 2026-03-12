@@ -36,20 +36,44 @@ public class EnemyFiring : NetworkBehaviour
 
         timer -= Time.deltaTime;
 
-            if (timer <= 0)
+        if (timer <= 0)
+        {
+            GameObject[] plr = GameObject.FindGameObjectsWithTag("Player");
+            string id = GetComponent<EntitiesClass>().teamID;
+
+            GameObject bullet = Instantiate(proj, transform);
+            bullet.GetComponent<EntitiesClass>().teamID = id;
+            bullet.transform.position = transform.position;
+            bullet.GetComponent<NetworkObject>().Spawn(true);
+            bullet.GetComponent<projectile>().damage = 0;
+
+            float smallestDis = 100000f;
+            int ind;
+
+            for (int i=0; i<plr.Length; i++)
             {
-
-                string id = GetComponent<EntitiesClass>().teamID;
-
-                GameObject bullet = Instantiate(proj, transform);
-                bullet.GetComponent<EntitiesClass>().teamID = id;
-                bullet.GetComponent<NetworkObject>().Spawn(true);
-
-                if (bullet.GetComponent<EntitiesClass>().teamID == id)
-                    StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
                     
-                timer = timerMax;
+                float dis = Vector2.Distance(transform.position, plr[i].transform.position);
+
+                if (dis < smallestDis)
+                {
+                    smallestDis = dis;
+                }
+                    
+                    
+                if (plr[i] != this.gameObject)
+                {
+                    bullet.GetComponent<projectile>().ShootWithTracking(plr[i], transform.position);
+                }
+
             }
+                
+
+        if (bullet.GetComponent<EntitiesClass>().teamID == id)
+                StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
+                    
+            timer = timerMax;
+        }
         
 
     }
