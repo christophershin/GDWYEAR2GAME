@@ -71,10 +71,10 @@ public class projectile : NetworkBehaviour
         GameObject player = playerObject.gameObject;
             
         Debug.Log("Parried");
-        damage *= 1.2f;
-        startSpeed *= 1.2f;
-        midSpeed *= 1.2f;
-        endSpeed *= 1.2f;
+        damage *= 1.02f;
+        startSpeed *= 1.1f;
+        midSpeed *= 1.1f;
+        endSpeed *= 1.1f;
         
         if (_currentCoroutine != null)
             StopCoroutine(_currentCoroutine);

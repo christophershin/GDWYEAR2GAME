@@ -17,10 +17,10 @@ public class Parrying : NetworkBehaviour
     private float maxParryEnergy = 100;
 
     //[SerializeField]
-    private float EnergyConsumptionAmount = 2f;
+    private float EnergyConsumptionAmount = 3f;
 
     //[SerializeField]
-    private float EnergyRestoreAmount = 2;
+    private float EnergyRestoreAmount = 1f;
 
     //[SerializeField]
     private float maxParryCooldown = 1;
@@ -43,6 +43,7 @@ public class Parrying : NetworkBehaviour
     public Slider slider;
 
     private bool _isParrying = false;
+    private bool _canRecover = false;
 
     public override void OnNetworkSpawn()
     {
@@ -107,13 +108,13 @@ public class Parrying : NetworkBehaviour
                 if(privateParryEnergy <=0)
                 {
                     _isParrying = false;
-                    StartCoroutine(StopParrying());
+                    parryhitbox.SetActive(false);
                 }
 
                 if (Input.GetMouseButtonUp(1))
                 {
                     _isParrying = false;
-                    StartCoroutine(StopParrying());
+                    StartCoroutine(StopParryingDelayed());
                     //NotParryServerRPC();
                 }
             }
@@ -126,7 +127,7 @@ public class Parrying : NetworkBehaviour
         parryEnergyText.text = ((int)privateParryEnergy).ToString();
         
         slider.value = privateParryEnergy;
-
+        
 
     }
 
@@ -135,69 +136,83 @@ public class Parrying : NetworkBehaviour
         parryhitbox.SetActive(true);
     }
     
-    IEnumerator StopParrying()
+    IEnumerator StopParryingDelayed()
     {
-        yield return new WaitForSeconds(.4f);
-
+        yield return new WaitForSeconds(.3f);
+        
         if (!_isParrying) parryhitbox.SetActive(false); //NotParryServerRPC();
     }
     
 
     private void UpdateEnergySystem()
     {
-        if(cooldown>=0)
+        if (_isParrying)
         {
-            cooldown -= Time.deltaTime;
-        }
-        
-
-        if (resourceTimer >= 0)
-        {
-            resourceTimer -= Time.deltaTime;
-        }
-        
-        // if you are pressing the parry button
-        if(parryhitbox.activeSelf)
-        {
-
-            if(privateParryEnergy>0)
-            {
-                if (resourceTimer < 0)
-                {
-                    privateParryEnergy -= EnergyConsumptionAmount;
-
-                    resourceTimer = maxResourceTimer;
-                }
-            }
-
-            if (privateParryEnergy <= 0)
-            {
-                privateParryEnergy = 0;
-            }
-
+            privateParryEnergy -= EnergyConsumptionAmount * Time.deltaTime * 30;
         }
         else
         {
-            if (privateParryEnergy < maxParryEnergy)
-            {
-
-                if (resourceTimer < 0 && cooldown< 0)
-                {
-                    privateParryEnergy += EnergyRestoreAmount;
-
-                    resourceTimer = maxResourceTimer;
-                }
-
-            }
+            privateParryEnergy += EnergyRestoreAmount * Time.deltaTime * 30;
             
-            if(privateParryEnergy >= maxParryEnergy)
+            if (privateParryEnergy >= maxParryEnergy)
             {
                 privateParryEnergy = maxParryEnergy;
             }
-
         }
-
-        parryEnergyText.text = ((int)privateParryEnergy).ToString();
+        
+        // if(cooldown>=0)
+        // {
+        //     cooldown -= Time.deltaTime;
+        // }
+        //
+        //
+        // if (resourceTimer >= 0)
+        // {
+        //     resourceTimer -= Time.deltaTime;
+        // }
+        //
+        // // if you are pressing the parry button
+        // if(parryhitbox.activeSelf)
+        // {
+        //
+        //     if(privateParryEnergy>0)
+        //     {
+        //         if (resourceTimer < 0)
+        //         {
+        //             privateParryEnergy -= EnergyConsumptionAmount;
+        //
+        //             resourceTimer = maxResourceTimer;
+        //         }
+        //     }
+        //
+        //     if (privateParryEnergy <= 0)
+        //     {
+        //         privateParryEnergy = 0;
+        //     }
+        //
+        // }
+        // else
+        // {
+        //     if (privateParryEnergy < maxParryEnergy)
+        //     {
+        //
+        //         if (resourceTimer < 0 && cooldown< 0)
+        //         {
+        //             privateParryEnergy += EnergyRestoreAmount;
+        //
+        //             resourceTimer = maxResourceTimer;
+        //         }
+        //
+        //     }
+        //     
+        //     if(privateParryEnergy >= maxParryEnergy)
+        //     {
+        //         privateParryEnergy = maxParryEnergy;
+        //     }
+        //
+        // }
+        //
+        // parryEnergyText.text = ((int)privateParryEnergy).ToString();
     }
 
     [ServerRpc]
