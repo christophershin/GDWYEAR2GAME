@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3932143050
+  GlobalObjectIdHash: 3944552304
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -148,7 +148,7 @@ MonoBehaviour:
   entitiesClass: {fileID: 425265588584938919}
   mouseSensitivity: 2
   cameraTransform: {fileID: 5487012962671268872}
-  MoveSpeed: 10
+  MoveSpeed: 18
   jumpForce: 12
   fallMultiplier: 2
   ascendMultiplier: 2

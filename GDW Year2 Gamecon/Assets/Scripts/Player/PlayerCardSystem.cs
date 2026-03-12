@@ -184,7 +184,7 @@ public class PlayerCardSystem : NetworkBehaviour
         GameObject plr = GetClosestPlayerToCamera(cam);
         if (plr == this.gameObject)
         {
-            Debug.Log("Player is this.gameobject");
+            //Debug.Log("Player is this.gameobject");
             Vector3 endpos = RaycastFromCamera(cam, 10000);
             bullet.GetComponent<projectile>().ShootWithoutTracking(startpos, endpos);
         }
