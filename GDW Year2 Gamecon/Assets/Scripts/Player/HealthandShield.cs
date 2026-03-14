@@ -73,7 +73,7 @@ public class HealthandShield : NetworkBehaviour
 
     [SerializeField] private GameObject parryHitBox;
 
-
+    [SerializeField] private AnimationController animationController;
 
     public override void OnNetworkSpawn()
     {
@@ -327,6 +327,7 @@ public class HealthandShield : NetworkBehaviour
         {
             if (parryHitBox.activeSelf == false)
             {
+                animationController.SetAnimation("gotHit", true);
                 DamageServerRPC(collider.gameObject.GetComponent<projectile>().damage);
             }
         }

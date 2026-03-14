@@ -48,7 +48,7 @@ public class PlayerMovementandCamera : NetworkBehaviour
     //CardManager
     private CardsManager _cardsManager;
     
-    
+    [SerializeField] private AnimationController animationController;
 
     private void Start()
     {
@@ -127,7 +127,7 @@ public class PlayerMovementandCamera : NetworkBehaviour
 
     void MovePlayer()
     {
-
+        animationController.SetAnimation("isWalking", true);
         stepCounter -= Time.deltaTime;
 
         Vector3 movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
@@ -156,6 +156,7 @@ public class PlayerMovementandCamera : NetworkBehaviour
         // If we aren't moving and are on the ground, stop velocity so we don't slide
         if (isGrounded && moveHorizontal == 0 && moveForward == 0 && canMove)
         {
+            animationController.SetAnimation("isWalking", false);
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
             //SoundPlayer.Stop();
         }

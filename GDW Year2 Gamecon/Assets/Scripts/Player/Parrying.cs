@@ -138,7 +138,7 @@ public class Parrying : NetworkBehaviour
     
     IEnumerator StopParryingDelayed()
     {
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.4f);
         
         if (!_isParrying) parryhitbox.SetActive(false); //NotParryServerRPC();
     }
@@ -153,11 +153,11 @@ public class Parrying : NetworkBehaviour
         else
         {
             privateParryEnergy += EnergyRestoreAmount * Time.deltaTime * 30;
-            
-            if (privateParryEnergy >= maxParryEnergy)
-            {
-                privateParryEnergy = maxParryEnergy;
-            }
+        }
+        
+        if (privateParryEnergy >= maxParryEnergy)
+        {
+            privateParryEnergy = maxParryEnergy;
         }
         
         // if(cooldown>=0)

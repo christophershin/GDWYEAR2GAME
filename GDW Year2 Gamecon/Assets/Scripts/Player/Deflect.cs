@@ -1,3 +1,4 @@
+using System;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -14,6 +15,13 @@ public class Deflect : NetworkBehaviour
 
     private float _MAXANGLE = 30;
     
+    private AnimationController _animator;
+
+    private void Start()
+    {
+        _animator = GetComponent<AnimationController>();
+    }
+
     public override void OnNetworkSpawn()
     {
         if (!IsOwner)
@@ -43,6 +51,8 @@ public class Deflect : NetworkBehaviour
             // Tell the server to handle the deflect
             
             GameObject plr = GetClosestPlayerToCamera(cam.GetComponent<Camera>());
+            
+            _animator.SetAnimation("parry", true);
         
             if (plr == this.gameObject)
             {

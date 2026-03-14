@@ -20,6 +20,8 @@ public class PlayerCardSystem : NetworkBehaviour
     public float curve;
 
     private float _MAXANGLE = 15;
+    
+    [SerializeField] AnimationController animationController;
 
     private void Start()
     {
@@ -142,6 +144,7 @@ public class PlayerCardSystem : NetworkBehaviour
             Vector3 startPos = cam.transform.position;
             Vector3 endPos = RaycastFromCamera(cam, 10000);
             
+            animationController.SetAnimation("shooting", true);
             ShootServerRPC(card, direction, id, proj_speed);
         }
     }
