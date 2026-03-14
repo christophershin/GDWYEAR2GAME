@@ -20,7 +20,7 @@ public class DeleteCard : NetworkBehaviour
     
     void OnEnable()
     {
-        PlayerMovementandCamera.ActivateCardsEvent += SpawnCards;
+        StartGameScript.ActivateCardsEvent += SpawnCards;
     }
     
     private void SpawnCards()

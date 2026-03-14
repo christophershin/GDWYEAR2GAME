@@ -4,7 +4,7 @@ public class disablebeak : MonoBehaviour
 {
     void Start()
     {
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
     
 }

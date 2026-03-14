@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 2380855698623721687}
   - component: {fileID: 2570723225269059770}
   - component: {fileID: 8025174799401211474}
+  - component: {fileID: 7705356329353427888}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -293,7 +294,7 @@ MonoBehaviour:
   playerSounds: []
   stepInterval: 0.2
   animationController: {fileID: 6597825807453567247}
-  startGameText: {fileID: 6915502537791365560}
+  beak: {fileID: 7180211730468891540}
 --- !u!114 &1829790153828719856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,6 +539,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d34893f71b49e14788b6b18f3e944d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LookAtCards
+--- !u!114 &7705356329353427888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134657154417255479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78e8fb06d4842c4797feb59209368c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  ShowTopMostFoldoutHeaderGroup: 1
+  startGameText: {fileID: 6915502537791365560}
 --- !u!1 &423277997713303910
 GameObject:
   m_ObjectHideFlags: 0
