@@ -17,8 +17,13 @@ public class DeleteCard : NetworkBehaviour
         _spriteRenderer =  GetComponent<SpriteRenderer>();
         
     }
-
-    public override void OnNetworkSpawn()
+    
+    void OnEnable()
+    {
+        PlayerMovementandCamera.ActivateCardsEvent += SpawnCards;
+    }
+    
+    private void SpawnCards()
     {
         if (!IsServer) return;
         
@@ -45,14 +50,45 @@ public class DeleteCard : NetworkBehaviour
         
         UpdateCardClientRPC(_rando);
         
-        NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+        //NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
         
     }
+
+    // public override void OnNetworkSpawn()
+    // {
+    //     if (!IsServer) return;
+    //     
+    //     _rando =  Random.Range(0, 4);
+    //     
+    //     _spriteRenderer.sprite = cardSpritePrefabs[_rando];
+    //     
+    //     if (_rando == 0)
+    //     {
+    //         gameObject.name = "Puck";
+    //     }
+    //     else if (_rando == 1)
+    //     {
+    //         gameObject.name = "Grenade";
+    //     }
+    //     else if (_rando == 2)
+    //     {
+    //         gameObject.name = "Pikeball";
+    //     }
+    //     else if (_rando == 3)
+    //     {
+    //         gameObject.name = "Knife";
+    //     }
+    //     
+    //     UpdateCardClientRPC(_rando);
+    //     
+    //     //NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+    //     
+    // }
     
-    void OnClientConnected(ulong clientId)
-    {
-        UpdateCardClientRPC(_rando);
-    }
+    // void OnClientConnected(ulong clientId)
+    // {
+    //     UpdateCardClientRPC(_rando);
+    // }
 
     [ClientRpc]
     public void UpdateCardClientRPC(int rando)

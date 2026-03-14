@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -48,22 +50,60 @@ public class PlayerMovementandCamera : NetworkBehaviour
     //CardManager
     private CardsManager _cardsManager;
     
+    private GameObject[] _spawnArray;
+    
     [SerializeField] private AnimationController animationController;
+    
+    public static event Action ActivateCardsEvent;
+    
+    private bool _isSpawned = false;
+
+    [SerializeField] private TextMeshProUGUI startGameText;
 
     private void Start()
     {
+        if (IsServer)
+        {
+            startGameText.text = "Press G to start the game!";
+        }
+        else
+        {
+            startGameText.text = "Wait for the host to start the game!";
+        }
+        _spawnArray = GameObject.FindGameObjectsWithTag("Spawn");
         _cardsManager = GameObject.Find("Cards").GetComponent<CardsManager>();
+    }
+
+    private IEnumerator StartTheGame()
+    {
+        startGameText.text = "Starting in 3";
+        yield return new WaitForSeconds(1f);
+        startGameText.text = "Starting in 2";
+        yield return new WaitForSeconds(1f);
+        startGameText.text = "Starting in 1";
+        yield return new WaitForSeconds(1f);
+        
+        int randNum = UnityEngine.Random.Range(0, _spawnArray.Length);
+        transform.position = _spawnArray[randNum].transform.position;
+        ActivateCardsEvent?.Invoke();
+        
+        startGameText.text = "Good Luck :)";
+        yield return new WaitForSeconds(2f);
+        startGameText.text = "";
     }
 
 
     public override void OnNetworkSpawn()
     {
+        
+        
         if (!IsOwner)
         {
             enabled = false;
             cameraTransform.gameObject.SetActive(false);
             return;
-
+            
+            
         }
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -78,6 +118,15 @@ public class PlayerMovementandCamera : NetworkBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+    }
+    
+    [ClientRpc]
+    void TeleportClientRpc()
+    {
+        GameObject but = GameObject.FindGameObjectWithTag("NetworkButton");
+        but.SetActive(false);
+
+        StartCoroutine(StartTheGame());
     }
 
     void Update()
@@ -95,6 +144,15 @@ public class PlayerMovementandCamera : NetworkBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded && canMove)
         {
             Jump();
+        }
+
+        if (IsServer && _isSpawned == false)
+        {
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                _isSpawned = true;
+                TeleportClientRpc();
+            }
         }
         
 

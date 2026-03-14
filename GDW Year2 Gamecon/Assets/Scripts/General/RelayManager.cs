@@ -27,7 +27,7 @@ public class RelayManager : MonoBehaviour
     [SerializeField] private GameObject cardsSpawner;
     
     // NETWORK UI
-    [SerializeField] private GameObject networkBackground, hostButton, joinButton, allButton;
+    [SerializeField] private GameObject networkBackground, hostButton, joinButton, allButton, filter;
 
 
 
@@ -68,6 +68,7 @@ public class RelayManager : MonoBehaviour
         hostButton.SetActive(false);
         joinButton.SetActive(false);
         
+        
         //cam.SetActive(false);
         gameUI.SetActive(true);
         gameplayUI.SetActive(true);
@@ -85,7 +86,13 @@ public class RelayManager : MonoBehaviour
         gameplayUI.SetActive(true);
         
         networkBackground.SetActive(false);
-        allButton.SetActive(false);
+        hostButton.SetActive(false);
+        joinButton.SetActive(false);
+        //allButton.SetActive(false);
+        
+        string temp = joinCode.ToUpper();
+        
+        joinCodeText.text = temp;
         
         return !string.IsNullOrEmpty(joinCode) && NetworkManager.Singleton.StartClient();
     }

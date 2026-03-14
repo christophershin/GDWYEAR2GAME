@@ -15,11 +15,11 @@ public class Deflect : NetworkBehaviour
 
     private float _MAXANGLE = 30;
     
-    private AnimationController _animator;
+    [SerializeField] private AnimationController _animator;
 
     private void Start()
     {
-        _animator = GetComponent<AnimationController>();
+        //_animator = GetComponent<AnimationController>();
     }
 
     public override void OnNetworkSpawn()

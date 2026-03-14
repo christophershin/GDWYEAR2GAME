@@ -9,6 +9,8 @@ TagManager:
   - GameManager
   - Card
   - point
+  - Spawn
+  - NetworkButton
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - ground
   - card
   - point
-  - 
+  - Spawn
   - 
   - 
   - 
