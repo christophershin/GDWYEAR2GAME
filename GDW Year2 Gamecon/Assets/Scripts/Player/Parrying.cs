@@ -105,7 +105,7 @@ public class Parrying : NetworkBehaviour
     
     IEnumerator StopParryingDelayed()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(.4f);
         
         if (_isParryButtonDown == false)  _isHitboxActive.Value = false;
     }
@@ -115,7 +115,7 @@ public class Parrying : NetworkBehaviour
     {
         if (parryhitbox.activeSelf)
         {
-            privateParryEnergy -= EnergyConsumptionAmount * Time.deltaTime * .3f;
+            privateParryEnergy -= EnergyConsumptionAmount * Time.deltaTime * 30f;
         }
         else
         {

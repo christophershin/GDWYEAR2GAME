@@ -15,18 +15,57 @@ public class DeleteCard : NetworkBehaviour
     private void Start()
     {
         _spriteRenderer =  GetComponent<SpriteRenderer>();
-        
     }
     
     void OnEnable()
     {
-        StartGameScript.ActivateCardsEvent += SpawnCards;
+        StartGameScript.ActivateCardsEvent += UpdateCardClients;
     }
-    
-    private void SpawnCards()
+
+    void UpdateCardClients()
     {
         if (!IsServer) return;
+        UpdateCardClientRPC(_rando);
+    }
+    
+    [ClientRpc]
+    public void UpdateCardClientRPC(int rando)
+    {
         
+        if (rando == -1)
+        {
+            _spriteRenderer.sprite = null;
+            gameObject.name = "null";
+            return;
+        }
+        
+        _spriteRenderer.sprite = cardSpritePrefabs[rando];
+        
+        switch (rando)
+        {
+            case 0:
+                gameObject.name = "Puck";
+                return;
+            case 1:
+                gameObject.name = "Grenade";
+                return;
+            case 2:
+                gameObject.name = "Pikeball";
+                return;
+            case 3:
+                gameObject.name = "Knife";
+                return;
+        }
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        if (!IsServer) return;
+        SpawnCards();
+    }
+
+    private void SpawnCards()
+    {
         _rando =  Random.Range(0, 4);
         
         _spriteRenderer.sprite = cardSpritePrefabs[_rando];
@@ -48,79 +87,10 @@ public class DeleteCard : NetworkBehaviour
             gameObject.name = "Knife";
         }
         
-        UpdateCardClientRPC(_rando);
-        
+        //UpdateCardClientRPC(_rando);
         //NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
         
     }
-
-    // public override void OnNetworkSpawn()
-    // {
-    //     if (!IsServer) return;
-    //     
-    //     _rando =  Random.Range(0, 4);
-    //     
-    //     _spriteRenderer.sprite = cardSpritePrefabs[_rando];
-    //     
-    //     if (_rando == 0)
-    //     {
-    //         gameObject.name = "Puck";
-    //     }
-    //     else if (_rando == 1)
-    //     {
-    //         gameObject.name = "Grenade";
-    //     }
-    //     else if (_rando == 2)
-    //     {
-    //         gameObject.name = "Pikeball";
-    //     }
-    //     else if (_rando == 3)
-    //     {
-    //         gameObject.name = "Knife";
-    //     }
-    //     
-    //     UpdateCardClientRPC(_rando);
-    //     
-    //     //NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
-    //     
-    // }
-    
-    // void OnClientConnected(ulong clientId)
-    // {
-    //     UpdateCardClientRPC(_rando);
-    // }
-
-    [ClientRpc]
-    public void UpdateCardClientRPC(int rando)
-    {
-        
-        if (rando == -1)
-        {
-            _spriteRenderer.sprite = null;
-            gameObject.name = "null";
-            return;
-        }
-        
-        _spriteRenderer.sprite = cardSpritePrefabs[rando];
-        
-        if (rando == 0)
-        {
-            gameObject.name = "Puck";
-        }
-        else if (rando == 1)
-        {
-            gameObject.name = "Grenade";
-        }
-        else if (rando == 2)
-        {
-            gameObject.name = "Pikeball";
-        }
-        else if (rando == 3)
-        {
-            gameObject.name = "Knife";
-        }
-    }
-    
     
     [ServerRpc(RequireOwnership = false)]
     public void DespawnServerRPC()
@@ -167,4 +137,40 @@ public class DeleteCard : NetworkBehaviour
         
         UpdateCardClientRPC(_rando);
     }
+    
+    // public override void OnNetworkSpawn()
+    // {
+    //     if (!IsServer) return;
+    //     
+    //     _rando =  Random.Range(0, 4);
+    //     
+    //     _spriteRenderer.sprite = cardSpritePrefabs[_rando];
+    //     
+    //     if (_rando == 0)
+    //     {
+    //         gameObject.name = "Puck";
+    //     }
+    //     else if (_rando == 1)
+    //     {
+    //         gameObject.name = "Grenade";
+    //     }
+    //     else if (_rando == 2)
+    //     {
+    //         gameObject.name = "Pikeball";
+    //     }
+    //     else if (_rando == 3)
+    //     {
+    //         gameObject.name = "Knife";
+    //     }
+    //     
+    //     UpdateCardClientRPC(_rando);
+    //     
+    //     //NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+    //     
+    // }
+    
+    // void OnClientConnected(ulong clientId)
+    // {
+    //     UpdateCardClientRPC(_rando);
+    // }
 }

@@ -25,7 +25,7 @@ public class StartGameScript : NetworkBehaviour
             startGameText.text = "Wait for the host to start the game!";
         }
         
-        _spawnArray = GameObject.FindGameObjectsWithTag("Spawn");
+        //_spawnArray = GameObject.FindGameObjectsWithTag("Spawn");
     }
 
     // Update is called once per frame
@@ -53,8 +53,6 @@ public class StartGameScript : NetworkBehaviour
         GameObject but = GameObject.FindGameObjectWithTag("NetworkButton");
         but.SetActive(false);
         
-        
-        // things starting here doesn't run....
         startGameText.text = "Starting in 3";
         yield return new WaitForSeconds(1f);
         startGameText.text = "Starting in 2";
@@ -62,8 +60,7 @@ public class StartGameScript : NetworkBehaviour
         startGameText.text = "Starting in 1";
         yield return new WaitForSeconds(1f);
         
-        if (_spawnArray == null || _spawnArray.Length == 0)
-            _spawnArray = GameObject.FindGameObjectsWithTag("Spawn");
+        _spawnArray = GameObject.FindGameObjectsWithTag("Spawn");
 
         int randNum = UnityEngine.Random.Range(0, _spawnArray.Length);
         transform.position = _spawnArray[randNum].transform.position;

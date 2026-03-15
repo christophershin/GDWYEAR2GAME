@@ -57,24 +57,21 @@ public class PlayerMovementandCamera : NetworkBehaviour
 
     private void Start()
     {
+        if (!IsOwner) return;
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("ground"), LayerMask.NameToLayer("card"), true);
         _cardsManager = GameObject.Find("Cards").GetComponent<CardsManager>();
     }
 
     
-
-
     public override void OnNetworkSpawn()
     {
-        
-        
         if (!IsOwner)
         {
             enabled = false;
             cameraTransform.gameObject.SetActive(false);
             return;
-            
-            
         }
+        
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         canMove = true;
@@ -89,7 +86,6 @@ public class PlayerMovementandCamera : NetworkBehaviour
         Cursor.visible = false;
         
         beak.SetActive(false);
-
     }
 
     void Update()

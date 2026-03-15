@@ -275,26 +275,31 @@ public class HealthandShield : NetworkBehaviour
         {
             Shield.Value -= dmg;
             
+            if(Shield.Value<=0)
+            {
+                Shield.Value = 0;
+            }
+            
 
-        }else if (Health.Value > 0 && Shield.Value <= 0)
+        }
+        else if (Health.Value > 0 && Shield.Value <= 0)
         {
 
             Health.Value -= dmg;
+            
+            if (Health.Value <= 0)
+            {
+
+                entitiesClass.isAlive.Value = false;
+
+                Health.Value = 0;
+            }
 
         }
 
-        if (Health.Value <= 0)
-        {
+        
 
-            entitiesClass.isAlive.Value = false;
-
-            Health.Value = 0;
-        }
-
-        if(Shield.Value<=0)
-        {
-            Shield.Value = 0;
-        }
+        
 
 
         //Debug.Log(Health.Value);
