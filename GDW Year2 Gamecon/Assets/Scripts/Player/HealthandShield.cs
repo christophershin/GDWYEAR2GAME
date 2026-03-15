@@ -305,23 +305,23 @@ public class HealthandShield : NetworkBehaviour
     private void OnCollisionEnter(Collision collider)
     {
 
-        // if (!IsServer)
-        // {
-        //     return;
-        // }
+        if (!IsServer)
+        {
+            return;
+        }
         
-        if (!IsOwner) return;
+        // if (!IsOwner) return;
 
-        //string teamID = GetComponent<EntitiesClass>().teamID;
+        string teamID = GetComponent<EntitiesClass>().teamID;
 
 
-        // if (collider.gameObject.CompareTag("Parriable") && collider.gameObject.GetComponent<EntitiesClass>().teamID != teamID)
-        // {
-        //     if (parryHitBox.activeSelf == false)
-        //     {
-        //         Damage(collider.gameObject.GetComponent<projectile>().damage);
-        //     }
-        // }
+        if (collider.gameObject.CompareTag("Parriable") && collider.gameObject.GetComponent<EntitiesClass>().teamID != teamID)
+        {
+            if (parryHitBox.activeSelf == false)
+            {
+                Damage(collider.gameObject.GetComponent<projectile>().damage);
+            }
+        }
         
         if (collider.gameObject.CompareTag("Parriable"))
         {
