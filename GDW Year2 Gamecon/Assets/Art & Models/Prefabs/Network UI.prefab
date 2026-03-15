@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3553023877
+  GlobalObjectIdHash: 2348547926
   InScenePlacedSourceGlobalObjectIdHash: 2348547926
   DeferredDespawnTick: 0
   Ownership: 1
@@ -209,6 +209,7 @@ MonoBehaviour:
   relayManager: {fileID: 8377594616264343118}
   LobbyCreationParent: {fileID: 7966247516141361462}
   LobbyListParent: {fileID: 7966247516141361462}
+  HostRoom: {fileID: 5660061777030443089}
   LobbyJoinedScene: {fileID: 5909241822216967277}
   joinedLobbyStartButton: {fileID: 8318164987336273015}
   Scene: BattleArena

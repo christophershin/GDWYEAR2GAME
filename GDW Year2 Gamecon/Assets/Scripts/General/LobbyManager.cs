@@ -31,6 +31,7 @@ public class LobbyManager : MonoBehaviour
     [SerializeField] private RelayManager relayManager;
     [SerializeField] private GameObject LobbyCreationParent;
     [SerializeField] private GameObject LobbyListParent;
+    [SerializeField] private GameObject HostRoom;
     [SerializeField] private GameObject LobbyJoinedScene;
     [SerializeField] private GameObject joinedLobbyStartButton;
 
@@ -39,7 +40,7 @@ public class LobbyManager : MonoBehaviour
 
     public Transform lobbyContentParent;
     public GameObject LobbyItemPrefab;
-    private bool _isPolling;
+
 
     private string playerName;
     private Player playerData;
@@ -93,6 +94,7 @@ public class LobbyManager : MonoBehaviour
 
                 joinedLobbyId = lobbyID;
                 UpdateLobbyInfo();
+                HostRoom.SetActive(false);
             }
             catch (LobbyServiceException e)
             {
@@ -106,6 +108,7 @@ public class LobbyManager : MonoBehaviour
                 await LobbyService.Instance.JoinLobbyByIdAsync(lobbyID);
                 joinedLobbyId = lobbyID;
                 LobbyJoinedScene.SetActive(true);
+                HostRoom.SetActive(false);
                 UpdateLobbyInfo();
 
             }
@@ -117,7 +120,7 @@ public class LobbyManager : MonoBehaviour
     }
 
 
-
+    private bool _isPolling = false;
     private async void ShowLobbies()
     {
 
@@ -150,7 +153,7 @@ public class LobbyManager : MonoBehaviour
                 ind++;
             }
 
-            await Task.Delay(1000);
+            await Task.Delay(3000);
         }
 
         _isPolling = false;
@@ -188,7 +191,7 @@ public class LobbyManager : MonoBehaviour
             
             createdLobby = await LobbyService.Instance.CreateLobbyAsync("Lobby", 4, options);
             joinedLobbyId = createdLobby.Id;
-
+            HostRoom.SetActive(false);
             UpdateLobbyInfo();
         }
         catch (LobbyServiceException e)
@@ -247,7 +250,7 @@ public class LobbyManager : MonoBehaviour
             //    newPlayerItem.GetChild(2).GetComponent<TextMeshProUGUI>().text = (lobby.HostId == player.Id) ? "Owner" : "User";
             //}
 
-            await Task.Delay(1000);
+            await Task.Delay(2000);
         }
     }
 
@@ -264,7 +267,15 @@ public class LobbyManager : MonoBehaviour
 
         //lobbyListParent.SetActive(false);
         //joinedLobbyParent.SetActive(false);
+        LobbyJoinedScene.SetActive(false);
+        HostRoom.SetActive(false);
         Debug.Log("Hosting!!!!");
+
+
+
+
+
+
 
         StartCoroutine(switchScene());
     }
@@ -281,12 +292,15 @@ public class LobbyManager : MonoBehaviour
 
             await LobbyService.Instance.SendHeartbeatPingAsync(lobby.Id);
 
-            await Task.Delay(15 * 1000);
+            await Task.Delay(10 * 1000);
         }
     }
 
     private IEnumerator switchScene()
     {
+
+        foreach (Transform t in lobbyContentParent)
+            Destroy(t.gameObject);
 
         yield return new WaitForSeconds(1.5f);
 

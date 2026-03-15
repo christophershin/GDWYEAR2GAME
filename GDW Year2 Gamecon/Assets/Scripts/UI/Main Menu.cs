@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject musicUI;
-    
+    [SerializeField] private string scene;
     public void Online()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(scene);
     }
 
     public void Quit()
