@@ -235,37 +235,37 @@ public class HealthandShield : NetworkBehaviour
 
 
 
-    public void Damage(float dmg)
-    {
-
-        if (Shield.Value > 0)
-        {
-            Shield.Value -= dmg;
-            
-
-        }else if (Health.Value > 0 && Shield.Value <= 0)
-        {
-
-            Health.Value -= dmg;
-
-        }
-
-        if (Health.Value <= 0)
-        {
-
-            entitiesClass.isAlive.Value = false;
-
-            Health.Value = 0;
-        }
-
-        if(Shield.Value<=0)
-        {
-            Shield.Value = 0;
-        }
-
-
-        //Debug.Log(Health.Value);
-    }
+    // public void Damage(float dmg)
+    // {
+    //
+    //     if (Shield.Value > 0)
+    //     {
+    //         Shield.Value -= dmg;
+    //         
+    //
+    //     }else if (Health.Value > 0 && Shield.Value <= 0)
+    //     {
+    //
+    //         Health.Value -= dmg;
+    //
+    //     }
+    //
+    //     if (Health.Value <= 0)
+    //     {
+    //
+    //         entitiesClass.isAlive.Value = false;
+    //
+    //         Health.Value = 0;
+    //     }
+    //
+    //     if(Shield.Value<=0)
+    //     {
+    //         Shield.Value = 0;
+    //     }
+    //
+    //
+    //     //Debug.Log(Health.Value);
+    // }
     
     [ServerRpc]
     public void DamageServerRPC(float dmg)
@@ -305,7 +305,12 @@ public class HealthandShield : NetworkBehaviour
         //Debug.Log(Health.Value);
     }
 
-
+    /// <summary>
+    /// FIX THE PROBLEMS BELOW
+    ///
+    /// aasdkasd
+    /// </summary>
+    /// <param name="collider"></param>
 
     private void OnCollisionEnter(Collision collider)
     {
@@ -322,20 +327,26 @@ public class HealthandShield : NetworkBehaviour
 
         if (collider.gameObject.CompareTag("Parriable") && collider.gameObject.GetComponent<EntitiesClass>().teamID != teamID)
         {
-            if (parryHitBox.activeSelf == false)
-            {
-                Damage(collider.gameObject.GetComponent<projectile>().damage);
-            }
-        }
-        
-        if (collider.gameObject.CompareTag("Parriable"))
-        {
+            // if (parryHitBox.activeSelf == false)
+            // {
+            //     Damage(collider.gameObject.GetComponent<projectile>().damage);
+            // }
+            
             if (parryHitBox.activeSelf == false)
             {
                 animationController.SetAnimation("gotHit", true);
                 DamageServerRPC(collider.gameObject.GetComponent<projectile>().damage);
             }
         }
+        
+        // if (collider.gameObject.CompareTag("Parriable"))
+        // {
+        //     if (parryHitBox.activeSelf == false)
+        //     {
+        //         animationController.SetAnimation("gotHit", true);
+        //         DamageServerRPC(collider.gameObject.GetComponent<projectile>().damage);
+        //     }
+        // }
     }
 
 

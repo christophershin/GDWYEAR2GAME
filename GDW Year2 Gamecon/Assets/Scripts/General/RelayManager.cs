@@ -15,6 +15,7 @@ using Unity.VisualScripting;
 using Unity.Services.Authentication.PlayerAccounts;
 using NUnit.Framework.Internal;
 using System.Linq;
+using UnityEngine.UI;
 
 public class RelayManager : MonoBehaviour
 {
@@ -36,6 +37,12 @@ public class RelayManager : MonoBehaviour
     {
         await UnityServices.InitializeAsync();
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        
+        joinCodeInputField.onSubmit.AddListener(text =>
+        {
+            print(joinCodeInputField.text);
+            //JoinRelay();
+        });
     }
 
     public async void StartRelay()

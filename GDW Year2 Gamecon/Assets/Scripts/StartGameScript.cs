@@ -18,7 +18,7 @@ public class StartGameScript : NetworkBehaviour
     {
         if (IsServer)
         {
-            startGameText.text = "Press G to start the game!";
+            startGameText.text = "Press E to start the game!";
         }
         else
         {
@@ -33,7 +33,7 @@ public class StartGameScript : NetworkBehaviour
     {
         if (IsServer && _isSpawned == false)
         {
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 _isSpawned = true;
                 TeleportClientRpc();

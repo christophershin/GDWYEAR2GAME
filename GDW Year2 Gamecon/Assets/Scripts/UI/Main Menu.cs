@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject musicUI;
+    [SerializeField] private GameObject musicUI, creditsUI;
     [SerializeField] private Transform platypusHandTransform;
     [SerializeField] private TextMeshProUGUI platypusTalkingText;
     [SerializeField] private TMP_FontAsset defaultFont, horrorFont;
@@ -35,6 +35,18 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Credits()
+    {
+        if (creditsUI.activeSelf)
+        {
+            creditsUI.SetActive(false);
+        }
+        else
+        {
+            creditsUI.SetActive(true);
+        }
+    }
+
     public void PointedAtPlay(Image img)
     {
         PointAtButton(img.transform.position);
@@ -45,7 +57,7 @@ public class MainMenu : MonoBehaviour
     public void PointedAtAbout(Image img)
     {
         PointAtButton(img.transform.position);
-        platypusTalkingText.text = "Want to know more about the game?";
+        platypusTalkingText.text = "Want to see who the devs are?";
         SetDefaultFont();
     }
     

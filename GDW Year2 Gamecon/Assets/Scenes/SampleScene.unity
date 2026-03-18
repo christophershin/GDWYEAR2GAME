@@ -1071,7 +1071,7 @@ PrefabInstance:
     - target: {fileID: 2482152343112709729, guid: 8d1edb3a2657d25468f18181c9a6036f, type: 3}
       propertyPath: gameplayUI
       value: 
-      objectReference: {fileID: 4616619371775441272}
+      objectReference: {fileID: 5034183428784187322}
     - target: {fileID: 2482152343112709729, guid: 8d1edb3a2657d25468f18181c9a6036f, type: 3}
       propertyPath: hostButton
       value: 
@@ -12363,7 +12363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &5124726383588352687
 GameObject:
   m_ObjectHideFlags: 0

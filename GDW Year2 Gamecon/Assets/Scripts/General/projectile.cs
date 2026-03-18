@@ -49,7 +49,7 @@ public class projectile : NetworkBehaviour
     public void StraightParry(Vector3 newPos)
     {
         Debug.Log("Parried");
-        damage *= 1.2f;
+        damage += 5f;
         startSpeed *= 1.2f;
         midSpeed *= 1.2f;
         endSpeed *= 1.2f;
@@ -71,7 +71,7 @@ public class projectile : NetworkBehaviour
         GameObject player = playerObject.gameObject;
             
         Debug.Log("Parried");
-        damage *= 1.02f;
+        damage += 5f;
         startSpeed *= 1.1f;
         midSpeed *= 1.1f;
         endSpeed *= 1.1f;
@@ -117,7 +117,7 @@ public class projectile : NetworkBehaviour
         
         _rb.useGravity = true;
         
-        yield return new WaitForSeconds(.4f);
+        //yield return new WaitForSeconds(.4f);
         
         
         GetComponent<NetworkObject>().Despawn(true);

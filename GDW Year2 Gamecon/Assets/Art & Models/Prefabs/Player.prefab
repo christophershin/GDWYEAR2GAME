@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3932143050
+  GlobalObjectIdHash: 3944552304
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -408,10 +408,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6815721
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.1815721}
 --- !u!54 &6211322000221701203
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -539,6 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d34893f71b49e14788b6b18f3e944d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LookAtCards
+  ShowTopMostFoldoutHeaderGroup: 1
 --- !u!114 &7705356329353427888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2442,7 +2443,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -180}
-  m_SizeDelta: {x: 858.6, y: 50}
+  m_SizeDelta: {x: 1530.4, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8006802066340680281
 CanvasRenderer:
@@ -2472,7 +2473,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press G to start game
+  m_text: Press ENTER to start game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 34aeef55f9be3204ea2962dba3fd71c9, type: 2}
   m_sharedMaterial: {fileID: 5894094334658834726, guid: 34aeef55f9be3204ea2962dba3fd71c9, type: 2}
@@ -2499,8 +2500,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 73.68
-  m_fontSizeBase: 73.68
+  m_fontSize: 56.2
+  m_fontSizeBase: 56.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

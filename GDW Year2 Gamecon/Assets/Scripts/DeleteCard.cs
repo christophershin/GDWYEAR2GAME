@@ -10,17 +10,6 @@ public class DeleteCard : NetworkBehaviour
     [SerializeField] private Sprite[] cardSpritePrefabs;
 
     private int _rando;
-    
-    
-    private void Start()
-    {
-        _spriteRenderer =  GetComponent<SpriteRenderer>();
-    }
-    
-    void OnEnable()
-    {
-        StartGameScript.ActivateCardsEvent += UpdateCardClients;
-    }
 
     void UpdateCardClients()
     {
@@ -31,6 +20,7 @@ public class DeleteCard : NetworkBehaviour
     [ClientRpc]
     public void UpdateCardClientRPC(int rando)
     {
+        //if (!IsOwner) return;
         
         if (rando == -1)
         {
@@ -58,13 +48,20 @@ public class DeleteCard : NetworkBehaviour
         }
     }
 
+    private void Start()
+    {
+        _spriteRenderer =  GetComponent<SpriteRenderer>();
+        StartGameScript.ActivateCardsEvent += UpdateCardClients;
+    }
+
     public override void OnNetworkSpawn()
     {
         if (!IsServer) return;
-        SpawnCards();
+        SpawnCardsServerRpc();
     }
 
-    private void SpawnCards()
+    [ServerRpc]
+    private void SpawnCardsServerRpc()
     {
         _rando =  Random.Range(0, 4);
         
@@ -169,8 +166,9 @@ public class DeleteCard : NetworkBehaviour
     //     
     // }
     
-    // void OnClientConnected(ulong clientId)
-    // {
-    //     UpdateCardClientRPC(_rando);
-    // }
+    void OnClientConnected(ulong clientId)
+    {
+        UpdateCardClientRPC(_rando);
+        
+    }
 }

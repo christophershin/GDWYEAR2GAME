@@ -1,12 +1,15 @@
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class LookAtCards : MonoBehaviour
+public class LookAtCards : NetworkBehaviour
 {
     GameObject[] _cards;
     private List<Transform> _transforms;
     void Start()
     {
+        
+        if (!IsOwner) return;
         _cards = GameObject.FindGameObjectsWithTag("Card");
 
         // for (int i = 0; i < arrayOfCards.Length-1; i++)
@@ -18,7 +21,8 @@ public class LookAtCards : MonoBehaviour
     
     void Update()
     {
-
+        if (!IsOwner) return;
+        
         for (int i = 0; i < _cards.Length; i++)
         {
             Vector3 lookAtPos = new Vector3(transform.position.x, _cards[i].transform.position.y, transform.position.z);
