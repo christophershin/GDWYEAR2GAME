@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dabc3a8d8c54e134386bf0917aaea4bf
+guid: 943dc96f7299c6c4294d2bac05507913
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,28 +93,37 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pg_0
+      name: Model_Cards_0
       rect:
         serializedVersion: 2
-        x: 355
-        y: 1990
+        x: 210
+        y: 1907
+        width: 706
+        height: 968
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dac7d90667a3b14caa8739210d0a05c
+      internalID: -221093568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Model_Cards_1
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 1909
         width: 706
         height: 970
       alignment: 0
@@ -125,19 +134,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4265b20e6cdc5fb4981284cd8270ce6e
-      internalID: 828482735
+      spriteID: 68b53f8799a74bf43856c8793c36fba9
+      internalID: -1864259701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pg_1
+      name: Model_Cards_2
       rect:
         serializedVersion: 2
-        x: 1139
-        y: 1990
-        width: 704
+        x: 1915
+        y: 1908
+        width: 706
         height: 970
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -147,42 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16adcdff764f43f4a887a31aa0369f3f
-      internalID: -160886686
+      spriteID: f5a139af31163d94e9c76eb23238c71c
+      internalID: 30852197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pg_2
+      name: Model_Cards_3
       rect:
         serializedVersion: 2
-        x: 1930
-        y: 1989
-        width: 704
-        height: 969
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea287e02fcf2a4b459c27c3f6c334f2a
-      internalID: -1746532906
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pg_3
-      rect:
-        serializedVersion: 2
-        x: 356
-        y: 933
+        x: 215
+        y: 801
         width: 706
-        height: 969
+        height: 970
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4335eaeb55fbd814f902fbc3cf0f0e0d
-      internalID: 668093766
+      spriteID: 00d7562bac955a34ca6c021ac9c506f0
+      internalID: -1606403958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pg_4
+      name: Model_Cards_4
       rect:
         serializedVersion: 2
-        x: 2434
-        y: 621
-        width: 19
-        height: 37
+        x: 1042
+        y: 803
+        width: 706
+        height: 970
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efd51a87e947d5f4fa7e68a8e3e52611
-      internalID: 1355706613
+      spriteID: 0725a7b555f3bb94a9561636ae81fece
+      internalID: -594342123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pg_5
+      name: Model_Cards_5
       rect:
         serializedVersion: 2
-        x: 621
-        y: 547
-        width: 37
-        height: 19
+        x: 1922
+        y: 800
+        width: 706
+        height: 970
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,8 +222,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 823826c5648e95b43bbdad7c2e7610f7
-      internalID: 125598435
+      spriteID: 712022d555b61d2439860135d0c37b62
+      internalID: 847201404
       vertices: []
       indices: 
       edges: []
@@ -245,7 +232,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7003544898906c645be88805f2160d38
+    spriteID: 7d7370db812a3ed4ab9cd01e8e037b1d
     internalID: 0
     vertices: []
     indices: 
@@ -257,12 +244,12 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Pg_0: 828482735
-      Pg_1: -160886686
-      Pg_2: -1746532906
-      Pg_3: 668093766
-      Pg_4: 1355706613
-      Pg_5: 125598435
+      Model_Cards_0: -221093568
+      Model_Cards_1: -1864259701
+      Model_Cards_2: 30852197
+      Model_Cards_3: -1606403958
+      Model_Cards_4: -594342123
+      Model_Cards_5: 847201404
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

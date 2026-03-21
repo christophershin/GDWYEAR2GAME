@@ -48,7 +48,7 @@ public class PlayerMovementandCamera : NetworkBehaviour
     public float stepInterval = 0.2f;
     
     //CardManager
-    private CardsManager _cardsManager;
+    [SerializeField] private CardsManager _cardsManager;
     
     [SerializeField] private AnimationController animationController;
 
@@ -59,7 +59,7 @@ public class PlayerMovementandCamera : NetworkBehaviour
     {
         if (!IsOwner) return;
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("ground"), LayerMask.NameToLayer("card"), true);
-        _cardsManager = GameObject.Find("Cards").GetComponent<CardsManager>();
+        //_cardsManager = GameObject.Find("Cards").GetComponent<CardsManager>();
     }
 
     
@@ -212,7 +212,7 @@ public class PlayerMovementandCamera : NetworkBehaviour
             {
                 if (_cardsManager.AddCard(other.gameObject.name))
                 {
-                    other.GetComponent<DeleteCard>().DespawnServerRPC();
+                    other.GetComponent<CardSyncScript>().ChangeCardNameServerRpc();
                 }
             }
         }

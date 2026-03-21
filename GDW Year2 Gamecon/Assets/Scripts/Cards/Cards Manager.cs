@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class CardsManager : MonoBehaviour
 {
-    [SerializeField] private GameObject puck, pikeball, grenade, knife;
+    [SerializeField] private GameObject puck, pikeball, tomato, cone, speaker;
     [SerializeField] private GameObject[] order; // the gameobject of the originals
     [SerializeField] private RectTransform[] orderRect; // the positions originals
 
@@ -37,7 +37,7 @@ public class CardsManager : MonoBehaviour
 
     public bool AddCard(string nam)
     {
-        print(nam);
+        //print(nam);
         // return early if cards ara max
         if (cardList.Count >= 3) return false;
         
@@ -50,11 +50,16 @@ public class CardsManager : MonoBehaviour
             case "Pikeball":
                 cardList.Add(Instantiate(pikeball, this.transform));
                 break;
-            case "Grenade":
-                cardList.Add(Instantiate(grenade,  this.transform));
+            case "Tomato":
+                cardList.Add(Instantiate(tomato,  this.transform));
                 break;
-            case "Knife":
-                cardList.Add(Instantiate(knife,  this.transform));
+            case "Cone":
+                cardList.Add(Instantiate(cone,  this.transform));
+                break;
+            case "Speaker":
+                cardList.Add(Instantiate(speaker,  this.transform));
+                break;
+            default:
                 break;
         }
         
@@ -100,12 +105,10 @@ public class CardsManager : MonoBehaviour
     {
         if (cardList.Count <= 1) return;
         
-        // Rotate the cards
         var card = cardList[0];
         cardList.RemoveAt(0);
         cardList.Add(card);
         
-        // Change parents
         for (int i = 0; i < cardList.Count; i++)
         {
             cardList[i].transform.SetParent(order[i].transform, true);
@@ -116,13 +119,11 @@ public class CardsManager : MonoBehaviour
     {
         if (cardList.Count <= 1) return;
         
-        // Rotate the cards
         var index = cardList.Count - 1;
         var card = cardList[index];
         cardList.RemoveAt(index);
         cardList.Insert(0, card);
         
-        // Change parents
         for (int i = 0; i < cardList.Count; i++)
         {
             cardList[i].transform.SetParent(order[i].transform, true);

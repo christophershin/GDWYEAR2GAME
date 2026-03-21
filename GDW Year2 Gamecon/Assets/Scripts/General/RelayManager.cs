@@ -77,8 +77,8 @@ public class RelayManager : MonoBehaviour
         
         
         //cam.SetActive(false);
-        gameUI.SetActive(true);
-        gameplayUI.SetActive(true);
+        //gameUI.SetActive(true);
+        //gameplayUI.SetActive(true);
         cardsSpawner.SetActive(true);
         
         
@@ -90,7 +90,7 @@ public class RelayManager : MonoBehaviour
         JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
         NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new RelayServerData(joinAllocation, "dtls"));
-        gameplayUI.SetActive(true);
+        //gameplayUI.SetActive(true);
         
         networkBackground.SetActive(false);
         hostButton.SetActive(false);

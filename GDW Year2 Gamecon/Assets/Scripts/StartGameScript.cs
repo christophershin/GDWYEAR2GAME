@@ -12,6 +12,8 @@ public class StartGameScript : NetworkBehaviour
     private GameObject[] _spawnArray;
     
     public static event Action ActivateCardsEvent;
+
+    [SerializeField] private GameObject gameUI;
     
     
     void Start()
@@ -59,6 +61,8 @@ public class StartGameScript : NetworkBehaviour
         yield return new WaitForSeconds(1f);
         startGameText.text = "Starting in 1";
         yield return new WaitForSeconds(1f);
+        
+        gameUI.SetActive(true);
         
         _spawnArray = GameObject.FindGameObjectsWithTag("Spawn");
 

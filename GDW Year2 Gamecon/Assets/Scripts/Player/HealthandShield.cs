@@ -100,8 +100,6 @@ public class HealthandShield : NetworkBehaviour
 
         Shield.OnValueChanged += ShieldChanged;
         ShieldChanged(Shield.Value, Shield.Value);
-
-
     }
 
 

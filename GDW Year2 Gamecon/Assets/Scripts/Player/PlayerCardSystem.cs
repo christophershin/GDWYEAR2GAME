@@ -7,14 +7,14 @@ using UnityEngine;
 
 public class PlayerCardSystem : NetworkBehaviour
 {
-    public GameObject puck, grenade, pikeball, knife;
+    public GameObject puck, pikeball, tomato, cone, speaker;
     
     public GameObject projectile;
     [SerializeField] private float proj_speed;
     [SerializeField] private Camera cam;
     public float colliderDisableTime = 0.05f;
     
-    private CardsManager _cardsManager;
+    [SerializeField] private CardsManager _cardsManager;
     
     public float startspeed, midspeed, endspeed;
     public float curve;
@@ -25,7 +25,7 @@ public class PlayerCardSystem : NetworkBehaviour
 
     private void Start()
     {
-        _cardsManager = GameObject.Find("Cards").GetComponent<CardsManager>();
+        //_cardsManager = GameObject.Find("Cards").GetComponent<CardsManager>();
     }
 
     public override void OnNetworkSpawn()
@@ -103,19 +103,10 @@ public class PlayerCardSystem : NetworkBehaviour
                         continue;
                     }
                     
-                    Debug.Log("RAY WORKS");
-                    
-                    // Debug.Log("TAG CONFIRMED, changed closest player to this player");
-                    // closestAngle = angle;
-                    // closestPlayer = i;
-                    // //comparing if tag is player
-                    //
                     string tag = hit.transform.gameObject.tag;
-                    Debug.Log(tag);
                     
                     if (tag == "Player")
                     {
-                        Debug.Log("TAG CONFIRMED, changed closest player to this player");
                         closestAngle = angle;
                         closestPlayer = i;
                     }
@@ -158,14 +149,17 @@ public class PlayerCardSystem : NetworkBehaviour
             case "Puck":
                 bullet = ActivateBullet(shootdirection, puck);
                 break;
-            case  "Grenade":
-                bullet = ActivateBullet(shootdirection, grenade);
-                break;
             case  "Pikeball":
                 bullet = ActivateBullet(shootdirection, pikeball);
                 break;
-            case  "Knife":
-                bullet = ActivateBullet(shootdirection, knife);
+            case  "Tomato":
+                bullet = ActivateBullet(shootdirection, tomato);
+                break;
+            case  "Cone":
+                bullet = ActivateBullet(shootdirection, cone);
+                break;
+            case  "Speaker":
+                bullet = ActivateBullet(shootdirection, speaker);
                 break;
             default:
                 return;
@@ -187,7 +181,6 @@ public class PlayerCardSystem : NetworkBehaviour
         GameObject plr = GetClosestPlayerToCamera(cam);
         if (plr == this.gameObject)
         {
-            //Debug.Log("Player is this.gameobject");
             Vector3 endpos = RaycastFromCamera(cam, 10000);
             bullet.GetComponent<projectile>().ShootWithoutTracking(startpos, endpos);
         }

@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 3706900182250515022}
   - component: {fileID: 5085551482054996655}
   m_Layer: 7
-  m_Name: Knife
+  m_Name: Cone
   m_TagString: Parriable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
