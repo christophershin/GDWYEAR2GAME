@@ -19,7 +19,7 @@ public class PlayerCardSystem : NetworkBehaviour
     public float startspeed, midspeed, endspeed;
     public float curve;
 
-    private float _MAXANGLE = 15;
+    private float _MAXANGLE = 5;
     
     [SerializeField] AnimationController animationController;
 
@@ -65,14 +65,14 @@ public class PlayerCardSystem : NetworkBehaviour
         // get the closest angle player from this player
         for (int i = 0; i < players.Length; i++)
         {
-            print(players.Length);
+            //print(players.Length);
             if (players[i] == this.gameObject)
             {
                 continue;
             }
             // getting the angle between this player and all the players in the map
             Vector3 directionToTarget = players[i].transform.position - this.transform.position;
-            float angle = Vector3.Angle(this.transform.forward, directionToTarget);
+            float angle = Vector3.Angle(camer.transform.forward, directionToTarget);
             
             Debug.Log("closest angle is: " + angle);
             Debug.Log("angle is: " + angle);
@@ -121,6 +121,7 @@ public class PlayerCardSystem : NetworkBehaviour
     
     void Update()
     {
+        if (!IsOwner) return;
         if (Input.GetMouseButtonDown(0))
         {
             string id = GetComponent<EntitiesClass>().teamID;
@@ -132,37 +133,48 @@ public class PlayerCardSystem : NetworkBehaviour
                 return;
             }
             
-            Vector3 startPos = cam.transform.position;
-            Vector3 endPos = RaycastFromCamera(cam, 10000);
+            // Vector3 startPos = cam.transform.position;
+            // Vector3 endPos = RaycastFromCamera(cam, 10000);
             
             animationController.SetAnimation("shooting", true);
-            ShootServerRPC(card, direction, id, proj_speed);
+            
+            
+            GameObject plr = GetClosestPlayerToCamera(cam);
+
+            if (plr != this.gameObject)
+            {
+                // if (plr.TryGetComponent(out NetworkObject targetNetObj))
+                // {
+                //     ShootPlayerServerRpc(card, direction, id, proj_speed, targetNetObj);
+                //     return;
+                // }
+                
+                if (plr.TryGetComponent(out NetworkObject netObj))
+                {
+                    ShootPlayerServerRpc(card, direction, id, proj_speed, netObj.NetworkObjectId);
+                    return;
+                }
+                
+            }
+            
+            Vector3 endpos = RaycastFromCamera(cam, 10000);
+            ShootStraightServerRpc(card, direction, id, proj_speed, endpos);
         }
     }
-
+    
     [ServerRpc]
-    void ShootServerRPC(string card, Vector3 shootdirection, string _id, float proj_speed)
+    void ShootStraightServerRpc(string card, Vector3 shootdirection, string _id, float proj_speed, Vector3 endpos)
     {
         GameObject bullet;
+        
         switch (card)
         {
-            case "Puck":
-                bullet = ActivateBullet(shootdirection, puck);
-                break;
-            case  "Pikeball":
-                bullet = ActivateBullet(shootdirection, pikeball);
-                break;
-            case  "Tomato":
-                bullet = ActivateBullet(shootdirection, tomato);
-                break;
-            case  "Cone":
-                bullet = ActivateBullet(shootdirection, cone);
-                break;
-            case  "Speaker":
-                bullet = ActivateBullet(shootdirection, speaker);
-                break;
-            default:
-                return;
+            case "Puck": bullet = ActivateBulletForward(shootdirection, puck, endpos); break;
+            case  "Pikeball": bullet = ActivateBulletForward(shootdirection, pikeball, endpos); break;
+            case  "Tomato": bullet = ActivateBulletForward(shootdirection, tomato, endpos); break;
+            case  "Cone": bullet = ActivateBulletForward(shootdirection, cone, endpos); break;
+            case  "Speaker": bullet = ActivateBulletForward(shootdirection, speaker, endpos); break;
+            default: return;
         }
         
         bullet.GetComponent<EntitiesClass>().teamID = _id;
@@ -172,26 +184,108 @@ public class PlayerCardSystem : NetworkBehaviour
             StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
     }
     
-    GameObject ActivateBullet(Vector3 shootdirection, GameObject proj)
+    [ServerRpc]
+    void ShootPlayerServerRpc(string card, Vector3 shootdirection, string _id, float proj_speed, ulong plr)
+    {
+        GameObject bullet;
+        
+        switch (card)
+        {
+            case "Puck": bullet = ActivateBulletToPlayer(shootdirection, puck, plr); break;
+            case  "Pikeball": bullet = ActivateBulletToPlayer(shootdirection, pikeball, plr); break;
+            case  "Tomato": bullet = ActivateBulletToPlayer(shootdirection, tomato, plr); break;
+            case  "Cone": bullet = ActivateBulletToPlayer(shootdirection, cone, plr); break;
+            case  "Speaker": bullet = ActivateBulletToPlayer(shootdirection, speaker, plr); break;
+            default: return;
+        }
+        
+        bullet.GetComponent<EntitiesClass>().teamID = _id;
+        bullet.GetComponent<NetworkObject>().Spawn(true);
+
+        if (bullet.GetComponent<EntitiesClass>().teamID == _id)
+            StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
+    }
+    
+    GameObject ActivateBulletToPlayer(Vector3 shootdirection, GameObject proj, ulong plrNetObj)
     {
         Vector3 startpos = cam.transform.position;
         
         GameObject bullet = Instantiate(proj, transform.position + shootdirection * 1.5f, Quaternion.identity);
         
-        GameObject plr = GetClosestPlayerToCamera(cam);
-        if (plr == this.gameObject)
+        //GameObject plr = GetClosestPlayerToCamera(cam);
+        
+        if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(plrNetObj, out NetworkObject targetNetObj))
         {
-            Vector3 endpos = RaycastFromCamera(cam, 10000);
-            bullet.GetComponent<projectile>().ShootWithoutTracking(startpos, endpos);
-        }
-        else
-        {
-            Debug.Log("Player is other player");
+            GameObject plr = targetNetObj.gameObject;
             bullet.GetComponent<projectile>().ShootWithTracking(plr, startpos);
         }
         
         return bullet;
     }
+    
+    GameObject ActivateBulletForward(Vector3 shootdirection, GameObject proj, Vector3 endpos)
+    {
+        Vector3 startpos = cam.transform.position;
+        
+        GameObject bullet = Instantiate(proj, transform.position + shootdirection * 1.5f, Quaternion.identity);
+        
+        //GameObject plr = GetClosestPlayerToCamera(cam);
+        
+        //Vector3 endpos = RaycastFromCamera(cam, 10000);
+        bullet.GetComponent<projectile>().ShootWithoutTracking(startpos, endpos);
+        
+        return bullet;
+    }
+    
+
+    // [ServerRpc]
+    // void ShootServerRPC(string card, Vector3 shootdirection, string _id, float proj_speed)
+    // {
+    //     GameObject bullet;
+    //     
+    //     
+    //     
+    //     switch (card)
+    //     {
+    //         case "Puck": bullet = ActivateBullet(shootdirection, puck); break;
+    //         case  "Pikeball": bullet = ActivateBullet(shootdirection, pikeball); break;
+    //         case  "Tomato": bullet = ActivateBullet(shootdirection, tomato); break;
+    //         case  "Cone": bullet = ActivateBullet(shootdirection, cone); break;
+    //         case  "Speaker": bullet = ActivateBullet(shootdirection, speaker); break;
+    //         default: return;
+    //     }
+    //     
+    //     bullet.GetComponent<EntitiesClass>().teamID = _id;
+    //     bullet.GetComponent<NetworkObject>().Spawn(true);
+    //
+    //     if (bullet.GetComponent<EntitiesClass>().teamID == _id)
+    //         StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
+    // }
+    
+    
+    
+    
+    
+    // GameObject ActivateBullet(Vector3 shootdirection, GameObject proj)
+    // {
+    //     Vector3 startpos = cam.transform.position;
+    //     
+    //     GameObject bullet = Instantiate(proj, transform.position + shootdirection * 1.5f, Quaternion.identity);
+    //     
+    //     GameObject plr = GetClosestPlayerToCamera(cam);
+    //     if (plr == this.gameObject)
+    //     {
+    //         Vector3 endpos = RaycastFromCamera(cam, 10000);
+    //         bullet.GetComponent<projectile>().ShootWithoutTracking(startpos, endpos);
+    //     }
+    //     else
+    //     {
+    //         Debug.Log("Player is other player");
+    //         bullet.GetComponent<projectile>().ShootWithTracking(plr, startpos);
+    //     }
+    //     
+    //     return bullet;
+    // }
 
     private IEnumerator colliderToggled(Collider collider)
     {

@@ -40,8 +40,8 @@ public class RelayManager : MonoBehaviour
         
         joinCodeInputField.onSubmit.AddListener(text =>
         {
-            print(joinCodeInputField.text);
-            //JoinRelay();
+            //print(joinCodeInputField.text);
+            JoinRelay();
         });
     }
 

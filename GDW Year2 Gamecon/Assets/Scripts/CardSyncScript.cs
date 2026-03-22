@@ -5,15 +5,11 @@ using UnityEngine;
 
 public class CardSyncScript : NetworkBehaviour
 {
-    // network variable
     private NetworkVariable<FixedString32Bytes> _cardName = new NetworkVariable<FixedString32Bytes>();
-    
-    // client stuff
     [SerializeField] private Sprite[] sprites;
     private SpriteRenderer _spriteRenderer;
-    //private BoxCollider _boxCollider;
     
-    // rpcs and stuff
+    
     [ServerRpc]
     public void ChangeCardNameServerRpc()
     {
@@ -21,11 +17,9 @@ public class CardSyncScript : NetworkBehaviour
         StartCoroutine(ResetCard());
     }
     
-    // network stuff
     public override void OnNetworkSpawn()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        //_boxCollider = GetComponent<BoxCollider>();
 
         if (IsServer)
         {
@@ -57,7 +51,6 @@ public class CardSyncScript : NetworkBehaviour
         }
     }
     
-    // reusable methods
     private string GetRandomCardValue() {
         int index = Random.Range(0, sprites.Length);
         return index switch {
@@ -70,7 +63,6 @@ public class CardSyncScript : NetworkBehaviour
         };
     }
     
-    // ienumerator
     private IEnumerator ResetCard()
     {
         yield return new WaitForSeconds(7);

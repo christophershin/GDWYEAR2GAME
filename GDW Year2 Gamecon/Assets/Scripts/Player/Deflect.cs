@@ -13,7 +13,7 @@ public class Deflect : NetworkBehaviour
     private float deflectSpeed;
     [SerializeField] private GameObject player;
 
-    private float _MAXANGLE = 30;
+    private float _MAXANGLE = 15;
     
     [SerializeField] private AnimationController _animator;
 

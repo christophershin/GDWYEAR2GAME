@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 3706900182250515022}
   - component: {fileID: 3812449884419106827}
   m_Layer: 7
-  m_Name: Grenade
+  m_Name: Pikeball
   m_TagString: Parriable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

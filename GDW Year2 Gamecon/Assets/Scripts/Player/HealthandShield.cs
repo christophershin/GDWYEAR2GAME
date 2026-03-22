@@ -230,78 +230,73 @@ public class HealthandShield : NetworkBehaviour
     }
 
 
-
-
-
-    // public void Damage(float dmg)
+    public void Damage(float dmg)
+    {
+    
+        if (Shield.Value > 0)
+        {
+            Shield.Value -= dmg;
+            
+    
+        }else if (Health.Value > 0 && Shield.Value <= 0)
+        {
+    
+            Health.Value -= dmg;
+    
+        }
+    
+        if (Health.Value <= 0)
+        {
+    
+            entitiesClass.isAlive.Value = false;
+    
+            Health.Value = 0;
+        }
+    
+        if(Shield.Value<=0)
+        {
+            Shield.Value = 0;
+        }
+        
+    }
+    
+    // [ServerRpc]
+    // public void DamageServerRPC(float dmg)
     // {
     //
     //     if (Shield.Value > 0)
     //     {
     //         Shield.Value -= dmg;
     //         
+    //         if(Shield.Value<=0)
+    //         {
+    //             Shield.Value = 0;
+    //         }
+    //         
     //
-    //     }else if (Health.Value > 0 && Shield.Value <= 0)
+    //     }
+    //     else if (Health.Value > 0 && Shield.Value <= 0)
     //     {
     //
     //         Health.Value -= dmg;
+    //         
+    //         if (Health.Value <= 0)
+    //         {
+    //
+    //             entitiesClass.isAlive.Value = false;
+    //
+    //             Health.Value = 0;
+    //         }
     //
     //     }
     //
-    //     if (Health.Value <= 0)
-    //     {
+    //     
     //
-    //         entitiesClass.isAlive.Value = false;
-    //
-    //         Health.Value = 0;
-    //     }
-    //
-    //     if(Shield.Value<=0)
-    //     {
-    //         Shield.Value = 0;
-    //     }
+    //     
     //
     //
     //     //Debug.Log(Health.Value);
     // }
-    
-    [ServerRpc]
-    public void DamageServerRPC(float dmg)
-    {
-
-        if (Shield.Value > 0)
-        {
-            Shield.Value -= dmg;
-            
-            if(Shield.Value<=0)
-            {
-                Shield.Value = 0;
-            }
-            
-
-        }
-        else if (Health.Value > 0 && Shield.Value <= 0)
-        {
-
-            Health.Value -= dmg;
-            
-            if (Health.Value <= 0)
-            {
-
-                entitiesClass.isAlive.Value = false;
-
-                Health.Value = 0;
-            }
-
-        }
-
-        
-
-        
-
-
-        //Debug.Log(Health.Value);
-    }
 
     /// <summary>
     /// FIX THE PROBLEMS BELOW
@@ -317,34 +312,18 @@ public class HealthandShield : NetworkBehaviour
         {
             return;
         }
-        
-        // if (!IsOwner) return;
 
         string teamID = GetComponent<EntitiesClass>().teamID;
 
 
         if (collider.gameObject.CompareTag("Parriable") && collider.gameObject.GetComponent<EntitiesClass>().teamID != teamID)
         {
-            // if (parryHitBox.activeSelf == false)
-            // {
-            //     Damage(collider.gameObject.GetComponent<projectile>().damage);
-            // }
-            
             if (parryHitBox.activeSelf == false)
             {
                 animationController.SetAnimation("gotHit", true);
-                DamageServerRPC(collider.gameObject.GetComponent<projectile>().damage);
+                Damage(collider.gameObject.GetComponent<projectile>().damage);
             }
         }
-        
-        // if (collider.gameObject.CompareTag("Parriable"))
-        // {
-        //     if (parryHitBox.activeSelf == false)
-        //     {
-        //         animationController.SetAnimation("gotHit", true);
-        //         DamageServerRPC(collider.gameObject.GetComponent<projectile>().damage);
-        //     }
-        // }
     }
 
 
@@ -353,12 +332,10 @@ public class HealthandShield : NetworkBehaviour
 
         Quaternion _lookRotation =
             Quaternion.LookRotation((to - _object.position).normalized);
-
-        //over time
+        
         _object.rotation =
             Quaternion.Slerp(_object.rotation, _lookRotation, Time.deltaTime * 10);
-
-        //instant
+        
         _object.rotation = _lookRotation;
     }
 
