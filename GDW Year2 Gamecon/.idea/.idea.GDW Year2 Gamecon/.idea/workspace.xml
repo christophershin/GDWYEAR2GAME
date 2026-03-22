@@ -5,25 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Card References/Desk_Pylon__Stool_Cards.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Card References/Desk_Pylon__Stool_Cards.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Card References/Model_Cards.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Card References/Model_Cards.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Card References/Puck_Grenade_Spikeball_Throwing_Knife.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Card References/Puck_Grenade_Spikeball_Throwing_Knife.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cards.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Grenade.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Grenade.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Speaker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Speaker.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Tomato.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Tomato.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardSyncScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardSyncScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cards/Cards Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cards/Cards Manager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/General/RelayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/General/RelayManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Deflect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Deflect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/HealthandShield.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/HealthandShield.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Main Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Main Menu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +165,7 @@
       <workItem from="1773699448039" duration="194000" />
       <workItem from="1773940551982" duration="5669000" />
       <workItem from="1774105335933" duration="6147000" />
-      <workItem from="1774198664896" duration="7809000" />
+      <workItem from="1774198664896" duration="8354000" />
     </task>
     <servers />
   </component>

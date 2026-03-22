@@ -118,7 +118,7 @@ public class MainMenu : MonoBehaviour
                 if (_currentCoroutine != null)
                     StopCoroutine(_currentCoroutine);
                 
-                _currentCoroutine =  StartCoroutine(LerpLookAt(platypusHandTransform, hit.point, 0.08f));
+                _currentCoroutine =  StartCoroutine(LerpLookAt(platypusHandTransform, hit.point, 0.04f));
             }
             
         }
