@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Transform platypusHandTransform;
     [SerializeField] private TextMeshProUGUI platypusTalkingText;
     [SerializeField] private TMP_FontAsset defaultFont, horrorFont;
-    [SerializeField] private Material platypusEyes;
+    [SerializeField] private Material platypusEyes, water;
 
     [SerializeField]
     private Light _light;
@@ -23,6 +23,7 @@ public class MainMenu : MonoBehaviour
         _light.color = Color.white;
         _light.intensity = 1.0f;
         platypusEyes.SetFloat("_Evil", 0);
+        water.SetColor("_Color", Color.white);
     }
 
     public void Online()
@@ -89,6 +90,7 @@ public class MainMenu : MonoBehaviour
 
     private void SetHorrorFont()
     {
+        water.SetColor("_Color", Color.red);
         _light.color = Color.red;
         _light.intensity = 3.0f;
         platypusEyes.SetFloat("_Evil",1);
@@ -99,6 +101,7 @@ public class MainMenu : MonoBehaviour
 
     private void SetDefaultFont()
     {
+        water.SetColor("_Color", Color.white);
         _light.color = Color.white;
         _light.intensity = 1.0f;
         platypusEyes.SetFloat("_Evil", 0);

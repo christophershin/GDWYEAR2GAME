@@ -1,7 +1,8 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 
-public class AnimationController : MonoBehaviour
+public class AnimationController : NetworkBehaviour
 {
 
     [SerializeField] private Animator _animator;
@@ -10,6 +11,7 @@ public class AnimationController : MonoBehaviour
 
     public void SetAnimation(string name, bool active)
     {
+        //StopEmotes();
         _animator.SetBool(name, active);
     }
     
@@ -23,13 +25,66 @@ public class AnimationController : MonoBehaviour
         _animator.SetBool("shooting", false);
     }
 
+    private void StartAnimate(string anima)
+    {
+        _isTwerking = !_isTwerking;
+        
+        if (_isTwerking)
+        {
+            _animator.SetBool(anima, true);
+        }
+        else
+        {
+            StopEmotes();
+        }
+    }
+
+    private void StopEmotes()
+    {
+        _animator.SetBool("Emote1", false);
+        _animator.SetBool("Emote2", false);
+        _animator.SetBool("Emote3", false);
+        _animator.SetBool("Emote4", false);
+        _animator.SetBool("Emote5", false);
+        _animator.SetBool("Emote6", false);
+    }
+
     private void Update()
     {
+        if (!IsOwner) return;
+        
         if (Input.GetKeyDown(KeyCode.T))
         {
-            print("Twerking");
-            _isTwerking = !_isTwerking;
-            _animator.SetBool("Emote6", _isTwerking);
+            StartAnimate("Emote6");
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            StartAnimate("Emote5");
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            StartAnimate("Emote4");
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            StartAnimate("Emote3");
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            StartAnimate("Emote2");
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            StartAnimate("Emote1");
         }
     }
 }
+
+// print("Twerking");
+// _isTwerking = !_isTwerking;
+//_animator.SetBool("Emote6", _isTwerking);

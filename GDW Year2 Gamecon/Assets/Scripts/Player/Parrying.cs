@@ -41,6 +41,7 @@ public class Parrying : NetworkBehaviour
     private float cooldown;
 
     public Slider slider;
+    //public Slider shieldSlider;
 
     private bool _isParryButtonDown = false;
     //private bool _canRecover = false;

@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2416272, y: 0.07046816, z: 1.6511}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.52, y: 0.107111596, z: 1.52}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5654277231516633568}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9f11372af12b2af4ebcbc5e491b2cc4f, type: 2}
+  - {fileID: 2100000, guid: fd592d08a2ed7234e82b8af5af53136b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 661105114
+  GlobalObjectIdHash: 4125787611
   InScenePlacedSourceGlobalObjectIdHash: 687503876
   DeferredDespawnTick: 0
   Ownership: 1
@@ -359,5 +359,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3995457, y: 0.26834357, z: 1.7119522}
-  m_Center: {x: -0.02158451, y: 0.021741629, z: -0.024682999}
+  m_Size: {x: 1.5571117, y: 0.30673712, z: 1.56007}
+  m_Center: {x: -0.0051984787, y: 0.00254485, z: -0.0058612823}

@@ -34,17 +34,17 @@ public class projectile : NetworkBehaviour
         projectileTimer = projectileTimerMax;
     }
     
-    void Update()
-    {
-
-        if (IsServer)
-        {
-            projectileTimer -= Time.deltaTime;
-
-            if (projectileTimer <= 0)
-                GetComponent<NetworkObject>().Despawn(true);
-        }
-    }
+    // void Update()
+    // {
+    //
+    //     if (IsServer)
+    //     {
+    //         projectileTimer -= Time.deltaTime;
+    //
+    //         if (projectileTimer <= 0)
+    //             GetComponent<NetworkObject>().Despawn(true);
+    //     }
+    // }
     
     public void StraightParry(Vector3 newPos)
     {
@@ -70,8 +70,9 @@ public class projectile : NetworkBehaviour
 
         GameObject player = playerObject.gameObject;
             
-        Debug.Log("Parried");
-        damage += 5f;
+        //Debug.Log("Parried");
+        damage *= 1.1f;
+        damage = Mathf.Ceil(damage);
         startSpeed *= 1.1f;
         midSpeed *= 1.1f;
         endSpeed *= 1.1f;
@@ -117,7 +118,7 @@ public class projectile : NetworkBehaviour
         
         _rb.useGravity = true;
         
-        //yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(.4f);
         
         
         GetComponent<NetworkObject>().Despawn(true);

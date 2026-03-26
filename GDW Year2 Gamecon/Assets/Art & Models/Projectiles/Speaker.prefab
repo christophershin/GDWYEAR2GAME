@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fd592d08a2ed7234e82b8af5af53136b, type: 2}
+  - {fileID: 2100000, guid: 54b4c0b230f2a2142a34c51ea7719ecf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -347,7 +347,7 @@ MonoBehaviour:
   startSpeed: 2
   midSpeed: 3
   endSpeed: 2.5
-  curve: 1
+  curve: 3
   projectileTimerMax: 10
   projectileTimer: 0
   damage: 20

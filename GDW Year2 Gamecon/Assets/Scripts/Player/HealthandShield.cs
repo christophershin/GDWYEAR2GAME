@@ -9,6 +9,8 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using System.Threading.Tasks;
+//using Slider = UnityEngine.UIElements.Slider;
+//using UnityEngine.UI;
 
 public class HealthandShield : NetworkBehaviour
 {
@@ -74,7 +76,11 @@ public class HealthandShield : NetworkBehaviour
     [SerializeField] private GameObject parryHitBox;
 
     [SerializeField] private AnimationController animationController;
-
+    
+    // health shield ui stuff
+    public Slider shieldSlider;
+    public Slider healthSlider;
+    
     public override void OnNetworkSpawn()
     {
 
@@ -170,18 +176,33 @@ public class HealthandShield : NetworkBehaviour
     private void HealthChanged(float previousValue, float newValue)
     {
 
-        HealthUI.transform.localScale = new Vector3(newValue / maxHealth, 1, 1);
+        if (Health.Value <= 0)
+        {
+            Health.Value = 0;
+        }
+
+        //HealthUI.transform.localScale = new Vector3(newValue / maxHealth, 1, 1);
         healthImage.transform.localScale = new Vector3(newValue / maxHealth, 1, 1);
         Healthtext.text = GetComponent<HealthandShield>().Health.Value.ToString();
+        
+        healthSlider.value = newValue;
+        
 
     }
 
     private void ShieldChanged(float previousValue, float newValue)
     {
-        ShieldUI.transform.localScale = new Vector3(newValue / maxShield, 1, 1);
+        if (Shield.Value <= 0)
+        {
+            Shield.Value = 0;
+        }
+        
+        //ShieldUI.transform.localScale = new Vector3(newValue / maxShield, 1, 1);
         shieldImage.transform.localScale = new Vector3(newValue / maxShield, 1, 1);
         Shieldtext.text = GetComponent<HealthandShield>().Shield.Value.ToString();
-
+        
+        shieldSlider.value = newValue;
+        
     }
 
     [ServerRpc]
