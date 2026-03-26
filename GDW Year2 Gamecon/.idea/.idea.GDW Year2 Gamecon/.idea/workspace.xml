@@ -6,32 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/MainMap/Materials/GrassTemp.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/MainMap/Materials/GrassTemp.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Colors/Cone.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Colors/Cone.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Colors/Green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Colors/Green.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Colors/Red-Orange.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Colors/Red-Orange.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Colors/Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Colors/Red.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cone.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Puck.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Puck.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Speaker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Speaker.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Tomato.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Tomato.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Animations/Armature.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Animations/Armature.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/PlatypusEyes.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/PlatypusEyes.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NEW MAIN MENU TEST.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NEW MAIN MENU TEST.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Deflect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Deflect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/HealthandShield.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/HealthandShield.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Parrying.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Parrying.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Main Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Main Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/Eye Shader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/Eye Shader.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/Eyes.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/Eyes.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/Water.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/Water.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +170,7 @@
       <workItem from="1774198664896" duration="9128000" />
       <workItem from="1774217274715" duration="5982000" />
       <workItem from="1774307172853" duration="1602000" />
-      <workItem from="1774539950582" duration="9470000" />
+      <workItem from="1774539950582" duration="10478000" />
     </task>
     <servers />
   </component>
