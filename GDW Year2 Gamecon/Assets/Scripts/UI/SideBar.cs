@@ -3,6 +3,7 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Unity.Services.Authentication;
 
 public class SideBar : NetworkBehaviour
 {
@@ -32,7 +33,7 @@ public class SideBar : NetworkBehaviour
     {
         if (!IsOwner) return;
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             SetSidebar();
         }
@@ -58,15 +59,26 @@ public class SideBar : NetworkBehaviour
     public void MainMenu()
     {
         if (!IsOwner) return;
-        NetworkManager.Singleton.Shutdown();
-        SceneManager.LoadScene("Scenes/NEW MAIN MENU TEST");
+        
+        if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsListening)
+        {
+            AuthenticationService.Instance.SignOut(true); 
+            //NetworkManager.Singleton.Shutdown();
+            SceneManager.LoadScene("Scenes/NEW MAIN MENU TEST", LoadSceneMode.Single);
+        }
     }
 
     public void Restart()
     {
         if (!IsOwner) return;
-        NetworkManager.Singleton.Shutdown();
-        SceneManager.LoadScene("Scenes/SampleScene");
+        
+        if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsListening)
+        {
+            AuthenticationService.Instance.SignOut(true); 
+            //NetworkManager.Singleton.Shutdown();
+            SceneManager.LoadScene("Scenes/SampleScene", LoadSceneMode.Single);
+        }
+        
     }
     
     public void SetTutorial()
