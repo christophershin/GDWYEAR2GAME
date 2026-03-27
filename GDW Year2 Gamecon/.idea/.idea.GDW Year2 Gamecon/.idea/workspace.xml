@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SideBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SideBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Shaders/Feet.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Shaders/Feet.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Shaders/Platypus.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Shaders/Platypus.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/Color Changer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/Color Changer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/RandColour.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/RandColour.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/RandColour.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/RandColour.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/Rock.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/Rock.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +178,7 @@
       <workItem from="1774307172853" duration="1602000" />
       <workItem from="1774539950582" duration="10478000" />
       <workItem from="1774567769436" duration="855000" />
+      <workItem from="1774635418857" duration="439000" />
     </task>
     <servers />
   </component>

@@ -41,7 +41,7 @@ Material:
     m_Floats:
     - _QueueControl: 0
     m_Colors:
-    - _Seed: {r: 0.8, g: 1, b: 0, a: 0}
-    - _Vector3: {r: 0.13430989, g: 0.2525702, b: 0.03800583, a: 0}
+    - _Seed: {r: 1, g: 1, b: 0, a: 0}
+    - _Vector3: {r: 0.1, g: 0.1, b: 0.1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -9,7 +9,7 @@ public class ColorChanger : NetworkBehaviour
     private static readonly int ColorPropertyID = Shader.PropertyToID("_Vector3");
 
     private NetworkVariable<Vector3> _coll = new NetworkVariable<Vector3>(new Vector3(1f, 1f, 1f));
-
+    
     public override void OnNetworkSpawn()
     {
         if (_renderer == null) _renderer = GetComponent<Renderer>();
@@ -21,9 +21,9 @@ public class ColorChanger : NetworkBehaviour
 
         if (IsServer)
         {
-            int red = Random.Range(-267, 267);;
-            int green = Random.Range(-267, 267);
-            int blue = Random.Range(-267, 267);
+            float red = Random.Range(0.2f, .8f);
+            float green = Random.Range(0.2f, .8f);
+            float blue = Random.Range(0.2f, .8f);
             
             _coll.Value = new Vector3(red, green, blue);
         }
