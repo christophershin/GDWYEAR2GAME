@@ -165,9 +165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::projectile
   ShowTopMostFoldoutHeaderGroup: 1
-  startSpeed: 2
-  midSpeed: 2.2
-  endSpeed: 1.7
+  startSpeed: 1
+  midSpeed: 1.2
+  endSpeed: 0.7
   curve: 2
   projectileTimerMax: 10
   projectileTimer: 0

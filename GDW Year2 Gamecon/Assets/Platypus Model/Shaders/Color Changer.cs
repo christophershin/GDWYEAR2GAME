@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ColorChanger : NetworkBehaviour
 {
+    // color options
+    [SerializeField] private Vector3[] colors;
     
     private MaterialPropertyBlock _propBlock;
     private Renderer _renderer;
@@ -21,11 +23,13 @@ public class ColorChanger : NetworkBehaviour
 
         if (IsServer)
         {
-            float red = Random.Range(0.2f, .8f);
-            float green = Random.Range(0.2f, .8f);
-            float blue = Random.Range(0.2f, .8f);
+            // float red = Random.Range(0f, 4f);
+            // float green = Random.Range(0f, 4f);
+            // float blue = Random.Range(0f, 4f);
             
-            _coll.Value = new Vector3(red, green, blue);
+            // The Server instance of this script pulls from the shared manager
+            
+            _coll.Value = colors[ColorManager.GetCurrentColor()];
         }
     }
     

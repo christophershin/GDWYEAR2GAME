@@ -6,12 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Shaders/Feet.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Shaders/Feet.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Shaders/Platypus.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Shaders/Platypus.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Speaker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Speaker.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Tomato.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Tomato.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Animations/Armature.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Animations/Armature.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Animations/Hurt.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Animations/Hurt.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Animations/Parry.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Animations/Parry.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Animations/Shooting.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Animations/Shooting.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Animations/Walking.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Animations/Walking.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/Color Changer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/Color Changer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/RandColour.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/RandColour.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/RandColour.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/RandColour.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/Rock.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/Rock.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NEW MAIN MENU TEST.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NEW MAIN MENU TEST.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/General/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/General/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartGameScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StartGameScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SideBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SideBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +36,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ColorManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DeleteCard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Deflect.cs" root0="FORCE_HIGHLIGHTING" />
@@ -179,6 +194,7 @@
       <workItem from="1774539950582" duration="10478000" />
       <workItem from="1774567769436" duration="855000" />
       <workItem from="1774635418857" duration="439000" />
+      <workItem from="1775121878955" duration="9268000" />
     </task>
     <servers />
   </component>

@@ -16,6 +16,8 @@ public class GameManager : NetworkBehaviour
 
     [HideInInspector]
     public List<GameObject> allPlayers;
+    
+    //[SerializeField] private GameObject[] spawnArray;
 
 
     [HideInInspector]
@@ -53,7 +55,7 @@ public class GameManager : NetworkBehaviour
 
     private void Update()
     {
-
+        //if (!IsOwner) return;
         if (PlayersInServer.Count > 1)
         {
 
@@ -69,9 +71,26 @@ public class GameManager : NetworkBehaviour
 
                     if (obj.GetComponent<HealthandShield>().Health.Value <= 0)
                     {
-                        obj.GetComponent<HealthandShield>().CenterText.text = "defeat";
-                        numPlayerEliminated++;
 
+                        if (!obj.CompareTag("Dead"))
+                        {
+                            int randNum = UnityEngine.Random.Range(0, spawnList.Count -1);
+                        
+                            float spawnX = spawnList[randNum].transform.position.x;
+                            float spawnY = spawnList[randNum].transform.position.y;
+                            float spawnZ = spawnList[randNum].transform.position.z;
+                        
+                            Vector3 playSpawn = new Vector3(spawnX, spawnY, spawnZ);
+                        
+                            obj.transform.position = playSpawn;
+                        
+                            obj.tag = "Dead";
+                        };
+                        
+                        obj.GetComponent<HealthandShield>().CenterText.text = "DEFEAT";
+                        obj.GetComponent<HealthandShield>().CenterText.color = Color.red;
+                        numPlayerEliminated++;
+                        
                     }
 
                 }
@@ -86,7 +105,8 @@ public class GameManager : NetworkBehaviour
 
                     if (numPlayerEliminated > 0 && numPlayerEliminated == PlayersInServer.Count - 1 && obj.GetComponent<HealthandShield>().Health.Value > 0)
                     {
-                        obj.GetComponent<HealthandShield>().CenterText.text = "Victory!";
+                        obj.GetComponent<HealthandShield>().CenterText.text = "VICTORY!";
+                        obj.GetComponent<HealthandShield>().CenterText.color = Color.forestGreen;
 
                         StartCoroutine(switchScene());
 

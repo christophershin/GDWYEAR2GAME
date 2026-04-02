@@ -9,6 +9,7 @@ public class SideBar : NetworkBehaviour
 {
     [SerializeField] private GameObject _sideBar;
     [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private GameObject tutorialStuff;
 
     private void Start()
     {
@@ -21,10 +22,12 @@ public class SideBar : NetworkBehaviour
         
         if (PlayerPrefs.GetInt("Tutorial") == 1)
         {
+            tutorialStuff.SetActive(true);
             _text.text = "Turn tutorial off";
         }
         else
         {
+            tutorialStuff.SetActive(false);
             _text.text = "Turn tutorial on";
         }
     }
@@ -63,7 +66,7 @@ public class SideBar : NetworkBehaviour
         if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsListening)
         {
             AuthenticationService.Instance.SignOut(true); 
-            //NetworkManager.Singleton.Shutdown();
+            NetworkManager.Singleton.Shutdown();
             SceneManager.LoadScene("Scenes/NEW MAIN MENU TEST", LoadSceneMode.Single);
         }
     }
@@ -75,7 +78,7 @@ public class SideBar : NetworkBehaviour
         if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsListening)
         {
             AuthenticationService.Instance.SignOut(true); 
-            //NetworkManager.Singleton.Shutdown();
+            NetworkManager.Singleton.Shutdown();
             SceneManager.LoadScene("Scenes/SampleScene", LoadSceneMode.Single);
         }
         
@@ -87,11 +90,13 @@ public class SideBar : NetworkBehaviour
         {
             PlayerPrefs.SetInt("Tutorial",2);
             _text.text = "Turn tutorial on";
+            tutorialStuff.SetActive(false);
         }
         else
         {
             PlayerPrefs.SetInt("Tutorial",1);
             _text.text = "Turn tutorial off";
+            tutorialStuff.SetActive(true);
         }
         
     }

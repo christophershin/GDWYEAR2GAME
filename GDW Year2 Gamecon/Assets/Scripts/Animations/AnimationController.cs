@@ -39,8 +39,10 @@ public class AnimationController : NetworkBehaviour
         }
     }
 
-    private void StopEmotes()
+    public void StopEmotes()
     {
+        if (!IsOwner) return;
+        _isTwerking = false;
         _animator.SetBool("Emote1", false);
         _animator.SetBool("Emote2", false);
         _animator.SetBool("Emote3", false);

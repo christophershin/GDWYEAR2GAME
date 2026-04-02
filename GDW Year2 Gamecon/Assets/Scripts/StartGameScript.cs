@@ -7,6 +7,7 @@ using UnityEngine;
 public class StartGameScript : NetworkBehaviour
 {
     [SerializeField] private TextMeshProUGUI startGameText;
+    [SerializeField] private AnimationController animator;
     
     private bool _isSpawned = false;
     private GameObject[] _spawnArray;
@@ -20,7 +21,7 @@ public class StartGameScript : NetworkBehaviour
     {
         if (IsServer)
         {
-            startGameText.text = "Press E to start the game!";
+            startGameText.text = "Press ENTER to start the game!";
         }
         else
         {
@@ -35,7 +36,7 @@ public class StartGameScript : NetworkBehaviour
     {
         if (IsServer && _isSpawned == false)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
                 _isSpawned = true;
                 TeleportClientRpc();
@@ -65,13 +66,14 @@ public class StartGameScript : NetworkBehaviour
         gameUI.SetActive(true);
         
         _spawnArray = GameObject.FindGameObjectsWithTag("Spawn");
-
+        
+        animator.StopEmotes();
         int randNum = UnityEngine.Random.Range(0, _spawnArray.Length);
         transform.position = _spawnArray[randNum].transform.position;
-
+        
         ActivateCardsEvent?.Invoke();
         
-        startGameText.text = "Good Luck :)";
+        startGameText.text = "GO GET EM!!!";
         yield return new WaitForSeconds(2f);
         startGameText.text = "";
     }

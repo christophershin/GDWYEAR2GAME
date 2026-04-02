@@ -11,6 +11,8 @@ TagManager:
   - point
   - Spawn
   - NetworkButton
+  - DeadSpawn
+  - Dead
   layers:
   - Default
   - TransparentFX

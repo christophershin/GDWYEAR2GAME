@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6012909574134428743
+--- !u!114 &-8314043424079542189
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,9 +20,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RandColour
-  m_Shader: {fileID: -6465566751694194690, guid: 8a006917f29cb4c48b09c445265eb761, type: 3}
-  m_Parent: {fileID: -876546973899608171, guid: 8a006917f29cb4c48b09c445265eb761, type: 3}
+  m_Name: Bridges
+  m_Shader: {fileID: -6465566751694194690, guid: 66e8329ed32238644b4279ec63285d79, type: 3}
+  m_Parent: {fileID: -876546973899608171, guid: 66e8329ed32238644b4279ec63285d79, type: 3}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -36,12 +36,18 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _Texture2D:
+        m_Texture: {fileID: 2800000, guid: 3194aa6f681092d4c9e949c876bb1400, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DissolveAmt: 0
+    - _Glossiness: 10
     - _QueueControl: 0
     m_Colors:
-    - _Seed: {r: 1, g: 1, b: 0, a: 0}
-    - _Vector3: {r: 0.7, g: 0.3, b: 5, a: 0}
+    - _EdgeColour: {r: 1, g: 1, b: 1, a: 1}
+    - _tilling: {r: 5, g: 5, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
