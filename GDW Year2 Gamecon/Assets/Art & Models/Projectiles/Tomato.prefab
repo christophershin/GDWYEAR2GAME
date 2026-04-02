@@ -471,7 +471,7 @@ MonoBehaviour:
   startSpeed: 2
   midSpeed: 3
   endSpeed: 2.5
-  curve: 1
+  curve: 2
   projectileTimerMax: 10
   projectileTimer: 0
   damage: 10
