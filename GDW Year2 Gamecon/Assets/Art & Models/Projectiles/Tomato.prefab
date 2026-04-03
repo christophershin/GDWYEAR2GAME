@@ -470,11 +470,11 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   startSpeed: 2
   midSpeed: 3
-  endSpeed: 2.5
+  endSpeed: 1.7
   curve: 2
   projectileTimerMax: 10
   projectileTimer: 0
-  damage: 10
+  damage: 20
   _material: {fileID: 2100000, guid: 2faeb416a9b51f1439059fdd4a024fb3, type: 2}
 --- !u!114 &1428737944937585448
 MonoBehaviour:
