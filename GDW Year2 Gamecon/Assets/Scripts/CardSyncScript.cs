@@ -13,6 +13,7 @@ public class CardSyncScript : NetworkBehaviour
     [ServerRpc]
     public void ChangeCardNameServerRpc()
     {
+        Debug.Log("Change Card Name server rpc called");
         _cardName.Value = "null";
         StartCoroutine(ResetCard());
     }

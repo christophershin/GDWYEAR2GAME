@@ -125,6 +125,7 @@ public class Deflect : NetworkBehaviour
     }
 
 
+    //[Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
     [ServerRpc]
      void DeflectServerRPC(ulong objId, Vector3 dir, float deflectSpeed, string id, Vector3 newPos)
      {
@@ -145,6 +146,7 @@ public class Deflect : NetworkBehaviour
          }
      }
 
+    //[Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)] 
     [ServerRpc]
     void DeflectTrackedServerRPC(ulong objId, Vector3 dir, float deflectSpeed, string id, ulong targetID)
     {
@@ -164,64 +166,3 @@ public class Deflect : NetworkBehaviour
         }
     }
 }
-
-
-// private GameObject GetClosestPlayerToCamera(Camera camer)
-    // {
-    //     GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-    //     
-    //     // variables to keep track of
-    //     float closestAngle = _MAXANGLE;
-    //     int closestPlayer = -1;
-    //     
-    //     for (int i = 0; i < players.Length; i++)
-    //     {
-    //         print(players.Length);
-    //         if (players[i] == this.gameObject)
-    //         {
-    //             continue;
-    //         }
-    //         
-    //         Vector3 directionToTarget = players[i].transform.position - this.transform.position;
-    //         float angle = Vector3.Angle(this.transform.forward, directionToTarget);
-    //         
-    //         Debug.Log("closest angle is: " + angle);
-    //         Debug.Log("angle is: " + angle);
-    //         
-    //         if (angle <= closestAngle)
-    //         {
-    //             Ray ray = camer.ScreenPointToRay(
-    //                 new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)
-    //             );
-    //             
-    //             int layerMask = ~LayerMask.GetMask("card");
-    //             
-    //             Vector3 direction = players[i].transform.position - this.transform.position;
-    //             float distance = direction.magnitude;
-    //             direction = direction.normalized;
-    //     
-    //             RaycastHit hit;
-    //     
-    //             if (Physics.Raycast(this.transform.position, direction, out hit, distance, layerMask))
-    //             {
-    //                 if (hit.transform.gameObject.CompareTag("Parriable"))
-    //                 {
-    //                     continue;
-    //                 }
-    //                 
-    //                 string tag = hit.transform.gameObject.tag;
-    //                 Debug.Log(tag);
-    //                 
-    //                 if (tag == "Player")
-    //                 {
-    //                     closestAngle = angle;
-    //                     closestPlayer = i;
-    //                 }
-    //             }
-    //         }
-    //     }
-    //
-    //     if (closestPlayer != -1) return players[closestPlayer];
-    //     
-    //     return this.gameObject;
-    // }

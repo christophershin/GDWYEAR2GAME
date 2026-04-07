@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardsManager : MonoBehaviour
+public class CardsManager : NetworkBehaviour
 {
     [SerializeField] private GameObject puck, pikeball, tomato, cone, speaker;
     [SerializeField] private GameObject[] order; // the gameobject of the originals
@@ -14,6 +15,11 @@ public class CardsManager : MonoBehaviour
     // Cards
     public List<GameObject> cardList = new List<GameObject>();
 
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner) enabled = false;
+    }
+
     public void adcrd(string cardName)
     {
         AddCard(cardName);
@@ -21,6 +27,8 @@ public class CardsManager : MonoBehaviour
 
     private void Update()
     {
+        if (!IsOwner) return;
+        
         float scroll = Input.mouseScrollDelta.y;
 
         if (scroll != 0f)
@@ -37,7 +45,13 @@ public class CardsManager : MonoBehaviour
 
     public bool AddCard(string nam)
     {
-        if (cardList.Count >= 3) return false;
+        Debug.Log("Add card called: " + nam);
+
+        if (cardList.Count >= 3)
+        {
+            //Debug.Log("Add returned false");
+            return false;
+        }
         
         // Instantiate the card
         switch (nam)
@@ -58,6 +72,7 @@ public class CardsManager : MonoBehaviour
                 cardList.Add(Instantiate(speaker,  this.transform));
                 break;
             default:
+                //Debug.Log("Add returned false");
                 return false;
         }
         
@@ -73,6 +88,8 @@ public class CardsManager : MonoBehaviour
         // name
         currentCard.name = nam;
         
+        
+        //Debug.Log("Add returned true");
         return true;
     }
 

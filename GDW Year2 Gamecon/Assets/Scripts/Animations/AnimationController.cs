@@ -7,16 +7,13 @@ public class AnimationController : NetworkBehaviour
 
     [SerializeField] private Animator _animator;
     
-    private bool _isTwerking = false;
+    private string _lastEmote = "null";
 
     public void SetAnimation(string name, bool active)
     {
         //StopEmotes();
         _animator.SetBool(name, active);
     }
-    
-    
-    
 
     public void StopAnimation()
     {
@@ -27,10 +24,10 @@ public class AnimationController : NetworkBehaviour
 
     private void StartAnimate(string anima)
     {
-        _isTwerking = !_isTwerking;
-        
-        if (_isTwerking)
+        if (_lastEmote != anima)
         {
+            StopEmotes();
+            _lastEmote = anima;
             _animator.SetBool(anima, true);
         }
         else
@@ -42,13 +39,13 @@ public class AnimationController : NetworkBehaviour
     public void StopEmotes()
     {
         if (!IsOwner) return;
-        _isTwerking = false;
         _animator.SetBool("Emote1", false);
         _animator.SetBool("Emote2", false);
         _animator.SetBool("Emote3", false);
         _animator.SetBool("Emote4", false);
         _animator.SetBool("Emote5", false);
         _animator.SetBool("Emote6", false);
+        _lastEmote = "null";
     }
 
     private void Update()
@@ -86,7 +83,3 @@ public class AnimationController : NetworkBehaviour
         }
     }
 }
-
-// print("Twerking");
-// _isTwerking = !_isTwerking;
-//_animator.SetBool("Emote6", _isTwerking);

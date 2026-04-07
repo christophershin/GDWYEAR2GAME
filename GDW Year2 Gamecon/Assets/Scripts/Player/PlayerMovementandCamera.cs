@@ -205,16 +205,12 @@ public class PlayerMovementandCamera : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        if (entitiesClass.isAlive.Value)
+        if (!entitiesClass.isAlive.Value || !IsOwner) return;
+        
+        if (other.gameObject.CompareTag("Card") && _cardsManager.AddCard(other.gameObject.name))
         {
-            if (other.gameObject.CompareTag("Card") && other.gameObject.name != "null" && other.gameObject.name != "awaiting" && other.gameObject.name != "Card")
-            {
-                if (_cardsManager.AddCard(other.gameObject.name))
-                {
-                    other.GetComponent<CardSyncScript>().ChangeCardNameServerRpc();
-                }
-            }
+            //Debug.Log("Card tag detected and add card returned true");
+            other.GetComponent<CardSyncScript>().ChangeCardNameServerRpc();
         }
 
     }

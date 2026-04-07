@@ -11,7 +11,7 @@ public class ColorManager : MonoBehaviour
     {
         _shuffledIndices = new List<int>();
         
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 6; i++)
         {
             _shuffledIndices.Add(i);
         }

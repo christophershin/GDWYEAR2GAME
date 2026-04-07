@@ -136,7 +136,7 @@ public class HealthandShield : NetworkBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.L))
             {
                 getShieldServerRPC(20);
             }

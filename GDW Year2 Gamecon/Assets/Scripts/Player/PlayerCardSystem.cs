@@ -162,6 +162,7 @@ public class PlayerCardSystem : NetworkBehaviour
         }
     }
     
+    //[Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
     [ServerRpc]
     void ShootStraightServerRpc(string card, Vector3 shootdirection, string _id, float proj_speed, Vector3 endpos)
     {
@@ -184,6 +185,7 @@ public class PlayerCardSystem : NetworkBehaviour
             StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
     }
     
+    // [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]//
     [ServerRpc]
     void ShootPlayerServerRpc(string card, Vector3 shootdirection, string _id, float proj_speed, ulong plr)
     {
