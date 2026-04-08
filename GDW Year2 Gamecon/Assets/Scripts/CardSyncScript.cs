@@ -10,8 +10,8 @@ public class CardSyncScript : NetworkBehaviour
     private SpriteRenderer _spriteRenderer;
     
     
-    [ServerRpc]
-    public void ChangeCardNameServerRpc()
+    //[ServerRpc]
+    public void ChangeCardName()
     {
         Debug.Log("Change Card Name server rpc called");
         _cardName.Value = "null";

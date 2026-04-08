@@ -210,8 +210,25 @@ public class PlayerMovementandCamera : NetworkBehaviour
         if (other.gameObject.CompareTag("Card") && _cardsManager.AddCard(other.gameObject.name))
         {
             //Debug.Log("Card tag detected and add card returned true");
-            other.GetComponent<CardSyncScript>().ChangeCardNameServerRpc();
+            //GetCardServerRpc(other);
+            
+            if (other.gameObject.TryGetComponent(out NetworkObject netObj))
+            {
+                GetCardServerRpc(netObj.NetworkObjectId);
+            }
         }
 
+    }
+
+    [ServerRpc]
+    public void GetCardServerRpc(ulong other)
+    {
+        if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(other, out NetworkObject targetNetObj))
+        {
+            GameObject card = targetNetObj.gameObject;
+            card.GetComponent<CardSyncScript>().ChangeCardName();
+        }
+        
+        
     }
 }
