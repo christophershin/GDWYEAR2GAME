@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cone.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Puck.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Puck.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Speaker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Speaker.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Tomato.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Tomato.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/VisualProjs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/VisualProjs.cs" afterDir="false" />
-    </list>
+    <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -199,7 +191,7 @@
       <workItem from="1775565574282" duration="3500000" />
       <workItem from="1775569700182" duration="1398000" />
       <workItem from="1775571213778" duration="617000" />
-      <workItem from="1775669060511" duration="21143000" />
+      <workItem from="1775669060511" duration="21786000" />
     </task>
     <servers />
   </component>
