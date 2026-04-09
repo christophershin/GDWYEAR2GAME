@@ -12,7 +12,7 @@ public class Deflect : NetworkBehaviour
     private GameObject obj;
     private float deflectSpeed;
     [SerializeField] private GameObject player;
-
+    [SerializeField] private Parrying parrying;
     private float _MAXANGLE = 30;
     
     [SerializeField] private AnimationController _animator;
@@ -35,6 +35,8 @@ public class Deflect : NetworkBehaviour
     void OnTriggerEnter(Collider collision)
     {
 
+        if(!IsOwner)  return;
+        
         if (collision.gameObject.CompareTag("Parriable"))
         {
             GameObject obj = collision.gameObject;
@@ -53,6 +55,14 @@ public class Deflect : NetworkBehaviour
             {
                 DeflectTrackedServerRpc(objId, direction, 14, teamid, netObj.NetworkObjectId);
                 player.GetComponent<HealthandShield>().GetShieldServerRpc(30);
+                if (parrying.parryFrames)
+                {
+                    parrying.ParryEnergy.Value += 50;
+                    if (parrying.ParryEnergy.Value >= 100)
+                    {
+                        parrying.ParryEnergy.Value = 100;
+                    }
+                }
             }
             else
             {
@@ -60,6 +70,15 @@ public class Deflect : NetworkBehaviour
                 
                 DeflectServerRpc(objId, direction, 14, teamid, newPos);
                 player.GetComponent<HealthandShield>().GetShieldServerRpc(30);
+                // if (_timeParryHeldDown <= 0.6f)
+                // {
+                //     _timeParryHeldDown = 0f;
+                //     parrying.ParryEnergy.Value += 40f;
+                //     if (parrying.ParryEnergy.Value >= 100f)
+                //     {
+                //         parrying.ParryEnergy.Value = 100f;
+                //     }
+                // }
             }
             
             // if(obj.GetComponent<EntitiesClass>().teamID != teamid)

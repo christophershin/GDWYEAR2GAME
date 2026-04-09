@@ -11,28 +11,22 @@ public class AnimationController : NetworkBehaviour
     
     private string _lastEmote = "null";
 
-    public void SetAnimation(string name, bool active)
+    public void SetAnimation(string nam, bool active)
     {
-        if (name == "shooting")
+
+
+        if (nam == "gotHit")
         {
-            audioSource.clip = shoot;
-            audioSource.Play();
+            MakeSoundClientRpc(nam);
         }
-        else if (name == "parry")
+        else
         {
-            audioSource.clip = parry;
-            audioSource.Play();
+            MakeSoundServerRpc(nam);
         }
-        else if (name == "gotHit")
-        {
-            audioSource.clip = hit;
-            audioSource.Play();
-        }
-        
         
         
         //StopEmotes();
-        _animator.SetBool(name, active);
+        _animator.SetBool(nam, active);
         
     }
 
@@ -41,6 +35,32 @@ public class AnimationController : NetworkBehaviour
         _animator.SetBool("parry", false);
         _animator.SetBool("gotHit", false);
         _animator.SetBool("shooting", false);
+    }
+
+    [ServerRpc]
+    private void MakeSoundServerRpc(string sound)
+    {
+        MakeSoundClientRpc(sound);
+    }
+    
+    [ClientRpc]
+    private void MakeSoundClientRpc(string sound)
+    {
+        if (sound == "shooting")
+        {
+            audioSource.clip = shoot;
+            audioSource.Play();
+        }
+        else if (sound == "parry")
+        {
+            audioSource.clip = parry;
+            audioSource.Play();
+        }
+        else if (sound == "gotHit")
+        {
+            audioSource.clip = hit;
+            audioSource.Play();
+        }
     }
 
     private void StartAnimate(string anima)

@@ -48,6 +48,9 @@ public class Parrying : NetworkBehaviour
     
     private NetworkVariable<bool> _isHitboxActive = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
+
+    public bool parryFrames = false;
+    
     public override void OnNetworkSpawn()
     {
         parryhitbox.SetActive(_isHitboxActive.Value);
@@ -78,7 +81,7 @@ public class Parrying : NetworkBehaviour
         
         if (Input.GetMouseButtonDown(1))
         {
-            if (privateParryEnergy > 0)
+            if (privateParryEnergy >= 30)
             {
                 _isParryButtonDown = true;
                 _isHitboxActive.Value = true;
@@ -106,7 +109,11 @@ public class Parrying : NetworkBehaviour
     
     IEnumerator StopParryingDelayed()
     {
+        parryFrames = true;
+        
         yield return new WaitForSeconds(.4f);
+        
+        parryFrames = false;
         
         if (_isParryButtonDown == false)  _isHitboxActive.Value = false;
     }

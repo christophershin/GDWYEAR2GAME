@@ -138,7 +138,7 @@ public class HealthandShield : NetworkBehaviour
         {
             if (Input.GetKeyDown(KeyCode.L))
             {
-                GetShieldServerRpc(20);
+                //GetShieldServerRpc(20);
             }
 
             DecayShieldServerRpc();
@@ -256,10 +256,20 @@ public class HealthandShield : NetworkBehaviour
     
         if (Shield.Value > 0)
         {
-            Shield.Value -= dmg;
+            if (Shield.Value >= dmg)
+            {
+                Shield.Value -= dmg;
+            }
+            else
+            {
+                float dm = dmg - Shield.Value;
+                Shield.Value = 0;
+                
+                Health.Value -= dm;
+            }
             
-    
-        }else if (Health.Value > 0 && Shield.Value <= 0)
+        }
+        else if (Health.Value > 0 && Shield.Value <= 0)
         {
     
             Health.Value -= dmg;

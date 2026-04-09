@@ -32,7 +32,19 @@ public class GameManager : NetworkBehaviour
     {
         PlayersInServer = new NetworkList<ulong>();
     }
+    
+    // REMOVE BELOW IF BUG
+    private void Start() {
+        NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
+    }
 
+    private void OnClientDisconnected(ulong clientId) {
+        if (NetworkManager.Singleton.IsServer)
+        {
+            PlayersInServer.Remove(clientId);
+        }
+    }
+    // REMOVE ABOVE IF BUG
 
     public override void OnNetworkSpawn()
     {
