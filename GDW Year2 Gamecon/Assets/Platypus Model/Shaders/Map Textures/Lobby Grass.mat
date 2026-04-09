@@ -38,19 +38,18 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: c34d95b98930a0842a93f752a39319a0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4c4eaf55f3d432f4b9c67474dcf8a72f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.73
     - _DissolveAmt: 0
     - _Glossiness: 10
     - _NoiseScale: 49.95
     - _QueueControl: 0
     m_Colors:
-    - _BodyPartColour: {r: 0, g: 0, b: 0, a: 1}
+    - _BodyPartColour: {r: 1, g: 0, b: 0.9851055, a: 1}
     - _EdgeColour: {r: 1, g: 1, b: 1, a: 1}
-    - _tilling: {r: 1, g: 1, b: 0, a: 0}
+    - _tilling: {r: 5, g: 5, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
