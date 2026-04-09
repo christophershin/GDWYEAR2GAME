@@ -28,6 +28,7 @@ public class StartGameScript : NetworkBehaviour
             startGameText.text = "Wait for the host to start the game!";
         }
         
+        _spawnArray = GameObject.FindGameObjectsWithTag("Spawn");
         //_spawnArray = GameObject.FindGameObjectsWithTag("Spawn");
     }
 
@@ -65,7 +66,7 @@ public class StartGameScript : NetworkBehaviour
         
         gameUI.SetActive(true);
         
-        _spawnArray = GameObject.FindGameObjectsWithTag("Spawn");
+        
         
         animator.StopEmotes();
         int randNum = UnityEngine.Random.Range(0, _spawnArray.Length);

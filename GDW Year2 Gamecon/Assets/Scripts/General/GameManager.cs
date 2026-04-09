@@ -34,32 +34,32 @@ public class GameManager : NetworkBehaviour
     }
     
     // REMOVE BELOW IF BUG
-    private void Start() {
-        NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
-    }
-
-    private void OnClientDisconnected(ulong clientId) {
-        if (NetworkManager.Singleton.IsServer)
-        {
-            PlayersInServer.Remove(clientId);
-        }
-    }
+    // private void Start() {
+    //     NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
+    // }
+    //
+    // private void OnClientDisconnected(ulong clientId) {
+    //     if (NetworkManager.Singleton.IsServer)
+    //     {
+    //         PlayersInServer.Remove(clientId);
+    //     }
+    // }
     // REMOVE ABOVE IF BUG
 
     public override void OnNetworkSpawn()
     {
-        int SpawnCount = spawnList.Count;
+        //int SpawnCount = spawnList.Count;
 
-        int randNum = UnityEngine.Random.Range(0, SpawnCount);
+        //int randNum = UnityEngine.Random.Range(0, SpawnCount);
 
-        float spawnX = spawnList[randNum].transform.position.x;
-        float spawnY = spawnList[randNum].transform.position.y;
-        float spawnZ = spawnList[randNum].transform.position.z;
+        // float spawnX = ;
+        // float spawnY = spawnList[0].transform.position.y;
+        // float spawnZ = spawnList[0].transform.position.z;
+        //
+        // Vector3 playSpawn = new Vector3(spawnX, spawnY, spawnZ);
 
-        Vector3 playSpawn = new Vector3(spawnX, spawnY, spawnZ);
 
-
-        SpawnPlayerObjectServerRPC(NetworkManager.LocalClientId, playSpawn);
+        SpawnPlayerObjectServerRPC(NetworkManager.LocalClientId, spawnList[0].transform.position);
 
 
     }

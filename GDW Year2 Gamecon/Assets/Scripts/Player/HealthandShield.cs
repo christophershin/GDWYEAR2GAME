@@ -98,7 +98,7 @@ public class HealthandShield : NetworkBehaviour
         if (IsServer)
         {
             Health.Value = maxHealth;
-            Shield.Value = maxShield;
+            Shield.Value = 0;
         }
 
         Health.OnValueChanged += HealthChanged;

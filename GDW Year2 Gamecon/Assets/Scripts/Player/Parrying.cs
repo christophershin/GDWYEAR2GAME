@@ -32,7 +32,7 @@ public class Parrying : NetworkBehaviour
     [HideInInspector]
     public NetworkVariable<float> ParryEnergy = new NetworkVariable<float>();
 
-    private float privateParryEnergy;
+    public float privateParryEnergy;
 
     private float maxResourceTimer = 2f;
 
@@ -81,7 +81,7 @@ public class Parrying : NetworkBehaviour
         
         if (Input.GetMouseButtonDown(1))
         {
-            if (privateParryEnergy >= 30)
+            if (privateParryEnergy >= 5)
             {
                 _isParryButtonDown = true;
                 _isHitboxActive.Value = true;

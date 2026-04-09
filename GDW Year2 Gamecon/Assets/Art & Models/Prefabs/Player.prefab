@@ -396,7 +396,9 @@ MonoBehaviour:
   parryEnergyText: {fileID: 5566849264858422080}
   ParryEnergy:
     m_InternalValue: 0
+  privateParryEnergy: 0
   slider: {fileID: 3731817632516983204}
+  parryFrames: 0
 --- !u!114 &5576527405638343336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,7 +672,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 5000
+  MaxDistance: 50000
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1549,7 +1551,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -0.00000011920929, y: 0}
-  m_SizeDelta: {x: 3, y: 0.2}
+  m_SizeDelta: {x: 3, y: 0.15}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &8863382933519979341
 CanvasRenderer:
@@ -5189,7 +5191,7 @@ MonoBehaviour:
   sounds: []
   cam: {fileID: 6582233133600555281}
   player: {fileID: 134657154417255479}
-  parrying: {fileID: 0}
+  parrying: {fileID: 1829790153828719856}
   _animator: {fileID: 6597825807453567247}
 --- !u!1 &5208473932013243452
 GameObject:
@@ -5907,7 +5909,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3, y: 0.2}
+  m_SizeDelta: {x: 3, y: 0.15}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &6807750283187550655
 CanvasRenderer:

@@ -55,12 +55,12 @@ public class Deflect : NetworkBehaviour
             {
                 DeflectTrackedServerRpc(objId, direction, 14, teamid, netObj.NetworkObjectId);
                 player.GetComponent<HealthandShield>().GetShieldServerRpc(30);
-                if (parrying.parryFrames)
+                if (parrying.parryFrames == true)
                 {
-                    parrying.ParryEnergy.Value += 50;
-                    if (parrying.ParryEnergy.Value >= 100)
+                    parrying.privateParryEnergy += 50;
+                    if (parrying.privateParryEnergy >= 100)
                     {
-                        parrying.ParryEnergy.Value = 100;
+                        parrying.privateParryEnergy = 100;
                     }
                 }
             }
