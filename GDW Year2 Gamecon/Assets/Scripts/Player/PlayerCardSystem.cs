@@ -8,6 +8,7 @@ using UnityEngine;
 public class PlayerCardSystem : NetworkBehaviour
 {
     public GameObject puck, pikeball, tomato, cone, speaker;
+    public GameObject puckVisual, pikeVisual, tomatoVisual, coneVisual, speakerVisual;
     
     public GameObject projectile;
     [SerializeField] private float proj_speed;
@@ -22,11 +23,6 @@ public class PlayerCardSystem : NetworkBehaviour
     private float _MAXANGLE = 15;
     
     [SerializeField] AnimationController animationController;
-
-    private void Start()
-    {
-        //_cardsManager = GameObject.Find("Cards").GetComponent<CardsManager>();
-    }
 
     public override void OnNetworkSpawn()
     {
@@ -55,22 +51,18 @@ public class PlayerCardSystem : NetworkBehaviour
 
     private GameObject GetClosestPlayerToCamera(Camera camer)
     {
-        // VERY expensive method change later if this causes too much lag
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         
-        // variables to keep track of
         float closestAngle = _MAXANGLE;
         int closestPlayer = -1;
         
-        // get the closest angle player from this player
         for (int i = 0; i < players.Length; i++)
         {
-            //print(players.Length);
             if (players[i] == this.gameObject)
             {
                 continue;
             }
-            // getting the angle between this player and all the players in the map
+            
             Vector3 directionToTarget = players[i].transform.position - this.transform.position;
             float angle = Vector3.Angle(camer.transform.forward, directionToTarget);
             
@@ -80,15 +72,13 @@ public class PlayerCardSystem : NetworkBehaviour
             if (angle <= closestAngle)
             {
                 Debug.Log("ANGLE SMALLER");
-                // make a ray from the player's middle of the screen
+                
                 Ray ray = camer.ScreenPointToRay(
                     new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)
                 );
                 
-                // make sure the cards can't be hit
-                int layerMask = ~LayerMask.GetMask("card");
                 
-                // raycasting to see if the player can actually be seen from the camera
+                int layerMask = ~LayerMask.GetMask("card");
                 
                 Vector3 direction = players[i].transform.position - this.transform.position;
                 float distance = direction.magnitude;
@@ -133,38 +123,69 @@ public class PlayerCardSystem : NetworkBehaviour
                 return;
             }
             
-            // Vector3 startPos = cam.transform.position;
-            // Vector3 endPos = RaycastFromCamera(cam, 10000);
-            
+            // animation
             animationController.SetAnimation("shooting", true);
-            
-            
             GameObject plr = GetClosestPlayerToCamera(cam);
-
-            if (plr != this.gameObject)
-            {
-                // if (plr.TryGetComponent(out NetworkObject targetNetObj))
-                // {
-                //     ShootPlayerServerRpc(card, direction, id, proj_speed, targetNetObj);
-                //     return;
-                // }
-                
-                if (plr.TryGetComponent(out NetworkObject netObj))
-                {
-                    ShootPlayerServerRpc(card, direction, id, proj_speed, netObj.NetworkObjectId);
-                    return;
-                }
-                
-            }
+            
+            // visual
             
             Vector3 endpos = RaycastFromCamera(cam, 10000);
-            ShootStraightServerRpc(card, direction, id, proj_speed, endpos);
+            
+            if (!IsServer)
+            {
+                SpawnVisual(card, endpos);
+            }
+            
+            if (plr != this.gameObject && plr.TryGetComponent(out NetworkObject netObj))
+            {
+                ShootPlayerServerRpc(card, direction, id, proj_speed, netObj.NetworkObjectId, NetworkManager.Singleton.LocalClientId);
+                return;
+            }
+            
+            
+            ShootStraightServerRpc(card, direction, id, proj_speed, endpos, NetworkManager.Singleton.LocalClientId);
         }
     }
+
+    private void SpawnVisual(string nam, Vector3 endPos)
+    {
+
+        GameObject localObj = null;
+        
+        switch (nam)
+        {
+            case "Puck":
+                localObj = Instantiate(puckVisual, this.transform.position, this.transform.rotation);
+                break;
+            case  "Pikeball": 
+                localObj = Instantiate(pikeVisual, this.transform.position, this.transform.rotation);
+                break;
+            case  "Tomato": 
+                localObj = Instantiate(tomatoVisual, this.transform.position, this.transform.rotation);
+                break;
+            case  "Cone": 
+                localObj = Instantiate(coneVisual, this.transform.position, this.transform.rotation);
+                break;
+            case  "Speaker": 
+                localObj = Instantiate(speakerVisual, this.transform.position, this.transform.rotation);
+                break;
+        }
+
+        if (localObj != null)
+        {
+            var smoother = localObj.GetComponentInChildren<VisualProjs>();
+            if (smoother != null)
+            {
+                smoother.StartPrediction(name, endPos);
+            }
+        }
+        
+        
+    }
     
-    //[Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
+    
     [ServerRpc]
-    void ShootStraightServerRpc(string card, Vector3 shootdirection, string _id, float proj_speed, Vector3 endpos)
+    void ShootStraightServerRpc(string card, Vector3 shootdirection, string _id, float proj_speed, Vector3 endpos, ulong projOwnId)
     {
         GameObject bullet;
         
@@ -178,6 +199,7 @@ public class PlayerCardSystem : NetworkBehaviour
             default: return;
         }
         
+        bullet.GetComponent<projectile>().projOwnId.Value = projOwnId;
         bullet.GetComponent<EntitiesClass>().teamID = _id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
 
@@ -185,9 +207,8 @@ public class PlayerCardSystem : NetworkBehaviour
             StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
     }
     
-    // [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]//
     [ServerRpc]
-    void ShootPlayerServerRpc(string card, Vector3 shootdirection, string _id, float proj_speed, ulong plr)
+    void ShootPlayerServerRpc(string card, Vector3 shootdirection, string _id, float proj_speed, ulong plr, ulong projOwnId)
     {
         GameObject bullet;
         
@@ -201,6 +222,7 @@ public class PlayerCardSystem : NetworkBehaviour
             default: return;
         }
         
+        bullet.GetComponent<projectile>().projOwnId.Value = projOwnId;
         bullet.GetComponent<EntitiesClass>().teamID = _id;
         bullet.GetComponent<NetworkObject>().Spawn(true);
 
@@ -211,15 +233,12 @@ public class PlayerCardSystem : NetworkBehaviour
     GameObject ActivateBulletToPlayer(Vector3 shootdirection, GameObject proj, ulong plrNetObj)
     {
         Vector3 startpos = cam.transform.position;
-        
         GameObject bullet = Instantiate(proj, transform.position + shootdirection * 1.5f, Quaternion.identity);
-        
-        //GameObject plr = GetClosestPlayerToCamera(cam);
         
         if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(plrNetObj, out NetworkObject targetNetObj))
         {
             GameObject plr = targetNetObj.gameObject;
-            bullet.GetComponent<projectile>().ShootWithTracking(plr, startpos);
+           bullet.GetComponent<projectile>().ShootWithTracking(plr, startpos);
         }
         
         return bullet;
@@ -227,74 +246,18 @@ public class PlayerCardSystem : NetworkBehaviour
     
     GameObject ActivateBulletForward(Vector3 shootdirection, GameObject proj, Vector3 endpos)
     {
+        
         Vector3 startpos = cam.transform.position;
-        
         GameObject bullet = Instantiate(proj, transform.position + shootdirection * 1.5f, Quaternion.identity);
-        
-        //GameObject plr = GetClosestPlayerToCamera(cam);
-        
-        //Vector3 endpos = RaycastFromCamera(cam, 10000);
         bullet.GetComponent<projectile>().ShootWithoutTracking(startpos, endpos);
         
         return bullet;
     }
-    
-
-    // [ServerRpc]
-    // void ShootServerRPC(string card, Vector3 shootdirection, string _id, float proj_speed)
-    // {
-    //     GameObject bullet;
-    //     
-    //     
-    //     
-    //     switch (card)
-    //     {
-    //         case "Puck": bullet = ActivateBullet(shootdirection, puck); break;
-    //         case  "Pikeball": bullet = ActivateBullet(shootdirection, pikeball); break;
-    //         case  "Tomato": bullet = ActivateBullet(shootdirection, tomato); break;
-    //         case  "Cone": bullet = ActivateBullet(shootdirection, cone); break;
-    //         case  "Speaker": bullet = ActivateBullet(shootdirection, speaker); break;
-    //         default: return;
-    //     }
-    //     
-    //     bullet.GetComponent<EntitiesClass>().teamID = _id;
-    //     bullet.GetComponent<NetworkObject>().Spawn(true);
-    //
-    //     if (bullet.GetComponent<EntitiesClass>().teamID == _id)
-    //         StartCoroutine(colliderToggled(bullet.GetComponent<Collider>()));
-    // }
-    
-    
-    
-    
-    
-    // GameObject ActivateBullet(Vector3 shootdirection, GameObject proj)
-    // {
-    //     Vector3 startpos = cam.transform.position;
-    //     
-    //     GameObject bullet = Instantiate(proj, transform.position + shootdirection * 1.5f, Quaternion.identity);
-    //     
-    //     GameObject plr = GetClosestPlayerToCamera(cam);
-    //     if (plr == this.gameObject)
-    //     {
-    //         Vector3 endpos = RaycastFromCamera(cam, 10000);
-    //         bullet.GetComponent<projectile>().ShootWithoutTracking(startpos, endpos);
-    //     }
-    //     else
-    //     {
-    //         Debug.Log("Player is other player");
-    //         bullet.GetComponent<projectile>().ShootWithTracking(plr, startpos);
-    //     }
-    //     
-    //     return bullet;
-    // }
 
     private IEnumerator colliderToggled(Collider collider)
     {
         collider.enabled = false;
-
         yield return new WaitForSeconds(colliderDisableTime);
-
         collider.enabled = true;
     }
 }

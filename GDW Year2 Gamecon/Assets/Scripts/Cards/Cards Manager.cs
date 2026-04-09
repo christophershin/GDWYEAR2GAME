@@ -45,7 +45,7 @@ public class CardsManager : NetworkBehaviour
 
     public bool AddCard(string nam)
     {
-        Debug.Log("Add card called: " + nam);
+        //Debug.Log("Add card called: " + nam);
 
         if (cardList.Count >= 3)
         {

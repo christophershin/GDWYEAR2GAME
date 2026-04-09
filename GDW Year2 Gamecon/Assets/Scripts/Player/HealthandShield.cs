@@ -138,10 +138,10 @@ public class HealthandShield : NetworkBehaviour
         {
             if (Input.GetKeyDown(KeyCode.L))
             {
-                getShieldServerRPC(20);
+                GetShieldServerRpc(20);
             }
 
-            DecayShieldServerRPC();
+            DecayShieldServerRpc();
 
         }
 
@@ -206,7 +206,7 @@ public class HealthandShield : NetworkBehaviour
     }
 
     [ServerRpc]
-    public void HealServerRPC(float heal)
+    public void HealServerRpc(float heal)
     {
         if(Health.Value>0 && Health.Value < maxHealth)
         {
@@ -218,7 +218,7 @@ public class HealthandShield : NetworkBehaviour
     }
 
     [ServerRpc]
-    public void getShieldServerRPC(float getShield)
+    public void GetShieldServerRpc(float getShield)
     {
         decayShieldTimer = maxDecayShieldTimer;
         if (Shield.Value >=0 && Shield.Value < maxShield)
@@ -231,7 +231,7 @@ public class HealthandShield : NetworkBehaviour
     }
 
     [ServerRpc]
-    public void DecayShieldServerRPC()
+    public void DecayShieldServerRpc()
     {
 
         if(Shield.Value>0 && Health.Value>0)

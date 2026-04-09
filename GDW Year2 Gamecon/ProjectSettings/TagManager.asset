@@ -13,6 +13,11 @@ TagManager:
   - NetworkButton
   - DeadSpawn
   - Dead
+  - Cone
+  - Pikeball
+  - Puck
+  - Tomato
+  - Speaker
   layers:
   - Default
   - TransparentFX

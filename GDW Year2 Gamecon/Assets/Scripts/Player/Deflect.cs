@@ -17,11 +17,6 @@ public class Deflect : NetworkBehaviour
     
     [SerializeField] private AnimationController _animator;
 
-    private void Start()
-    {
-        //_animator = GetComponent<AnimationController>();
-    }
-
     public override void OnNetworkSpawn()
     {
         if (!IsOwner)
@@ -50,24 +45,21 @@ public class Deflect : NetworkBehaviour
 
             // Tell the server to handle the deflect
             
-            GameObject plr = GetClosestPlayerToCamera();
+            GameObject plr = GetClosestPlayerToCamera(cam);
             
             _animator.SetAnimation("parry", true);
         
-            if (plr == this.gameObject)
+            if (plr != this.gameObject && plr.TryGetComponent(out NetworkObject netObj))
             {
-                Vector3 newPos = RaycastFromCamera(cam, 10000);
-                
-                DeflectServerRPC(objId, direction, 14, teamid, newPos);
-                player.GetComponent<HealthandShield>().getShieldServerRPC(30);
+                DeflectTrackedServerRpc(objId, direction, 14, teamid, netObj.NetworkObjectId);
+                player.GetComponent<HealthandShield>().GetShieldServerRpc(30);
             }
             else
             {
-                NetworkObject netObj = plr.GetComponent<NetworkObject>();
-                ulong targetId = netObj.OwnerClientId;
+                Vector3 newPos = RaycastFromCamera(cam, 10000);
                 
-                DeflectTrackedServerRPC(objId, direction, 14, teamid, targetId);
-                player.GetComponent<HealthandShield>().getShieldServerRPC(30);
+                DeflectServerRpc(objId, direction, 14, teamid, newPos);
+                player.GetComponent<HealthandShield>().GetShieldServerRpc(30);
             }
             
             // if(obj.GetComponent<EntitiesClass>().teamID != teamid)
@@ -80,36 +72,64 @@ public class Deflect : NetworkBehaviour
         }
     }
     
-    private GameObject GetClosestPlayerToCamera()
+    private GameObject GetClosestPlayerToCamera(Camera camer)
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        GameObject bestTarget = this.gameObject;
+        
         float closestAngle = _MAXANGLE;
-        int layerMask = ~LayerMask.GetMask("card");
-
-        foreach (GameObject player in players)
+        int closestPlayer = -1;
+        
+        for (int i = 0; i < players.Length; i++)
         {
-            if (player == gameObject) continue;
-
-            Vector3 direction = player.transform.position - transform.position;
-            float angle = Vector3.Angle(transform.forward, direction);
-
-            if (angle < closestAngle)
+            if (players[i] == this.gameObject)
             {
-                float distance = direction.magnitude;
+                continue;
+            }
+            
+            Vector3 directionToTarget = players[i].transform.position - this.transform.position;
+            float angle = Vector3.Angle(camer.transform.forward, directionToTarget);
+            
+            Debug.Log("closest angle is: " + angle);
+            Debug.Log("angle is: " + angle);
+            
+            if (angle <= closestAngle)
+            {
+                Debug.Log("ANGLE SMALLER");
                 
-                if (Physics.Raycast(cam.transform.position, direction.normalized, out RaycastHit hit, distance, layerMask))
+                Ray ray = camer.ScreenPointToRay(
+                    new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)
+                );
+                
+                
+                int layerMask = ~LayerMask.GetMask("card");
+                
+                Vector3 direction = players[i].transform.position - this.transform.position;
+                float distance = direction.magnitude;
+                direction = direction.normalized;
+        
+                RaycastHit hit;
+        
+                if (Physics.Raycast(this.transform.position, direction, out hit, distance, layerMask))
                 {
-                    if (hit.transform.CompareTag("Player"))
+                    if (hit.transform.gameObject.CompareTag("Parriable"))
+                    {
+                        continue;
+                    }
+                    
+                    string tag = hit.transform.gameObject.tag;
+                    
+                    if (tag == "Player")
                     {
                         closestAngle = angle;
-                        bestTarget = player;
+                        closestPlayer = i;
                     }
                 }
             }
         }
 
-        return bestTarget;
+        if (closestPlayer != -1) return players[closestPlayer];
+        
+        return this.gameObject;
     }
     
     public static Vector3 RaycastFromCamera(Camera cam, float maxDistance)
@@ -123,46 +143,59 @@ public class Deflect : NetworkBehaviour
 
         return ray.origin + ray.direction * maxDistance;
     }
-
-
-    //[Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
+    
     [ServerRpc]
-     void DeflectServerRPC(ulong objId, Vector3 dir, float deflectSpeed, string id, Vector3 newPos)
+     void DeflectServerRpc(ulong objId, Vector3 dir, float deflectSpeed, string id, Vector3 newPos)
      {
     
          if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(objId, out NetworkObject netObj))
          {
-             GameObject obj = netObj.gameObject;
+             GameObject objj = netObj.gameObject;
     
-             if (obj.GetComponent<EntitiesClass>().teamID != id)
+             if (objj.GetComponent<EntitiesClass>().teamID != id)
              {
-                 // parry
-                 obj.GetComponent<projectile>().StraightParry(newPos);
-                 
-                 obj.GetComponent<EntitiesClass>().teamID = id;
-                 obj.GetComponent<projectile>().projectileTimer = obj.GetComponent<projectile>().projectileTimerMax;
-                 
+                 objj.GetComponent<projectile>().StraightParry(newPos);
+                 objj.GetComponent<EntitiesClass>().teamID = id;
+                 objj.GetComponent<projectile>().projectileTimer = objj.GetComponent<projectile>().projectileTimerMax;
              }
          }
      }
 
-    //[Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)] 
     [ServerRpc]
-    void DeflectTrackedServerRPC(ulong objId, Vector3 dir, float deflectSpeed, string id, ulong targetID)
+    void DeflectTrackedServerRpc(ulong objId, Vector3 dir, float deflectSpeed, string id, ulong plrNetObj)
     {
-    
         if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(objId, out NetworkObject netObj))
         {
-            GameObject obj = netObj.gameObject;
+            GameObject objj = netObj.gameObject;
     
-            if (obj.GetComponent<EntitiesClass>().teamID != id)
+            if (objj.GetComponent<EntitiesClass>().teamID != id)
             {
-                obj.GetComponent<projectile>().TrackedParry(targetID);
-                 
-                obj.GetComponent<EntitiesClass>().teamID = id;
-                obj.GetComponent<projectile>().projectileTimer = obj.GetComponent<projectile>().projectileTimerMax;
+                if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(plrNetObj, out NetworkObject targetNetObj))
+                {
+                    GameObject plr = targetNetObj.gameObject;
+                    objj.GetComponent<projectile>().TrackedParry(plr);
+                }
                 
+                
+                objj.GetComponent<EntitiesClass>().teamID = id;
+                objj.GetComponent<projectile>().projectileTimer = objj.GetComponent<projectile>().projectileTimerMax;
             }
+            
+            
+            
+            
+            // if (obj.GetComponent<EntitiesClass>().teamID != id)
+            // {
+            //     // if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(plr,
+            //     //         out NetworkObject targetNetObj))
+            //     // {
+            //     //     GameObject plr = targetNetObj.gameObject;
+            //     //     obj.GetComponent<projectile>().TrackedParry(plrs);
+            //     // }
+            //     
+            //     obj.GetComponent<EntitiesClass>().teamID = id;
+            //     obj.GetComponent<projectile>().projectileTimer = obj.GetComponent<projectile>().projectileTimerMax;
+            // }
         }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class projectile : NetworkBehaviour
 {
+    public NetworkVariable<ulong> projOwnId = new NetworkVariable<ulong>();
+    
     [SerializeField] private float startSpeed, midSpeed, endSpeed, curve;
 
     public float projectileTimerMax = 10;
@@ -16,6 +18,10 @@ public class projectile : NetworkBehaviour
     Coroutine _currentCoroutine;
     
     [SerializeField] private Material _material;
+
+    public string projNamTagg;
+    
+    [SerializeField] private GameObject chil;
     
     
     private void Start()
@@ -23,27 +29,87 @@ public class projectile : NetworkBehaviour
         _rb = GetComponent<Rigidbody>();
     }
     
+    
     public override void OnNetworkSpawn()
     {
-        if (!IsServer)
+        print("proj own: " + projOwnId);
+        print("local: " + NetworkManager.Singleton.LocalClientId.ToString());
+        
+        if (NetworkManager.Singleton.LocalClientId == projOwnId.Value && !IsServer)
         {
-            enabled = false;
-            return;
-        }
+            chil.SetActive(false);
+            //var smoothers = FindObjectsByType<ProjectileVisualSmoother>(FindObjectsSortMode.None);
+            GameObject[] pro = GameObject.FindGameObjectsWithTag(projNamTagg);
 
-        projectileTimer = projectileTimerMax;
+            for (int i = 0; i < pro.Length; i++)
+            {
+                if (pro[i].GetComponent<VisualProjs>().isPredicting)
+                {
+                    pro[i].GetComponent<VisualProjs>().BindToNetwork(this.transform);
+                    break;
+                }
+            }
+            
+            
+
+            // foreach (var s in smoothers)
+            // {
+            //     if (s.isPredicting && s.projectileID == projNamTagg)
+            //     {
+            //         s.BindToNetwork(this.transform);
+            //         break;
+            //     }
+            // }
+        }
+        // else
+        // {
+        //     // if (transform.childCount > 0)
+        //     // {
+        //     //     var smoother = chil.GetComponent<ProjectileVisualSmoother>();
+        //     //     if (smoother != null)
+        //     //     {
+        //     //         smoother.BindToNetwork(this.transform);
+        //     //     }
+        //     // }
+        // }
     }
     
-    // void Update()
+    // public override void OnNetworkSpawn()
     // {
-    //
-    //     if (IsServer)
+    //     if (IsOwner && !IsServer)
     //     {
-    //         projectileTimer -= Time.deltaTime;
+    //         var smoothers = FindObjectsByType<ProjectileVisualSmoother>(FindObjectsSortMode.None);
     //
-    //         if (projectileTimer <= 0)
-    //             GetComponent<NetworkObject>().Despawn(true);
+    //         foreach (var s in smoothers)
+    //         {
+    //             // We check the ID string and the prediction state
+    //             if (s.isPredicting && s.projectileID == projNamTagg)
+    //             {
+    //                 s.BindToNetwork(this.transform);
+    //             
+    //                 // Hide the "factory" visual on the networked object
+    //                 if (transform.childCount > 0)
+    //                     transform.GetChild(0).gameObject.SetActive(false); 
+    //             
+    //                 break;
+    //             }
+    //         }
     //     }
+    //     else
+    //     {
+    //         // if (transform.childCount > 0)
+    //         // {
+    //         //     transform.GetChild(0).GetComponent<ProjectileVisualSmoother>().BindToNetwork(this.transform);
+    //         // }
+    //     }
+    //     
+    //     // if (!IsServer)
+    //     // {
+    //     //     enabled = false;
+    //     //     return;
+    //     // }
+    //     
+    //     //projectileTimer = projectileTimerMax;
     // }
     
     public void StraightParry(Vector3 newPos)
@@ -64,11 +130,11 @@ public class projectile : NetworkBehaviour
         );
     }
     
-    public void TrackedParry(ulong targetID)
+    public void TrackedParry(GameObject player)
     {
-        NetworkObject playerObject = NetworkManager.Singleton.ConnectedClients[targetID].PlayerObject;
-
-        GameObject player = playerObject.gameObject;
+        // NetworkObject playerObject = NetworkManager.Singleton.ConnectedClients[targetID].PlayerObject;
+        //
+        // GameObject player = playerObject.gameObject;
             
         //Debug.Log("Parried");
         damage *= 1.1f;

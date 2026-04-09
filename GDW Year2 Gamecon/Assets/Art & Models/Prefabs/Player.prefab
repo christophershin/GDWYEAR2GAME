@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3944552304
+  GlobalObjectIdHash: 3932143050
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -411,6 +411,11 @@ MonoBehaviour:
   tomato: {fileID: 7773193080157374451, guid: 25a31d996a5020841a2b0654460ca88c, type: 3}
   cone: {fileID: 7773193080157374451, guid: 929a91a52109dd64d9a277a63ec04251, type: 3}
   speaker: {fileID: 7773193080157374451, guid: 208024573ef5c1e49a36aa9f5db72930, type: 3}
+  puckVisual: {fileID: 7416662767688944404, guid: 4f621dfffff85a7449fe87a816c9c7f5, type: 3}
+  pikeVisual: {fileID: 3342578255971298047, guid: c7e96bd6d67b73548979cfa167888007, type: 3}
+  tomatoVisual: {fileID: 1522116150076518124, guid: a3d72a517c860aa4ab9f33ad33f8a8cc, type: 3}
+  coneVisual: {fileID: 2304977076394244243, guid: 66cb7fb89913b3b4ea8a2f39f0a03e5f, type: 3}
+  speakerVisual: {fileID: 2491380009437816960, guid: 74c7f768cf1ab9446b1750e4cf63dad8, type: 3}
   projectile: {fileID: 6468302795573462009, guid: f2bbdf060efcdc347bb46ce147e706a6, type: 3}
   proj_speed: 10
   cam: {fileID: 6582233133600555281}

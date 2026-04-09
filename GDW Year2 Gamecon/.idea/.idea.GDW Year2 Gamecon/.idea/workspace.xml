@@ -6,13 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Music/Battle Has Begun (In-Game Music).mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Music/Battle Has Begun (In-Game Music).mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/PlatypusModel.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/PlatypusModel.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/RandColour.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Platypus Model/Shaders/RandColour.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NEW MAIN MENU TEST.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NEW MAIN MENU TEST.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardSyncScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardSyncScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Puck.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Puck.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Speaker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Speaker.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Tomato.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Tomato.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cards/Cards Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cards/Cards Manager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/General/projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Deflect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Deflect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/HealthandShield.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/HealthandShield.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovementandCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovementandCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +29,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/ProjectileVisualSmoother.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Platypus Model/Shaders/Color Changer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animations/AnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CardSyncScript.cs" root0="FORCE_HIGHLIGHTING" />
@@ -199,7 +206,7 @@
       <workItem from="1775565574282" duration="3500000" />
       <workItem from="1775569700182" duration="1398000" />
       <workItem from="1775571213778" duration="617000" />
-      <workItem from="1775669060511" duration="2341000" />
+      <workItem from="1775669060511" duration="20478000" />
     </task>
     <servers />
   </component>
