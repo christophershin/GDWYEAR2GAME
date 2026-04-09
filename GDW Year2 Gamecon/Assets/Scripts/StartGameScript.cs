@@ -29,6 +29,7 @@ public class StartGameScript : NetworkBehaviour
         }
         
         _spawnArray = GameObject.FindGameObjectsWithTag("Spawn");
+        
         //_spawnArray = GameObject.FindGameObjectsWithTag("Spawn");
     }
 
@@ -54,6 +55,11 @@ public class StartGameScript : NetworkBehaviour
     
     private IEnumerator StartTheGame()
     {
+        if (_spawnArray.Length == 0)
+        {
+            _spawnArray = GameObject.FindGameObjectsWithTag("Spawn");
+        }
+        
         GameObject but = GameObject.FindGameObjectWithTag("NetworkButton");
         but.SetActive(false);
         
@@ -66,11 +72,10 @@ public class StartGameScript : NetworkBehaviour
         
         gameUI.SetActive(true);
         
-        
-        
         animator.StopEmotes();
         int randNum = UnityEngine.Random.Range(0, _spawnArray.Length);
         transform.position = _spawnArray[randNum].transform.position;
+        
         
         ActivateCardsEvent?.Invoke();
         

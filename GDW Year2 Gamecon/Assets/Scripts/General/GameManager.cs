@@ -59,7 +59,7 @@ public class GameManager : NetworkBehaviour
         // Vector3 playSpawn = new Vector3(spawnX, spawnY, spawnZ);
 
 
-        SpawnPlayerObjectServerRPC(NetworkManager.LocalClientId, spawnList[0].transform.position);
+        SpawnPlayerObjectServerRpc(NetworkManager.LocalClientId, spawnList[0].transform.position);
 
 
     }
@@ -146,8 +146,8 @@ public class GameManager : NetworkBehaviour
 
 
 
-    [ServerRpc(RequireOwnership = false)]
-    public void SpawnPlayerObjectServerRPC(ulong joinedClientId, Vector3 playSpawn)
+    [ServerRpc]
+    public void SpawnPlayerObjectServerRpc(ulong joinedClientId, Vector3 playSpawn)
     {
 
         Transform newGameObject = Instantiate(playerPrefab, playSpawn, Quaternion.identity);
