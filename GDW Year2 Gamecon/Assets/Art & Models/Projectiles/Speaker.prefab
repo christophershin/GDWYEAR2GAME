@@ -256,8 +256,8 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   projOwnId:
     m_InternalValue: 0
-  startSpeed: 3
-  midSpeed: 4
+  startSpeed: 2.5
+  midSpeed: 3.5
   endSpeed: 0.7
   curve: 2
   projectileTimerMax: 10
@@ -297,11 +297,11 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   NetworkTransformExpanded: 0
   AutoOwnerAuthorityTickOffset: 1
-  PositionInterpolationType: 2
-  RotationInterpolationType: 2
+  PositionInterpolationType: 1
+  RotationInterpolationType: 1
   ScaleInterpolationType: 0
   PositionLerpSmoothing: 1
-  PositionMaxInterpolationTime: 0.034
+  PositionMaxInterpolationTime: 0.4
   RotationLerpSmoothing: 0
   RotationMaxInterpolationTime: 0.1
   ScaleLerpSmoothing: 1
@@ -327,7 +327,7 @@ MonoBehaviour:
   InLocalSpace: 0
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
-  SlerpPosition: 0
+  SlerpPosition: 1
 --- !u!114 &3706900182250515022
 MonoBehaviour:
   m_ObjectHideFlags: 0

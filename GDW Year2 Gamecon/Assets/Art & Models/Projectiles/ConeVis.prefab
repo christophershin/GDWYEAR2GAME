@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9648defff9c46ab44877db1670b09311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VisualProjs
-  smoothSpeed: 50
+  smoothSpeed: 30
   predictionSpeed: 15
   projectileID: 
   isPredicting: 0

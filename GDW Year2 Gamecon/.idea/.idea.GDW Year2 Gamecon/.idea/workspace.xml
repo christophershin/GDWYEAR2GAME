@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="" />
+    <list default="true" id="92e06aa1-29c7-4dde-a50d-722ff3f90738" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDW Year2 Gamecon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Cone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/ConeVis.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/ConeVis.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Pikeball.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Puck.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Puck.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/PuckVis.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/PuckVis.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/SpeakVis.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/SpeakVis.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Speaker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Speaker.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/SpikeVis.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/SpikeVis.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/TomVis.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/TomVis.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Tomato.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art &amp; Models/Projectiles/Tomato.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/AnimationController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

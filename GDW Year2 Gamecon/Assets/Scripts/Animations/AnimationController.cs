@@ -6,13 +6,34 @@ public class AnimationController : NetworkBehaviour
 {
 
     [SerializeField] private Animator _animator;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip shoot, parry, hit;
     
     private string _lastEmote = "null";
 
     public void SetAnimation(string name, bool active)
     {
+        if (name == "shooting")
+        {
+            audioSource.clip = shoot;
+            audioSource.Play();
+        }
+        else if (name == "parry")
+        {
+            audioSource.clip = parry;
+            audioSource.Play();
+        }
+        else if (name == "gotHit")
+        {
+            audioSource.clip = hit;
+            audioSource.Play();
+        }
+        
+        
+        
         //StopEmotes();
         _animator.SetBool(name, active);
+        
     }
 
     public void StopAnimation()
