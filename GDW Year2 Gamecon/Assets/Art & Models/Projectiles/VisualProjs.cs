@@ -56,9 +56,9 @@ public class VisualProjs : MonoBehaviour
                 startPos,
                 midpos,
                 endPos,
-                1,
-                1.5f,
-                0.8f,
+                .4f,
+                .8f,
+                0.2f,
                 ref t,
                 Time.deltaTime
             );

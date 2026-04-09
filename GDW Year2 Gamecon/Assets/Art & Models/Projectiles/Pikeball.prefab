@@ -164,10 +164,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::projectile
   ShowTopMostFoldoutHeaderGroup: 1
-  projOwnId: 
-  startSpeed: 2
-  midSpeed: 3
-  endSpeed: 1.7
+  projOwnId:
+    m_InternalValue: 0
+  startSpeed: 3
+  midSpeed: 4
+  endSpeed: 0.7
   curve: 2
   projectileTimerMax: 10
   projectileTimer: 0
@@ -206,12 +207,12 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   NetworkTransformExpanded: 0
   AutoOwnerAuthorityTickOffset: 1
-  PositionInterpolationType: 0
-  RotationInterpolationType: 0
+  PositionInterpolationType: 2
+  RotationInterpolationType: 2
   ScaleInterpolationType: 0
   PositionLerpSmoothing: 1
-  PositionMaxInterpolationTime: 0.1
-  RotationLerpSmoothing: 1
+  PositionMaxInterpolationTime: 0.034
+  RotationLerpSmoothing: 0
   RotationMaxInterpolationTime: 0.1
   ScaleLerpSmoothing: 1
   ScaleMaxInterpolationTime: 0.1
